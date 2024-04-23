@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { Loader } from './components/Loader/Loader';
 import { store } from './redux/store/store';
 import { AuthProvider } from './common/hoc/AuthProvider';
-import './assets/styles/main.module.scss';
+import './assets/styles/main.scss';
 
 const RootWrapper = createGlobalStyle`
 body {
