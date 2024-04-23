@@ -26,6 +26,7 @@ Tablets:
 
 Phones:
 
-![image](https://github.com/Chaban1001/iMarketplace/assets/137433410/821886ef-efd3-417b-8181-bf53109a2937)
+![image](https://github.com/Chaban1001/iMarketplace/assets/137433410/f0fb8d96-e401-451e-ab12-610e4b071105)
+
 
 
