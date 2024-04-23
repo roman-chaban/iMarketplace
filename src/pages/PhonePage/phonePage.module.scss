@@ -78,11 +78,15 @@
   max-width: 300px;
   max-height: 300px;
   cursor: pointer;
+  transition: all 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
+  &:hover {
+    transform: scale(1.08);
+  }
 }
 
 .phoneSmall__image {
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 60px;
+  max-height: 60px;
   cursor: pointer;
 }
 
@@ -90,4 +94,14 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
+}
+
+
+
+.phoneSmall__image {
+  transition: opacity 0.3s ease;
+}
+
+.phoneSmall__image.active {
+  opacity: 0.5;
 }

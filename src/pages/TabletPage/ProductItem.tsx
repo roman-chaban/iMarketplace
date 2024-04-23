@@ -16,7 +16,7 @@ interface ProductItemProps {
 export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
   const navigate = useNavigate();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  useParams<{ id: string; }>();
+  useParams<{ id: string }>();
   const [mainImage, setMainImage] = useState<string>(
     tablet ? tablet.images[0] : ''
   );
@@ -95,7 +95,9 @@ export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
                   key={index}
                   src={image}
                   alt='tablet'
-                  className={cl.phoneSmall__image}
+                  className={`${cl.phoneSmall__image} ${
+                    mainImage === image ? cl.active : ''
+                  }`}
                   onClick={() => handleThumbnailClick(image)}
                 />
               ))}
@@ -109,4 +111,3 @@ export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
     </>
   );
 });
-

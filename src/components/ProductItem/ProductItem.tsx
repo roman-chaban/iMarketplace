@@ -79,7 +79,7 @@ const ProductItem: FC<ProductProps> = memo(() => {
       <div className={cl.backButton__item}>
         <img src={leftArrowIcon} alt='arrowLeft Icon' />
         <button onClick={backToPhonesPage} className={cl.phoneBack__button}>
-          Back
+          Back to Phones
         </button>
       </div>
       <h2 className={cl.phoneModel__title}>{getTitle(selectMemory)}</h2>
@@ -91,25 +91,33 @@ const ProductItem: FC<ProductProps> = memo(() => {
                 <img
                   src={phone.firstImage}
                   alt='iphone'
-                  className={cl.phoneSmall__image}
+                  className={`${cl.phoneSmall__image} ${
+                    mainImage === phone.firstImage ? cl.active : ''
+                  }`}
                   onClick={() => handleThumbnailClick(phone.firstImage)}
                 />
                 <img
                   src={phone.secondImage}
                   alt='iphone'
-                  className={cl.phoneSmall__image}
+                  className={`${cl.phoneSmall__image} ${
+                    mainImage === phone.secondImage ? cl.active : ''
+                  }`}
                   onClick={() => handleThumbnailClick(phone.secondImage)}
                 />
                 <img
                   src={phone.thirdImage}
                   alt='iphone'
-                  className={cl.phoneSmall__image}
+                  className={`${cl.phoneSmall__image} ${
+                    mainImage === phone.thirdImage ? cl.active : ''
+                  }`}
                   onClick={() => handleThumbnailClick(phone.thirdImage)}
                 />
                 <img
                   src={phone.fourImage}
                   alt='iphone'
-                  className={cl.phoneSmall__image}
+                  className={`${cl.phoneSmall__image} ${
+                    mainImage === phone.fourImage ? cl.active : ''
+                  }`}
                   onClick={() => handleThumbnailClick(phone.fourImage)}
                 />
               </div>
