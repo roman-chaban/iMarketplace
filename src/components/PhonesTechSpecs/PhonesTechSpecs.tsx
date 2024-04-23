@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import cl from './phonesTechSpecs.module.scss';
 import { Products } from '../../redux/interfaces/products';
 
@@ -37,7 +37,9 @@ const PhonesTechSpecs: FC<PhonesTechSpecsProps> = ({ product }) => {
         </div>
         <div className={cl.techSpecs__item}>
           <span className={cl.techSpecs__itemTitle}>Display Size</span>
-          <span className={cl.techSpecs__itemSubTitle}>{product.displaySize}</span>
+          <span className={cl.techSpecs__itemSubTitle}>
+            {product.displaySize}
+          </span>
         </div>
         <div className={cl.techSpecs__item}>
           <span className={cl.techSpecs__itemTitle}>Category</span>
