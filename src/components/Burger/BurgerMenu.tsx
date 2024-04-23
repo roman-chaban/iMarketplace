@@ -1,10 +1,10 @@
 import { FC, useState } from 'react';
 import './burger.scss';
-import CloseIcon from '@mui/icons-material/Close';
 import appleLogo from '../../favicon/favicon.png';
 import { useRef } from 'react';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
 import { MENU_LINKS } from '../../interfaces/burger-menu';
+import { Close } from '@mui/icons-material';
 
 const BurgerMenu: FC = () => {
   const buttonRef = useRef<null>(null);
@@ -35,7 +35,7 @@ const BurgerMenu: FC = () => {
             <img src={appleLogo} alt='Apple Logo' className='burger__logo' />
             <h3 className='logo__title'>Apple Catalog</h3>
           </div>
-          <CloseIcon
+          <Close
             onClick={closeMenuButton}
             ref={buttonRef}
             style={{ fontSize: 30, cursor: 'pointer' }}

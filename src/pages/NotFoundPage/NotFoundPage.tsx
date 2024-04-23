@@ -1,8 +1,8 @@
 import { FC, useEffect } from 'react';
-import { Apple } from '@mui/icons-material';
 import styled from 'styled-components';
 import cl from './notFound.module.scss';
 import { NavLink, useLocation } from 'react-router-dom';
+import { Apple } from '@mui/icons-material';
 
 const StyledErrorPage = styled.div`
   display: flex;

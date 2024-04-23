@@ -1,11 +1,11 @@
 import { FC, useEffect, useState } from 'react';
 import { styled } from 'styled-components';
-import AppleIcon from '@mui/icons-material/Apple';
 import cl from './header.module.scss';
 import { HeaderNav } from '../HeaderNav/HeaderNav';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
 import { BurgerMenu } from '../Burger/BurgerMenu';
 import { PopUp } from '../../components/UI Components/PopUp/PopUp';
+import { Apple } from '@mui/icons-material';
 
 const HeaderWrapper = styled.header`
   width: 100%;
@@ -62,7 +62,7 @@ const Header: FC = (): JSX.Element => {
       >
         <div onClick={toPageBottomScrolled} className={cl.header__logo}>
           <a href='#!' className={cl.logo__link}>
-            <AppleIcon
+            <Apple
               className={cl.apple__logo}
               style={{ fontSize: 30, color: '#89939A' }}
             />

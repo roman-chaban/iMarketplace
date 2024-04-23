@@ -6,7 +6,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../common/routes/routes';
 import cl from '../../Header/header.module.scss';
 import { useAuth } from '../../../hooks/useAuth';
-import Apple from '@mui/icons-material/Apple';
+import { Apple } from '@mui/icons-material';
 
 export const PopUp: FC = () => {
   const navigate = useNavigate();

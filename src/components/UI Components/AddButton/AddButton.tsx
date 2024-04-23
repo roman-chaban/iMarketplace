@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { FC, ReactNode } from 'react';
+import { FavoriteBorder } from '@mui/icons-material';
 
 const AddButtonContainer = styled.div`
   display: flex;
@@ -40,7 +40,7 @@ export const AddButton: FC<IAddButtonProps> = ({
     <AddButtonContainer>
       <StyledAddButton {...props}>{children}</StyledAddButton>
       <StyledFavoriteButton>
-        <FavoriteBorderIcon style={{ color: ' #313237' }} />
+        <FavoriteBorder style={{ color: ' #313237' }} />
       </StyledFavoriteButton>
     </AddButtonContainer>
   );

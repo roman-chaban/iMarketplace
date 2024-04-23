@@ -1,11 +1,11 @@
 import { FC, useState } from 'react';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import cl from '../CatalogItem/catalogItem.module.scss';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import {
   addBusketGoods,
   removeBusketGoods,
 } from '../../redux/slices/busketSlice';
+import { FavoriteBorder } from '@mui/icons-material';
 
 export const FavoriteButton: FC = () => {
   const dispatch = useAppDispatch();
@@ -32,7 +32,7 @@ export const FavoriteButton: FC = () => {
       className={cl.favorite__button}
       onClick={handleNewGoodsFromFavorites}
     >
-      <FavoriteBorderIcon
+      <FavoriteBorder
         style={{ fontSize: 30, color: color }}
         className={cl.favorite__icon}
       />

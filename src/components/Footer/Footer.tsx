@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import NavigationIcon from '@mui/icons-material/Navigation';
-import AppleIcon from '@mui/icons-material/Apple';
 import cl from './footer.module.scss';
 import styled from 'styled-components';
+import { Apple } from '@mui/icons-material';
 
 const FooterContainer = styled.footer`
   display: flex;
@@ -39,7 +39,7 @@ const Footer: FC = () => {
           <button className={cl.logo__buttonUp} onClick={toUppPage}>
             <a href='#!'>
               <h3 className={cl.logo__capture}>
-                <AppleIcon
+                <Apple
                   style={{ fontSize: '30' }}
                   className={cl.footer__appleLogo}
                 />
