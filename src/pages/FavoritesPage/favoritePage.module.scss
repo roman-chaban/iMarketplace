@@ -1,0 +1,9 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/variables.scss';
+
+.empty__title {
+  text-align: center;
+  font-weight: 600;
+  color: $primary;
+  font-size: $primary-third-size;
+}

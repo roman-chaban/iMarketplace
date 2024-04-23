@@ -1,0 +1,33 @@
+@import '../../assets//styles/colors.scss';
+
+#rotateIcon {
+  animation: rotateAppleIcon 1.5s linear infinite;
+  cursor: pointer;
+  transition: color 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) 0s;
+  &:hover {
+    color: $secondary;
+  }
+}
+
+@keyframes rotateAppleIcon {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#error__link {
+  margin: 0 auto;
+  max-width: 300px;
+  color: #313237;
+  font-size: 32px;
+  text-align: center;
+  padding-top: 50px;
+  font-weight: 700;
+  transition: color 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  &:hover {
+    color: $secondary;
+  }
+}

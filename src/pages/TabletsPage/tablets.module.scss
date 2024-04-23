@@ -1,0 +1,19 @@
+.catalog__container {
+  max-width: 1138px;
+  margin: 0 auto;
+}
+
+.page__select {
+  padding: 0px;
+  padding-bottom: 40px;
+  padding-left: 24px;
+  max-width: 400px;
+}
+
+.catalog__containerTablets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 100px;
+}

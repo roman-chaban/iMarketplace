@@ -1,0 +1,46 @@
+@import '../../assets/styles/colors.scss';
+
+.auth__form {
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 100px;
+}
+
+.auth__button {
+  background: $primary !important;
+  color: #fff !important;
+  border: none !important;
+  outline: none !important;
+  &:hover {
+    background: $secondary !important;
+  }
+}
+
+.auth__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  color: $secondary;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.auth__logo {
+  opacity: 0;
+  animation: fadeInLogo 1.5s ease forwards;
+}
+
+@keyframes fadeInLogo {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

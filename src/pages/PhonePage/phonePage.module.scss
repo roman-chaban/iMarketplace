@@ -1,0 +1,93 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/variables.scss';
+
+.phone__layout {
+  width: 100%;
+  max-width: 1138px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+}
+
+.phone__navigationItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.phone__phonesTitle {
+  margin-bottom: 0;
+  color: $secondary;
+  font-weight: 600;
+}
+
+.backButton__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.phoneBack__button {
+  background: transparent;
+  color: $secondary;
+  font-weight: 600;
+}
+
+.phoneModel__title {
+  padding-bottom: 40px;
+}
+
+.phoneModel__title {
+  color: $primary;
+  font-size: $primary-third-size;
+  font-weight: 800;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+  margin-bottom: 0;
+}
+
+.phoneModel__capture {
+  font-weight: 600;
+  font-size: $primary-first-size;
+  color: $secondary;
+}
+
+.product__gallery {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 80px;
+}
+
+.images__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.phone__images {
+  display: flex;
+  gap: 100px;
+}
+
+.phone__img {
+  object-fit: cover;
+  max-width: 300px;
+  max-height: 300px;
+  cursor: pointer;
+}
+
+.phoneSmall__image {
+  max-width: 50px;
+  max-height: 50px;
+  cursor: pointer;
+}
+
+.phonesAbout__block {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
