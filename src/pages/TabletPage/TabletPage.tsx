@@ -14,6 +14,10 @@ export const TabletPage: FC = () => {
   );
 
   useEffect(() => {
+    document.title = 'iMarketplace | Tablet';
+  }, []);
+
+  useEffect(() => {
     const tablet = products.find((tablet) => tablet.id === id);
     setSelectedProduct(tablet as Tablet | undefined);
   }, [id]);
