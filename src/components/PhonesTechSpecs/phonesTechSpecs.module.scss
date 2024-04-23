@@ -1,0 +1,43 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/variables.scss';
+
+.techSpecs__block {
+  display: block;
+  width: 400px;
+}
+
+.techSpecs__title {
+  color: $primary;
+  font-size: $primary-five-size;
+  font-weight: 700;
+  line-height: 140%;
+  padding-bottom: 16px;
+  border-bottom: 1.5px solid $elements;
+}
+
+.techSpecs__characteristics {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.techSpecs__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.techSpecs__itemTitle {
+  color: $secondary;
+  font-size: $primary-four-size;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.techSpecs__itemSubTitle {
+  color: $primary;
+  font-size: $primary-four-size;
+  font-weight: 400;
+  line-height: 150%;
+}

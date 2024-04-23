@@ -1,0 +1,20 @@
+.pagination {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.page-link {
+  color: #313131;
+  &:hover {
+    color: #313131;
+  }
+}

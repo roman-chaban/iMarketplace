@@ -1,0 +1,57 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/variables.scss';
+
+.catalog__title {
+  font-size: $primary-third-size;
+  color: $primary;
+  font-weight: 700;
+  line-height: 128.125%;
+  letter-spacing: -0.32px;
+}
+
+.modelsCatalog__block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 30px;
+}
+
+.catalog__buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.catalog__button {
+  border-radius: 5px;
+  padding: 10px;
+  background: $secondary;
+}
+
+.catalog__cards {
+  display: flex;
+  gap: 16px;
+  overflow-x: hidden;
+}
+
+.zoomTitle {
+  animation: zoom 3s infinite forwards;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 450px) {
+  .catalog__title {
+    font-size: $primary-media-third;
+  }
+}

@@ -1,0 +1,121 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/variables.scss';
+
+.card__title {
+  color: $primary;
+  font-size: clamp(10px, 12px, #{$primary-four-size});
+  font-weight: 700;
+  line-height: 150%;
+  padding-top: 5px;
+  height: 50px;
+}
+
+.price {
+  color: $primary;
+  font-size: $primary-five-size;
+  font-weight: 700;
+  line-height: 140%;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid $elements;
+}
+
+#discount {
+  color: $primary;
+  font-size: $primary-five-size;
+  font-weight: 700;
+  line-height: 140%;
+  text-decoration: line-through;
+  text-decoration-color: $primary;
+  padding-bottom: 8px;
+  padding-left: 10px;
+}
+
+.card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: $primary-first-size;
+  color: $secondary;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.list__itemSecondary {
+  color: $primary;
+  font-size: $primary-first-size;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.catalog__buttonItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.favorite__button {
+  background: $elements;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.image__hovered {
+  cursor: pointer;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.view__product {
+  color: #6d6474;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 12px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  &:hover {
+    color: #6d6474 !important;
+  }
+}
+
+.favorite__icon {
+  padding: 5px;
+  font-size: 30px;
+  color: #000;
+}
+
+.favorite__button {
+  width: 40px;
+  height: 33.44px;
+  transition: background 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (max-width: 1100px) {
+  .image__hovered {
+    max-width: 200px;
+  }
+  .cardItem {
+    padding: 24px 15px !important;
+  }
+}

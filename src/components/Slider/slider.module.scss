@@ -1,0 +1,14 @@
+.img__slider {
+  width: 100%;
+  cursor: pointer;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+}
+
+@media screen and (width <= 1200px) {
+  .img__slider {
+    max-height: 380px;
+  }
+}

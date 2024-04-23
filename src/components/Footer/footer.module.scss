@@ -1,0 +1,102 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/variables.scss';
+
+.footer__menu {
+  display: flex;
+  gap: 64px;
+}
+
+.list__item > .list__link {
+  color: #f3f5f9;
+  font-weight: 700;
+  line-height: 91.667%;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out 0s;
+  &:hover {
+    color: $primary;
+    text-decoration: underline;
+  }
+}
+
+.footer__buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.footer__buttons > .footer__button {
+  color: $primary;
+  font-weight: 700;
+  background: transparent;
+  line-height: 91.667%;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+  outline: none;
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.footer__button:hover {
+  opacity: 1;
+}
+
+.arrow__top {
+  width: 35px;
+  height: 35px;
+  background: #f3f5f9;
+  border-radius: 50%;
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+
+.arrow__circle {
+  color: #89939a !important;
+  animation: ArrowAnimate 1s linear infinite;
+}
+
+@keyframes ArrowAnimate {
+  0%,
+  100% {
+    transform: translateY(-4px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+.logo__buttonUp {
+  background: transparent;
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  &:hover {
+    transform: scale(1.3);
+  }
+}
+
+.footer__appleLogo {
+  color: #89939a;
+  margin-bottom: 5px;
+}
+
+.arrow__circle {
+  color: #fff;
+  height: 30px;
+  width: 30px;
+}
+
+.logo__capture {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f3f5f9;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+@media (max-width: 450px) {
+  .footer__menu {
+    gap: 35px;
+  }
+}

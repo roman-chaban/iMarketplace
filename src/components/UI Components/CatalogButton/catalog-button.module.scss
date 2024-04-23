@@ -1,0 +1,10 @@
+.catalog__buttonItem {
+  background: #313237 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  width: 145px !important;
+  transition: background 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  &:hover {
+    background: #676768 !important;
+  }
+}

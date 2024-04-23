@@ -1,0 +1,80 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/variables.scss';
+
+.hero__container {
+  width: 100%;
+  gap: 70px;
+  max-width: 1136px;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 20px;
+  flex-direction: column;
+}
+
+.hero__swipper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.left__swipper,
+.right__swipper {
+  padding: 0px 5px;
+  height: 300px;
+  border: 1.5px solid $secondary;
+  border-radius: 10px;
+  background: transparent;
+}
+
+.swipper__items {
+  padding-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.active {
+  width: 25px;
+  height: 10px;
+  background: $primary;
+  border-radius: 5px;
+}
+
+.swipper__item {
+  width: 25px;
+  height: 10px;
+  background: $icons;
+  border-radius: 5px;
+}
+
+@media (max-width: 850px) {
+  .left__swipper,
+  .right__swipper {
+    max-height: 215px;
+  }
+  .mainHero__title {
+    text-align: center;
+    text-align-last: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .appleLogo {
+    margin-left: 0px !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .left__swipper,
+  .right__swipper {
+    display: none;
+  }
+}
+
+.swiper__div {
+  display: flex;
+  justify-content: center;
+  width: '100%';
+  object-fit: 'cover';
+}
