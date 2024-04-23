@@ -15,7 +15,7 @@ export const TabletPage: FC = () => {
 
   useEffect(() => {
     const tablet = products.find((tablet) => tablet.id === id);
-    setSelectedProduct(tablet);
+    setSelectedProduct(tablet as Tablet | undefined);
   }, [id]);
 
   return (

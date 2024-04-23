@@ -3,7 +3,7 @@ export interface Tablet {
   name?: string;
   category?: string;
   namespaceId?: string;
-  priceRegular?: string;
+  priceRegular?: string | number;
   priceDiscount: string;
   capacity?: string;
   memory?: number;
