@@ -1,4 +1,4 @@
-# iMarketplace Project with React, Redux Toolkit, TypeScript, Vite, Styled-Components, MUI , Swiper.js, scss.modules. 
+# iMarketplace Project with React, Redux Toolkit, TypeScript, Vite, Styled-Components, MUI , Swiper.js, React-Loader-Spinner, React Router,  scss.modules. 
 
 1. React: Our project is built on React, a powerful library for creating interactive web interfaces. With React, we construct components that are easy to use and reuse, making our code more organized and efficient.
 2. Redux Toolkit: For managing the application state, we've chosen Redux Toolkit. It's the official tools for Redux, providing convenient utilities like createSlice() for declaring reducers and configureStore() for setting up the store.
