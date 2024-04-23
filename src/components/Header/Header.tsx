@@ -71,22 +71,22 @@ const Header: FC = (): JSX.Element => {
         </div>
         <nav className={cl.navigation__bar}>
           <ul className={cl.nav}>
-            <li className={cl.nav__item}>
+            <li tabIndex={1} className={cl.nav__item}>
               <CustomLink className={cl.nav__link} to='/'>
                 home
               </CustomLink>
             </li>
-            <li className={cl.nav__item}>
+            <li tabIndex={2} className={cl.nav__item}>
               <CustomLink className={cl.nav__link} to='/phones'>
                 phones
               </CustomLink>
             </li>
-            <li className={cl.nav__item}>
+            <li tabIndex={3} className={cl.nav__item}>
               <CustomLink className={cl.nav__link} to='/tablets'>
                 tablets
               </CustomLink>
             </li>
-            <li className={cl.nav__item}>
+            <li tabIndex={4} className={cl.nav__item}>
               <CustomLink className={cl.nav__link} to='accessories'>
                 accessories
               </CustomLink>
