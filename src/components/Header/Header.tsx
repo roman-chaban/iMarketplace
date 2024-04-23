@@ -49,7 +49,6 @@ const Header: FC = (): JSX.Element => {
     };
     window.addEventListener('scroll', handleNavScroll);
     return () => {
-      // eslint-disable-next-line no-restricted-globals
       removeEventListener('scroll', handleNavScroll);
     };
   }, []);
@@ -57,7 +56,9 @@ const Header: FC = (): JSX.Element => {
   return (
     <HeaderWrapper className={cl.header}>
       <HeaderContainer
-        className={` ${cl.header__navContainer} ${cl.header} ${isScrolled ? cl.scrolled : ''}`}
+        className={` ${cl.header__navContainer} ${cl.header} ${
+          isScrolled ? cl.scrolled : ''
+        }`}
       >
         <div onClick={toPageBottomScrolled} className={cl.header__logo}>
           <a href='#!' className={cl.logo__link}>

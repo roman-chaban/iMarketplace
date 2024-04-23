@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { CatalogPage } from './CatalogPage/CatalogPage';
+import { CatalogPage } from '../CatalogPage/CatalogPage';
 import cl from './accessories.module.scss';
 import { CustomSelect } from '../../components/Select/Select';
 import { useEffect } from 'react';

@@ -4,7 +4,7 @@ import cl from './catalog-button.module.scss';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import {
   addFromCart,
-  removeFromCard,
+  removerFromCart,
 } from '../../../redux/slices/favoritesSlice';
 
 export const CatalogButton: FC = () => {
@@ -14,7 +14,7 @@ export const CatalogButton: FC = () => {
 
   const handleAddNewGoods = () => {
     if (isAddedGoods) {
-      dispatch(removeFromCard(1));
+      dispatch(removerFromCart(1));
       setBackground('');
     } else {
       dispatch(addFromCart(1));

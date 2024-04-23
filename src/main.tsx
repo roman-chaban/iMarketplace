@@ -2,6 +2,7 @@
 import { StrictMode } from 'react';
 import * as ReactDOMClient from 'react-dom/client';
 import { App } from './App';
+import './assets/styles/main.module.scss';
 import { styled, createGlobalStyle } from 'styled-components';
 import { Provider } from 'react-redux';
 import { Loader } from './components/Loader/Loader';
