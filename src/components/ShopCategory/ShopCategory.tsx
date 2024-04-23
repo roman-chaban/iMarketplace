@@ -6,6 +6,7 @@ import IphoneBanner from '../../images/category-images/Iphone15-Banner.jpg';
 import TabletBanner from '../../images/category-images/tablet-banner.jpg';
 import { CategoryItem } from '../CategoryItem/CategoryItem';
 import products from '../../common/products/products.json';
+import tablets from '../../common/products/tablets.json';
 
 const CategoriesContainer = styled.div`
   width: 100%;
@@ -31,18 +32,23 @@ const ShopCategory: FC<IShopCategory> = ({ title }: IShopCategory) => {
           <CategoryItem
             banner={IphoneBanner}
             categoryTitle='Mobile phones'
-            categoryModels={`${products.filter((product) => product.category === 'mobile').length} models`}
+            categoryModels={`${
+              products.filter((product) => product.category === 'mobile').length
+            } models`}
             to='/phones'
           />
           <CategoryItem
             categoryTitle='Tablets'
-            categoryModels={`${products.filter((product) => product.category === 'tablet').length} models`}
+            categoryModels={`${tablets.length} models`}
             banner={TabletBanner}
             to='/tablets'
           />
           <CategoryItem
             categoryTitle='Accessories'
-            categoryModels={`${products.filter((product) => product.category === 'accessory').length} models`}
+            categoryModels={`${
+              products.filter((product) => product.category === 'accessory')
+                .length
+            } models`}
             banner={AccessoriesBanner}
             to='/accessories'
           />

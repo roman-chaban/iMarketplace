@@ -11,6 +11,7 @@ import { CartPage } from '../../pages/CartPage/CartPage';
 import { PhonePage } from '../../pages/PhonePage/PhonePage';
 import { AuthorizationPage } from '../../pages/AuthorizationPage/AuthorizationPage';
 import { RequireAuth } from '../../common/hoc/RequireAuth';
+import { TabletPage } from '../../pages/TabletPage/TabletPage';
 
 export const Router = createHashRouter([
   {
@@ -34,6 +35,10 @@ export const Router = createHashRouter([
       {
         path: ROUTES.TABLETS,
         element: <TabletsPage />,
+      },
+      {
+        path: '/tablets/:id',
+        element: <TabletPage />,
       },
       {
         path: ROUTES.ACCESSORIES,

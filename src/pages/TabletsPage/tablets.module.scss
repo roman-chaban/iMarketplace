@@ -1,3 +1,149 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/variables.scss';
+
+.phones__navigation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.phones__title {
+  font-size: $primary-first-size;
+  color: $secondary;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.phones__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phones__models {
+  color: $secondary;
+  font-size: $primary-four-size;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.phones__dropDowns {
+  display: flex;
+  gap: 16px;
+}
+
+.dropDown__label {
+  color: $secondary;
+  font-size: $primary-first-size;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.first__dropDown,
+.second__dropDown {
+  width: 176px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dropDown {
+  border: 1.5px solid $icons;
+  color: $primary;
+  padding: 10px;
+  border-radius: 5px;
+  appearance: none;
+  background: url(../../images/icons/down.svg) no-repeat;
+  background-position: right;
+}
+
+.dropDown__option {
+  color: $primary;
+}
+
+.phones__catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.catalog__item {
+  display: flex;
+  gap: 30px;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.phone__item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.phone__mainTitle {
+  font-size: $primary-third-size;
+  color: $primary;
+  font-weight: 700;
+  line-height: 128.125%;
+  letter-spacing: -0.32px;
+}
+
+.rotateIcon {
+  transform: rotate(180deg);
+}
+
+.phones__toPhones {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pagination__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 0;
+}
+
+#btn {
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.catalog__container {
+  max-width: 1138px;
+  margin: 0 auto;
+}
+
+.page__select {
+  padding: 0px;
+  padding-bottom: 40px;
+  padding-left: 24px;
+  max-width: 400px;
+}
+
+.catalog__containerPhones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  margin: 0 100px;
+}
+
+.pagination__item {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 20px;
+  padding-bottom: 30px;
+}
+
+.swiper__wrapper {
+  gap: 2rem;
+}
+
+
 .catalog__container {
   max-width: 1138px;
   margin: 0 auto;
@@ -14,6 +160,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 40px;
   margin: 0 100px;
+  margin-bottom: 50px;
 }
