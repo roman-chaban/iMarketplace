@@ -29,7 +29,7 @@ export const TabletPage: FC = () => {
       ) : (
         <NotFoundPage statusText='404' message='This tablet is not found' />
       )}
-      <TabletsCatalog modelsTitle="I'pads" />
+      <TabletsCatalog modelsTitle="I'Pads" />
     </div>
   );
 };

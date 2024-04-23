@@ -25,6 +25,7 @@ const Slider: FC<SliderProps> = () => {
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={50}
       slidesPerView={1}
+      grabCursor={true}
       navigation={{
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
