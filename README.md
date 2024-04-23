@@ -1,4 +1,4 @@
-# I-Marketplace Project with React, Redux Toolkit, TypeScript, Webpack, Styled-Components, MUI , Swiper.js, scss.modules. 
+# I-Marketplace Project with React, Redux Toolkit, TypeScript, Vite, Styled-Components, MUI , Swiper.js, scss.modules. 
 
 1. React: Our project is built on React, a powerful library for creating interactive web interfaces. With React, we construct components that are easy to use and reuse, making our code more organized and efficient.
 2. Redux Toolkit: For managing the application state, we've chosen Redux Toolkit. It's the official tools for Redux, providing convenient utilities like createSlice() for declaring reducers and configureStore() for setting up the store.
@@ -12,8 +12,4 @@
 
 "Explore the world of Apple products at our online store. Discover a curated selection of cutting-edge devices, from iPhones and iPads and accessories. Shop with confidence for the latest innovations in technology, sleek designs, and unmatched performance. Elevate your digital experience with Apple's iconic products, renowned for their quality, style, and seamless integration. Welcome to the ultimate destination for all your Apple needs."
 
-![image](https://github.com/Chaban29/iMarketplace/assets/137433410/513a0b9b-3ede-47fc-8eb1-b6be757da376)
 
-![image](https://github.com/Chaban29/iMarketplace/assets/137433410/ed7ae117-1173-4514-8e0e-825590396718)
-
-![image](https://github.com/Chaban29/iMarketplace/assets/137433410/245c552a-ac3f-4955-807f-1f52aa20d46d)
