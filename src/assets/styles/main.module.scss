@@ -1,0 +1,31 @@
+@import './colors.scss';
+@import './fonts.scss';
+@import './reset.scss';
+@import './variables.scss';
+@import './mixins.scss';
+@import './theme.scss';
+@import '../../components/Slider/slider.module.scss';
+
+button:focus {
+  outline: none;
+}
+
+h3,
+ul,
+h1,
+h2,
+h4,
+h5,
+h6,
+span,
+p,
+b,
+strong,
+em {
+  margin-bottom: 0;
+}
+
+*::selection {
+  background-color: #3131311b;
+}
+
