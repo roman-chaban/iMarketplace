@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
 import { styled } from 'styled-components';
 import cl from '../Header/header.module.scss';
-import Heart from '../../images/icons/favorites-heart-icon.svg';
-import Basket from '../../images/icons/busket-Icon.svg';
+import Heart from '../../images/header/favorite.svg';
+import Basket from '../../images/header/shopping_cart.svg';
 import { NavLink } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/useAppSelector';
 
@@ -48,7 +48,7 @@ const HeaderNav: FC = () => {
             activeButton === 'cart' ? cl.active : ''
           }`}
         >
-          <img src={Basket} alt='Basket Icon' className={cl.busket__button} />
+          <img src={Basket} alt='Basket Icon' className={cl.busket__icon} />
           <span className={cl.busket__counter}>{busketCount}</span>
         </button>
       </NavLink>

@@ -3,7 +3,6 @@
 
 .card__title {
   color: $primary;
-  font-size: clamp(10px, 12px, #{$primary-four-size});
   font-weight: 700;
   line-height: 150%;
   padding-top: 5px;
@@ -43,14 +42,14 @@
   justify-content: space-between;
   font-size: $primary-first-size;
   color: $secondary;
-  font-weight: 500;
+  font-weight: 700;
   line-height: normal;
 }
 
 .list__itemSecondary {
   color: $primary;
-  font-size: $primary-first-size;
-  font-weight: 500;
+  font-size: $primary-four-size;
+  font-weight: 700;
   line-height: normal;
 }
 
@@ -82,7 +81,7 @@
   color: #6d6474;
   text-transform: capitalize;
   font-weight: 700;
-  font-size: 12px;
+  font-size: $primary-four-size;
   width: 120px;
   display: flex;
   justify-content: center;

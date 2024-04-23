@@ -31,6 +31,8 @@
   gap: 10px;
   padding: 0 24px;
   cursor: pointer;
+  position: relative;
+  bottom: 3px;
 }
 
 .header__navContainer {
@@ -123,15 +125,15 @@
 }
 
 .heart__counter {
-  background-color: #c70808eb;
+  background-color: #c70808d5;
   border-radius: 50%;
   color: #fff;
   font-size: 9px;
-  font-weight: 600;
-  height: 13px;
+  font-weight: 700;
+  height: 14px;
   line-height: 14px;
   position: absolute;
-  right: 18.5px;
+  right: 19.5px;
   text-align: center;
   text-decoration: none;
   top: 20px;
@@ -139,15 +141,15 @@
 }
 
 .busket__counter {
-  background-color: #c70808eb;
+  background-color: #c70808d5;
   border-radius: 50%;
   color: #fff;
   font-size: 9px;
-  font-weight: 600;
-  height: 13px;
+  font-weight: 700;
+  height: 14px;
   line-height: 14px;
   position: absolute;
-  right: 18.5px;
+  right: 19.5px;
   text-align: center;
   text-decoration: none;
   top: 20px;
@@ -185,6 +187,11 @@
 .pop__up {
   background: $primary !important;
   font-weight: 700 !important;
+}
+
+.heart__icon, .busket__icon {
+  max-width: 21px;
+  max-height: 21px;
 }
 
 @media (max-width: 850px) {
