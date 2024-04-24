@@ -100,3 +100,9 @@
     gap: 35px;
   }
 }
+
+.footer__navBar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

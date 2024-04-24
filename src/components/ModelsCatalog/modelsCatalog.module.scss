@@ -55,4 +55,8 @@
   .catalog__title {
     font-size: $primary-media-third;
   }
+  .modelsCatalog__block {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

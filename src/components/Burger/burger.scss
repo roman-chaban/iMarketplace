@@ -103,3 +103,10 @@
     display: inline-block;
   }
 }
+
+@media  screen and (max-width: 400px) {
+    .burger__logo {
+      position: relative;
+      bottom: 2px;
+    }
+}

@@ -128,7 +128,6 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 50px;
-  margin: 0 100px;
   width: 100%;
 }
 
@@ -147,7 +146,8 @@
 }
 
 .swiper__wrapper {
-  gap: 2rem;
+  gap: 1rem;
+  width: 100%;
 }
 
 .catalog__container {
@@ -159,9 +159,9 @@
   margin: 0 30px;
 }
 
-@media  screen and (max-width: 400px) {
-    .btn__item {
-      padding: 2px;
-      font-size: 12px;
-    }
+@media screen and (max-width: 400px) {
+  .btn__item {
+    padding: 2px;
+    font-size: 12px;
+  }
 }

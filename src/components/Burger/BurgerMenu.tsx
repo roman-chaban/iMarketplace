@@ -33,7 +33,7 @@ export const BurgerMenu: FC = () => {
         <div className='close__item'>
           <div className='burger__logoBlock'>
             <img src={appleLogo} alt='Apple Logo' className='burger__logo' />
-            <h3 className='logo__title'>Apple Catalog</h3>
+            <h3 className='logo__title'>iMarketplace</h3>
           </div>
           <Close
             onClick={closeMenuButton}

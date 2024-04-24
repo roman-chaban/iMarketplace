@@ -233,4 +233,11 @@
   .popup__block {
     display: none;
   }
+  .header__logo {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .logo__title {
+    font-size: 16px;
+  }
 }

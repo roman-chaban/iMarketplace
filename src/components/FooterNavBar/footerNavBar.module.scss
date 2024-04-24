@@ -1,0 +1,27 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/variables.scss';
+
+.navigation__bar {
+  display: flex;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  margin-bottom: 0;
+}
+
+.nav__item > .nav__link {
+  color: white !important;
+  font-size: $primary-first-size;
+  font-weight: 700;
+  line-height: 91.667%;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out 0s;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+

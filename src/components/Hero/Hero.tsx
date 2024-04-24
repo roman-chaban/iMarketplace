@@ -25,7 +25,7 @@ const MainTitle = styled.h1`
   letter-spacing: -0.48px;
   @media (max-width: 850px) {
     font-size: 34px;
-  }
+  };
 `;
 
 const Hero: FC = (): JSX.Element => {

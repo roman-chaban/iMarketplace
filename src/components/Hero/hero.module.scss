@@ -72,6 +72,13 @@
   }
 }
 
+@media (max-width: 450px) {
+  .mainHero__title {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+}
+
 .swiper__div {
   display: flex;
   justify-content: center;
