@@ -2,7 +2,8 @@
 @import '../../assets/styles/variables.scss';
 
 .phonesAbout {
-  width: 490px;
+  width: 100%;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 2rem;

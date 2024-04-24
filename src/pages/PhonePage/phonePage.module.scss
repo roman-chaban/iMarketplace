@@ -72,6 +72,8 @@
 .phone__images {
   display: flex;
   gap: 5rem;
+  width: 100%;
+  max-width: 400px;
 }
 
 .phone__img {

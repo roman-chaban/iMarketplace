@@ -23,12 +23,6 @@ export const TabletsPage: FC = () => {
       priceRegular: String(product.priceRegular),
       priceDiscount: String(product.priceDiscount),
       memory: parseInt(product.capacity),
-      description: [
-        {
-          title: product.description[0].title,
-          text: product.description.map((desc) => desc.text).join('\n'),
-        },
-      ],
     }));
 
     setProducts(parsedProducts);

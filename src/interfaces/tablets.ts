@@ -11,7 +11,7 @@ export interface Tablet {
   ram?: string;
   colorsAvailable?: string[];
   capacityAvailable?: string[];
-  description: { title: string; text: string[] }[];
+  description?: { title: string; text: string[] }[];
   images: string[];
   cell?: string[];
 }
