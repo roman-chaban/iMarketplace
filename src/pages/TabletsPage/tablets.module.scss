@@ -157,7 +157,11 @@
   margin-bottom: 50px;
 }
 
-
+.select__title {
+  color: $primary;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
 
 .page__select {
   width: 100%;
@@ -187,6 +191,10 @@
   }
   .pagination__item {
     margin: 0 20px;
+  }
+  .page__select {
+    flex-direction: column;
+    gap: 1.5em;
   }
 }
 

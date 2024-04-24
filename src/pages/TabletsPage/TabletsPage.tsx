@@ -85,14 +85,24 @@ export const TabletsPage: FC = () => {
         mainTitle='Tablets'
       />
       <div className={cl.page__select}>
-        <CustomSelect />
-        <Select
-        placeholder="Choose items"
-          className={cl.select__width}
-          options={itemsOptions}
-          value={{ value: phonesPerPage, label: `Items ${phonesPerPage}` }}
-          onChange={handlePhonePerPageChange}
-        />
+        <label htmlFor='sort'>
+          <span id='sort' className={cl.select__title}>
+            Sort by:
+          </span>
+          <CustomSelect />
+        </label>
+        <label htmlFor='items'>
+          <span id='items' className={cl.select__title}>
+            Choose items
+          </span>
+          <Select
+            placeholder='Choose items'
+            className={cl.select__width}
+            options={itemsOptions}
+            value={{ value: phonesPerPage, label: `Items ${phonesPerPage}` }}
+            onChange={handlePhonePerPageChange}
+          />
+        </label>
       </div>
       <div className={cl.catalog__containerTablets}>
         {currentTablets.map((tablet) => (

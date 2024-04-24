@@ -84,14 +84,20 @@ export const PhonesPage: FC = () => {
           mainTitle='Mobile phones'
         />
         <div className={cl.page__select}>
-          <CustomSelect />
-          <Select
-            placeholder='Choose items'
-            className={cl.select__width}
-            options={itemsOptions}
-            value={{ value: phonePerPage, label: `Items ${phonePerPage}` }}
-            onChange={handlePhonePerPageChange}
-          />
+          <label htmlFor='sort'>
+            <span id='sort' className={cl.select__title}>Sort by:</span>
+            <CustomSelect />
+          </label>
+          <label htmlFor='items'>
+            <span id='items' className={cl.select__title}>Choose items</span>
+            <Select
+              placeholder='Choose items'
+              className={cl.select__width}
+              options={itemsOptions}
+              value={{ value: phonePerPage, label: `Items ${phonePerPage}` }}
+              onChange={handlePhonePerPageChange}
+            />
+          </label>
         </div>
       </div>
       <div className={cl.catalog__containerPhones}>

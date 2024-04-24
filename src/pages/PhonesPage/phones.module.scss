@@ -139,11 +139,12 @@
   width: 100%;
 }
 
-@media (max-width: 400px) {
-  .catalog__containerPhones {
-    margin: 0;
-  }
+.select__title {
+  color: $primary;
+  font-weight: 600;
+  padding-bottom: 20px;
 }
+
 
 .pagination__item {
   display: flex;
@@ -165,6 +166,23 @@
 
 .tablet__layout {
   margin: 0 30px;
+}
+
+
+@media (max-width: 900px ) {
+  .page__select {
+    flex-direction: column;
+    width: 100%;
+    gap: 1.5em;
+    padding-left: 0;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .catalog__containerPhones {
+    margin: 0;
+  }
 }
 
 @media screen and (width <= 390px) {
