@@ -23,7 +23,7 @@ export const TabletPage: FC = () => {
   }, [id]);
 
   return (
-    <div className={cl.phone__layout}>
+    <div className={`${cl.phone__layout} ${cl.tablet__layout}`}>
       {selectedProduct ? (
         <ProductItem tablet={selectedProduct} />
       ) : (

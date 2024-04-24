@@ -143,7 +143,6 @@
   gap: 2rem;
 }
 
-
 .catalog__container {
   max-width: 1138px;
   margin: 0 auto;
@@ -163,4 +162,20 @@
   gap: 40px;
   margin: 0 100px;
   margin-bottom: 50px;
+}
+
+@media screen and (width <= 1100px) {
+  .catalog__containerTablets {
+    margin: 0 50px;
+  }
+  .pagination__block {
+    padding-top: 20px;
+  }
+  .btn__pagination {
+    padding: 2.5px;
+    font-size: $primary-first-size;
+  }
+  .pagination__item {
+    margin: 0 20px;
+  }
 }

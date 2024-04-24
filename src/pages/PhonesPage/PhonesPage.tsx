@@ -84,7 +84,7 @@ export const PhonesPage: FC = () => {
       <div>
         <div className={cl.pagination__item}>
           <button
-            className='btn btn-secondary'
+            className={`btn btn-secondary ${cl.btn__item}`}
             onClick={prevPage}
             disabled={currentPage === 1}
           >
@@ -97,7 +97,7 @@ export const PhonesPage: FC = () => {
             paginate={paginate}
           />
           <button
-            className='btn btn-secondary'
+            className={`btn btn-secondary ${cl.btn__item}`}
             onClick={nextPage}
             disabled={indexOfLastPhone >= products.length}
           >

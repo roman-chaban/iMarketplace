@@ -129,6 +129,13 @@
   justify-content: center;
   gap: 50px;
   margin: 0 100px;
+  width: 100%;
+}
+
+@media (max-width: 400px) {
+  .catalog__containerPhones {
+    margin: 0;
+  }
 }
 
 .pagination__item {
@@ -143,9 +150,18 @@
   gap: 2rem;
 }
 
-
 .catalog__container {
   max-width: 1138px;
   margin: 0 auto;
 }
 
+.tablet__layout {
+  margin: 0 30px;
+}
+
+@media  screen and (max-width: 400px) {
+    .btn__item {
+      padding: 2px;
+      font-size: 12px;
+    }
+}

@@ -189,7 +189,8 @@
   font-weight: 700 !important;
 }
 
-.heart__icon, .busket__icon {
+.heart__icon,
+.busket__icon {
   max-width: 21px;
   max-height: 21px;
 }
@@ -224,6 +225,12 @@
 
 @media (min-width: 992px) {
   .burger__buttonBlock {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .popup__block {
     display: none;
   }
 }

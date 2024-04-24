@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import firstSlide from '../../images/category-images/Iphone15-Banner.jpg';
 import secondSlide from '../../images/category-images/aalp-magsafe-header-202309.png';
-import thirdSlice from '../../images/category-images/tablet-banner.jpg';
+import thirdSlice from '../../images/banner/iphones.png';
 import cl from './slider.module.scss';
 
 interface Slide {

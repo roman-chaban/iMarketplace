@@ -84,13 +84,14 @@ export const TabletsPage: FC = () => {
       <div>
         <div className={cl.pagination__item}>
           <button
-            className='btn btn-secondary'
+            className={`btn btn-secondary ${cl.btn__pagination}`}
             onClick={prevPage}
             disabled={currentPage === 1}
           >
             Prev Page
           </button>
           <Pagination
+            className={cl.pagination__block}
             shape='rounded'
             count={Math.ceil(products.length / phonesPerPage)}
             page={currentPage}
@@ -100,7 +101,7 @@ export const TabletsPage: FC = () => {
             hideNextButton
           />
           <button
-            className='btn btn-secondary'
+            className={`btn btn-secondary ${cl.btn__pagination}`}
             onClick={nextPage}
             disabled={indexOfLastPhone >= products.length}
           >

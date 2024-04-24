@@ -25,7 +25,7 @@ export const PopUp: FC = () => {
   const id = open ? 'simple-popover' : undefined;
 
   return (
-    <div>
+    <div className={cl.popup__block}>
       <Button
         className={cl.pop__up}
         aria-describedby={id}

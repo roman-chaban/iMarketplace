@@ -6,7 +6,7 @@ import { CustomLink } from '../UI Components/CustomLink/CustomLink';
 import { MENU_LINKS } from '../../interfaces/burger-menu';
 import { Close } from '@mui/icons-material';
 
-const BurgerMenu: FC = () => {
+export const BurgerMenu: FC = () => {
   const buttonRef = useRef<null>(null);
   const burgerMenuRef = useRef<null>(null);
   const [isMenuClosed, setIsMenuClosed] = useState<boolean>(false);
@@ -62,4 +62,3 @@ const BurgerMenu: FC = () => {
   );
 };
 
-export { BurgerMenu };
