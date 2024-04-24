@@ -13,37 +13,48 @@ const PhonesTechSpecs: FC<PhonesTechSpecsProps> = ({ product }) => {
 
   return (
     <article className={cl.techSpecs__block}>
-      <h2 className={cl.techSpecs__title}>Tech specs</h2>
+      <h2 className={cl.techSpecs__title}>Tech specs:</h2>
       <div className={cl.techSpecs__characteristics}>
         <div className={cl.techSpecs__item}>
-          <span className={cl.techSpecs__itemTitle}>Title</span>
+          <span className={cl.techSpecs__itemTitle}>Title:</span>
           <span className={cl.techSpecs__itemSubTitle}>{product.title}</span>
         </div>
         <div className={cl.techSpecs__item}>
-          <span className={cl.techSpecs__itemTitle}>Price</span>
-          <span className={cl.techSpecs__itemSubTitle}>{product.price}</span>
+          <span className={cl.techSpecs__itemTitle}>Price:</span>
+          <span
+            className={cl.techSpecs__itemSubTitle}
+          >{`${product.price} $`}</span>
         </div>
         <div className={cl.techSpecs__item}>
-          <span className={cl.techSpecs__itemTitle}>Discount</span>
-          <span className={cl.techSpecs__itemSubTitle}>{product.discount}</span>
+          <span className={cl.techSpecs__itemTitle}>Discount:</span>
+          <span
+            className={cl.techSpecs__itemSubTitle}
+          >{`${product.discount} $`}</span>
         </div>
         <div className={cl.techSpecs__item}>
-          <span className={cl.techSpecs__itemTitle}>Memory</span>
-          <span className={cl.techSpecs__itemSubTitle}>{product.memory}</span>
+          <span className={cl.techSpecs__itemTitle}>Memory:</span>
+          <span className={cl.techSpecs__itemSubTitle}>
+            {`${product.memory} GB`}
+          </span>
         </div>
         <div className={cl.techSpecs__item}>
-          <span className={cl.techSpecs__itemTitle}>Capacity</span>
-          <span className={cl.techSpecs__itemSubTitle}>{product.capacity}</span>
+          <span className={cl.techSpecs__itemTitle}>Capacity:</span>
+          <span
+            className={cl.techSpecs__itemSubTitle}
+          >{`${product.capacity} GB`}</span>
         </div>
         <div className={cl.techSpecs__item}>
-          <span className={cl.techSpecs__itemTitle}>Display Size</span>
+          <span className={cl.techSpecs__itemTitle}>Display Size:</span>
           <span className={cl.techSpecs__itemSubTitle}>
             {product.displaySize}
           </span>
         </div>
         <div className={cl.techSpecs__item}>
-          <span className={cl.techSpecs__itemTitle}>Category</span>
-          <span className={cl.techSpecs__itemSubTitle}>{product.category}</span>
+          <span className={cl.techSpecs__itemTitle}>Category:</span>
+          <span className={cl.techSpecs__itemSubTitle}>
+            {product.category[0].toUpperCase() +
+              product.category.slice(1).toLowerCase()}
+          </span>
         </div>
       </div>
     </article>

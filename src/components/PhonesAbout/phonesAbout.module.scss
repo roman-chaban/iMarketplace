@@ -12,12 +12,14 @@
   line-height: 140%;
   padding-bottom: 16px;
   border-bottom: 1.5px solid $elements;
+  padding: 20px;
 }
 
 .about__titlesBlock {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  padding: 20px;
 }
 
 .first__title {
@@ -37,9 +39,8 @@
 }
 
 @media screen and (max-width: 555px) {
-    .about__titlesBlock {
-      padding: 0 30px;
-      max-width: 320px;
-    }
-    
+  .about__titlesBlock {
+    padding: 0 30px;
+    max-width: 320px;
+  }
 }

@@ -159,9 +159,10 @@
   margin: 0 30px;
 }
 
-@media screen and (max-width: 400px) {
-  .btn__item {
-    padding: 2px;
+@media screen and (width <= 390px) {
+  .pagination__item {
+    margin-top: 20px;
     font-size: 12px;
+    padding: 5px;
   }
 }

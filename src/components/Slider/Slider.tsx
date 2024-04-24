@@ -35,17 +35,17 @@ const Slider: FC<SliderProps> = () => {
       <div className='swiper-button-next' style={{ color: '#313131' }}></div>
       <div className='swiper-button-prev' style={{ color: '#313131' }}></div>
       <SwiperSlide>
+        <img src={firstSlide} alt='Slider Product' className={cl.img__slider} />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img src={thirdSlice} alt='Slider Product' className={cl.img__slider} />
+      </SwiperSlide>
+      <SwiperSlide>
         <img
           src={secondSlide}
           alt='Slider Product'
           className={cl.img__slider}
         />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={firstSlide} alt='Slider Product' className={cl.img__slider} />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={thirdSlice} alt='Slider Product' className={cl.img__slider} />
       </SwiperSlide>
     </Swiper>
   );

@@ -9,6 +9,7 @@ import products from '../../common/products/products.json';
 import { NotFoundPage } from '../../pages/NotFoundPage/NotFoundPage';
 import { PhoneCharacteristics } from '../PhoneCharacteristics/PhoneCharacteristics';
 import { PhonesAbout } from '../PhonesAbout/PhonesAbout';
+import { PhonesTechSpecs } from '../PhonesTechSpecs/PhonesTechSpecs';
 
 const ProductItem: FC<ProductProps> = memo(() => {
   const navigate = useNavigate();
@@ -123,7 +124,10 @@ const ProductItem: FC<ProductProps> = memo(() => {
               </div>
               <img src={mainImage} alt='product' className={cl.phone__img} />
             </div>
-            <PhoneCharacteristics setSelectMemory={setSelectMemory} />
+            <div className={cl.product__block}>
+              <PhoneCharacteristics setSelectMemory={setSelectMemory} />
+              <PhonesTechSpecs product={phone} />
+            </div>
           </div>
           <PhonesAbout />
         </div>

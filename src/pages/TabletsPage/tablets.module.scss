@@ -164,7 +164,7 @@
   margin-bottom: 50px;
 }
 
-@media screen and (width <= 1100px) {
+@media screen and (width <= 1000px) {
   .catalog__containerTablets {
     margin: 0 50px;
   }
@@ -177,5 +177,16 @@
   }
   .pagination__item {
     margin: 0 20px;
+  }
+}
+
+@media screen and (width <= 390px) {
+  .btn__pagination {
+    margin-top: 20px;
+    font-size: 12px;
+    padding: 5px;
+  }
+  .pagination__block {
+    display: none;
   }
 }

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
 import cl from './accessories.module.scss';
-import { CustomSelect } from '../../components/Select/Select';
+// import { CustomSelect } from '../../components/Select/Select';
 import { useEffect } from 'react';
 
 export const AccessoriesPage: FC = () => {
@@ -16,8 +16,9 @@ export const AccessoriesPage: FC = () => {
         mainTitle='Accessories'
       />
       <div className={cl.page__select}>
-        <CustomSelect />
+        {/* <CustomSelect /> */}
       </div>
+      <h3 className={cl.coming__title} >Accessories is coming</h3>
     </div>
   );
 };

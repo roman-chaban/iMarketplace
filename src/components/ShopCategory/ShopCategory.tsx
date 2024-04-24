@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import cl from './shopCategory.module.scss';
 import AccessoriesBanner from '../../images/category-images/aalp-magsafe-header-202309.png';
 import IphoneBanner from '../../images/category-images/Iphone15-Banner.jpg';
-import TabletBanner from '../../images/category-images/tablet-banner.jpg';
+import TabletBanner from '../../images/category-images/Ipad-Pro.jpg';
 import { CategoryItem } from '../CategoryItem/CategoryItem';
 import products from '../../common/products/products.json';
 import tablets from '../../common/products/tablets.json';

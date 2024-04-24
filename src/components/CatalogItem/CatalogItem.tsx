@@ -54,7 +54,6 @@ const CatalogItem: FC<ICatalogItemProps> = ({
           </NavLink>
         </CustomButton>
       </div>
-
       <span className={cl.price}>
         {price} <strong id={cl.discount}>{discount}</strong>
       </span>
