@@ -105,6 +105,7 @@ const PhoneCharacteristics: FC<PhoneCharacteristicsProps> = ({
           </div>
         </div>
       </div>
+
     </div>
   );
 };

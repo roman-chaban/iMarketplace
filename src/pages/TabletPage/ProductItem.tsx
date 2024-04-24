@@ -6,16 +6,12 @@ import leftArrowIcon from '../../images/icons/Chevron (Arrow Left).svg';
 import cl from '../../pages/PhonePage/phonePage.module.scss';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
 import { PhoneCharacteristics } from '../../components/PhoneCharacteristics/PhoneCharacteristics';
-import { PhonesAbout } from '../../components/PhonesAbout/PhonesAbout';
-import { Tablet } from '../../interfaces/tablets';
-
-interface ProductItemProps {
-  tablet: Tablet;
-}
+import { ProductItemProps } from '../../interfaces/tablets';
+import { TabletsAbout } from '../../components/TabletsAbout/TabletsAbout';
+import { TabletsTechSpecs } from '../../components/TabletsTechSpecs/TabletsTechSpecs';
 
 export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
   const navigate = useNavigate();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   useParams<{ id: string }>();
   const [mainImage, setMainImage] = useState<string>(
     tablet ? tablet.images[0] : ''
@@ -104,9 +100,12 @@ export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
             </div>
             <img src={mainImage} alt='product' className={cl.phone__img} />
           </div>
-          <PhonesAbout />
+          <div className={cl.product__block}>
+            <PhoneCharacteristics setSelectMemory={setSelectMemory} />
+            <TabletsTechSpecs product={tablet} />
+          </div>
         </div>
-        <PhoneCharacteristics setSelectMemory={setSelectMemory} />
+        <TabletsAbout />
       </div>
     </>
   );

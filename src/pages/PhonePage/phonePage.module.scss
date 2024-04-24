@@ -58,6 +58,7 @@
 
 .product__gallery {
   display: flex;
+  flex-direction: column;
   gap: 2rem;
   margin-bottom: 80px;
 }
@@ -70,7 +71,7 @@
 
 .phone__images {
   display: flex;
-  gap: 100px;
+  gap: 5rem;
 }
 
 .phone__img {
@@ -92,11 +93,8 @@
 
 .phonesAbout__block {
   display: flex;
-  flex-direction: column;
   gap: 3rem;
 }
-
-
 
 .phoneSmall__image {
   transition: opacity 0.3s ease;
@@ -104,4 +102,16 @@
 
 .phoneSmall__image.active {
   opacity: 0.5;
+}
+
+.product__block {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media screen and (width <= 845px) {
+  .phonesAbout__block {
+    flex-direction: column;
+  }
 }

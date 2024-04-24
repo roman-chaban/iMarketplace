@@ -123,9 +123,9 @@ const ProductItem: FC<ProductProps> = memo(() => {
               </div>
               <img src={mainImage} alt='product' className={cl.phone__img} />
             </div>
-            <PhonesAbout />
+            <PhoneCharacteristics setSelectMemory={setSelectMemory} />
           </div>
-          <PhoneCharacteristics setSelectMemory={setSelectMemory} />
+          <PhonesAbout />
         </div>
       </>
     </>
