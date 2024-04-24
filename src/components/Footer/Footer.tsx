@@ -3,6 +3,11 @@ import NavigationIcon from '@mui/icons-material/Navigation';
 import cl from './footer.module.scss';
 import styled from 'styled-components';
 import { Apple } from '@mui/icons-material';
+import { CustomLink } from '../UI Components/CustomLink/CustomLink';
+import { ROUTES } from '../../common/routes/routes';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TelegramIcon from '@mui/icons-material/Telegram';
 
 const FooterContainer = styled.footer`
   display: flex;
@@ -37,7 +42,7 @@ const Footer: FC = () => {
       <FooterStyledWrapper>
         <>
           <button className={cl.logo__buttonUp} onClick={toUppPage}>
-            <a href='#!'>
+            <CustomLink to={ROUTES.HOME}>
               <h3 className={cl.logo__capture}>
                 <Apple
                   style={{ fontSize: '30' }}
@@ -45,7 +50,7 @@ const Footer: FC = () => {
                 />
                 iMarketplace
               </h3>
-            </a>
+            </CustomLink>
           </button>
         </>
         <>
@@ -57,17 +62,29 @@ const Footer: FC = () => {
                 rel='noreferrer'
                 className={cl.list__link}
               >
+                <GitHubIcon />
                 Github
               </a>
             </li>
             <li className={cl.list__item}>
-              <a href='#!' className={cl.list__link}>
-                Contacts
+              <a
+                href='https://t.me/romanchaban'
+                target='_blank'
+                className={cl.list__link}
+              >
+                <TelegramIcon />
+                Telegram
               </a>
             </li>
             <li className={cl.list__item}>
-              <a href='#!' className={cl.list__link}>
-                rights
+              <a
+                href='https://www.linkedin.com/in/romanchaban1001/'
+                target='_blank'
+                rel='noreferrer'
+                className={cl.list__link}
+              >
+                <LinkedInIcon />
+                LinkedIn
               </a>
             </li>
           </ul>

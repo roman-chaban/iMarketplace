@@ -81,9 +81,10 @@
   transition: all 0.4s linear;
   &::after {
     width: 150px;
-    content: 'Up the page';
-    color: #fff;
-    background: #313131b4;
+    content: 'Up the page ^';
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 0px rgba(0, 64, 128, 0.2);
     padding: 10px;
     border-radius: 10px;
     display: none;

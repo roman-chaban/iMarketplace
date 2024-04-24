@@ -7,6 +7,9 @@
 }
 
 .list__item > .list__link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   color: #f3f5f9;
   font-weight: 700;
   line-height: 91.667%;
