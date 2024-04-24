@@ -6,11 +6,16 @@ import { Pagination } from '../../components/Pagination/Pagination';
 import { CustomSelect } from '../../components/Select/Select';
 import { Phone } from '../../interfaces/phone';
 import { CatalogItem } from '../../components/CatalogItem/CatalogItem';
+import Select from 'react-select';
 
 export const PhonesPage: FC = () => {
   const [products, setProducts] = useState<Phone[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [phonePerPage] = useState<number>(5);
+  const [phonePerPage, setPhonePerPage] = useState<number>(5);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [phonePerPage]);
 
   useEffect(() => {
     document.title = 'iMarketplace | Phones';
@@ -54,6 +59,22 @@ export const PhonesPage: FC = () => {
     });
   };
 
+  const itemsOptions = [
+    { value: 2, label: 'Items 2' },
+    { value: 4, label: 'Items 4' },
+    { value: 6, label: 'Items 6' },
+    { value: 8, label: 'Items 8' },
+    { value: 16, label: 'Items 16' },
+  ];
+
+  const handlePhonePerPageChange = (
+    selectedOption: { value: number; label: string } | null
+  ) => {
+    if (selectedOption) {
+      setPhonePerPage(selectedOption.value);
+    }
+  };
+
   return (
     <div className={cl.phones} style={{ margin: '0 auto' }}>
       <div className={cl.catalog__container}>
@@ -64,6 +85,13 @@ export const PhonesPage: FC = () => {
         />
         <div className={cl.page__select}>
           <CustomSelect />
+          <Select
+            placeholder='Choose items'
+            className={cl.select__width}
+            options={itemsOptions}
+            value={{ value: phonePerPage, label: `Items ${phonePerPage}` }}
+            onChange={handlePhonePerPageChange}
+          />
         </div>
       </div>
       <div className={cl.catalog__containerPhones}>

@@ -148,13 +148,6 @@
   margin: 0 auto;
 }
 
-.page__select {
-  padding: 0px;
-  padding-bottom: 40px;
-  padding-left: 24px;
-  max-width: 400px;
-}
-
 .catalog__containerTablets {
   display: flex;
   flex-wrap: wrap;
@@ -162,6 +155,23 @@
   gap: 40px;
   margin: 0 100px;
   margin-bottom: 50px;
+}
+
+
+
+.page__select {
+  width: 100%;
+  padding: 0px;
+  gap: 5rem;
+  padding-bottom: 40px;
+  padding-left: 24px;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.select__width {
+  width: 300px;
 }
 
 @media screen and (width <= 1000px) {

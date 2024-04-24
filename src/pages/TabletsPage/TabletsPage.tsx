@@ -6,16 +6,21 @@ import { Tablet } from '../../interfaces/tablets';
 import tabletProducts from '../../common/products/tablets.json';
 import Pagination from '@mui/material/Pagination';
 import { TabletItem } from '../../components/TabletItem/TabletItem';
+import Select from 'react-select';
 
 export const TabletsPage: FC = () => {
   const [products, setProducts] = useState<Tablet[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [phonesPerPage] = useState<number>(5);
+  const [phonesPerPage, setPhonePerPage] = useState<number>(5);
 
   useEffect(() => {
     document.title = 'iMarketplace| Tablets';
     getPhonesProducts();
   }, []);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [phonesPerPage]);
 
   const getPhonesProducts = () => {
     const parsedProducts = tabletProducts.map((product) => ({
@@ -56,6 +61,22 @@ export const TabletsPage: FC = () => {
     });
   };
 
+  const itemsOptions = [
+    { value: 2, label: 'Items 2' },
+    { value: 4, label: 'Items 4' },
+    { value: 6, label: 'Items 6' },
+    { value: 8, label: 'Items 8' },
+    { value: 16, label: 'Items 16' },
+  ];
+
+  const handlePhonePerPageChange = (
+    selectedOption: { value: number; label: string } | null
+  ) => {
+    if (selectedOption) {
+      setPhonePerPage(selectedOption.value);
+    }
+  };
+
   return (
     <div className={cl.catalog__container}>
       <CatalogPage
@@ -65,6 +86,13 @@ export const TabletsPage: FC = () => {
       />
       <div className={cl.page__select}>
         <CustomSelect />
+        <Select
+        placeholder="Choose items"
+          className={cl.select__width}
+          options={itemsOptions}
+          value={{ value: phonesPerPage, label: `Items ${phonesPerPage}` }}
+          onChange={handlePhonePerPageChange}
+        />
       </div>
       <div className={cl.catalog__containerTablets}>
         {currentTablets.map((tablet) => (
