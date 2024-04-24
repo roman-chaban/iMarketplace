@@ -11,7 +11,7 @@ import Select from 'react-select';
 export const PhonesPage: FC = () => {
   const [products, setProducts] = useState<Phone[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [phonePerPage, setPhonePerPage] = useState<number>(5);
+  const [phonePerPage, setPhonePerPage] = useState<number>(8);
 
   useEffect(() => {
     setCurrentPage(1);

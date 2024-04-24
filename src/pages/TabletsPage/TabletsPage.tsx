@@ -11,7 +11,7 @@ import Select from 'react-select';
 export const TabletsPage: FC = () => {
   const [products, setProducts] = useState<Tablet[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [phonesPerPage, setPhonePerPage] = useState<number>(5);
+  const [phonesPerPage, setPhonePerPage] = useState<number>(8);
 
   useEffect(() => {
     document.title = 'iMarketplace| Tablets';
