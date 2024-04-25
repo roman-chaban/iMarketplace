@@ -155,7 +155,7 @@
 }
 
 .swiper__wrapper {
-  gap: 1rem;
+  gap: 2rem;
   width: 100%;
 }
 
@@ -168,6 +168,9 @@
   margin: 0 30px;
 }
 
+.select__title {
+  display: block;
+}
 
 @media (max-width: 900px ) {
   .page__select {

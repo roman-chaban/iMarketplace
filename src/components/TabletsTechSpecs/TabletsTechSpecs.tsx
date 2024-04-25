@@ -32,14 +32,14 @@ export const TabletsTechSpecs: FC<TabletsTechSpecsProps> = ({ product }) => {
           </span>
         </div>
         <div className={cl.techSpecs__item}>
-          <span className={cl.techSpecs__itemTitle}>Memory</span>
-          <span className={cl.techSpecs__itemSubTitle}>
-            {product.memory ?? 'N/A'}
-          </span>
-        </div>
-        <div className={cl.techSpecs__item}>
           <span className={cl.techSpecs__itemTitle}>Capacity</span>
           <span className={cl.techSpecs__itemSubTitle}>{product.capacity}</span>
+        </div>
+        <div className={cl.techSpecs__item}>
+          <span className={cl.techSpecs__itemTitle}>Ram</span>
+          <span className={cl.techSpecs__itemSubTitle}>
+            {product.ram ?? 'N/A'}
+          </span>
         </div>
         <div className={cl.techSpecs__item}>
           <span className={cl.techSpecs__itemTitle}>Display Size</span>

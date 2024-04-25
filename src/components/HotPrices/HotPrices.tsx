@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import cl from './hotPrices.module.scss';
-import products from '../../common/products/products.json';
 import { ICatalogItemProps } from '../../interfaces/catalog-item';
-import { Phones } from '../Phones/Phones';
-import { Phone } from '../../interfaces/phones';
+import Tablets from '../Tablets/Tablets';
+import tablets from '../../common/products/tablets.json';
+import { Tablet } from '../../interfaces/tablets';
 
 const ModelsCatalogSection = styled.section`
   width: 100%;
@@ -39,7 +39,7 @@ const HotPrices: FC<ICatalogItemProps> = ({
           overflowX: 'hidden',
         }}
       >
-        <Phones products={products as unknown as Phone[]} />
+        <Tablets products={tablets as unknown as Tablet[]} />
       </div>
     </ModelsCatalogSection>
   );

@@ -93,7 +93,7 @@ export const TabletsPage: FC = () => {
         </label>
         <label htmlFor='items'>
           <span id='items' className={cl.select__title}>
-            Choose items
+            Choose items:
           </span>
           <Select
             placeholder='Choose items'

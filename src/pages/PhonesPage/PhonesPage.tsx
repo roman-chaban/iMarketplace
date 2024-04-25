@@ -89,7 +89,7 @@ export const PhonesPage: FC = () => {
             <CustomSelect />
           </label>
           <label htmlFor='items'>
-            <span id='items' className={cl.select__title}>Choose items</span>
+            <span id='items' className={cl.select__title}>Choose items:</span>
             <Select
               placeholder='Choose items'
               className={cl.select__width}

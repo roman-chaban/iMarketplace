@@ -14,7 +14,7 @@ const FooterContainer = styled.footer`
   align-items: center;
   justify-content: space-between;
   padding: 32px;
-  background: #c0c0c0;
+  background: #d2d3d2;
 `;
 
 const FooterStyledWrapper = styled.div`
