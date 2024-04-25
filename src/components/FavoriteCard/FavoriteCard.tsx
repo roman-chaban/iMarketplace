@@ -14,13 +14,18 @@ export const FavoriteCard: FC<ICatalogItemProps> = ({
   const [isRemoving, setIsRemoving] = useState(false);
 
   const handleDeleteGoods = (productId: number) => {
-    setIsRemoving(!isRemoving);
+    setIsRemoving(true);
     dispatch(deleteFavorites(productId));
+  };
+
+  const handleTransitionEnd = () => {
+    setIsRemoving(false);
   };
 
   return (
     <div
       className={`${cl.favorite__cardBlock} ${isRemoving ? cl.removing : ''}`}
+      onTransitionEnd={handleTransitionEnd}
     >
       <div className={cl.favorite__card}>
         <img
