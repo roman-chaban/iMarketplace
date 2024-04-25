@@ -22,8 +22,13 @@ export const productSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<Products>) => {
-      state.cart.push(action.payload);
-      state.basketCounter++;
+      const existingProduct = state.cart.find(
+        (item) => item.phoneId === action.payload.phoneId
+      );
+      if (!existingProduct) {
+        state.cart.push(action.payload);
+        state.basketCounter++;
+      }
     },
     addToFavorites: (state, action: PayloadAction<Products>) => {
       const existingFavorite = state.favorites.find(
@@ -40,11 +45,11 @@ export const productSlice = createSlice({
       );
       if (index !== -1) {
         state.favorites.splice(index, 1);
-        state.favoriteCounter = state.favorites.length; 
+        state.favoriteCounter = state.favorites.length;
       }
-    
+
       if (state.favorites.length === 0) {
-        state.favoriteCounter = 0; 
+        state.favoriteCounter = 0;
       }
     },
     deleteFromCart: (state, action: PayloadAction<number>) => {
