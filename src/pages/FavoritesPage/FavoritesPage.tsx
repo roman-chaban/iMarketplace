@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { useAppSelector } from '../../hooks/useAppSelector';
+import { useAppSelector } from '../../hooks/reduxHooks/useAppSelector';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
 import cl from './favoritePage.module.scss';
 import { Products } from '../../redux/interfaces/products';

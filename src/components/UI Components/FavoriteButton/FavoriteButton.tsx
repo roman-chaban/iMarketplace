@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
-import cl from '../CatalogItem/catalogItem.module.scss';
+import cl from '../../CatalogItem/catalogItem.module.scss';
 import { FavoriteBorder } from '@mui/icons-material';
-import { Products } from '../../redux/interfaces/products';
+import { Products } from '../../../redux/interfaces/products';
 
 interface FavoriteProps {
   product?: Products;

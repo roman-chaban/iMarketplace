@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import cl from './header.module.scss';
-import { HeaderNav } from '../HeaderNav/HeaderNav';
+import { HeaderNavBar } from '../HeaderNavBar/HeaderNavBar';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
-import { BurgerMenu } from '../Burger/BurgerMenu';
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { PopUp } from '../../components/UI Components/PopUp/PopUp';
 import { Apple } from '@mui/icons-material';
 
@@ -24,7 +24,7 @@ const HeaderContainer = styled.div`
   margin: 0 auto;
 `;
 
-const Header: FC = (): JSX.Element => {
+export const Header: FC = (): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
@@ -94,7 +94,7 @@ const Header: FC = (): JSX.Element => {
           </ul>
         </nav>
         <PopUp />
-        <HeaderNav />
+        <HeaderNavBar />
         <div onClick={toggleMenu} className={cl.burger__buttonBlock}>
           <button type='button' className={cl.button__burgerLine}></button>
           <button type='button' className={cl.button__burgerLine}></button>
@@ -105,5 +105,3 @@ const Header: FC = (): JSX.Element => {
     </HeaderWrapper>
   );
 };
-
-export { Header };

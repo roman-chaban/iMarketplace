@@ -21,7 +21,7 @@ interface IModelsCatalog {
   modelsTitle: string;
 }
 
-const ModelsCatalog: FC<IModelsCatalog> = ({ modelsTitle }): JSX.Element => {
+export const ModelsCatalog: FC<IModelsCatalog> = ({ modelsTitle }): JSX.Element => {
   return (
     <ModelsCatalogSection>
       <div className={cl.modelsCatalog__block}>
@@ -40,4 +40,3 @@ const ModelsCatalog: FC<IModelsCatalog> = ({ modelsTitle }): JSX.Element => {
   );
 };
 
-export { ModelsCatalog };

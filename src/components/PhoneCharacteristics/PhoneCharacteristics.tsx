@@ -15,7 +15,7 @@ interface PhoneCharacteristicsProps {
   setSelectMemory: (memory: string) => void;
 }
 
-const PhoneCharacteristics: FC<PhoneCharacteristicsProps> = ({
+export const PhoneCharacteristics: FC<PhoneCharacteristicsProps> = ({
   setSelectMemory,
 }) => {
   const productMemory: IProductMemory = {
@@ -110,4 +110,3 @@ const PhoneCharacteristics: FC<PhoneCharacteristicsProps> = ({
   );
 };
 
-export { PhoneCharacteristics };

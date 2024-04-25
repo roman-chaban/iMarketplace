@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import cl from './favoriteCard.module.scss';
 import { ICatalogItemProps } from '../../interfaces/catalog-item';
-import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
 import { deleteFavorites } from '../../redux/slices/productSlice';
 
 export const FavoriteCard: FC<ICatalogItemProps> = ({

@@ -3,9 +3,9 @@ import cl from './catalogItem.module.scss';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../UI Components/CustomButton/CustomButton';
-import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
+import { FavoriteButton } from '../UI Components/FavoriteButton/FavoriteButton';
 import { addToFavorites } from '../../redux/slices/productSlice';
-import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
 import { ICatalogItemProps } from '../../interfaces/catalog-item';
 import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
 import { Products } from '../../redux/interfaces/products';
@@ -99,5 +99,3 @@ export const CatalogItem: FC<ICatalogItemProps> = ({
     </CardItem>
   );
 };
-
-

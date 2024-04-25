@@ -1,14 +1,8 @@
 import { FC } from 'react';
 import './pagination.scss';
+import { PaginationProps } from '../../interfaces/pagination';
 
-interface PaginationProps {
-  phonePerPage: number;
-  totalPhones: number;
-  currentPage: number;
-  paginate: (pageNumber: number) => void;
-}
-
-const Pagination: FC<PaginationProps> = ({
+export const Pagination: FC<PaginationProps> = ({
   phonePerPage,
   totalPhones,
   currentPage,
@@ -38,5 +32,3 @@ const Pagination: FC<PaginationProps> = ({
     </div>
   );
 };
-
-export { Pagination };

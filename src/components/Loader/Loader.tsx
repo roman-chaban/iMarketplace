@@ -10,7 +10,7 @@ type TypeLoader = {
   children: ReactNode;
 };
 
-const Loader: FC<TypeLoader> = () => {
+export const Loader: FC<TypeLoader> = () => {
   const [loader, setLoader] = useState<boolean>(false);
 
   useEffect(() => {
@@ -47,4 +47,3 @@ const Loader: FC<TypeLoader> = () => {
   return <App />;
 };
 
-export { Loader };

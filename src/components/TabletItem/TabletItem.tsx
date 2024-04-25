@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../UI Components/CustomButton/CustomButton';
 import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
-import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
+import { FavoriteButton } from '../UI Components/FavoriteButton/FavoriteButton';
 import { Tablet } from '../../interfaces/tablets';
 
 const CardItem = styled.div`

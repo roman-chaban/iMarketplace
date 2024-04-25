@@ -4,7 +4,7 @@ import cl from '../Header/header.module.scss';
 import Heart from '../../images/header/favorite.svg';
 import Basket from '../../images/header/shopping_cart.svg';
 import { NavLink } from 'react-router-dom';
-import { useAppSelector } from '../../hooks/useAppSelector';
+import { useAppSelector } from '../../hooks/reduxHooks/useAppSelector';
 
 const HeaderNavItems = styled.div`
   padding: 0;
@@ -12,7 +12,7 @@ const HeaderNavItems = styled.div`
   align-items: center;
 `;
 
-const HeaderNav: FC = () => {
+export const HeaderNavBar: FC = () => {
   const [activeButton, setActiveButton] = useState<string | null>(null);
   const { favoriteCounter, basketCounter } = useAppSelector(
     (state) => state.productSlice
@@ -51,5 +51,3 @@ const HeaderNav: FC = () => {
     </HeaderNavItems>
   );
 };
-
-export { HeaderNav };

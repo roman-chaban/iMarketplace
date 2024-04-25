@@ -9,7 +9,7 @@ const MainContainer = styled.div`
   width: 100%;
 `;
 
-const Main: FC = () => {
+export const Main: FC = () => {
   return (
     <MainContainer>
       <Hero />
@@ -20,4 +20,3 @@ const Main: FC = () => {
   );
 };
 
-export { Main };
