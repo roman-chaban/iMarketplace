@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../UI Components/CustomButton/CustomButton';
 import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
-import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
+// import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
 import { Tablet } from '../../interfaces/tablets';
 
 const CardItem = styled.div`
@@ -74,7 +74,7 @@ const TabletItem: FC<Tablet> = ({
       </ul>
       <div className={cl.catalog__buttonItems}>
         <CatalogButton />
-        <FavoriteButton />
+        {/* <FavoriteButton /> */}
       </div>
     </CardItem>
   );

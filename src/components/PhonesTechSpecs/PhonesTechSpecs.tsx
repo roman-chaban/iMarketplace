@@ -51,10 +51,7 @@ const PhonesTechSpecs: FC<PhonesTechSpecsProps> = ({ product }) => {
         </div>
         <div className={cl.techSpecs__item}>
           <span className={cl.techSpecs__itemTitle}>Category:</span>
-          <span className={cl.techSpecs__itemSubTitle}>
-            {product.category[0].toUpperCase() +
-              product.category.slice(1).toLowerCase()}
-          </span>
+          <span className={cl.techSpecs__itemSubTitle}>{product.category}</span>
         </div>
       </div>
     </article>
