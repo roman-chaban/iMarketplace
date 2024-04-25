@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { Products } from '../interfaces/products';
-import { getProducts } from '../../common/api/getProducts';
+import { getProducts } from '../../common/getProducts/getProducts';
 
 interface ProductsProps {
   products: Products[];
