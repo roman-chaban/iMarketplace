@@ -3,9 +3,12 @@ import cl from './catalogItem.module.scss';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../UI Components/CustomButton/CustomButton';
-import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
-import { ICatalogItemProps } from '../../interfaces/catalog-item';
 import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
+import { addToFavorites } from '../../redux/slices/productSlice';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { ICatalogItemProps } from '../../interfaces/catalog-item';
+import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
+import { Products } from '../../redux/interfaces/products';
 
 const CardItem = styled.div`
   position: relative;
@@ -19,16 +22,22 @@ const CardItem = styled.div`
   box-shadow: 2px 2px 5px 0px rgba(0, 64, 128, 0.2);
 `;
 
-const CatalogItem: FC<ICatalogItemProps> = ({
-  imgUrl,
-  title,
-  price,
-  displaySize,
-  discount,
-  capacity,
-  memory,
+export const CatalogItem: FC<ICatalogItemProps> = ({
+  imgUrl = '',
+  title = '',
+  price = '',
+  displaySize = '',
+  discount = '',
+  capacity = '',
+  memory = '',
   phoneId,
 }: ICatalogItemProps) => {
+  const dispatch = useAppDispatch();
+
+  const handleAddToFavorites = (product: Products) => {
+    dispatch(addToFavorites(product));
+  };
+
   const toUpPage = () => {
     window.scrollTo({
       top: 0,
@@ -73,10 +82,22 @@ const CatalogItem: FC<ICatalogItemProps> = ({
       </ul>
       <div className={cl.catalog__buttonItems}>
         <CatalogButton />
-        <FavoriteButton />
+        <FavoriteButton
+          product={{
+            imgUrl,
+            title,
+            price,
+            displaySize,
+            discount,
+            capacity,
+            memory,
+            phoneId,
+          }}
+          onClick={handleAddToFavorites}
+        />
       </div>
     </CardItem>
   );
 };
 
-export { CatalogItem };
+

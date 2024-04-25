@@ -8,3 +8,11 @@
   font-size: $primary-third-size;
   padding-bottom: 2rem;
 }
+
+.favorite__list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+}

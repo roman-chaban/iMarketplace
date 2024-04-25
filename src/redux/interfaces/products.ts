@@ -11,5 +11,5 @@ export interface Products {
   memory: string;
   capacity: number | string;
   displaySize: string;
-  category: string;
+  category?: string;
 }

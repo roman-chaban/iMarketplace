@@ -1,9 +1,11 @@
+import { Products } from '../redux/interfaces/products';
+
 export interface IHotPricesProps {
   pricesTitle?: string;
 }
 
 export interface ICatalogItemProps extends IHotPricesProps {
-  phoneId?: number | string;
+  phoneId?: number;
   imgUrl?: string;
   title?: string;
   price?: string;
@@ -11,4 +13,5 @@ export interface ICatalogItemProps extends IHotPricesProps {
   discount?: string;
   memory?: string;
   capacity?: string;
+  products?: Products;
 }

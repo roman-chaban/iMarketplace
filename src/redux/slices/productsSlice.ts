@@ -2,7 +2,18 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { Products } from '../interfaces/products';
 import { getProducts } from '../../common/api/getProducts';
 
-const initialState: Products[] = [];
+interface ProductsProps {
+  products: Products[];
+  error: string | null;
+  loading: boolean;
+}
+const ProductsState: ProductsProps = {
+  products: [],
+  error: null,
+  loading: false,
+};
+
+const initialState = ProductsState;
 
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
@@ -17,11 +28,20 @@ const productsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchProducts.fulfilled, (_state, action) => {
-      return action.payload;
-    });
+    builder
+      .addCase(fetchProducts.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.products = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchProducts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message as unknown as string;
+      });
   },
 });
-
 
 export default productsSlice.reducer;

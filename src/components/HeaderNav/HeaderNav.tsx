@@ -14,10 +14,9 @@ const HeaderNavItems = styled.div`
 
 const HeaderNav: FC = () => {
   const [activeButton, setActiveButton] = useState<string | null>(null);
-  const favoriteCount = useAppSelector(
-    (state) => state.favorites.favoriteCount
+  const { favoriteCounter, basketCounter } = useAppSelector(
+    (state) => state.productSlice
   );
-  const busketCount = useAppSelector((state) => state.busket.busketCount);
 
   const handleButtonClick = (buttonName: string) => {
     if (activeButton === buttonName) {
@@ -29,9 +28,6 @@ const HeaderNav: FC = () => {
 
   return (
     <HeaderNavItems>
-      {/* <button className={cl.theme__button}>
-        <DarkModeIcon className={cl.theme__icon} />
-      </button> */}
       <NavLink to='favorites' onClick={() => handleButtonClick('favorites')}>
         <button
           className={`${cl.heart__button} ${
@@ -39,7 +35,7 @@ const HeaderNav: FC = () => {
           }`}
         >
           <img src={Heart} alt='Heart Icon' className={cl.heart__icon} />
-          <span className={cl.heart__counter}>{favoriteCount}</span>
+          <span className={cl.heart__counter}>{favoriteCounter}</span>
         </button>
       </NavLink>
       <NavLink to='cart' onClick={() => handleButtonClick('cart')}>
@@ -49,7 +45,7 @@ const HeaderNav: FC = () => {
           }`}
         >
           <img src={Basket} alt='Basket Icon' className={cl.busket__icon} />
-          <span className={cl.busket__counter}>{busketCount}</span>
+          <span className={cl.busket__counter}>{basketCounter}</span>
         </button>
       </NavLink>
     </HeaderNavItems>
