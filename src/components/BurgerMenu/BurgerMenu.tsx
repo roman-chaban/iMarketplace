@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import './burger.scss';
+import styles from './burger.module.scss';
 import appleLogo from '../../favicon/favicon.png';
 import { useRef } from 'react';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
@@ -14,7 +14,6 @@ export const BurgerMenu: FC = () => {
   const toggleMenu = (): void => {
     setIsMenuClosed(!isMenuClosed);
   };
-  
 
   const closeMenuButton = (): void => {
     toggleMenu();
@@ -27,13 +26,19 @@ export const BurgerMenu: FC = () => {
   return (
     <div className='burger__container'>
       <div
-        className={`burger__menu ${isMenuClosed ? 'closed' : 'active'}`}
+        className={`${styles.burger__menu} ${
+          isMenuClosed ? styles.closed : styles.active
+        }`}
         ref={burgerMenuRef}
       >
-        <div className='close__item'>
-          <div className='burger__logoBlock'>
-            <img src={appleLogo} alt='Apple Logo' className='burger__logo' />
-            <h3 className='logo__title'>iMarketplace</h3>
+        <div className={styles.close__item}>
+          <div className={styles.burger__logoBlock}>
+            <img
+              src={appleLogo}
+              alt='Apple Logo'
+              className={styles.burger__logo}
+            />
+            <h3 className={styles.logo__title}>iMarketplace</h3>
           </div>
           <Close
             onClick={closeMenuButton}
@@ -41,14 +46,14 @@ export const BurgerMenu: FC = () => {
             style={{ fontSize: 30, cursor: 'pointer' }}
           />
         </div>
-        <nav className='menu'>
+        <nav className={styles.menu}>
           {MENU_LINKS.map((link) => (
-            <ul key={link.linkId} className='menu__item'>
-              <li className='menu__listItem'>
+            <ul key={link.linkId} className={styles.menu__item}>
+              <li className={styles.menu__listItem}>
                 <CustomLink
                   onClick={handleMenuItemClick}
                   to={link.to}
-                  className='menu__itemLink'
+                  className={styles.menu__itemLink}
                 >
                   {link.title}
                 </CustomLink>
@@ -56,9 +61,8 @@ export const BurgerMenu: FC = () => {
             </ul>
           ))}
         </nav>
-        <span className='menu__description'>Apple Inc. 2024</span>
+        <span className={styles.menu__description}>Apple Inc. 2024</span>
       </div>
     </div>
   );
 };
-

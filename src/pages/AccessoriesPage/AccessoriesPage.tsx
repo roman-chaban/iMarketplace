@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
-import cl from './accessories.module.scss';
+import styles from './accessories.module.scss';
 // import { CustomSelect } from '../../components/Select/Select';
 import { useEffect } from 'react';
 
@@ -9,16 +9,16 @@ export const AccessoriesPage: FC = () => {
     document.title = 'iMarketplace | Accessories';
   }, []);
   return (
-    <div className={cl.catalog__container}>
+    <div className={styles.catalog__container}>
       <CatalogPage
         smallTitle='Accessories'
         models='0 models'
         mainTitle='Accessories'
       />
-      <div className={cl.page__select}>
+      <div className={styles.page__select}>
         {/* <CustomSelect /> */}
       </div>
-      <h3 className={cl.coming__title} >Accessories is coming</h3>
+      <h3 className={styles.coming__title} >Accessories is coming</h3>
     </div>
   );
 };

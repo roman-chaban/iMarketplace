@@ -5,7 +5,7 @@ import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import { CustomButton } from '../../components/UI Components/CustomButton/CustomButton';
-import cl from './authPage.module.scss';
+import styles from './authPage.module.scss';
 import { Apple } from '@mui/icons-material';
 
 interface EventWithPreventDefault extends Event {
@@ -44,18 +44,18 @@ export const AuthorizationPage: FC = () => {
 
   return (
     <div>
-      <h1 className={cl.auth__title}>
+      <h1 className={styles.auth__title}>
         Let's go to Authorization
-        <Apple className={cl.auth__logo} style={{ fontSize: '40' }} />
+        <Apple className={styles.auth__logo} style={{ fontSize: '40' }} />
       </h1>
-      <form onSubmit={handleSubmit} className={cl.auth__form}>
+      <form onSubmit={handleSubmit} className={styles.auth__form}>
         <label htmlFor='email'>
           <TextField
             required
             placeholder='Email'
             label='Email'
             type='email'
-            id={cl.email}
+            id={styles.email}
             name='email'
           />
         </label>
@@ -66,11 +66,11 @@ export const AuthorizationPage: FC = () => {
             label='Password'
             type='password'
             autoComplete='current-password'
-            id={cl.password}
+            id={styles.password}
             name='password'
           />
         </label>
-        <CustomButton className={cl.auth__button} type='submit'>
+        <CustomButton className={styles.auth__button} type='submit'>
           Sign up!
         </CustomButton>
       </form>

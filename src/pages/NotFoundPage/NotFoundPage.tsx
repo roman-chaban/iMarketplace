@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 import styled from 'styled-components';
-import cl from './notFound.module.scss';
+import styles from './notFound.module.scss';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Apple } from '@mui/icons-material';
 
@@ -36,11 +36,11 @@ export const NotFoundPage: FC<NotFoundProps> = () => {
   return (
     <NotFoundContainer>
       <StyledErrorPage>
-        <Apple id={cl.rotateIcon} style={{ fontSize: '50px' }} />
+        <Apple id={styles.rotateIcon} style={{ fontSize: '50px' }} />
         Page is not Defined {errorStatusCode}
         {error?.statusText ?? error?.message}
       </StyledErrorPage>
-      <NavLink id={cl.error__link} to='/'>
+      <NavLink id={styles.error__link} to='/'>
         Click To Home
       </NavLink>
     </NotFoundContainer>

@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useAppSelector } from '../../hooks/reduxHooks/useAppSelector';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
-import cl from './favoritePage.module.scss';
+import styles from './favoritePage.module.scss';
 import { Products } from '../../redux/interfaces/products';
 import { FavoriteCard } from '../../components/FavoriteCard/FavoriteCard';
 
@@ -19,11 +19,11 @@ export const FavoritesPage: FC = () => {
       <CatalogPage mainTitle='Favorites' smallTitle='Favorites' />
       <div>
         {favoriteProducts.length === 0 ? (
-          <h2 className={cl.empty__title}>Favorite page is empty</h2>
+          <h2 className={styles.empty__title}>Favorite page is empty</h2>
         ) : (
-          <div className={cl.favorite__list}>
+          <div className={styles.favorite__list}>
             {favoriteProducts.map((favorite: Products, index: number) => (
-              <div key={index} className={cl.favorite__item}>
+              <div key={index} className={styles.favorite__item}>
                 <FavoriteCard
                   imgUrl={favorite.imgUrl}
                   title={favorite.title}

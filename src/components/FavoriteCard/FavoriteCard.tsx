@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import cl from './favoriteCard.module.scss';
+import styles from './favoriteCard.module.scss';
 import { ICatalogItemProps } from '../../interfaces/catalog-item';
 import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
 import { deleteFavorites } from '../../redux/slices/productSlice';
@@ -24,21 +24,21 @@ export const FavoriteCard: FC<ICatalogItemProps> = ({
 
   return (
     <div
-      className={`${cl.favorite__cardBlock} ${isRemoving ? cl.removing : ''}`}
+      className={`${styles.favorite__cardBlock} ${isRemoving ? styles.removing : ''}`}
       onTransitionEnd={handleTransitionEnd}
     >
-      <div className={cl.favorite__card}>
+      <div className={styles.favorite__card}>
         <img
           src={imgUrl}
           alt='iphone banner'
-          className={cl.favorite__cardPicture}
+          className={styles.favorite__cardPicture}
         />
         <div>
-          <h3 className={cl.favorite__cardTitle}>{title}</h3>
-          <span className={cl.favorite__cardPrice}>{price}</span>
+          <h3 className={styles.favorite__cardTitle}>{title}</h3>
+          <span className={styles.favorite__cardPrice}>{price}</span>
         </div>
         <button
-          className={cl.favorite__cardDelete}
+          className={styles.favorite__cardDelete}
           onClick={() => phoneId !== undefined && handleDeleteGoods(phoneId)}
         >
           Delete

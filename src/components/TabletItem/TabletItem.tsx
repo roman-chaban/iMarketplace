@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import cl from '../CatalogItem/catalogItem.module.scss';
+import styles from '../CatalogItem/catalogItem.module.scss';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../UI Components/CustomButton/CustomButton';
@@ -19,7 +19,7 @@ const CardItem = styled.div`
   box-shadow: 2px 2px 5px 0px rgba(0, 64, 128, 0.2);
 `;
 
-const TabletItem: FC<Tablet> = ({
+export const TabletItem: FC<Tablet> = ({
   images,
   name,
   priceRegular,
@@ -37,17 +37,17 @@ const TabletItem: FC<Tablet> = ({
   };
 
   return (
-    <CardItem className={cl.cardItem}>
-      <div className={cl.card__container}>
-        <img src={images[0]} alt='tablet' className={cl.image__hovered} />
-        <h3 className={cl.card__title}>{name}</h3>
+    <CardItem className={styles.cardItem}>
+      <div className={styles.card__container}>
+        <img src={images[0]} alt='tablet' className={styles.image__hovered} />
+        <h3 className={styles.card__title}>{name}</h3>
         <CustomButton
           style={{ border: '2px solid #6d6474', marginBottom: 10 }}
-          className={cl.button}
+          className={styles.button}
         >
           <NavLink
             onClick={toUpPage}
-            className={cl.view__product}
+            className={styles.view__product}
             to={`/tablets/${id}`}
           >
             View Product
@@ -55,24 +55,24 @@ const TabletItem: FC<Tablet> = ({
         </CustomButton>
       </div>
 
-      <span className={cl.price}>
-        {priceRegular} <strong id={cl.discount}>{priceDiscount}</strong>
+      <span className={styles.price}>
+        {priceRegular} <strong id={styles.discount}>{priceDiscount}</strong>
       </span>
-      <ul className={cl.card__list}>
-        <li className={cl.list__item}>
+      <ul className={styles.card__list}>
+        <li className={styles.list__item}>
           Screen
-          <span className={cl.list__itemSecondary}>{screen}</span>
+          <span className={styles.list__itemSecondary}>{screen}</span>
         </li>
-        <li className={cl.list__item}>
+        <li className={styles.list__item}>
           Capacity
-          <span className={cl.list__itemSecondary}>{capacity}</span>
+          <span className={styles.list__itemSecondary}>{capacity}</span>
         </li>
-        <li className={cl.list__item}>
+        <li className={styles.list__item}>
           RAM
-          <span className={cl.list__itemSecondary}>{ram}</span>
+          <span className={styles.list__itemSecondary}>{ram}</span>
         </li>
       </ul>
-      <div className={cl.catalog__buttonItems}>
+      <div className={styles.catalog__buttonItems}>
         <CatalogButton />
         <FavoriteButton />
       </div>
@@ -80,4 +80,3 @@ const TabletItem: FC<Tablet> = ({
   );
 };
 
-export { TabletItem };

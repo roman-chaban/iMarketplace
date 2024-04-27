@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import cl from '../ModelsCatalog/modelsCatalog.module.scss';
+import styles from '../ModelsCatalog/modelsCatalog.module.scss';
 import Tablets from './Tablets';
 import tablets from '../../common/products/tablets.json';
 import { Tablet } from '../../interfaces/tablets';
@@ -24,16 +24,16 @@ interface IModelsCatalog {
 const TabletsCatalog: FC<IModelsCatalog> = ({ modelsTitle }): JSX.Element => {
   return (
     <ModelsCatalogSection>
-      <div className={cl.modelsCatalog__block}>
-        <h2 className={cl.catalog__title}>{modelsTitle}</h2>
+      <div className={styles.modelsCatalog__block}>
+        <h2 className={styles.catalog__title}>{modelsTitle}</h2>
         <h3
-          className={`${cl.catalog__title} ${cl.zoomTitle}`}
+          className={`${styles.catalog__title} ${styles.zoomTitle}`}
           style={{ fontSize: '1.4rem' }}
         >
           Swipe to view the catalog
         </h3>
       </div>
-      <div className={cl.catalog__cards}>
+      <div className={styles.catalog__cards}>
         <Tablets products={tablets as unknown as Tablet[]} />
       </div>
     </ModelsCatalogSection>

@@ -8,7 +8,7 @@ interface ICustomLinkProps {
   onClick?: () => void;
 }
 
-const CustomLink: FC<ICustomLinkProps> = ({
+export const CustomLink: FC<ICustomLinkProps> = ({
   children,
   to,
   onClick,
@@ -28,5 +28,3 @@ const CustomLink: FC<ICustomLinkProps> = ({
     </NavLink>
   );
 };
-
-export { CustomLink };

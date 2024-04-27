@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import cl from '../../CatalogItem/catalogItem.module.scss';
+import styles from '../../CatalogItem/catalogItem.module.scss';
 import { FavoriteBorder } from '@mui/icons-material';
 import { Products } from '../../../redux/interfaces/products';
 
@@ -25,7 +25,7 @@ export const FavoriteButton: FC<FavoriteProps> = ({
   return (
     <button
       onClick={handleAddToFavorites}
-      className={`${cl.favorite__button} ${isActive ? 'active' : ''}`}
+      className={`${styles.favorite__button} ${isActive ? 'active' : ''}`}
       style={{
         background: isActive ? '#FF2400' : '',
         border: isActive ? '1px solid #eee' : '',
@@ -33,7 +33,7 @@ export const FavoriteButton: FC<FavoriteProps> = ({
     >
       <FavoriteBorder
         style={{ fontSize: 30, color: isActive ? '#fff' : '' }}
-        className={cl.favorite__icon}
+        className={styles.favorite__icon}
       />
     </button>
   );

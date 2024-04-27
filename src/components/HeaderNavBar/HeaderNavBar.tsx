@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { styled } from 'styled-components';
-import cl from '../Header/header.module.scss';
+import styles from '../Header/header.module.scss';
 import Heart from '../../images/header/favorite.svg';
 import Basket from '../../images/header/shopping_cart.svg';
 import { NavLink } from 'react-router-dom';
@@ -30,22 +30,22 @@ export const HeaderNavBar: FC = () => {
     <HeaderNavItems>
       <NavLink to='favorites' onClick={() => handleButtonClick('favorites')}>
         <button
-          className={`${cl.heart__button} ${
-            activeButton === 'favorites' ? cl.active : ''
+          className={`${styles.heart__button} ${
+            activeButton === 'favorites' ? styles.active : ''
           }`}
         >
-          <img src={Heart} alt='Heart Icon' className={cl.heart__icon} />
-          <span className={cl.heart__counter}>{favoriteCounter}</span>
+          <img src={Heart} alt='Heart Icon' className={styles.heart__icon} />
+          <span className={styles.heart__counter}>{favoriteCounter}</span>
         </button>
       </NavLink>
       <NavLink to='cart' onClick={() => handleButtonClick('cart')}>
         <button
-          className={`${cl.shoppingCart__button} ${
-            activeButton === 'cart' ? cl.active : ''
+          className={`${styles.shoppingCart__button} ${
+            activeButton === 'cart' ? styles.active : ''
           }`}
         >
-          <img src={Basket} alt='Basket Icon' className={cl.busket__icon} />
-          <span className={cl.busket__counter}>{basketCounter}</span>
+          <img src={Basket} alt='Basket Icon' className={styles.busket__icon} />
+          <span className={styles.busket__counter}>{basketCounter}</span>
         </button>
       </NavLink>
     </HeaderNavItems>

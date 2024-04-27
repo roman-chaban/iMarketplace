@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import NavigationIcon from '@mui/icons-material/Navigation';
-import cl from './footer.module.scss';
+import styles from './footer.module.scss';
 import styled from 'styled-components';
 import { Apple } from '@mui/icons-material';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
@@ -41,12 +41,12 @@ const Footer: FC = () => {
     <FooterContainer>
       <FooterStyledWrapper>
         <>
-          <button className={cl.logo__buttonUp} onClick={toUppPage}>
+          <button className={styles.logo__buttonUp} onClick={toUppPage}>
             <CustomLink to={ROUTES.HOME}>
-              <h3 className={cl.logo__capture}>
+              <h3 className={styles.logo__capture}>
                 <Apple
                   style={{ fontSize: '30' }}
-                  className={cl.footer__appleLogo}
+                  className={styles.footer__appleLogo}
                 />
                 iMarketplace
               </h3>
@@ -54,34 +54,34 @@ const Footer: FC = () => {
           </button>
         </>
         <>
-          <ul className={cl.footer__menu}>
-            <li className={cl.list__item}>
+          <ul className={styles.footer__menu}>
+            <li className={styles.list__item}>
               <a
                 href='https://github.com/Chaban29'
                 target='_blank'
                 rel='noreferrer'
-                className={cl.list__link}
+                className={styles.list__link}
               >
                 <GitHubIcon />
                 Github
               </a>
             </li>
-            <li className={cl.list__item}>
+            <li className={styles.list__item}>
               <a
                 href='https://t.me/romanchaban'
                 target='_blank'
-                className={cl.list__link}
+                className={styles.list__link}
               >
                 <TelegramIcon />
                 Telegram
               </a>
             </li>
-            <li className={cl.list__item}>
+            <li className={styles.list__item}>
               <a
                 href='https://www.linkedin.com/in/romanchaban1001/'
                 target='_blank'
                 rel='noreferrer'
-                className={cl.list__link}
+                className={styles.list__link}
               >
                 <LinkedInIcon />
                 LinkedIn
@@ -89,12 +89,12 @@ const Footer: FC = () => {
             </li>
           </ul>
         </>
-        <div className={cl.footer__buttons}>
-          <button className={cl.footer__button} onClick={toUppPage}>
+        <div className={styles.footer__buttons}>
+          <button className={styles.footer__button} onClick={toUppPage}>
             Back to top
           </button>
-          <button className={cl.arrow__top} onClick={toUppPage}>
-            <NavigationIcon className={cl.arrow__circle} />
+          <button className={styles.arrow__top} onClick={toUppPage}>
+            <NavigationIcon className={styles.arrow__circle} />
           </button>
         </div>
       </FooterStyledWrapper>

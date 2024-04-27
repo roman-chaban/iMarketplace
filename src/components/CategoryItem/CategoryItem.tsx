@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FC } from 'react';
-import cl from '../ShopCategory/shopCategory.module.scss';
+import styles from '../ShopCategory/shopCategory.module.scss';
 import { ICategoryItemProps } from '../../interfaces/category-item';
 
 const CategoryItemBlock = styled.div`
@@ -27,18 +27,18 @@ const CategoryItem: FC<ICategoryItemProps> = ({
       <img
         src={banner}
         alt='Iphone Banner'
-        id={cl.width}
-        className={cl.category__banner}
+        id={styles.width}
+        className={styles.category__banner}
       />
-      <div className={cl.category__titles}>
+      <div className={styles.category__titles}>
         <NavLink
           onClick={categoryTopScrolled}
           to={to}
-          className={cl.category__title}
+          className={styles.category__title}
         >
           {categoryTitle}
         </NavLink>
-        <span className={cl.category__models}>{categoryModels}</span>
+        <span className={styles.category__models}>{categoryModels}</span>
       </div>
     </CategoryItemBlock>
   );

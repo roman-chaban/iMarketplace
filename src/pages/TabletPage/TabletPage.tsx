@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from 'react';
-import cl from '../PhonesPage/phones.module.scss';
+import styles from '../PhonesPage/phones.module.scss';
 import { ProductItem } from './ProductItem';
 import products from '../../common/products/tablets.json';
 import { Tablet } from '../../interfaces/tablets';
@@ -23,7 +23,7 @@ export const TabletPage: FC = () => {
   }, [id]);
 
   return (
-    <div className={`${cl.phone__layout} ${cl.tablet__layout}`}>
+    <div className={`${styles.phone__layout} ${styles.tablet__layout}`}>
       {selectedProduct ? (
         <ProductItem tablet={selectedProduct} />
       ) : (

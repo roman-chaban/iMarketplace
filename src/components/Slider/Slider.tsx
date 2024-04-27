@@ -8,7 +8,7 @@ import 'swiper/css/scrollbar';
 import firstSlide from '../../images/category-images/Iphone15-Banner.jpg';
 import secondSlide from '../../images/category-images/aalp-magsafe-header-202309.png';
 import thirdSlice from '../../images/banner/iphones.png';
-import cl from './slider.module.scss';
+import styles from './slider.module.scss';
 
 interface Slide {
   image: string;
@@ -19,7 +19,7 @@ interface SliderProps {
   slides: Slide[];
 }
 
-const Slider: FC<SliderProps> = () => {
+export const Slider: FC<SliderProps> = () => {
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -35,20 +35,19 @@ const Slider: FC<SliderProps> = () => {
       <div className='swiper-button-next' style={{ color: '#313131' }}></div>
       <div className='swiper-button-prev' style={{ color: '#313131' }}></div>
       <SwiperSlide>
-        <img src={firstSlide} alt='Slider Product' className={cl.img__slider} />
+        <img src={firstSlide} alt='Slider Product' className={styles.img__slider} />
       </SwiperSlide>
       <SwiperSlide>
-        <img src={thirdSlice} alt='Slider Product' className={cl.img__slider} />
+        <img src={thirdSlice} alt='Slider Product' className={styles.img__slider} />
       </SwiperSlide>
       <SwiperSlide>
         <img
           src={secondSlide}
           alt='Slider Product'
-          className={cl.img__slider}
+          className={styles.img__slider}
         />
       </SwiperSlide>
     </Swiper>
   );
 };
 
-export { Slider };

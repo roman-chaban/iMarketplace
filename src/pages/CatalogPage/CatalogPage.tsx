@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import cl from './catalog.module.scss';
+import styles from './catalog.module.scss';
 import { NavLink, useNavigate } from 'react-router-dom';
 import homeIcon from '../../images/icons/Home.svg';
 import arrowRightIcon from '../../images/icons/Chevron (Arrow Right).svg';
@@ -28,21 +28,21 @@ export const CatalogPage: FC<CatalogPageProps> = ({
   return (
     <>
       <PhonesContainer className='Phones'>
-        <div className={cl.phones__navigation}>
+        <div className={styles.phones__navigation}>
           <NavLink
             to='/'
             style={{ color: '#313237' }}
-            className={cl.phones__toHome}
+            className={styles.phones__toHome}
           >
             <img onClick={goBack} src={homeIcon} alt='home icon' />
           </NavLink>
           <img src={arrowRightIcon} alt='arrow right icon' />
-          <h5 className={cl.phones__title}>{smallTitle}</h5>
+          <h5 className={styles.phones__title}>{smallTitle}</h5>
         </div>
-        <div className={cl.phones__titles}>
+        <div className={styles.phones__titles}>
           <MainTitle>{mainTitle}</MainTitle>
         </div>
-        <div className={cl.models__title}>{models}</div>
+        <div className={styles.models__title}>{models}</div>
       </PhonesContainer>
     </>
   );

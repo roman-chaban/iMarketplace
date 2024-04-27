@@ -9,7 +9,7 @@ interface CustomButtonProps {
   className: string;
 }
 
-const CustomButton: FC<CustomButtonProps> = ({
+export const CustomButton: FC<CustomButtonProps> = ({
   children,
   to,
   style,
@@ -32,4 +32,3 @@ const CustomButton: FC<CustomButtonProps> = ({
   );
 };
 
-export { CustomButton };

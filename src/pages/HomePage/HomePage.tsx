@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import cl from './home.module.scss';
+import styles from './home.module.scss';
 import { Main } from '../../components/Main/Main';
 
 export const HomePage: FC = () => {
@@ -8,7 +8,7 @@ export const HomePage: FC = () => {
   }, []);
 
   return (
-    <div className={cl.home__page}>
+    <div className={styles.home__page}>
       <Main />
     </div>
   );

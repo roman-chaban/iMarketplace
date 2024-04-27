@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import cl from './hotPrices.module.scss';
+import styles from './hotPrices.module.scss';
 import { ICatalogItemProps } from '../../interfaces/catalog-item';
 import Tablets from '../Tablets/Tablets';
 import tablets from '../../common/products/tablets.json';
@@ -23,10 +23,10 @@ const HotPrices: FC<ICatalogItemProps> = ({
 }: ICatalogItemProps) => {
   return (
     <ModelsCatalogSection>
-      <div className={cl.modelsCatalog__block}>
-        <h2 className={cl.catalog__title}>{pricesTitle}</h2>
+      <div className={styles.modelsCatalog__block}>
+        <h2 className={styles.catalog__title}>{pricesTitle}</h2>
         <h3
-          className={`${cl.catalog__title} ${cl.zoomTitle}`}
+          className={`${styles.catalog__title} ${styles.zoomTitle}`}
           style={{ fontSize: '1.4rem' }}
         >
           Swipe to view the catalog

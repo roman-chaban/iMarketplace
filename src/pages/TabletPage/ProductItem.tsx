@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import homeIcon from '../../images/icons/Home.svg';
 import rightArrowIcon from '../../images/icons/Chevron (Arrow Right).svg';
 import leftArrowIcon from '../../images/icons/Chevron (Arrow Left).svg';
-import cl from '../../pages/PhonePage/phonePage.module.scss';
+import styles from '../../pages/PhonePage/phonePage.module.scss';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
 import { PhoneCharacteristics } from '../../components/PhoneCharacteristics/PhoneCharacteristics';
 import { ProductItemProps } from '../../interfaces/tablets';
@@ -55,7 +55,7 @@ export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
 
   return (
     <>
-      <div className={cl.phone__navigationItem}>
+      <div className={styles.phone__navigationItem}>
         <img
           onClick={goToHomePage}
           src={homeIcon}
@@ -65,42 +65,42 @@ export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
         <img
           src={rightArrowIcon}
           alt='arrowRight Icon'
-          className={cl.arrowRight__icon}
+          className={styles.arrowRight__icon}
         />
-        <h4 className={cl.phone__phonesTitle}>Tablets</h4>
+        <h4 className={styles.phone__phonesTitle}>Tablets</h4>
         <img
           src={rightArrowIcon}
           alt='arrowRight Icon'
-          className={cl.arrowRight__icon}
+          className={styles.arrowRight__icon}
         />
-        <p className={cl.phoneModel__capture}>{getTitle(selectMemory)}</p>
+        <p className={styles.phoneModel__capture}>{getTitle(selectMemory)}</p>
       </div>
-      <div className={cl.backButton__item}>
+      <div className={styles.backButton__item}>
         <img src={leftArrowIcon} alt='arrowLeft Icon' />
-        <button onClick={backToTabletsPage} className={cl.phoneBack__button}>
+        <button onClick={backToTabletsPage} className={styles.phoneBack__button}>
           Back to Tablets
         </button>
       </div>
-      <h2 className={cl.phoneModel__title}>{getTitle(selectMemory)}</h2>
-      <div className={cl.product__gallery}>
-        <div className={cl.phonesAbout__block}>
-          <div className={cl.phone__images}>
-            <div className={cl.images__wrapper}>
+      <h2 className={styles.phoneModel__title}>{getTitle(selectMemory)}</h2>
+      <div className={styles.product__gallery}>
+        <div className={styles.phonesAbout__block}>
+          <div className={styles.phone__images}>
+            <div className={styles.images__wrapper}>
               {tablet.images.map((image, index) => (
                 <img
                   key={index}
                   src={image}
                   alt='tablet'
-                  className={`${cl.phoneSmall__image} ${
-                    mainImage === image ? cl.active : ''
+                  className={`${styles.phoneSmall__image} ${
+                    mainImage === image ? styles.active : ''
                   }`}
                   onClick={() => handleThumbnailClick(image)}
                 />
               ))}
             </div>
-            <img src={mainImage} alt='product' className={cl.phone__img} />
+            <img src={mainImage} alt='product' className={styles.phone__img} />
           </div>
-          <div className={cl.product__block}>
+          <div className={styles.product__block}>
             <PhoneCharacteristics setSelectMemory={setSelectMemory} />
             <TabletsTechSpecs product={tablet} />
           </div>

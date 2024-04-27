@@ -1,15 +1,15 @@
-import cl from './phonesAbout.module.scss';
+import styles from './phonesAbout.module.scss';
 
 const PhonesAbout = () => {
   return (
-    <article className={cl.phonesAbout}>
-      <h2 className={cl.about__title}>About</h2>
-      <div className={cl.about__titlesBlock}>
-        <div className={cl.about__titles}>
-          <h3 className={cl.first__title} style={{ paddingTop: '32px' }}>
+    <article className={styles.phonesAbout}>
+      <h2 className={styles.about__title}>About</h2>
+      <div className={styles.about__titlesBlock}>
+        <div className={styles.about__titles}>
+          <h3 className={styles.first__title} style={{ paddingTop: '32px' }}>
             And then there was Pro
           </h3>
-          <p className={cl.second__subTitle}>
+          <p className={styles.second__subTitle}>
             A transformative triple‑camera system that adds tons of capability
             without complexity. <br />
             <br />
@@ -19,9 +19,9 @@ const PhonesAbout = () => {
             called Pro.
           </p>
         </div>
-        <div className={cl.about__titles}>
-          <h3 className={cl.first__title}>Camera</h3>
-          <p className={cl.second__subTitle}>
+        <div className={styles.about__titles}>
+          <h3 className={styles.first__title}>Camera</h3>
+          <p className={styles.second__subTitle}>
             Meet the first triple‑camera system to combine cutting‑edge
             technology with the legendary simplicity of iPhone. Capture up to
             four times more scene. Get beautiful images in drastically lower
@@ -30,12 +30,12 @@ const PhonesAbout = () => {
             anything like it.
           </p>
         </div>
-        <div className={cl.about__titles}>
-          <h3 className={cl.first__title}>
+        <div className={styles.about__titles}>
+          <h3 className={styles.first__title}>
             Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it.
             Love it.
           </h3>
-          <p className={cl.second__subTitle}>
+          <p className={styles.second__subTitle}>
             iPhone lets you capture videos that are beautifully true to life,
             with greater detail and smoother motion. Epic processing power means
             it can shoot 4K video with extended dynamic range and cinematic

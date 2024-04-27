@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { useState, useEffect } from 'react';
-import './loader.scss';
+import styles from './loader.module.scss';
 import { App } from '../../App';
 import { Comment } from 'react-loader-spinner';
 import { MainTitle } from '../UI Components/MainTitle/MainTitle';
@@ -15,7 +15,7 @@ export const Loader: FC<TypeLoader> = () => {
 
   useEffect(() => {
     const changeLoading = async () => {
-      const loading = await setTimeout(() => {
+      const loading = setTimeout(() => {
         setLoader(true);
       }, 1800);
       return loading;
@@ -25,8 +25,8 @@ export const Loader: FC<TypeLoader> = () => {
 
   if (!loader) {
     return (
-      <div className='blocks__loader'>
-        <MainTitle className='block__title'>
+      <div className={styles.blocks__loader}>
+        <MainTitle className={styles.block__title}>
           Welcome to iMarketplace!
           <Apple style={{ fontSize: 60, color: '#89939a' }} />
         </MainTitle>
@@ -43,7 +43,5 @@ export const Loader: FC<TypeLoader> = () => {
       </div>
     );
   }
-
   return <App />;
 };
-

@@ -1,5 +1,5 @@
 import { CatalogItem } from '../CatalogItem/CatalogItem';
-import cl from '../../pages/PhonesPage/phones.module.scss';
+import styles from '../../pages/PhonesPage/phones.module.scss';
 import { PhonesProps } from '../../interfaces/phones';
 import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,9 +10,9 @@ import { Scrollbar } from 'swiper/modules';
 
 export const Phones: FC<PhonesProps> = ({ products }: PhonesProps) => {
   return (
-    <div className={cl.phones__catalog}>
+    <div className={styles.phones__catalog}>
       <Swiper
-        wrapperClass={cl.swiper__wrapper}
+        wrapperClass={styles.swiper__wrapper}
         pagination={{
           dynamicBullets: true,
         }}
@@ -31,7 +31,7 @@ export const Phones: FC<PhonesProps> = ({ products }: PhonesProps) => {
         {products.map((product) => (
           <SwiperSlide
             key={product.phoneId}
-            className={cl.slide}
+            className={styles.slide}
             style={{ width: '240px', marginLeft: 0 }}
           >
             <CatalogItem

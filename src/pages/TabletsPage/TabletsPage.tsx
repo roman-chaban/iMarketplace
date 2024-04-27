@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
 import { CustomSelect } from '../../components/Select/Select';
-import cl from './tablets.module.scss';
+import styles from './tablets.module.scss';
 import { Tablet } from '../../interfaces/tablets';
 import tabletProducts from '../../common/products/tablets.json';
 import Pagination from '@mui/material/Pagination';
@@ -78,33 +78,33 @@ export const TabletsPage: FC = () => {
   };
 
   return (
-    <div className={cl.catalog__container}>
+    <div className={styles.catalog__container}>
       <CatalogPage
         smallTitle='Tablets'
         models={`${tabletProducts.length} models`}
         mainTitle='Tablets'
       />
-      <div className={cl.page__select}>
+      <div className={styles.page__select}>
         <label htmlFor='sort'>
-          <span id='sort' className={cl.select__title}>
+          <span id='sort' className={styles.select__title}>
             Sort by:
           </span>
           <CustomSelect />
         </label>
         <label htmlFor='items'>
-          <span id='items' className={cl.select__title}>
+          <span id='items' className={styles.select__title}>
             Choose items:
           </span>
           <Select
             placeholder='Choose items'
-            className={cl.select__width}
+            className={styles.select__width}
             options={itemsOptions}
             value={{ value: phonesPerPage, label: `Items ${phonesPerPage}` }}
             onChange={handlePhonePerPageChange}
           />
         </label>
       </div>
-      <div className={cl.catalog__containerTablets}>
+      <div className={styles.catalog__containerTablets}>
         {currentTablets.map((tablet) => (
           <TabletItem
             key={tablet.id}
@@ -120,16 +120,16 @@ export const TabletsPage: FC = () => {
         ))}
       </div>
       <div>
-        <div className={cl.pagination__item}>
+        <div className={styles.pagination__item}>
           <button
-            className={`btn btn-secondary ${cl.btn__pagination}`}
+            className={`btn btn-secondary ${styles.btn__pagination}`}
             onClick={prevPage}
             disabled={currentPage === 1}
           >
             Prev Page
           </button>
           <Pagination
-            className={cl.pagination__block}
+            className={styles.pagination__block}
             shape='rounded'
             count={Math.ceil(products.length / phonesPerPage)}
             page={currentPage}
@@ -139,7 +139,7 @@ export const TabletsPage: FC = () => {
             hideNextButton
           />
           <button
-            className={`btn btn-secondary ${cl.btn__pagination}`}
+            className={`btn btn-secondary ${styles.btn__pagination}`}
             onClick={nextPage}
             disabled={indexOfLastPhone >= products.length}
           >

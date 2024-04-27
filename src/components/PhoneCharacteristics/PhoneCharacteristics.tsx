@@ -1,4 +1,4 @@
-import cl from './phoneCharacteristics.module.scss';
+import styles from './phoneCharacteristics.module.scss';
 import React, { FC, useRef, useState, useEffect } from 'react';
 import Selected from '../../images/phone-catalog-colors/Selected.svg';
 import Default1 from '../../images/phone-catalog-colors/Default-2.svg';
@@ -66,37 +66,37 @@ export const PhoneCharacteristics: FC<PhoneCharacteristicsProps> = ({
   };
 
   return (
-    <div className={cl.phoneCharacteristics__container}>
-      <div className={cl.characteristics__block}>
-        <div className={cl.colors__itemBlock}>
-          <h4 className={cl.colors__title}>Available colors</h4>
-          <div className={cl.checkColors__items}>
-            <button type='button' className={cl.checkColor__button}>
+    <div className={styles.phoneCharacteristics__container}>
+      <div className={styles.characteristics__block}>
+        <div className={styles.colors__itemBlock}>
+          <h4 className={styles.colors__title}>Available colors</h4>
+          <div className={styles.checkColors__items}>
+            <button type='button' className={styles.checkColor__button}>
               <img src={Selected} alt='color-selected' />
             </button>
-            <button type='button' className={cl.checkColor__button}>
+            <button type='button' className={styles.checkColor__button}>
               <img src={Default1} alt='color-selected' />
             </button>
-            <button type='button' className={cl.checkColor__button}>
+            <button type='button' className={styles.checkColor__button}>
               <img src={Default2} alt='color-selected' />
             </button>
-            <button type='button' className={cl.checkColor__button}>
+            <button type='button' className={styles.checkColor__button}>
               <img src={Default3} alt='color-selected' />
             </button>
           </div>
         </div>
-        <div className={cl.selectCapacity__block}>
-          <h4 className={cl.capacity__title}>
+        <div className={styles.selectCapacity__block}>
+          <h4 className={styles.capacity__title}>
             Select capacity: {selectMemory}
           </h4>
-          <div className={cl.capacity__buttons}>
+          <div className={styles.capacity__buttons}>
             {Object.entries(productMemory).map(([key, value], index) => (
               <button
                 key={key}
                 ref={buttonsRefs[index]}
                 onClick={() => handleMemorySelection(value, index)}
-                className={`${cl.select__capacity} ${
-                  selectMemory === value ? cl.selected : ''
+                className={`${styles.select__capacity} ${
+                  selectMemory === value ? styles.selected : ''
                 }`}
               >
                 {value}
@@ -105,8 +105,6 @@ export const PhoneCharacteristics: FC<PhoneCharacteristicsProps> = ({
           </div>
         </div>
       </div>
-
     </div>
   );
 };
-

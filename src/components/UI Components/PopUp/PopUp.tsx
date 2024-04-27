@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../common/routes/routes';
-import cl from '../../Header/header.module.scss';
+import styles from '../../Header/header.module.scss';
 import { useAuth } from '../../../hooks/useAuth';
 import { Apple } from '@mui/icons-material';
 
@@ -25,9 +25,9 @@ export const PopUp: FC = () => {
   const id = open ? 'simple-popover' : undefined;
 
   return (
-    <div className={cl.popup__block}>
+    <div className={styles.popup__block}>
       <Button
-        className={cl.pop__up}
+        className={styles.pop__up}
         aria-describedby={id}
         variant='contained'
         onClick={handleClick}
@@ -36,7 +36,7 @@ export const PopUp: FC = () => {
       </Button>
       <Popover
         id={id}
-        className={cl.popover}
+        className={styles.popover}
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}
@@ -46,14 +46,14 @@ export const PopUp: FC = () => {
         }}
       >
         <Typography sx={{ p: 2 }}>
-          <NavLink className={cl.small__size} to={ROUTES.AUTHORIZATION}>
+          <NavLink className={styles.small__size} to={ROUTES.AUTHORIZATION}>
             Sign in
           </NavLink>
         </Typography>
         <Typography sx={{ p: 2 }}>
           <NavLink
             onClick={() => signOut(() => navigate('/'))}
-            className={cl.small__size}
+            className={styles.small__size}
             to={ROUTES.HOME}
           >
             Sign out

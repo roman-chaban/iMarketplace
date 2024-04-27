@@ -17,8 +17,6 @@ interface IMainTitleProps {
   className?: string;
 }
 
-const MainTitle: FC<IMainTitleProps> = ({ children, className }) => {
+export const MainTitle: FC<IMainTitleProps> = ({ children, className }) => {
   return <MainTitleStyled className={className}>{children}</MainTitleStyled>;
 };
-
-export { MainTitle };

@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { styled } from 'styled-components';
-import cl from './header.module.scss';
+import styles from './header.module.scss';
 import { HeaderNavBar } from '../HeaderNavBar/HeaderNavBar';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
@@ -54,40 +54,40 @@ export const Header: FC = (): JSX.Element => {
   }, []);
 
   return (
-    <HeaderWrapper className={cl.header}>
+    <HeaderWrapper className={styles.header}>
       <HeaderContainer
-        className={` ${cl.header__navContainer} ${cl.header} ${
-          isScrolled ? cl.scrolled : ''
+        className={` ${styles.header__navContainer} ${styles.header} ${
+          isScrolled ? styles.scrolled : ''
         }`}
       >
-        <div onClick={toPageBottomScrolled} className={cl.header__logo}>
-          <a href='#!' className={cl.logo__link}>
+        <div onClick={toPageBottomScrolled} className={styles.header__logo}>
+          <a href='#!' className={styles.logo__link}>
             <Apple
-              className={cl.apple__logo}
+              className={styles.apple__logo}
               style={{ fontSize: 30, color: '#89939A' }}
             />
           </a>
-          <h3 className={cl.logo__title}>iMarketplace</h3>
+          <h3 className={styles.logo__title}>iMarketplace</h3>
         </div>
-        <nav className={cl.navigation__bar}>
-          <ul className={cl.nav}>
-            <li tabIndex={1} className={cl.nav__item}>
-              <CustomLink className={cl.nav__link} to='/'>
+        <nav className={styles.navigation__bar}>
+          <ul className={styles.nav}>
+            <li tabIndex={1} className={styles.nav__item}>
+              <CustomLink className={styles.nav__link} to='/'>
                 home
               </CustomLink>
             </li>
-            <li tabIndex={2} className={cl.nav__item}>
-              <CustomLink className={cl.nav__link} to='/phones'>
+            <li tabIndex={2} className={styles.nav__item}>
+              <CustomLink className={styles.nav__link} to='/phones'>
                 phones
               </CustomLink>
             </li>
-            <li tabIndex={3} className={cl.nav__item}>
-              <CustomLink className={cl.nav__link} to='/tablets'>
+            <li tabIndex={3} className={styles.nav__item}>
+              <CustomLink className={styles.nav__link} to='/tablets'>
                 tablets
               </CustomLink>
             </li>
-            <li tabIndex={4} className={cl.nav__item}>
-              <CustomLink className={cl.nav__link} to='accessories'>
+            <li tabIndex={4} className={styles.nav__item}>
+              <CustomLink className={styles.nav__link} to='accessories'>
                 accessories
               </CustomLink>
             </li>
@@ -95,10 +95,10 @@ export const Header: FC = (): JSX.Element => {
         </nav>
         <PopUp />
         <HeaderNavBar />
-        <div onClick={toggleMenu} className={cl.burger__buttonBlock}>
-          <button type='button' className={cl.button__burgerLine}></button>
-          <button type='button' className={cl.button__burgerLine}></button>
-          <button type='button' className={cl.button__burgerLine}></button>
+        <div onClick={toggleMenu} className={styles.burger__buttonBlock}>
+          <button type='button' className={styles.button__burgerLine}></button>
+          <button type='button' className={styles.button__burgerLine}></button>
+          <button type='button' className={styles.button__burgerLine}></button>
         </div>
       </HeaderContainer>
       {isMenuOpen && <BurgerMenu />}

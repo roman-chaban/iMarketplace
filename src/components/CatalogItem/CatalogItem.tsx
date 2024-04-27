@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import cl from './catalogItem.module.scss';
+import styles from './catalogItem.module.scss';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../UI Components/CustomButton/CustomButton';
@@ -46,41 +46,41 @@ export const CatalogItem: FC<ICatalogItemProps> = ({
   };
 
   return (
-    <CardItem className={cl.cardItem}>
-      <div className={cl.card__container}>
-        <img src={imgUrl} alt='iphone' className={cl.image__hovered} />
-        <h3 className={cl.card__title}>{title}</h3>
+    <CardItem className={styles.cardItem}>
+      <div className={styles.card__container}>
+        <img src={imgUrl} alt='iphone' className={styles.image__hovered} />
+        <h3 className={styles.card__title}>{title}</h3>
         <CustomButton
           style={{ border: '2px solid #6d6474', marginBottom: 10 }}
-          className={cl.button}
+          className={styles.button}
         >
           <NavLink
             onClick={toUpPage}
-            className={cl.view__product}
+            className={styles.view__product}
             to={`/products/${phoneId}`}
           >
             View Product
           </NavLink>
         </CustomButton>
       </div>
-      <span className={cl.price}>
-        {price} <strong id={cl.discount}>{discount}</strong>
+      <span className={styles.price}>
+        {price} <strong id={styles.discount}>{discount}</strong>
       </span>
-      <ul className={cl.card__list}>
-        <li className={cl.list__item}>
+      <ul className={styles.card__list}>
+        <li className={styles.list__item}>
           Screen
-          <span className={cl.list__itemSecondary}>{displaySize}</span>
+          <span className={styles.list__itemSecondary}>{displaySize}</span>
         </li>
-        <li className={cl.list__item}>
+        <li className={styles.list__item}>
           Capacity
-          <span className={cl.list__itemSecondary}>{memory}</span>
+          <span className={styles.list__itemSecondary}>{memory}</span>
         </li>
-        <li className={cl.list__item}>
+        <li className={styles.list__item}>
           RAM
-          <span className={cl.list__itemSecondary}>{capacity}</span>
+          <span className={styles.list__itemSecondary}>{capacity}</span>
         </li>
       </ul>
-      <div className={cl.catalog__buttonItems}>
+      <div className={styles.catalog__buttonItems}>
         <CatalogButton />
         <FavoriteButton
           product={{

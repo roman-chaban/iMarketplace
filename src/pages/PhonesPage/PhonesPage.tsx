@@ -1,6 +1,6 @@
 import { FC, useState, useEffect } from 'react';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
-import cl from './phones.module.scss';
+import styles from './phones.module.scss';
 import phonesProducts from '../../common/products/products.json';
 import { Pagination } from '../../components/Pagination/Pagination';
 import { CustomSelect } from '../../components/Select/Select';
@@ -76,23 +76,23 @@ export const PhonesPage: FC = () => {
   };
 
   return (
-    <div className={cl.phones} style={{ margin: '0 auto' }}>
-      <div className={cl.catalog__container}>
+    <div className={styles.phones} style={{ margin: '0 auto' }}>
+      <div className={styles.catalog__container}>
         <CatalogPage
           smallTitle='Phones'
           models={`${products.length} models`}
           mainTitle='Mobile phones'
         />
-        <div className={cl.page__select}>
+        <div className={styles.page__select}>
           <label htmlFor='sort'>
-            <span id='sort' className={cl.select__title}>Sort by:</span>
+            <span id='sort' className={styles.select__title}>Sort by:</span>
             <CustomSelect />
           </label>
           <label htmlFor='items'>
-            <span id='items' className={cl.select__title}>Choose items:</span>
+            <span id='items' className={styles.select__title}>Choose items:</span>
             <Select
               placeholder='Choose items'
-              className={cl.select__width}
+              className={styles.select__width}
               options={itemsOptions}
               value={{ value: phonePerPage, label: `Items ${phonePerPage}` }}
               onChange={handlePhonePerPageChange}
@@ -100,7 +100,7 @@ export const PhonesPage: FC = () => {
           </label>
         </div>
       </div>
-      <div className={cl.catalog__containerPhones}>
+      <div className={styles.catalog__containerPhones}>
         {currentPhones.map((product) => (
           <CatalogItem
             key={product.phoneId}
@@ -116,9 +116,9 @@ export const PhonesPage: FC = () => {
         ))}
       </div>
       <div>
-        <div className={cl.pagination__item}>
+        <div className={styles.pagination__item}>
           <button
-            className={`btn btn-secondary ${cl.btn__item}`}
+            className={`btn btn-secondary ${styles.btn__item}`}
             onClick={prevPage}
             disabled={currentPage === 1}
           >
@@ -131,7 +131,7 @@ export const PhonesPage: FC = () => {
             paginate={paginate}
           />
           <button
-            className={`btn btn-secondary ${cl.btn__item}`}
+            className={`btn btn-secondary ${styles.btn__item}`}
             onClick={nextPage}
             disabled={indexOfLastPhone >= products.length}
           >

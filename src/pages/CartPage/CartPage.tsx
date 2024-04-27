@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
-import cl from './catalogPage.module.scss';
+import styles from './catalogPage.module.scss';
 
 type TypeContent = boolean;
 
@@ -15,7 +15,7 @@ export const CartPage: FC = () => {
       <CatalogPage smallTitle='Cart' mainTitle='Products Cart' models='' />
       <div>
         {isContent && (
-          <h2 className={cl.empty__title}>Products page is empty</h2>
+          <h2 className={styles.empty__title}>Products page is empty</h2>
         )}
       </div>
     </>
