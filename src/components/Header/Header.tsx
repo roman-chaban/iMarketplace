@@ -1,28 +1,11 @@
 import { FC, useEffect, useState } from 'react';
-import { styled } from 'styled-components';
 import styles from './header.module.scss';
 import { HeaderNavBar } from '../HeaderNavBar/HeaderNavBar';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { PopUp } from '../../components/UI Components/PopUp/PopUp';
 import { Apple } from '@mui/icons-material';
-
-const HeaderWrapper = styled.header`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0px 1.5px 0px 0px #e2e6e9;
-`;
-
-const HeaderContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0 auto;
-`;
+import { HeaderContainer, HeaderWrapper } from './styled/header';
 
 export const Header: FC = (): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);

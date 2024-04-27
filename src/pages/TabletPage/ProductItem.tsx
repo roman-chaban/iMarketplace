@@ -9,6 +9,7 @@ import { PhoneCharacteristics } from '../../components/PhoneCharacteristics/Phon
 import { ProductItemProps } from '../../interfaces/tablets';
 import { TabletsAbout } from '../../components/TabletsAbout/TabletsAbout';
 import { TabletsTechSpecs } from '../../components/TabletsTechSpecs/TabletsTechSpecs';
+import { ROUTES } from '../../common/routes/routes';
 
 export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
   }, [tablet]);
 
   const goToHomePage = () => {
-    navigate('/', { replace: true });
+    navigate(ROUTES.HOME, { replace: true });
   };
 
   const backToTabletsPage = () => {
@@ -77,7 +78,10 @@ export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
       </div>
       <div className={styles.backButton__item}>
         <img src={leftArrowIcon} alt='arrowLeft Icon' />
-        <button onClick={backToTabletsPage} className={styles.phoneBack__button}>
+        <button
+          onClick={backToTabletsPage}
+          className={styles.phoneBack__button}
+        >
           Back to Tablets
         </button>
       </div>

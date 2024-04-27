@@ -28,7 +28,7 @@ const MainTitle = styled.h1`
   };
 `;
 
-const Hero: FC = (): JSX.Element => {
+export const Hero: FC = (): JSX.Element => {
   return (
     <HeroSection>
       <div className={styles.hero__container}>
@@ -50,4 +50,3 @@ const Hero: FC = (): JSX.Element => {
   );
 };
 
-export { Hero };

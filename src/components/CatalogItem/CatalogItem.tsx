@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import styles from './catalogItem.module.scss';
-import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../UI Components/CustomButton/CustomButton';
 import { FavoriteButton } from '../UI Components/FavoriteButton/FavoriteButton';
@@ -9,18 +8,7 @@ import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
 import { ICatalogItemProps } from '../../interfaces/catalog-item';
 import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
 import { Products } from '../../redux/interfaces/products';
-
-const CardItem = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 20rem;
-  padding: 10px 14px;
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 2px 2px 5px 0px rgba(0, 64, 128, 0.2);
-`;
+import { CardItem } from './styled/catalogItem';
 
 export const CatalogItem: FC<ICatalogItemProps> = ({
   imgUrl = '',

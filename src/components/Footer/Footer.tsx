@@ -1,36 +1,15 @@
 import { FC } from 'react';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import styles from './footer.module.scss';
-import styled from 'styled-components';
 import { Apple } from '@mui/icons-material';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
 import { ROUTES } from '../../common/routes/routes';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TelegramIcon from '@mui/icons-material/Telegram';
+import { FooterContainer, FooterStyledWrapper } from './styled/footer';
 
-const FooterContainer = styled.footer`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 32px;
-  background: #d2d3d2;
-`;
-
-const FooterStyledWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  @media (max-width: 700px) {
-    flex-direction: column;
-    gap: 30px;
-  }
-`;
-
-const Footer: FC = () => {
+export const Footer: FC = () => {
   const toUppPage = () => {
     window.scrollTo({
       top: 0,
@@ -101,5 +80,3 @@ const Footer: FC = () => {
     </FooterContainer>
   );
 };
-
-export { Footer };
