@@ -60,11 +60,12 @@ export const productSlice = createSlice({
         state.favoriteCounter = state.favorites.length;
       }
 
-      if (state.favorites.length === 0) {
+      if (state.favorites.length === 0 && state.favoritesTablets.length === 0) {
         state.favoriteCounter = 0;
       }
     },
-    deleteFavoritesTablets: (state, action: PayloadAction<string>) => {
+
+    deleteFavoriteTablets: (state, action: PayloadAction<string>) => {
       const index = state.favoritesTablets.findIndex(
         (tablet) => tablet.id === action.payload
       );
@@ -73,7 +74,7 @@ export const productSlice = createSlice({
         state.favoriteCounter = state.favoritesTablets.length;
       }
 
-      if (state.favoritesTablets.length === 0) {
+      if (state.favorites.length === 0 && state.favoritesTablets.length === 0) {
         state.favoriteCounter = 0;
       }
     },
@@ -98,7 +99,7 @@ export const {
   selectedProduct,
   deleteFavorites,
   addToFavoritesTablets,
-  deleteFavoritesTablets,
+  deleteFavoriteTablets,
   deleteFromCart,
 } = productSlice.actions;
 

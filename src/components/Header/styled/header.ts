@@ -15,4 +15,5 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   margin: 0 auto;
+  border-bottom: 2px solid rgba(173, 165, 167, 0.795);
 `;

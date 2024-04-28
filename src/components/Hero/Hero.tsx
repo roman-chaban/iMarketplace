@@ -17,7 +17,7 @@ const HeroSection = styled.section`
 `;
 
 const MainTitle = styled.h1`
-  padding: 10px 0;
+  padding: 10px 24px;
   color: #313237;
   font-size: 48px;
   font-weight: 700;
@@ -25,7 +25,7 @@ const MainTitle = styled.h1`
   letter-spacing: -0.48px;
   @media (max-width: 850px) {
     font-size: 34px;
-  };
+  }
 `;
 
 export const Hero: FC = (): JSX.Element => {
@@ -33,7 +33,7 @@ export const Hero: FC = (): JSX.Element => {
     <HeroSection>
       <div className={styles.hero__container}>
         <MainTitle className={styles.mainHero__title}>
-          Welcome to iMarketplace!
+          Welcome to iMarketplace! It's great to have you here.
           <img
             className={styles.appleLogo}
             src={AppleLogo}
@@ -49,4 +49,3 @@ export const Hero: FC = (): JSX.Element => {
     </HeroSection>
   );
 };
-
