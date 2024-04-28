@@ -109,3 +109,13 @@
   flex-direction: column;
   gap: 2rem;
 }
+
+.author__copyrightBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #313131fa;
+  color: $white;
+  font-weight: 700;
+}

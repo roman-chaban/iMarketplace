@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, Fragment } from 'react';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import styles from './footer.module.scss';
 import { Apple } from '@mui/icons-material';
@@ -17,66 +17,71 @@ export const Footer: FC = () => {
     });
   };
   return (
-    <FooterContainer>
-      <FooterStyledWrapper>
-        <>
-          <button className={styles.logo__buttonUp} onClick={toUppPage}>
-            <CustomLink to={ROUTES.HOME}>
-              <h3 className={styles.logo__capture}>
-                <Apple
-                  style={{ fontSize: '30' }}
-                  className={styles.footer__appleLogo}
-                />
-                iMarketplace
-              </h3>
-            </CustomLink>
-          </button>
-        </>
-        <>
-          <ul className={styles.footer__menu}>
-            <li className={styles.list__item}>
-              <a
-                href='https://github.com/Chaban29'
-                target='_blank'
-                rel='noreferrer'
-                className={styles.list__link}
-              >
-                <GitHubIcon />
-                Github
-              </a>
-            </li>
-            <li className={styles.list__item}>
-              <a
-                href='https://t.me/romanchaban'
-                target='_blank'
-                className={styles.list__link}
-              >
-                <TelegramIcon />
-                Telegram
-              </a>
-            </li>
-            <li className={styles.list__item}>
-              <a
-                href='https://www.linkedin.com/in/romanchaban1001/'
-                target='_blank'
-                rel='noreferrer'
-                className={styles.list__link}
-              >
-                <LinkedInIcon />
-                LinkedIn
-              </a>
-            </li>
-          </ul>
-        </>
-        <div className={styles.footer__buttons}>
-          <button className={styles.footer__button} onClick={toUppPage}>
-            Back to top
-          </button>
-          <button className={styles.arrow__top} onClick={toUppPage}>
-            <NavigationIcon className={styles.arrow__circle} />
-          </button>
-        </div>
-      </FooterStyledWrapper>
-    </FooterContainer>
+    <Fragment>
+      <FooterContainer>
+        <FooterStyledWrapper>
+          <>
+            <button className={styles.logo__buttonUp} onClick={toUppPage}>
+              <CustomLink to={ROUTES.HOME}>
+                <h3 className={styles.logo__capture}>
+                  <Apple
+                    style={{ fontSize: '30' }}
+                    className={styles.footer__appleLogo}
+                  />
+                  iMarketplace
+                </h3>
+              </CustomLink>
+            </button>
+          </>
+          <>
+            <ul className={styles.footer__menu}>
+              <li className={styles.list__item}>
+                <a
+                  href='https://github.com/Chaban29'
+                  target='_blank'
+                  rel='noreferrer'
+                  className={styles.list__link}
+                >
+                  <GitHubIcon />
+                  Github
+                </a>
+              </li>
+              <li className={styles.list__item}>
+                <a
+                  href='https://t.me/romanchaban'
+                  target='_blank'
+                  className={styles.list__link}
+                >
+                  <TelegramIcon />
+                  Telegram
+                </a>
+              </li>
+              <li className={styles.list__item}>
+                <a
+                  href='https://www.linkedin.com/in/romanchaban1001/'
+                  target='_blank'
+                  rel='noreferrer'
+                  className={styles.list__link}
+                >
+                  <LinkedInIcon />
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </>
+          <div className={styles.footer__buttons}>
+            <button className={styles.footer__button} onClick={toUppPage}>
+              Back to top
+            </button>
+            <button className={styles.arrow__top} onClick={toUppPage}>
+              <NavigationIcon className={styles.arrow__circle} />
+            </button>
+          </div>
+        </FooterStyledWrapper>
+      </FooterContainer>
+      <div className={styles.author__copyrightBlock}>
+        Developed by Roman Chaban &copy;
+      </div>
+    </Fragment>
   );
 };
