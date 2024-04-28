@@ -14,13 +14,11 @@ import { ROUTES } from '../../common/routes/routes';
 export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
   const navigate = useNavigate();
   useParams<{ id: string }>();
-  const [mainImage, setMainImage] = useState<string>(
-    tablet ? tablet.images[0] : ''
-  );
+  const [mainImage, setMainImage] = useState<string>('');
   const [selectMemory, setSelectMemory] = useState<string>('64 GB');
 
   useEffect(() => {
-    if (tablet) {
+    if (tablet && tablet.images && tablet.images.length > 0) {
       setMainImage(tablet.images[0]);
     }
   }, [tablet]);
@@ -90,17 +88,18 @@ export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
         <div className={styles.phonesAbout__block}>
           <div className={styles.phone__images}>
             <div className={styles.images__wrapper}>
-              {tablet.images.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt='tablet'
-                  className={`${styles.phoneSmall__image} ${
-                    mainImage === image ? styles.active : ''
-                  }`}
-                  onClick={() => handleThumbnailClick(image)}
-                />
-              ))}
+              {tablet.images &&
+                tablet.images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt='tablet'
+                    className={`${styles.phoneSmall__image} ${
+                      mainImage === image ? styles.active : ''
+                    }`}
+                    onClick={() => handleThumbnailClick(image)}
+                  />
+                ))}
             </div>
             <img src={mainImage} alt='product' className={styles.phone__img} />
           </div>
