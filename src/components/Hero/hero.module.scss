@@ -47,6 +47,21 @@
   border-radius: 5px;
 }
 
+@keyframes fadeInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mainHero__title {
+  animation: fadeInFromLeft 1s ease forwards;
+}
+
 @media (max-width: 850px) {
   .left__swipper,
   .right__swipper {
