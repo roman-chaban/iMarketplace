@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Products } from '../interfaces/products';
+import { Tablet } from '../../interfaces/tablets';
 
 interface ProductsState {
   cart: Products[];
   favorites: Products[];
+  favoritesTablets: Tablet[];
   selectedProduct: Products[];
   favoriteCounter: number;
   basketCounter: number;
@@ -12,6 +14,7 @@ interface ProductsState {
 const initialState: ProductsState = {
   cart: [],
   favorites: [],
+  favoritesTablets: [],
   selectedProduct: [],
   favoriteCounter: 0,
   basketCounter: 0,
@@ -39,6 +42,15 @@ export const productSlice = createSlice({
         state.favoriteCounter++;
       }
     },
+    addToFavoritesTablets: (state, action: PayloadAction<Tablet>) => {
+      const existingFavorite = state.favoritesTablets.find(
+        (favorite) => favorite.id === action.payload.id
+      );
+      if (!existingFavorite) {
+        state.favoritesTablets.push(action.payload);
+        state.favoriteCounter++;
+      }
+    },
     deleteFavorites: (state, action: PayloadAction<number>) => {
       const index = state.favorites.findIndex(
         (good) => good.phoneId === action.payload
@@ -49,6 +61,19 @@ export const productSlice = createSlice({
       }
 
       if (state.favorites.length === 0) {
+        state.favoriteCounter = 0;
+      }
+    },
+    deleteFavoritesTablets: (state, action: PayloadAction<string>) => {
+      const index = state.favoritesTablets.findIndex(
+        (tablet) => tablet.id === action.payload
+      );
+      if (index !== -1) {
+        state.favoritesTablets.splice(index, 1);
+        state.favoriteCounter = state.favoritesTablets.length;
+      }
+
+      if (state.favoritesTablets.length === 0) {
         state.favoriteCounter = 0;
       }
     },
@@ -72,6 +97,8 @@ export const {
   addToFavorites,
   selectedProduct,
   deleteFavorites,
+  addToFavoritesTablets,
+  deleteFavoritesTablets,
   deleteFromCart,
 } = productSlice.actions;
 

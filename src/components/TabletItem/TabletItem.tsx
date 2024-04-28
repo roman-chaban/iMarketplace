@@ -4,8 +4,10 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../UI Components/CustomButton/CustomButton';
 import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
-import { FavoriteButton } from '../UI Components/FavoriteButton/FavoriteButton';
 import { Tablet } from '../../interfaces/tablets';
+import { TabletFavoriteButton } from '../TabletFavoriteButton/TabletFavoriteButton';
+import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
+import { addToFavoritesTablets } from '../../redux/slices/productSlice';
 
 const CardItem = styled.div`
   position: relative;
@@ -36,10 +38,20 @@ export const TabletItem: FC<Tablet> = ({
     });
   };
 
+  const dispatch = useAppDispatch();
+
+  const handleAddToFavorites = (product: Tablet) => {
+    dispatch(addToFavoritesTablets(product));
+  };
+
   return (
     <CardItem className={styles.cardItem}>
       <div className={styles.card__container}>
-        <img src={images[0]} alt='tablet' className={styles.image__hovered} />
+        <img
+          src={images === undefined ? '' : images[0]}
+          alt='tablet'
+          className={styles.image__hovered}
+        />
         <h3 className={styles.card__title}>{name}</h3>
         <CustomButton
           style={{ border: '2px solid #6d6474', marginBottom: 10 }}
@@ -74,9 +86,11 @@ export const TabletItem: FC<Tablet> = ({
       </ul>
       <div className={styles.catalog__buttonItems}>
         <CatalogButton />
-        <FavoriteButton />
+        <TabletFavoriteButton
+          product={{ images, id, name, priceRegular }}
+          onClick={handleAddToFavorites}
+        />
       </div>
     </CardItem>
   );
 };
-
