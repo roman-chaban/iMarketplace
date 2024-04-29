@@ -79,9 +79,9 @@ export const Footer: FC = () => {
           </div>
         </FooterStyledWrapper>
       </FooterContainer>
-      <div className={styles.author__copyrightBlock}>
+      {/* <div className={styles.author__copyrightBlock}>
         Developed by Roman Chaban &copy;
-      </div>
+      </div> */}
     </Fragment>
   );
 };
