@@ -13,18 +13,18 @@ import { PhonesTechSpecs } from '../PhonesTechSpecs/PhonesTechSpecs';
 
 const ProductItem: FC<ProductProps> = memo(() => {
   const navigate = useNavigate();
-  const { phoneId } = useParams<{ phoneId: string }>();
-  const parsedPhoneId = phoneId ? parseInt(phoneId) : undefined;
-  const phone = products.find((product) => product.phoneId === parsedPhoneId);
+  const { title } = useParams<{ title: string }>();
+  const productTitle = title ? title : undefined;
+  const phone = products.find((product) => product.title === productTitle);
   const [mainImage, setMainImage] = useState<string>(phone ? phone.imgUrl : '');
   const [selectMemory, setSelectMemory] = useState<string>('64 GB');
 
   useEffect(() => {
-    const phone = products.find((product) => product.phoneId === parsedPhoneId);
+    const phone = products.find((product) => product.title === productTitle);
     if (phone) {
       setMainImage(phone.imgUrl);
     }
-  }, [parsedPhoneId]);
+  }, [productTitle]);
 
   const goToHomePage = () => {
     navigate('/', { replace: true });
@@ -122,11 +122,15 @@ const ProductItem: FC<ProductProps> = memo(() => {
                   onClick={() => handleThumbnailClick(phone.fourImage)}
                 />
               </div>
-              <img src={mainImage} alt='product' className={styles.phone__img} />
+              <img
+                src={mainImage}
+                alt='product'
+                className={styles.phone__img}
+              />
             </div>
             <div className={styles.product__block}>
               <PhoneCharacteristics setSelectMemory={setSelectMemory} />
-              <PhonesTechSpecs product={phone} />
+              <PhonesTechSpecs product={phone} selectMemory={selectMemory} />
             </div>
           </div>
           <PhonesAbout />

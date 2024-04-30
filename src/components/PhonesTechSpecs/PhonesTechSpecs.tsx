@@ -4,9 +4,13 @@ import { Products } from '../../redux/interfaces/products';
 
 interface PhonesTechSpecsProps {
   product: Products;
+  selectMemory: string;
 }
 
-const PhonesTechSpecs: FC<PhonesTechSpecsProps> = ({ product }) => {
+const PhonesTechSpecs: FC<PhonesTechSpecsProps> = ({
+  product,
+  selectMemory,
+}) => {
   if (!product) {
     return <div>No product data available.</div>;
   }
@@ -17,7 +21,9 @@ const PhonesTechSpecs: FC<PhonesTechSpecsProps> = ({ product }) => {
       <div className={styles.techSpecs__characteristics}>
         <div className={styles.techSpecs__item}>
           <span className={styles.techSpecs__itemTitle}>Title:</span>
-          <span className={styles.techSpecs__itemSubTitle}>{product.title}</span>
+          <span className={styles.techSpecs__itemSubTitle}>
+            {product.title}
+          </span>
         </div>
         <div className={styles.techSpecs__item}>
           <span className={styles.techSpecs__itemTitle}>Price:</span>
@@ -33,9 +39,7 @@ const PhonesTechSpecs: FC<PhonesTechSpecsProps> = ({ product }) => {
         </div>
         <div className={styles.techSpecs__item}>
           <span className={styles.techSpecs__itemTitle}>Memory:</span>
-          <span className={styles.techSpecs__itemSubTitle}>
-            {`${product.memory} GB`}
-          </span>
+          <span className={styles.techSpecs__itemSubTitle}>{selectMemory}</span>
         </div>
         <div className={styles.techSpecs__item}>
           <span className={styles.techSpecs__itemTitle}>Capacity:</span>
@@ -51,7 +55,9 @@ const PhonesTechSpecs: FC<PhonesTechSpecsProps> = ({ product }) => {
         </div>
         <div className={styles.techSpecs__item}>
           <span className={styles.techSpecs__itemTitle}>Category:</span>
-          <span className={styles.techSpecs__itemSubTitle}>{product.category}</span>
+          <span className={styles.techSpecs__itemSubTitle}>
+            {product.category}
+          </span>
         </div>
       </div>
     </article>

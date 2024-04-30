@@ -11,7 +11,7 @@ interface IRoutesProps {
   AUTHORIZATION: string;
 }
 
-const ROUTES: IRoutesProps = {
+export const ROUTES: IRoutesProps = {
   LAYOUT: '/',
   HOME: '/',
   PHONES: 'phones',
@@ -23,5 +23,3 @@ const ROUTES: IRoutesProps = {
   AUTHORIZATION: 'authorization',
   ERROR: '*',
 };
-
-export { ROUTES };

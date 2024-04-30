@@ -22,6 +22,8 @@ export const TabletPage: FC = () => {
     setSelectedProduct(tablet as Tablet | undefined);
   }, [id]);
 
+  console.log(id);
+
   return (
     <div className={`${styles.phone__layout} ${styles.tablet__layout}`}>
       {selectedProduct ? (

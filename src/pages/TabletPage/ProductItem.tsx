@@ -11,11 +11,14 @@ import { TabletsAbout } from '../../components/TabletsAbout/TabletsAbout';
 import { TabletsTechSpecs } from '../../components/TabletsTechSpecs/TabletsTechSpecs';
 import { ROUTES } from '../../common/routes/routes';
 
+type MainImage = string;
+type SelectMemory = string;
+
 export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
   const navigate = useNavigate();
   useParams<{ id: string }>();
-  const [mainImage, setMainImage] = useState<string>('');
-  const [selectMemory, setSelectMemory] = useState<string>('64 GB');
+  const [mainImage, setMainImage] = useState<MainImage>('');
+  const [selectMemory, setSelectMemory] = useState<SelectMemory>('64 GB');
 
   useEffect(() => {
     if (tablet && tablet.images && tablet.images.length > 0) {
@@ -23,12 +26,13 @@ export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
     }
   }, [tablet]);
 
+  ('');
   const goToHomePage = () => {
     navigate(ROUTES.HOME, { replace: true });
   };
 
   const backToTabletsPage = () => {
-    navigate('/tablets');
+    navigate(`/${ROUTES.TABLETS}`);
   };
 
   if (!tablet) {
@@ -105,7 +109,7 @@ export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
           </div>
           <div className={styles.product__block}>
             <PhoneCharacteristics setSelectMemory={setSelectMemory} />
-            <TabletsTechSpecs product={tablet} />
+            <TabletsTechSpecs product={tablet} selectCapacity={selectMemory} />
           </div>
         </div>
         <TabletsAbout />

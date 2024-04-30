@@ -10,14 +10,18 @@ interface NotFoundProps {
   message: string;
 }
 
+const enum StatusCodes {
+  NOT__FOUND = '404',
+}
+
 export const NotFoundPage: FC<NotFoundProps> = () => {
   const location = useLocation();
   const error = location.state?.error;
-  const errorStatusCode: string = '404';
+  const errorStatusCode = StatusCodes.NOT__FOUND;
 
   useEffect(() => {
     document.title = `iMarketplace | Not Found ${errorStatusCode}`;
-  }, []);
+  }, [errorStatusCode]);
 
   return (
     <NotFoundContainer>

@@ -4,9 +4,13 @@ import { Tablet } from '../../interfaces/tablets';
 
 interface TabletsTechSpecsProps {
   product: Tablet;
+  selectCapacity: string;
 }
 
-export const TabletsTechSpecs: FC<TabletsTechSpecsProps> = ({ product }) => {
+export const TabletsTechSpecs: FC<TabletsTechSpecsProps> = ({
+  product,
+  selectCapacity,
+}) => {
   if (!product) {
     return <div>No product data available.</div>;
   }
@@ -33,7 +37,9 @@ export const TabletsTechSpecs: FC<TabletsTechSpecsProps> = ({ product }) => {
         </div>
         <div className={styles.techSpecs__item}>
           <span className={styles.techSpecs__itemTitle}>Capacity</span>
-          <span className={styles.techSpecs__itemSubTitle}>{product.capacity}</span>
+          <span className={styles.techSpecs__itemSubTitle}>
+            {selectCapacity}
+          </span>
         </div>
         <div className={styles.techSpecs__item}>
           <span className={styles.techSpecs__itemTitle}>Ram</span>
@@ -49,7 +55,9 @@ export const TabletsTechSpecs: FC<TabletsTechSpecsProps> = ({ product }) => {
         </div>
         <div className={styles.techSpecs__item}>
           <span className={styles.techSpecs__itemTitle}>Category</span>
-          <span className={styles.techSpecs__itemSubTitle}>{product.category}</span>
+          <span className={styles.techSpecs__itemSubTitle}>
+            {product.category}
+          </span>
         </div>
       </div>
     </article>

@@ -45,7 +45,7 @@ export const CatalogItem: FC<ICatalogItemProps> = ({
           <NavLink
             onClick={toUpPage}
             className={styles.view__product}
-            to={`/products/${phoneId}`}
+            to={`/products/${title}`}
           >
             View Product
           </NavLink>

@@ -1,9 +1,9 @@
 import styles from './phoneCharacteristics.module.scss';
 import React, { FC, useRef, useState, useEffect } from 'react';
-import Selected from '../../images/phone-catalog-colors/Selected.svg';
-import Default1 from '../../images/phone-catalog-colors/Default-2.svg';
-import Default2 from '../../images/phone-catalog-colors/Default-3.svg';
-import Default3 from '../../images/phone-catalog-colors/Default-4.svg';
+import GoldColor from '../../images/phone-catalog-colors/Selected.svg';
+import BlackColor from '../../images/phone-catalog-colors/Default-2.svg';
+import WhiteColor from '../../images/phone-catalog-colors/Default-3.svg';
+import GrayColor from '../../images/phone-catalog-colors/Default-4.svg';
 
 interface IProductMemory {
   small: string;
@@ -72,16 +72,16 @@ export const PhoneCharacteristics: FC<PhoneCharacteristicsProps> = ({
           <h4 className={styles.colors__title}>Available colors</h4>
           <div className={styles.checkColors__items}>
             <button type='button' className={styles.checkColor__button}>
-              <img src={Selected} alt='color-selected' />
+              <img src={GoldColor} alt='color-selected' />
             </button>
             <button type='button' className={styles.checkColor__button}>
-              <img src={Default1} alt='color-selected' />
+              <img src={BlackColor} alt='color-selected' />
             </button>
             <button type='button' className={styles.checkColor__button}>
-              <img src={Default2} alt='color-selected' />
+              <img src={WhiteColor} alt='color-selected' />
             </button>
             <button type='button' className={styles.checkColor__button}>
-              <img src={Default3} alt='color-selected' />
+              <img src={GrayColor} alt='color-selected' />
             </button>
           </div>
         </div>

@@ -1,21 +1,9 @@
 import { FC } from 'react';
-import styled from 'styled-components';
 import styles from './modelsCatalog.module.scss';
 import products from '../../common/products/products.json';
 import { Phones } from '../Phones/Phones';
 import { Phone } from '../../interfaces/phones';
-
-const ModelsCatalogSection = styled.section`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-bottom: 80px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  padding: 0 30px;
-  padding-right: 0px;
-`;
+import { ModelsCatalogSection } from './styled/modelsCatalog';
 
 interface IModelsCatalog {
   modelsTitle: string;
