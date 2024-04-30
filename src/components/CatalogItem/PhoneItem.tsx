@@ -10,7 +10,11 @@ import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
 import { Products } from '../../redux/interfaces/products';
 import { CardItem } from './styled/catalogItem';
 
-export const CatalogItem: FC<ICatalogItemProps> = ({
+const enum PhonesPath {
+  PHONES = '/phones/phone/',
+}
+
+export const PhoneItem: FC<ICatalogItemProps> = ({
   imgUrl = '',
   title = '',
   price = '',
@@ -45,7 +49,7 @@ export const CatalogItem: FC<ICatalogItemProps> = ({
           <NavLink
             onClick={toUpPage}
             className={styles.view__product}
-            to={`/products/${title}`}
+            to={`${PhonesPath.PHONES}${title}`}
           >
             View Product
           </NavLink>

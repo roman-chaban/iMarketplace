@@ -29,7 +29,7 @@ export const Router = createHashRouter([
         element: <PhonesPage />,
       },
       {
-        path: '/products/:title',
+        path: '/phones/phone/:title',
         element: <PhonePage />,
       },
       {
@@ -37,7 +37,7 @@ export const Router = createHashRouter([
         element: <TabletsPage />,
       },
       {
-        path: '/tablets/:id',
+        path: '/tablets/tablet/:id',
         element: <TabletPage />,
       },
       {

@@ -18,7 +18,7 @@ const ModelsCatalogSection = styled.section`
   padding-right: 0px;
 `;
 
-const HotPrices: FC<ICatalogItemProps> = ({
+export const HotPrices: FC<ICatalogItemProps> = ({
   pricesTitle,
 }: ICatalogItemProps) => {
   return (
@@ -45,4 +45,3 @@ const HotPrices: FC<ICatalogItemProps> = ({
   );
 };
 
-export { HotPrices };

@@ -1,4 +1,4 @@
-import { CatalogItem } from '../CatalogItem/CatalogItem';
+import { PhoneItem } from '../CatalogItem/PhoneItem';
 import styles from '../../pages/PhonesPage/phones.module.scss';
 import { PhonesProps } from '../../interfaces/phones';
 import { FC } from 'react';
@@ -34,7 +34,7 @@ export const Phones: FC<PhonesProps> = ({ products }: PhonesProps) => {
             className={styles.slide}
             style={{ width: '240px', marginLeft: 0 }}
           >
-            <CatalogItem
+            <PhoneItem
               displaySize={product.displaySize}
               imgUrl={product.imgUrl}
               title={product.title}

@@ -21,6 +21,10 @@ const CardItem = styled.div`
   box-shadow: 2px 2px 5px 0px rgba(0, 64, 128, 0.2);
 `;
 
+const enum TabletsPath {
+  TABLETS = '/tablets/tablet/',
+}
+
 export const TabletItem: FC<Tablet> = ({
   images,
   name,
@@ -60,7 +64,7 @@ export const TabletItem: FC<Tablet> = ({
           <NavLink
             onClick={toUpPage}
             className={styles.view__product}
-            to={`/tablets/${id}`}
+            to={`${TabletsPath.TABLETS}${id}`}
           >
             View Product
           </NavLink>

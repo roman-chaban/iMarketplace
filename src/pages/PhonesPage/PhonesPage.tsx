@@ -5,7 +5,7 @@ import phonesProducts from '../../common/products/products.json';
 import { Pagination } from '../../components/Pagination/Pagination';
 import { CustomSelect } from '../../components/Select/Select';
 import { Phone } from '../../interfaces/phone';
-import { CatalogItem } from '../../components/CatalogItem/CatalogItem';
+import { PhoneItem } from '../../components/CatalogItem/PhoneItem';
 import Select from 'react-select';
 
 export const PhonesPage: FC = () => {
@@ -85,11 +85,15 @@ export const PhonesPage: FC = () => {
         />
         <div className={styles.page__select}>
           <label htmlFor='sort'>
-            <span id='sort' className={styles.select__title}>Sort by:</span>
+            <span id='sort' className={styles.select__title}>
+              Sort by:
+            </span>
             <CustomSelect />
           </label>
           <label htmlFor='items'>
-            <span id='items' className={styles.select__title}>Choose items:</span>
+            <span id='items' className={styles.select__title}>
+              Choose items:
+            </span>
             <Select
               placeholder='Choose items'
               className={styles.select__width}
@@ -102,7 +106,7 @@ export const PhonesPage: FC = () => {
       </div>
       <div className={styles.catalog__containerPhones}>
         {currentPhones.map((product) => (
-          <CatalogItem
+          <PhoneItem
             key={product.phoneId}
             displaySize={product.displaySize}
             imgUrl={product.imgUrl}
