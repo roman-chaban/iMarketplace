@@ -14,5 +14,4 @@ export interface ICatalogItemProps extends IHotPricesProps {
   memory?: string;
   capacity?: string;
   products?: Products;
-  name: string;
 }
