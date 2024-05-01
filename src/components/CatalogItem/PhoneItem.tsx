@@ -19,7 +19,6 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
   imgUrl = '',
   title = '',
   price = '',
-  name = '',
   displaySize = '',
   discount = '',
   capacity = '',
@@ -86,7 +85,6 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
             capacity,
             memory,
             phoneId,
-            name,
           }}
           onClick={handleAddToFavorites}
         />

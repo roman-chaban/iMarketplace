@@ -31,7 +31,6 @@ export const FavoritesPage: FC = () => {
             {favoriteProducts.map((favorite: Products) => (
               <div key={favorite.phoneId} className={styles.favorite__item}>
                 <FavoriteCard
-                  name=''
                   imgUrl={favorite.imgUrl}
                   title={favorite.title}
                   price={favorite.price}
