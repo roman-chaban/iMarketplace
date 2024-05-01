@@ -2,13 +2,15 @@ import { FC } from 'react';
 import './pagination.scss';
 import { PaginationProps } from '../../interfaces/pagination';
 
+type PaginationPageNumbers = Array<number>;
+
 export const Pagination: FC<PaginationProps> = ({
   phonePerPage,
   totalPhones,
   currentPage,
   paginate,
 }: PaginationProps) => {
-  const pageNumbers: Array<number> = [];
+  const pageNumbers: PaginationPageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalPhones / phonePerPage); i++) {
     pageNumbers.push(i);

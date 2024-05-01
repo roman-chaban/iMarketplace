@@ -17,8 +17,6 @@ export const PhonePage: FC = () => {
     }
   }, [title]);
 
-  console.log(selectedProduct.title);
-
   return (
     <div className={styles.phone__layout}>
       <ProductItem product={selectedProduct} />

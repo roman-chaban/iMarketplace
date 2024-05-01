@@ -12,4 +12,5 @@ export interface Products {
   capacity: number | string;
   displaySize: string;
   category?: string;
+  name?: string;
 }

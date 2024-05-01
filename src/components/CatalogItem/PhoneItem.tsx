@@ -10,7 +10,8 @@ import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
 import { Products } from '../../redux/interfaces/products';
 import { CardItem } from './styled/catalogItem';
 
-const enum PhonesPath {
+// eslint-disable-next-line react-refresh/only-export-components
+export const enum PhonesPath {
   PHONES = '/phones/phone/',
 }
 
@@ -18,6 +19,7 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
   imgUrl = '',
   title = '',
   price = '',
+  name = '',
   displaySize = '',
   discount = '',
   capacity = '',
@@ -41,7 +43,7 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
     <CardItem className={styles.cardItem}>
       <div className={styles.card__container}>
         <img src={imgUrl} alt='iphone' className={styles.image__hovered} />
-        <h3 className={styles.card__title}>{title}</h3>
+        <h3 className={styles.card__title}>{title.replaceAll('-', ' ')}</h3>
         <CustomButton
           style={{ border: '2px solid #6d6474', marginBottom: 10 }}
           className={styles.button}
@@ -84,6 +86,7 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
             capacity,
             memory,
             phoneId,
+            name,
           }}
           onClick={handleAddToFavorites}
         />

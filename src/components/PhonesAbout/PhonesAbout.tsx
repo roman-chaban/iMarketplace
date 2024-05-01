@@ -1,6 +1,6 @@
 import styles from './phonesAbout.module.scss';
 
-const PhonesAbout = () => {
+export const PhonesAbout = () => {
   return (
     <article className={styles.phonesAbout}>
       <h2 className={styles.about__title}>About</h2>
@@ -48,5 +48,3 @@ const PhonesAbout = () => {
     </article>
   );
 };
-
-export { PhonesAbout };

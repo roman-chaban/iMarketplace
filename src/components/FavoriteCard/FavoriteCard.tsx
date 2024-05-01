@@ -24,7 +24,9 @@ export const FavoriteCard: FC<ICatalogItemProps> = ({
 
   return (
     <div
-      className={`${styles.favorite__cardBlock} ${isRemoving ? styles.removing : ''}`}
+      className={`${styles.favorite__cardBlock} ${
+        isRemoving ? styles.removing : ''
+      }`}
       onTransitionEnd={handleTransitionEnd}
     >
       <div className={styles.favorite__card}>
@@ -34,7 +36,9 @@ export const FavoriteCard: FC<ICatalogItemProps> = ({
           className={styles.favorite__cardPicture}
         />
         <div>
-          <h3 className={styles.favorite__cardTitle}>{title}</h3>
+          <h3 className={styles.favorite__cardTitle}>
+            {title.replaceAll('-', ' ')}
+          </h3>
           <span className={styles.favorite__cardPrice}>{price}</span>
         </div>
         <button

@@ -32,9 +32,7 @@ const ShopCategory: FC<IShopCategory> = ({ title }: IShopCategory) => {
           <CategoryItem
             banner={IphoneBanner}
             categoryTitle='Mobile phones'
-            categoryModels={`${
-              products.filter((product) => product.category === 'mobile').length
-            } models`}
+            categoryModels={`${products.length} models`}
             to='/phones'
           />
           <CategoryItem

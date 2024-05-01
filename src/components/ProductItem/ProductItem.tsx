@@ -45,13 +45,13 @@ const ProductItem: FC<ProductProps> = memo(() => {
   const getTitle = (selectedMemory: string) => {
     switch (selectedMemory) {
       case '64 GB':
-        return `${phone.title} 64GB`;
+        return `${phone.title?.replaceAll('-', ' ')} 64GB`;
       case '128 GB':
-        return `${phone.title} 128GB`;
+        return `${phone.title?.replaceAll('-', ' ')} 128GB`;
       case '256 GB':
-        return `${phone.title} 256GB`;
+        return `${phone.title?.replaceAll('-', ' ')} 256GB`;
       default:
-        return phone.title;
+        return phone.title?.replaceAll('-', ' ');
     }
   };
 

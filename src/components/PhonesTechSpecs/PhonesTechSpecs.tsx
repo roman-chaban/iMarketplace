@@ -21,9 +21,7 @@ const PhonesTechSpecs: FC<PhonesTechSpecsProps> = ({
       <div className={styles.techSpecs__characteristics}>
         <div className={styles.techSpecs__item}>
           <span className={styles.techSpecs__itemTitle}>Title:</span>
-          <span className={styles.techSpecs__itemSubTitle}>
-            {product.title}
-          </span>
+          <span className={styles.techSpecs__itemSubTitle}>{product.name}</span>
         </div>
         <div className={styles.techSpecs__item}>
           <span className={styles.techSpecs__itemTitle}>Price:</span>
