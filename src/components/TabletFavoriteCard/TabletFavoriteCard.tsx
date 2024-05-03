@@ -6,10 +6,12 @@ import { Tablet } from '../../interfaces/tablets';
 
 interface FavoriteCardProps extends Tablet {
   tabletId: string;
+  onDeleteFromFavorites?: () => void;
+  onAddToFavorites?: () => void;
 }
 
 export const TabletFavoriteCard: FC<FavoriteCardProps> = ({
-  images = '',
+  images = [],
   name = '',
   priceRegular = '',
   tabletId,
@@ -45,7 +47,7 @@ export const TabletFavoriteCard: FC<FavoriteCardProps> = ({
         </div>
         <button
           className={styles.favorite__cardDelete}
-          onClick={() => tabletId !== undefined && handleDeleteGoods(tabletId!)}
+          onClick={() => handleDeleteGoods(tabletId)}
         >
           Delete
         </button>

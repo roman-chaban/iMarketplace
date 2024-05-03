@@ -1,13 +1,22 @@
 import { FC, useEffect } from 'react';
-import { useAppSelector } from '../../hooks/reduxHooks/useAppSelector';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
 import styles from './favoritePage.module.scss';
 import { Products } from '../../redux/interfaces/products';
 import { FavoriteCard } from '../../components/FavoriteCard/FavoriteCard';
 import { Tablet } from '../../interfaces/tablets';
 import { TabletFavoriteCard } from '../../components/TabletFavoriteCard/TabletFavoriteCard';
+import {
+  addToFavorites,
+  addToFavoritesTablets,
+  deleteFavorites,
+  deleteFavoriteTablets,
+} from '../../redux/slices/productSlice';
+import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
+import { useAppSelector } from '../../hooks/reduxHooks/useAppSelector';
 
 export const FavoritesPage: FC = () => {
+  const dispatch = useAppDispatch();
+
   const favoriteProducts = useAppSelector(
     (state) => state.productSlice.favorites
   );
@@ -19,6 +28,22 @@ export const FavoritesPage: FC = () => {
   useEffect(() => {
     document.title = 'iMarketplace | Favorites';
   }, []);
+
+  const handleAddToFavorites = (product: Products) => {
+    dispatch(addToFavorites(product));
+  };
+
+  const handleAddToFavoritesTablets = (tablet: Tablet) => {
+    dispatch(addToFavoritesTablets(tablet));
+  };
+
+  const handleDeleteFromFavorites = (phoneId: number) => {
+    dispatch(deleteFavorites(phoneId));
+  };
+
+  const handleDeleteFromFavoritesTablets = (tabletId: string) => {
+    dispatch(deleteFavoriteTablets(tabletId));
+  };
 
   return (
     <>
@@ -35,27 +60,31 @@ export const FavoritesPage: FC = () => {
                   title={favorite.title}
                   price={favorite.price}
                   phoneId={favorite.phoneId}
+                  onAddToFavorites={() => handleAddToFavorites(favorite)}
+                  onDeleteFromFavorites={() =>
+                    handleDeleteFromFavorites(favorite.phoneId || 0)
+                  }
+                />
+              </div>
+            ))}
+            {favoriteTablets.map((favorite: Tablet) => (
+              <div key={favorite.id} className={styles.favorite__item}>
+                <TabletFavoriteCard
+                  images={favorite.images}
+                  name={favorite.name}
+                  priceRegular={favorite.priceRegular}
+                  id={favorite.id}
+                  tabletId={favorite.id === undefined ? '' : favorite.id}
+                  onAddToFavorites={() => handleAddToFavoritesTablets(favorite)}
+                  onDeleteFromFavorites={() =>
+                    handleDeleteFromFavoritesTablets(favorite.id || '')
+                  }
                 />
               </div>
             ))}
           </div>
         )}
       </div>
-      {favoriteTablets.length > 0 && (
-        <div className={styles.favorite__list}>
-          {favoriteTablets.map((favorite: Tablet) => (
-            <div key={favorite.id} className={styles.favorite__item}>
-              <TabletFavoriteCard
-                images={favorite.images}
-                name={favorite.name}
-                priceRegular={favorite.priceRegular}
-                id={favorite.id}
-                tabletId={favorite.id === undefined ? '' : favorite.id}
-              />
-            </div>
-          ))}
-        </div>
-      )}
     </>
   );
 };

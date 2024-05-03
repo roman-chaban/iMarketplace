@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../rootReducer/rootReducer';
 import { Products } from '../interfaces/products';
 import { Tablet } from '../../interfaces/tablets';
 
@@ -11,14 +12,26 @@ interface ProductsState {
   basketCounter: number;
 }
 
-const initialState: ProductsState = {
-  cart: [],
-  favorites: [],
-  favoritesTablets: [],
-  selectedProduct: [],
-  favoriteCounter: 0,
-  basketCounter: 0,
+const loadStateFromLocalStorage = (): ProductsState => {
+  try {
+    const serializedState = localStorage.getItem('productsState');
+    if (serializedState !== null) {
+      return JSON.parse(serializedState);
+    }
+  } catch (error) {
+    console.error('Error loading state from local storage:', error);
+  }
+  return {
+    cart: [],
+    favorites: [],
+    favoritesTablets: [],
+    selectedProduct: [],
+    favoriteCounter: 0,
+    basketCounter: 0,
+  };
 };
+
+const initialState: ProductsState = loadStateFromLocalStorage();
 
 export const productSlice = createSlice({
   name: 'products',
@@ -29,7 +42,7 @@ export const productSlice = createSlice({
         (item) => item.phoneId === action.payload.phoneId
       );
       if (!existingProduct) {
-        state.cart.push(action.payload);
+        state.cart = [...state.cart, action.payload];
         state.basketCounter++;
       }
     },
@@ -38,7 +51,7 @@ export const productSlice = createSlice({
         (favorite) => favorite.phoneId === action.payload.phoneId
       );
       if (!existingFavorite) {
-        state.favorites.push(action.payload);
+        state.favorites = [...state.favorites, action.payload];
         state.favoriteCounter++;
       }
     },
@@ -47,47 +60,27 @@ export const productSlice = createSlice({
         (favorite) => favorite.id === action.payload.id
       );
       if (!existingFavorite) {
-        state.favoritesTablets.push(action.payload);
+        state.favoritesTablets = [...state.favoritesTablets, action.payload];
         state.favoriteCounter++;
       }
     },
     deleteFavorites: (state, action: PayloadAction<number>) => {
-      const index = state.favorites.findIndex(
-        (good) => good.phoneId === action.payload
+      state.favorites = state.favorites.filter(
+        (good) => good.phoneId !== action.payload
       );
-      if (index !== -1) {
-        state.favorites.splice(index, 1);
-        state.favoriteCounter = state.favorites.length;
-      }
-
-      if (state.favorites.length === 0 && state.favoritesTablets.length === 0) {
-        state.favoriteCounter = 0;
-      }
+      state.favoriteCounter--;
     },
-
     deleteFavoriteTablets: (state, action: PayloadAction<string>) => {
-      const index = state.favoritesTablets.findIndex(
-        (tablet) => tablet.id === action.payload
+      state.favoritesTablets = state.favoritesTablets.filter(
+        (tablet) => tablet.id !== action.payload
       );
-      if (index !== -1) {
-        state.favoritesTablets.splice(index, 1);
-        state.favoriteCounter = state.favoritesTablets.length;
-      }
-
-      if (state.favorites.length === 0 && state.favoritesTablets.length === 0) {
-        state.favoriteCounter = 0;
-      }
+      state.favoriteCounter--;
     },
     deleteFromCart: (state, action: PayloadAction<number>) => {
-      const index = state.cart.findIndex(
-        (item) => item.phoneId === action.payload
-      );
-      if (index !== -1) {
-        state.cart.splice(index, 1);
-        state.basketCounter--;
-      }
+      state.cart = state.cart.filter((item) => item.phoneId !== action.payload);
+      state.basketCounter--;
     },
-    selectedProduct: (state, action: PayloadAction<Products[]>) => {
+    setSelectedProduct: (state, action: PayloadAction<Products[]>) => {
       state.selectedProduct = action.payload;
     },
   },
@@ -96,11 +89,11 @@ export const productSlice = createSlice({
 export const {
   addToCart,
   addToFavorites,
-  selectedProduct,
-  deleteFavorites,
   addToFavoritesTablets,
+  deleteFavorites,
   deleteFavoriteTablets,
   deleteFromCart,
+  setSelectedProduct,
 } = productSlice.actions;
 
-export default productSlice.reducer;
+export const selectProductsState = (state: RootState) => state.productSlice;
