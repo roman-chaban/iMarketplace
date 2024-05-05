@@ -77,17 +77,25 @@
   }
 }
 
+.button {
+  width: 100%;
+  transition: background 0.3s linear !important;
+  &:hover {
+    background: $secondary !important;
+  }
+}
+
 .view__product {
   color: #6d6474;
   text-transform: capitalize;
   font-weight: 700;
   font-size: $primary-four-size;
-  width: 120px;
+  width: 100%;
   display: flex;
   justify-content: center;
   background: transparent;
   &:hover {
-    color: #6d6474 !important;
+    color: $white;
   }
 }
 
@@ -114,8 +122,6 @@
   gap: 1rem;
 }
 
-
-
 @media (max-width: 1100px) {
   .image__hovered {
     width: 100%;
@@ -125,4 +131,3 @@
     padding: 24px 15px !important;
   }
 }
-

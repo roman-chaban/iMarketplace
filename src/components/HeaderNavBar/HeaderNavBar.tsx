@@ -1,9 +1,9 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { styled } from 'styled-components';
 import styles from '../Header/header.module.scss';
 import Heart from '../../images/header/favorite.svg';
 import Basket from '../../images/header/shopping_cart.svg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/reduxHooks/useAppSelector';
 
 const HeaderNavItems = styled.div`
@@ -13,39 +13,34 @@ const HeaderNavItems = styled.div`
 `;
 
 export const HeaderNavBar: FC = () => {
-  const [activeButton, setActiveButton] = useState<string | null>(null);
+  const location = useLocation();
   const { favoriteCounter, basketCounter } = useAppSelector(
     (state) => state.productSlice
   );
 
-  const handleButtonClick = (buttonName: string) => {
-    if (activeButton === buttonName) {
-      setActiveButton(null);
-    } else {
-      setActiveButton(buttonName);
-    }
-  };
-
   return (
     <HeaderNavItems>
-      <NavLink to='favorites' onClick={() => handleButtonClick('favorites')}>
+      <NavLink to='/favorites'>
         <button
           className={`${styles.heart__button} ${
-            activeButton === 'favorites' ? styles.active : ''
+            location.pathname === '/favorites'
+              ? styles.active
+              : styles.not__border
           }`}
         >
           <img src={Heart} alt='Heart Icon' className={styles.heart__icon} />
           <span className={styles.heart__counter}>{favoriteCounter}</span>
         </button>
       </NavLink>
-      <NavLink to='cart' onClick={() => handleButtonClick('cart')}>
+
+      <NavLink to='/cart'>
         <button
           className={`${styles.shoppingCart__button} ${
-            activeButton === 'cart' ? styles.active : ''
+            location.pathname === '/cart' ? styles.active : styles.not__border
           }`}
         >
-          <img src={Basket} alt='Basket Icon' className={styles.busket__icon} />
-          <span className={styles.busket__counter}>{basketCounter}</span>
+          <img src={Basket} alt='Basket Icon' className={styles.basket__icon} />
+          <span className={styles.basket__counter}>{basketCounter}</span>
         </button>
       </NavLink>
     </HeaderNavItems>

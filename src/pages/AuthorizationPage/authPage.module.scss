@@ -13,6 +13,7 @@
   color: #fff !important;
   border: none !important;
   outline: none !important;
+  transition: background 0.3s ease;
   &:hover {
     background: $secondary !important;
   }
@@ -27,14 +28,29 @@
   color: $secondary;
   font-weight: 700;
   font-size: 2rem;
-}
-
-.auth__logo {
   opacity: 0;
-  animation: fadeInLogo 1.5s ease forwards;
+  animation: fadeInTitle 1.5s ease forwards;
 }
 
-@keyframes fadeInLogo {
+.auth__logo,
+.password,
+.email {
+  opacity: 0;
+  animation: fadeInElement 1.5s ease forwards;
+}
+
+@keyframes fadeInElement {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTitle {
   0% {
     opacity: 0;
     transform: translateY(-20px);

@@ -45,7 +45,7 @@ export const FavoriteCard: FC<ICatalogItemProps> = ({
           className={styles.favorite__cardDelete}
           onClick={() => phoneId !== undefined && handleDeleteGoods(phoneId)}
         >
-          Delete
+          Delete from Favorites
         </button>
       </div>
     </div>

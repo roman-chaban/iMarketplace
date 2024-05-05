@@ -17,7 +17,7 @@ const Tablets: FC<{ products: Tablet[] }> = ({ products }) => {
       <Swiper
         wrapperClass={styles.swiper__wrapper}
         pagination={{ dynamicBullets: true }}
-        spaceBetween={35}
+        spaceBetween={105}
         navigation={{
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',

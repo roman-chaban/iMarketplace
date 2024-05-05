@@ -141,7 +141,7 @@
   width: 14px;
 }
 
-.busket__counter {
+.basket__counter {
   background-color: #c70808d5;
   border-radius: 50%;
   color: #fff;
@@ -177,9 +177,12 @@
   border-bottom: none;
 }
 
-.heart__button.active,
-.shoppingCart__button.active {
-  border-bottom: 3px solid $primary;
+.active {
+  border-bottom: 2.5px solid #313131;
+}
+
+.not__border {
+  border-bottom: none;
 }
 
 .remove {
@@ -192,7 +195,7 @@
 }
 
 .heart__icon,
-.busket__icon {
+.basket__icon {
   max-width: 21px;
   max-height: 21px;
 }

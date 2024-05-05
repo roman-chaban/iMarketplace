@@ -36,6 +36,14 @@ export const CatalogPage: FC<CatalogPageProps> = ({
           >
             <img onClick={goBack} src={homeIcon} alt='home icon' />
           </NavLink>
+          <NavLink
+            style={{ color: '#313237' }}
+            className={styles.phones__title}
+            to='/'
+            onClick={goBack}
+          >
+            Back
+          </NavLink>
           <img src={arrowRightIcon} alt='arrow right icon' />
           <h5 className={styles.phones__title}>{smallTitle}</h5>
         </div>

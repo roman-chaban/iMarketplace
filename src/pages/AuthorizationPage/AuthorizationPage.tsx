@@ -1,6 +1,6 @@
 import { User } from '../../common/hoc/AuthProvider';
 import { useAuth } from '../../hooks/useAuth';
-import { FormEvent, useEffect } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
@@ -17,6 +17,18 @@ export const AuthorizationPage: FC = () => {
   const location = useLocation();
   const { signIn } = useAuth();
   const fromPage = location.state?.from?.pathname || '';
+  const [inputMessage, setInputMessage] = useState<string>('Enter valid email');
+  const [isValidData, setIsValidData] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const validateEmail = (email: string) => {
+    return email.includes('@');
+  };
+
+  const validatePassword = (password: string) => {
+    return password.length >= 6;
+  };
 
   useEffect(() => {
     document.title = 'iMarketplace | Authorization';
@@ -26,20 +38,34 @@ export const AuthorizationPage: FC = () => {
     event: FormEvent<HTMLFormElement> & EventWithPreventDefault
   ) => {
     event.preventDefault();
-    const form = event.currentTarget as HTMLFormElement;
-    const emailInput = form.querySelector<HTMLInputElement>(
-      'input[name="email"]'
-    );
-    const passwordInput = form.querySelector<HTMLInputElement>(
-      'input[name="password"]'
-    );
-    if (emailInput && passwordInput) {
-      const user: User = {
-        email: emailInput.value,
-        password: passwordInput.value,
-      };
-      signIn(user, () => navigate(fromPage, { replace: true }));
+    if (validateEmail(email) && validatePassword(password)) {
+      setIsValidData(!isValidData);
+      const form = event.currentTarget as HTMLFormElement;
+      const emailInput = form.querySelector<HTMLInputElement>(
+        'input[name="email"]'
+      );
+      const passwordInput = form.querySelector<HTMLInputElement>(
+        'input[name="password"]'
+      );
+      if (emailInput && passwordInput) {
+        const user: User = {
+          email: emailInput.value,
+          password: passwordInput.value,
+        };
+        signIn(user, () => navigate(fromPage, { replace: true }));
+      }
+    } else {
+      setIsValidData(isValidData);
+      setInputMessage('Invalid email or password');
     }
+  };
+
+  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
   };
 
   return (
@@ -57,7 +83,9 @@ export const AuthorizationPage: FC = () => {
             type='email'
             id={styles.email}
             name='email'
+            onChange={handleEmailChange}
           />
+          {isValidData && !validateEmail(email) && <span>{inputMessage}</span>}
         </label>
         <label htmlFor='password'>
           <TextField
@@ -68,7 +96,11 @@ export const AuthorizationPage: FC = () => {
             autoComplete='current-password'
             id={styles.password}
             name='password'
+            onChange={handlePasswordChange}
           />
+          {isValidData && !validatePassword(password) && (
+            <span>{inputMessage}</span>
+          )}
         </label>
         <CustomButton className={styles.auth__button} type='submit'>
           Sign up!
