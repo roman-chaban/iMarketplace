@@ -76,12 +76,14 @@ export const Header: FC = (): JSX.Element => {
             </li>
           </ul>
         </nav>
+        <div className={styles.navBar__container}>
         <PopUp />
         <HeaderNavBar />
         <div onClick={toggleMenu} className={styles.burger__buttonBlock}>
           <button type='button' className={styles.button__burgerLine}></button>
           <button type='button' className={styles.button__burgerLine}></button>
           <button type='button' className={styles.button__burgerLine}></button>
+        </div>
         </div>
       </HeaderContainer>
       {isMenuOpen && <BurgerMenu />}

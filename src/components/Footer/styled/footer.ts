@@ -15,8 +15,9 @@ export const FooterStyledWrapper = styled.div`
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  @media (max-width: 700px) {
+  @media (max-width: 850px) {
     flex-direction: column;
-    gap: 30px;
+    align-items: flex-start;
+    gap: 2em;
   }
 `;

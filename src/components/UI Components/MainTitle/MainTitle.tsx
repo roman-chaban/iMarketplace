@@ -3,13 +3,10 @@ import { styled } from 'styled-components';
 
 const MainTitleStyled = styled.h1`
   color: #313237;
-  font-size: 48px;
+  font-size: clamp(34px, 6vw, 48px);
   font-weight: 700;
   line-height: 116.667%;
   letter-spacing: -0.48px;
-  @media (max-width: 850px) {
-    font-size: 34px;
-  }
 `;
 
 interface IMainTitleProps {

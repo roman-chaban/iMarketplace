@@ -125,6 +125,7 @@ export const PhonesPage: FC = () => {
             className={`btn btn-secondary ${styles.btn__item}`}
             onClick={prevPage}
             disabled={currentPage === 1}
+            style={{ cursor: currentPage === 1 ? 'not-allowed' : '' }}
           >
             Prev Page
           </button>
@@ -138,6 +139,12 @@ export const PhonesPage: FC = () => {
             className={`btn btn-secondary ${styles.btn__item}`}
             onClick={nextPage}
             disabled={indexOfLastPhone >= products.length}
+            style={{
+              cursor:
+                indexOfFirstPhone >= products.length || currentPage
+                  ? ''
+                  : 'not-allowed',
+            }}
           >
             Next Page
           </button>

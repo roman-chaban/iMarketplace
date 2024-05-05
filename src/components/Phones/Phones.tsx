@@ -26,14 +26,9 @@ export const Phones: FC<PhonesProps> = ({ products }: PhonesProps) => {
         }}
         modules={[Scrollbar]}
         slidesPerView={4}
-        style={{ width: '1080px', margin: '0 auto', cursor: 'grab' }}
       >
         {products.map((product) => (
-          <SwiperSlide
-            key={product.phoneId}
-            className={styles.slide}
-            style={{ width: '240px', marginLeft: 0 }}
-          >
+          <SwiperSlide key={product.phoneId} className={styles.slide}>
             <PhoneItem
               displaySize={product.displaySize}
               imgUrl={product.imgUrl}

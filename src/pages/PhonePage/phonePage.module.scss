@@ -114,11 +114,28 @@
   gap: 2rem;
 }
 
-@media screen and (width <= 845px) {
+@media screen and (width <= 895px) {
   .phonesAbout__block {
     flex-direction: column;
+  }
+  .phoneModel__title {
+    font-size: 1.2rem;
+    line-height: normal;
+  }
+  .phoneModel__capture {
+    font-size: 0.8rem;
   }
 }
 
 @media screen and (width <= 550px) {
+  .phoneModel__capture {
+    font-size: 0.7rem;
+    line-height: normal;
+  }
+  .phone__img {
+    max-width: 200px;
+  }
+  .phone__images {
+    gap: 2rem;
+  }
 }

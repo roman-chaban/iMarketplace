@@ -41,6 +41,9 @@
 @media screen and (max-width: 555px) {
   .about__titlesBlock {
     padding: 0 30px;
-    max-width: 320px;
+  }
+  .phonesAbout {
+    width: 100%;
+    max-width: 300px;
   }
 }

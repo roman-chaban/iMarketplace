@@ -197,12 +197,13 @@
   max-height: 21px;
 }
 
+.navBar__container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 @media (max-width: 850px) {
-  .header__logo {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-  }
   .logo__title {
     font-size: $primary-media-first;
   }
@@ -228,6 +229,14 @@
 @media (min-width: 992px) {
   .burger__buttonBlock {
     display: none;
+  }
+}
+
+@media (max-width: 455px) {
+  .header__logo {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
   }
 }
 

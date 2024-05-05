@@ -10,4 +10,7 @@ export const ModelsCatalogSection = styled.section`
   gap: 24px;
   padding: 0 30px;
   padding-right: 0px;
+  @media screen and (max-width: 330px) {
+    padding-left: 20px;
+  }
 `;
