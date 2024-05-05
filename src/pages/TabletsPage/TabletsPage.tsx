@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
-import { CustomSelect } from '../../components/Select/Select';
+import TabletsSelect from '../../components/TabletsSelect/TabletsSelect';
 import styles from './tablets.module.scss';
 import { Tablet } from '../../interfaces/tablets';
 import tabletProducts from '../../common/products/tablets.json';
@@ -89,7 +89,7 @@ export const TabletsPage: FC = () => {
           <span id='sort' className={styles.select__title}>
             Sort by:
           </span>
-          <CustomSelect />
+          <TabletsSelect tablets={products} setTablets={setProducts} />
         </label>
         <label htmlFor='items'>
           <span id='items' className={styles.select__title}>

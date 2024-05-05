@@ -1,15 +1,15 @@
 import { FC, Dispatch, SetStateAction } from 'react';
-import './select.scss';
+import '../Select/select.scss';
 import Select, { OnChangeValue } from 'react-select';
 import { useState } from 'react';
 import { IOption } from '../../interfaces/select-interface/select.interfaces';
 import makeAnimated from 'react-select/animated';
 import { Sort, getSortedProducts } from './Sort';
-import { Phone } from '../../interfaces/phones';
+import { Tablet } from '../../interfaces/tablets';
 
 interface CustomSelectProps {
-  products: Phone[];
-  setProducts: Dispatch<SetStateAction<Phone[]>>;
+  tablets: Tablet[];
+  setTablets: Dispatch<SetStateAction<Tablet[]>>;
 }
 
 const options: IOption[] = [
@@ -29,7 +29,7 @@ const options: IOption[] = [
 
 const animatedComponents = makeAnimated();
 
-const CustomSelect: FC<CustomSelectProps> = ({ products, setProducts }) => {
+const TabletsSelect: FC<CustomSelectProps> = ({ tablets, setTablets }) => {
   const [currentSort, setCurrentSort] = useState<Sort[]>([]);
 
   const getValue = () => {
@@ -44,8 +44,8 @@ const CustomSelect: FC<CustomSelectProps> = ({ products, setProducts }) => {
     const newSortValues = (newValue as IOption[]).map((v) => v.value as Sort);
     setCurrentSort(newSortValues);
 
-    const sortedProducts = getSortedProducts(products, newSortValues[0]);
-    setProducts(sortedProducts);
+    const sortedTablets = getSortedProducts(tablets, newSortValues[0]);
+    setTablets(sortedTablets);
   };
 
   return (
@@ -63,4 +63,4 @@ const CustomSelect: FC<CustomSelectProps> = ({ products, setProducts }) => {
   );
 };
 
-export default CustomSelect;
+export default TabletsSelect;

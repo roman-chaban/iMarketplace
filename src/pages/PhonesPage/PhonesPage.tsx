@@ -3,8 +3,8 @@ import { CatalogPage } from '../CatalogPage/CatalogPage';
 import styles from './phones.module.scss';
 import phonesProducts from '../../common/products/products.json';
 import { Pagination } from '../../components/Pagination/Pagination';
-import { CustomSelect } from '../../components/Select/Select';
-import { Phone } from '../../interfaces/phone';
+import CustomSelect from '../../components/Select/Select';
+import { Phone } from '../../interfaces/phones'; // Assuming this is the correct path to Phone interface
 import { PhoneItem } from '../../components/CatalogItem/PhoneItem';
 import Select from 'react-select';
 
@@ -88,7 +88,7 @@ export const PhonesPage: FC = () => {
             <span id='sort' className={styles.select__title}>
               Sort by:
             </span>
-            <CustomSelect />
+            <CustomSelect products={products} setProducts={setProducts} />
           </label>
           <label htmlFor='items'>
             <span id='items' className={styles.select__title}>
