@@ -62,7 +62,7 @@ export const BurgerMenu: FC = () => {
               </ul>
             ))}
           </nav>
-          <span className={styles.menu__description}>Apple Inc. 2024</span>
+          <span className={styles.menu__description}>Apple Inc. 2024 &copy;</span>
         </div>
       </div>
     </div>

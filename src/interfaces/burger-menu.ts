@@ -27,4 +27,14 @@ export const MENU_LINKS: TypeMenuLinks = [
     title: 'ACCESSORIES',
     to: 'accessories',
   },
+  {
+    linkId: 5,
+    title: 'FAVORITES',
+    to: 'favorites',
+  },
+  {
+    linkId: 6,
+    title: 'CART',
+    to: 'cart',
+  },
 ];
