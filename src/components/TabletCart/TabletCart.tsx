@@ -9,7 +9,13 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { useCount } from '../../hooks/useCount';
 
 interface FavoriteCardProps extends Tablet {
+  images: string[] | undefined;
+  name: string | undefined;
+  priceRegular: string | number | undefined;
+  id: string | undefined;
   tabletId: string;
+  onAddToCart: () => void;
+  onDeleteFromCart: () => void;
 }
 
 export const TabletCart: FC<FavoriteCardProps> = ({
