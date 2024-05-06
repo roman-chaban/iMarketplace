@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import styles from './hero.module.scss';
 import { Slider } from '../Slider/Slider';
-import AppleLogo from '../../favicon/favicon.png';
 import { HeroSection, MainTitle } from './styled/hero';
+import { Apple } from 'grommet-icons';
 
 export const Hero: FC = (): JSX.Element => {
   return (
@@ -11,13 +11,7 @@ export const Hero: FC = (): JSX.Element => {
         {
           <MainTitle className={styles.mainHero__title}>
             Welcome to iMarketplace! It's great to have you here.
-            <img
-              className={styles.appleLogo}
-              src={AppleLogo}
-              alt='Store Apple Logo'
-              width={48}
-              style={{ marginLeft: '40px' }}
-            />
+            <Apple size='large' style={{marginLeft: 20, position: 'relative', bottom: 5}} />
           </MainTitle>
         }
         <div className={styles.swiper__div}>

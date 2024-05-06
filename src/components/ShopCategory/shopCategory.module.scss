@@ -14,21 +14,26 @@
   height: 300px;
   object-fit: cover;
   object-position: 26%;
-  border-radius: 20px;
+  border-radius: 40px;
   cursor: pointer;
-  animation: zoomImageProduct cubic-bezier(0.165, 0.84, 0.44, 1) 5s 15;
+  animation: zoomImageProduct 4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
 }
 
 @keyframes zoomImageProduct {
-  0% {
-    transform: scale(0.95);
+  0%,
+  100% {
+    transform: scale(1);
   }
   50% {
     transform: scale(0.8);
   }
-  100% {
-    transform: scale(0.95);
-  }
+}
+
+.category__banner:hover {
+  filter: blur(3px);
+  opacity: 0.8;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .category__titles {

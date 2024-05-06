@@ -4,7 +4,7 @@ import { HeaderNavBar } from '../HeaderNavBar/HeaderNavBar';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { PopUp } from '../../components/UI Components/PopUp/PopUp';
-import { Apple } from '@mui/icons-material';
+import { Apple } from 'grommet-icons';
 import { HeaderContainer, HeaderWrapper } from './styled/header';
 
 export const Header: FC = (): JSX.Element => {

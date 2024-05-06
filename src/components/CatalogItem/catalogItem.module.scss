@@ -19,12 +19,13 @@
 }
 
 #discount {
-  color: $primary;
+  color: $secondary;
   font-size: $primary-five-size;
   font-weight: 700;
   line-height: 140%;
   text-decoration: line-through;
-  text-decoration-color: $primary;
+  text-decoration-thickness: 1px;
+  text-decoration-style: dashed;
   padding-bottom: 8px;
   padding-left: 10px;
 }

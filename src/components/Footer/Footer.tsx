@@ -1,5 +1,4 @@
 import { FC, Fragment } from 'react';
-import NavigationIcon from '@mui/icons-material/Navigation';
 import styles from './footer.module.scss';
 import { Apple } from '@mui/icons-material';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
@@ -8,6 +7,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import { FooterContainer, FooterStyledWrapper } from './styled/footer';
+import { LinkUp } from 'grommet-icons';
 
 export const Footer: FC = () => {
   const toUppPage = () => {
@@ -74,7 +74,7 @@ export const Footer: FC = () => {
               Back to top
             </button>
             <button className={styles.arrow__top} onClick={toUppPage}>
-              <NavigationIcon className={styles.arrow__circle} />
+              <LinkUp className={styles.arrow__circle} />
             </button>
           </div>
         </FooterStyledWrapper>
