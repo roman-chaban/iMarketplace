@@ -9,6 +9,16 @@
   padding-bottom: 2rem;
 }
 
+.itemsCounter {
+  text-align: center;
+  color: $secondary;
+  font-size: 2rem;
+}
+
+.counter__marker {
+  font-style: italic;
+}
+
 .favorite__list {
   width: 100%;
   max-width: 1138px;

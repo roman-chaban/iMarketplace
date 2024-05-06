@@ -14,9 +14,12 @@ const HeaderNavItems = styled.div`
 
 export const HeaderNavBar: FC = () => {
   const location = useLocation();
-  const { favoriteCounter, basketCounter } = useAppSelector(
-    (state) => state.productSlice
+
+  const favoriteCounter = useAppSelector(
+    (state) => state.favorite.favoriteCounter
   );
+
+  const cartCounter = useAppSelector((state) => state.cart.cartCounter);
 
   return (
     <HeaderNavItems>
@@ -40,7 +43,7 @@ export const HeaderNavBar: FC = () => {
           }`}
         >
           <img src={Basket} alt='Basket Icon' className={styles.basket__icon} />
-          <span className={styles.basket__counter}>{basketCounter}</span>
+          <span className={styles.basket__counter}>{cartCounter}</span>
         </button>
       </NavLink>
     </HeaderNavItems>

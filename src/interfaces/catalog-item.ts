@@ -10,10 +10,14 @@ export interface ICatalogItemProps extends IHotPricesProps {
   title?: string;
   price?: string;
   displaySize?: string;
+  name?: string;
   discount?: string;
   memory?: string;
   capacity?: string;
   products?: Products;
   onDeleteFromFavorites?: () => void;
   onAddToFavorites?: () => void;
+  tabletId?: string;
+  onAddToCart?: () => void;
+  onDeleteFromCart?: () => void;
 }

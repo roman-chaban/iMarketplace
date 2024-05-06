@@ -6,7 +6,7 @@ import { Loader } from './components/Loader/Loader';
 import { persistor, store } from './redux/store/store';
 import { AuthProvider } from './common/hoc/AuthProvider';
 import './assets/styles/main.scss';
-import { AppContainer, RootWrapper } from './styled/main';
+import { RootContainer, RootWrapper } from './styled/main';
 import { PersistGate } from 'redux-persist/integration/react';
 
 const root = ReactDOMClient.createRoot(
@@ -21,7 +21,7 @@ root.render(
           <RootWrapper />
           <Loader>
             <App />
-            <AppContainer />
+            <RootContainer />
           </Loader>
         </AuthProvider>
       </PersistGate>

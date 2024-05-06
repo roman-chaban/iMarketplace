@@ -8,3 +8,30 @@
   font-size: $primary-third-size;
   padding-bottom: 2rem;
 }
+
+.itemsCounter {
+  text-align: center;
+  color: $secondary;
+  font-size: 2rem;
+}
+
+.counter__marker {
+  font-style: italic;
+}
+
+.favorite__item {
+  width: 100%;
+}
+
+.favorite__list {
+  width: 100%;
+  max-width: 1138px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 24px 0 24px;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+}

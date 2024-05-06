@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import styles from './favoriteCard.module.scss';
 import { ICatalogItemProps } from '../../interfaces/catalog-item';
 import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
-import { deleteFavorites } from '../../redux/slices/productSlice';
+import { deleteFromFavorites } from '../../redux/slices/favoriteSlice';
 
 export const FavoriteCard: FC<ICatalogItemProps> = ({
   imgUrl = '',
@@ -15,7 +15,7 @@ export const FavoriteCard: FC<ICatalogItemProps> = ({
 
   const handleDeleteGoods = (productId: number) => {
     setIsRemoving(true);
-    dispatch(deleteFavorites(productId));
+    dispatch(deleteFromFavorites(productId));
   };
 
   const handleTransitionEnd = () => {
@@ -43,7 +43,7 @@ export const FavoriteCard: FC<ICatalogItemProps> = ({
         </div>
         <button
           className={styles.favorite__cardDelete}
-          onClick={() => phoneId !== undefined && handleDeleteGoods(phoneId)}
+          onClick={() => handleDeleteGoods(phoneId || 0)}
         >
           Delete from Favorites
         </button>

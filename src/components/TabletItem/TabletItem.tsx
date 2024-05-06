@@ -3,11 +3,12 @@ import styles from '../CatalogItem/catalogItem.module.scss';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../UI Components/CustomButton/CustomButton';
-import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
 import { Tablet } from '../../interfaces/tablets';
 import { TabletFavoriteButton } from '../TabletFavoriteButton/TabletFavoriteButton';
 import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
-import { addToFavoritesTablets } from '../../redux/slices/productSlice';
+import { addToFavoritesTablets } from '../../redux/slices/favoriteSlice';
+import { TabletButton } from '../TabletButton/TabletButton';
+import { addBasketTablets } from '../../redux/slices/cartSlice';
 
 const CardItem = styled.div`
   position: relative;
@@ -46,6 +47,10 @@ export const TabletItem: FC<Tablet> = ({
 
   const handleAddToFavorites = (product: Tablet) => {
     dispatch(addToFavoritesTablets(product));
+  };
+
+  const handleAddToCartTablets = (product: Tablet) => {
+    dispatch(addBasketTablets(product));
   };
 
   return (
@@ -89,7 +94,10 @@ export const TabletItem: FC<Tablet> = ({
         </li>
       </ul>
       <div className={styles.catalog__buttonItems}>
-        <CatalogButton />
+        <TabletButton
+          product={{ images, id, name, priceRegular }}
+          onClick={handleAddToCartTablets}
+        />
         <TabletFavoriteButton
           product={{ images, id, name, priceRegular }}
           onClick={handleAddToFavorites}

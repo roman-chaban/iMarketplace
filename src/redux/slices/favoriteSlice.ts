@@ -1,15 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../rootReducer/rootReducer';
 import { Products } from '../interfaces/products';
 import { Tablet } from '../../interfaces/tablets';
 
-interface ProductsState {
-  cart: Products[];
+export interface ProductsState {
   favorites: Products[];
   favoritesTablets: Tablet[];
   selectedProduct: Products[];
   favoriteCounter: number;
-  basketCounter: number;
 }
 
 const loadStateFromLocalStorage = (): ProductsState => {
@@ -22,30 +19,18 @@ const loadStateFromLocalStorage = (): ProductsState => {
     console.error('Error loading state from local storage:', error);
   }
   return {
-    cart: [],
     favorites: [],
     favoritesTablets: [],
     selectedProduct: [],
     favoriteCounter: 0,
-    basketCounter: 0,
   };
 };
 
 const initialState: ProductsState = loadStateFromLocalStorage();
-
-export const productSlice = createSlice({
+export const favoritesSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<Products>) => {
-      const existingProduct = state.cart.find(
-        (item) => item.phoneId === action.payload.phoneId
-      );
-      if (!existingProduct) {
-        state.cart = [...state.cart, action.payload];
-        state.basketCounter++;
-      }
-    },
     addToFavorites: (state, action: PayloadAction<Products>) => {
       const existingFavorite = state.favorites.find(
         (favorite) => favorite.phoneId === action.payload.phoneId
@@ -64,36 +49,39 @@ export const productSlice = createSlice({
         state.favoriteCounter++;
       }
     },
-    deleteFavorites: (state, action: PayloadAction<number>) => {
-      state.favorites = state.favorites.filter(
-        (good) => good.phoneId !== action.payload
+
+    deleteFromFavorites: (state, action: PayloadAction<number>) => {
+      const deletedFavorite = state.favorites.find(
+        (favorite) => favorite.phoneId === action.payload
       );
-      state.favoriteCounter--;
+      if (deletedFavorite) {
+        state.favorites = state.favorites.filter(
+          (favorite) => favorite.phoneId !== action.payload
+        );
+        state.favoriteCounter = Math.max(0, state.favoriteCounter - 1);
+      }
     },
-    deleteFavoriteTablets: (state, action: PayloadAction<string>) => {
-      state.favoritesTablets = state.favoritesTablets.filter(
-        (tablet) => tablet.id !== action.payload
+    deleteFromFavoriteTablets: (state, action: PayloadAction<string>) => {
+      const deletedTablet = state.favoritesTablets.find(
+        (tablet) => tablet.id === action.payload
       );
-      state.favoriteCounter--;
+      if (deletedTablet) {
+        state.favoritesTablets = state.favoritesTablets.filter(
+          (tablet) => tablet.id !== action.payload
+        );
+        state.favoriteCounter = Math.max(0, state.favoriteCounter - 1);
+      }
     },
-    deleteFromCart: (state, action: PayloadAction<number>) => {
-      state.cart = state.cart.filter((item) => item.phoneId !== action.payload);
-      state.basketCounter--;
-    },
+
     setSelectedProduct: (state, action: PayloadAction<Products[]>) => {
       state.selectedProduct = action.payload;
     },
   },
 });
-
 export const {
-  addToCart,
   addToFavorites,
   addToFavoritesTablets,
-  deleteFavorites,
-  deleteFavoriteTablets,
-  deleteFromCart,
+  deleteFromFavorites,
+  deleteFromFavoriteTablets,
   setSelectedProduct,
-} = productSlice.actions;
-
-export const selectProductsState = (state: RootState) => state.productSlice;
+} = favoritesSlice.actions;

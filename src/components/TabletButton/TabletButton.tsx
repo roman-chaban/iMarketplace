@@ -1,14 +1,14 @@
 import { FC, useState } from 'react';
 import Button from '@mui/material/Button';
-import styles from './catalog-button.module.scss';
-import { Products } from '../../../redux/interfaces/products';
+import styles from '../UI Components/CatalogButton/catalog-button.module.scss';
+import { Tablets } from '../../interfaces/tablets';
 
 interface CatalogProps {
-  product?: Products;
-  onClick?: (product: Products) => void;
+  product?: Tablets;
+  onClick?: (product: Tablets) => void;
 }
 
-export const CatalogButton: FC<CatalogProps> = ({
+export const TabletButton: FC<CatalogProps> = ({
   product = null,
   onClick = () => {},
 }) => {
@@ -17,7 +17,7 @@ export const CatalogButton: FC<CatalogProps> = ({
   const handleAddToCart = () => {
     if (product) {
       if (!isActiveButton) {
-        setIsActiveButton(true);
+        setIsActiveButton(!isActiveButton);
       }
       onClick(product);
     }
@@ -25,11 +25,11 @@ export const CatalogButton: FC<CatalogProps> = ({
 
   return (
     <Button
+      style={{ backgroundColor: isActiveButton ? '#66CDAA' : '#313237' }}
       onClick={handleAddToCart}
       className={styles.catalog__buttonItem}
-      style={{ backgroundColor: isActiveButton ? '#66CDAA' : '#313237' }}
     >
-      {isActiveButton ? 'Added to cart' : 'Add to cart'}
+      Add to cart
     </Button>
   );
 };

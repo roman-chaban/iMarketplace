@@ -9,6 +9,8 @@ interface IRoutesProps {
   FAVORITES: string;
   CART: string;
   AUTHORIZATION: string;
+  PHONEPRODUCT: string;
+  TABLETPRODUCT: string;
 }
 
 export const ROUTES: IRoutesProps = {
@@ -21,5 +23,7 @@ export const ROUTES: IRoutesProps = {
   FAVORITES: 'favorites',
   CART: 'cart',
   AUTHORIZATION: 'authorization',
+  PHONEPRODUCT: '/phones/phone/:title',
+  TABLETPRODUCT: '/tablets/tablet/:id',
   ERROR: '*',
 };

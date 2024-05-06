@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import styles from '../FavoriteCard/favoriteCard.module.scss';
 import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
-import { deleteFavoriteTablets } from '../../redux/slices/productSlice';
+import { deleteFromFavoriteTablets } from '../../redux/slices/favoriteSlice';
 import { Tablet } from '../../interfaces/tablets';
 
 interface FavoriteCardProps extends Tablet {
@@ -21,7 +21,7 @@ export const TabletFavoriteCard: FC<FavoriteCardProps> = ({
 
   const handleDeleteGoods = (productId: string) => {
     setIsRemoving(true);
-    dispatch(deleteFavoriteTablets(productId));
+    dispatch(deleteFromFavoriteTablets(productId));
   };
 
   const handleTransitionEnd = () => {

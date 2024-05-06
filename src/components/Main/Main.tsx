@@ -19,4 +19,3 @@ export const Main: FC = () => {
     </MainContainer>
   );
 };
-

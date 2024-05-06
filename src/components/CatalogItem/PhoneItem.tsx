@@ -3,15 +3,15 @@ import styles from './catalogItem.module.scss';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../UI Components/CustomButton/CustomButton';
 import { FavoriteButton } from '../UI Components/FavoriteButton/FavoriteButton';
-import { addToFavorites } from '../../redux/slices/productSlice';
+import { addToFavorites } from '../../redux/slices/favoriteSlice';
 import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
 import { ICatalogItemProps } from '../../interfaces/catalog-item';
 import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
 import { Products } from '../../redux/interfaces/products';
 import { CardItem } from './styled/catalogItem';
+import { addToCart } from '../../redux/slices/cartSlice';
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const enum PhonesPath {
+const enum PhonesPath {
   PHONES = '/phones/phone/',
 }
 
@@ -29,6 +29,10 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
 
   const handleAddToFavorites = (product: Products) => {
     dispatch(addToFavorites(product));
+  };
+
+  const handleAddToCart = (product: Products) => {
+    dispatch(addToCart(product));
   };
 
   const toUpPage = () => {
@@ -74,7 +78,19 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
         </li>
       </ul>
       <div className={styles.catalog__buttonItems}>
-        <CatalogButton />
+        <CatalogButton
+          product={{
+            imgUrl,
+            title,
+            price,
+            displaySize,
+            discount,
+            capacity,
+            memory,
+            phoneId,
+          }}
+          onClick={handleAddToCart}
+        />
         <FavoriteButton
           product={{
             imgUrl,

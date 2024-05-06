@@ -27,7 +27,7 @@ export const FavoriteButton: FC<FavoriteProps> = ({
       onClick={handleAddToFavorites}
       className={`${styles.favorite__button} ${isActive ? 'active' : ''}`}
       style={{
-        background: isActive ? '#FF2400' : '',
+        background: isActive ? '#FF6F61' : '',
         border: isActive ? '1px solid #eee' : '',
       }}
     >
