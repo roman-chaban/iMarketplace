@@ -35,3 +35,10 @@
   flex-wrap: wrap;
   margin-bottom: 100px;
 }
+
+@media screen and (max-width: 955px) {
+  .favorite__item {
+    margin: 0 auto;
+    width: 80%;
+  }
+}

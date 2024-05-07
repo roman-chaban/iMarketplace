@@ -179,6 +179,12 @@
   width: 300px;
 }
 
+.pagination__block {
+  display: flex;
+}
+
+
+
 @media screen and (width <= 1000px) {
   .catalog__containerTablets {
     margin: 0 50px;

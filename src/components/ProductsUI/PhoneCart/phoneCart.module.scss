@@ -76,3 +76,23 @@
   padding: 8px 5px;
   border-radius: 5px;
 }
+
+@media screen and (max-width: 955px) {
+  
+  .favorite__card {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    grid-template-rows: auto;
+  }
+  .favorite__cardTitle {
+    max-width: 350px;
+    margin-bottom: 10px;
+  }
+  .productItems__title {
+    max-width: 130px;
+  }
+  .favorite__cardBlock {
+    max-width: 600px;
+  }
+}
