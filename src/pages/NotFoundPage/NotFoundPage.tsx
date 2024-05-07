@@ -24,15 +24,19 @@ export const NotFoundPage: FC<NotFoundProps> = () => {
   }, [errorStatusCode]);
 
   return (
-    <NotFoundContainer>
-      <StyledErrorPage>
-        <Apple id={styles.rotateIcon} style={{ fontSize: '50px' }} />
-        Page is not Defined {errorStatusCode}
-        {error?.statusText ?? error?.message}
-      </StyledErrorPage>
-      <NavLink id={styles.error__link} to={ROUTES.HOME}>
-        Click To Home
-      </NavLink>
-    </NotFoundContainer>
+    <div className={styles.notFound__banner}>
+      <div className={styles.notFound__content}>
+        <NotFoundContainer>
+          <StyledErrorPage>
+            <Apple id={styles.rotateIcon} style={{ fontSize: '50px' }} />
+            Page is not Defined {errorStatusCode}
+            {error?.statusText ?? error?.message}
+          </StyledErrorPage>
+          <NavLink id={styles.error__link} to={ROUTES.HOME}>
+            Click To Home
+          </NavLink>
+        </NotFoundContainer>
+      </div>
+    </div>
   );
 };

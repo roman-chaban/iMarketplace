@@ -21,13 +21,22 @@
 #error__link {
   margin: 0 auto;
   max-width: 300px;
-  color: #313237;
+  color: #000;
   font-size: 32px;
   text-align: center;
   padding-top: 50px;
   font-weight: 700;
   transition: color 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   &:hover {
-    color: $secondary;
+    color: $primary;
   }
+}
+.notFound__banner {
+  background: url(../../images/notFound/notFound.jpg);
+  width: 100%;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transform-origin: center bottom;
 }
