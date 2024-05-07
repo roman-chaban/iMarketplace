@@ -14,6 +14,8 @@ export interface Tablet {
   description?: { title: string; text: string[] }[];
   images?: string[];
   cell?: string[];
+  onAddToFavorites?: () => void;
+  onDeleteFromFavorites?: () => void;
 }
 
 export interface ProductItemProps {

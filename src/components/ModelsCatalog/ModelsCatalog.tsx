@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styles from './modelsCatalog.module.scss';
 import products from '../../common/products/products.json';
-import { Phones } from '../Phones/Phones';
+import { Phones } from '../ProductsUI/Phones/Phones';
 import { Phone } from '../../interfaces/phones';
 import { ModelsCatalogSection } from './styled/modelsCatalog';
 

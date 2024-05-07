@@ -1,11 +1,11 @@
 import { FC, useEffect, useState } from 'react';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
-import TabletsSelect from '../../components/TabletsSelect/TabletsSelect';
+import TabletsSelect from '../../components/TabletsUI/TabletsSelect/TabletsSelect';
 import styles from './tablets.module.scss';
 import { Tablet } from '../../interfaces/tablets';
 import tabletProducts from '../../common/products/tablets.json';
 import Pagination from '@mui/material/Pagination';
-import { TabletItem } from '../../components/TabletItem/TabletItem';
+import { TabletItem } from '../../components/TabletsUI/TabletItem/TabletItem';
 import Select from 'react-select';
 
 export const TabletsPage: FC = () => {

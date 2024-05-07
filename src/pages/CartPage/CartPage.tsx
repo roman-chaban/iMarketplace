@@ -11,8 +11,8 @@ import {
   deleteBasketTablets,
 } from '../../redux/slices/cartSlice';
 import { Tablet } from '../../interfaces/tablets';
-import { PhoneCart } from '../../components/PhoneCart/PhoneCart';
-import { TabletCart } from '../../components/TabletCart/TabletCart';
+import { PhoneCart } from '../../components/ProductsUI/PhoneCart/PhoneCart';
+import { TabletCart } from '../../components/TabletsUI/TabletCart/TabletCart';
 
 export const CartPage: FC = () => {
   const dispatch = useAppDispatch();

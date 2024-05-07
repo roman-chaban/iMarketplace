@@ -1,18 +1,20 @@
 import { FC, useState } from 'react';
-import styles from '../../CatalogItem/catalogItem.module.scss';
+import styles from '../../../components/CatalogItem/catalogItem.module.scss';
 import { FavoriteBorder } from '@mui/icons-material';
-import { Products } from '../../../redux/interfaces/products';
+import { Tablets } from '../../../interfaces/tablets';
 
 interface FavoriteProps {
-  product?: Products;
-  onClick?: (product: Products) => void;
-  onDeleteProduct?: (productId: number) => void;
+  product?: Tablets;
+  onClick?: (product: Tablets) => void;
+  onDeleteProduct?: (productId: string) => void;
+  tabletId?: string;
 }
 
-export const FavoriteButton: FC<FavoriteProps> = ({
+export const TabletFavoriteButton: FC<FavoriteProps> = ({
   product = null,
   onClick = () => {},
   onDeleteProduct = () => {},
+  tabletId = '',
 }) => {
   const [isActive, setIsActive] = useState<boolean>(false);
 
@@ -20,13 +22,12 @@ export const FavoriteButton: FC<FavoriteProps> = ({
     if (product) {
       setIsActive(!isActive);
       if (isActive) {
-        onDeleteProduct(product?.phoneId !== undefined ? product.phoneId : 0);
+        onDeleteProduct(typeof product.id === 'string' ? product.id : tabletId);
       } else {
         onClick(product);
       }
     }
   };
-
   return (
     <button
       onClick={handleToggleFavorite}

@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import styles from './phonePage.module.scss';
-import { ProductItem } from '../../components/ProductItem/ProductItem';
+import { ProductItem } from '../../components/ProductsUI/ProductItem/ProductItem';
 import products from '../../common/products/products.json';
 import { ModelsCatalog } from '../../components/ModelsCatalog/ModelsCatalog';
 import { useParams } from 'react-router-dom';

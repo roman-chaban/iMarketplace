@@ -5,10 +5,10 @@ import rightArrowIcon from '../../images/icons/Chevron (Arrow Right).svg';
 import leftArrowIcon from '../../images/icons/Chevron (Arrow Left).svg';
 import styles from '../../pages/PhonePage/phonePage.module.scss';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
-import { PhoneCharacteristics } from '../../components/PhoneCharacteristics/PhoneCharacteristics';
+import { PhoneCharacteristics } from '../../components/ProductsUI/PhoneCharacteristics/PhoneCharacteristics';
 import { ProductItemProps } from '../../interfaces/tablets';
-import { TabletsAbout } from '../../components/TabletsAbout/TabletsAbout';
-import { TabletsTechSpecs } from '../../components/TabletsTechSpecs/TabletsTechSpecs';
+import { TabletsAbout } from '../../components/TabletsUI/TabletsAbout/TabletsAbout';
+import { TabletsTechSpecs } from '../../components/TabletsUI/TabletsTechSpecs/TabletsTechSpecs';
 import { ROUTES } from '../../common/routes/routes';
 
 type MainImage = string;

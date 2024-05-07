@@ -3,7 +3,10 @@ import styles from './catalogItem.module.scss';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../UI Components/CustomButton/CustomButton';
 import { FavoriteButton } from '../UI Components/FavoriteButton/FavoriteButton';
-import { addToFavorites } from '../../redux/slices/favoriteSlice';
+import {
+  addToFavorites,
+  deleteFromFavorites,
+} from '../../redux/slices/favoriteSlice';
 import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
 import { ICatalogItemProps } from '../../interfaces/catalog-item';
 import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
@@ -14,7 +17,6 @@ import { addToCart } from '../../redux/slices/cartSlice';
 const enum PhonesPath {
   PHONES = '/phones/phone/',
 }
-
 export const PhoneItem: FC<ICatalogItemProps> = ({
   imgUrl = '',
   title = '',
@@ -33,6 +35,10 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
 
   const handleAddToCart = (product: Products) => {
     dispatch(addToCart(product));
+  };
+
+  const handleDeleteFavorites = (productId: number) => {
+    dispatch(deleteFromFavorites(productId));
   };
 
   const toUpPage = () => {
@@ -91,19 +97,22 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
           }}
           onClick={handleAddToCart}
         />
-        <FavoriteButton
-          product={{
-            imgUrl,
-            title,
-            price,
-            displaySize,
-            discount,
-            capacity,
-            memory,
-            phoneId,
-          }}
-          onClick={handleAddToFavorites}
-        />
+        {phoneId !== undefined && (
+          <FavoriteButton
+            product={{
+              imgUrl,
+              title,
+              price,
+              displaySize,
+              discount,
+              capacity,
+              memory,
+              phoneId,
+            }}
+            onClick={handleAddToFavorites}
+            onDeleteProduct={handleDeleteFavorites}
+          />
+        )}
       </div>
     </CardItem>
   );

@@ -5,7 +5,7 @@ import products from '../../common/products/tablets.json';
 import { Tablet } from '../../interfaces/tablets';
 import { useParams } from 'react-router-dom';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
-import { TabletsCatalog } from '../../components/Tablets/TabletsCatalog';
+import { TabletsCatalog } from '../../components/TabletsUI/Tablets/TabletsCatalog';
 
 export const TabletPage: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -21,7 +21,6 @@ export const TabletPage: FC = () => {
     const tablet = products.find((tablet) => tablet.id === id);
     setSelectedProduct(tablet as Tablet | undefined);
   }, [id]);
-
 
   return (
     <div className={`${styles.phone__layout} ${styles.tablet__layout}`}>

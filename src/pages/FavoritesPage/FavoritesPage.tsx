@@ -3,7 +3,6 @@ import { CatalogPage } from '../CatalogPage/CatalogPage';
 import styles from './favoritePage.module.scss';
 import { Products } from '../../redux/interfaces/products';
 import { Tablet } from '../../interfaces/tablets';
-import { TabletFavoriteCard } from '../../components/TabletFavoriteCard/TabletFavoriteCard';
 import {
   addToFavorites,
   addToFavoritesTablets,
@@ -13,6 +12,7 @@ import {
 import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/reduxHooks/useAppSelector';
 import { PhoneItem } from '../../components/CatalogItem/PhoneItem';
+import { TabletItem } from '../../components/TabletsUI/TabletItem/TabletItem';
 
 export const FavoritesPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -83,12 +83,14 @@ export const FavoritesPage: FC = () => {
             ))}
             {favoriteTablets.map((favorite: Tablet) => (
               <div key={favorite.id} className={styles.favorite__item}>
-                <TabletFavoriteCard
+                <TabletItem
                   images={favorite.images}
                   name={favorite.name}
                   priceRegular={favorite.priceRegular}
                   id={favorite.id}
-                  tabletId={favorite.id === undefined ? '' : favorite.id}
+                  screen={favorite.screen}
+                  capacity={favorite.capacity}
+                  ram={favorite.ram}
                   onAddToFavorites={() => handleAddToFavoritesTablets(favorite)}
                   onDeleteFromFavorites={() =>
                     handleDeleteFromFavoritesTablets(favorite.id || '')

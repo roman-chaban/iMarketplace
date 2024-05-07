@@ -8,12 +8,15 @@ export const useCount = (productPrice: number): CounterProps => {
   }, []);
 
   const onDeleteProduct = useCallback(() => {
-    if (itemCount > 0) {
-      setItemCount((prevCount) => prevCount - 1);
-    }
+    if (itemCount < 1) return;
+    setItemCount((prevCount) => prevCount - 1);
   }, [itemCount]);
 
-  return { productPrice: productPrice * itemCount, onAddProduct, onDeleteProduct };
+  return {
+    productPrice: productPrice * itemCount,
+    onAddProduct,
+    onDeleteProduct,
+  };
 };
 
 interface CounterProps {
