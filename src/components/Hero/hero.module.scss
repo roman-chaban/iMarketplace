@@ -62,6 +62,23 @@
   animation: fadeInFromLeft 1s ease forwards;
 }
 
+@media (max-width: 1100px) {
+  .mainHero__title {
+    font-size: 2rem !important;
+  }
+  .hero__container {
+    position: relative;
+    bottom: 25px;
+  }
+  #hero__logo {
+    max-width: 40px;
+  }
+  .hero__container {
+    gap: 30px;
+    margin-top: 0;
+  }
+}
+
 @media (max-width: 850px) {
   .left__swipper,
   .right__swipper {

@@ -11,7 +11,7 @@ export const Hero: FC = (): JSX.Element => {
         {
           <MainTitle className={styles.mainHero__title}>
             Welcome to iMarketplace! It's great to have you here.
-            <Apple size='large' style={{marginLeft: 20, position: 'relative', bottom: 5}} />
+            <Apple id={styles.hero__logo} size='large' style={{marginLeft: 20, position: 'relative', bottom: 5}} />
           </MainTitle>
         }
         <div className={styles.swiper__div}>

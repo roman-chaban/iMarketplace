@@ -19,3 +19,9 @@ body {
   padding-right: 30px;
 }
 
+@media screen and (max-width: 995px) {
+  .main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

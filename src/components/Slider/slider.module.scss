@@ -13,6 +13,9 @@
 
 @media screen and (width <= 1200px) {
   .img__slider {
-    max-height: 380px;
+    max-height: 350px;
+    object-position: center;
+    object-fit: cover;
+    width: 100%;
   }
 }
