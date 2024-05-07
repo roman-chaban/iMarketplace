@@ -7,8 +7,8 @@ export const StyledErrorPage = styled.div`
   gap: 20px;
   align-items: center;
   padding-top: 150px;
-  color: #313237;
-  font-size: 32px;
+  color: #000;
+  font-size: 36px;
 `;
 
 export const NotFoundContainer = styled.div`
