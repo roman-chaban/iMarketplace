@@ -6,6 +6,7 @@ import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { PopUp } from '../../components/UI Components/PopUp/PopUp';
 import { Apple } from 'grommet-icons';
 import { HeaderContainer, HeaderWrapper } from './styled/header';
+import { ROUTES } from '../../common/routes/routes';
 
 export const Header: FC = (): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -55,35 +56,44 @@ export const Header: FC = (): JSX.Element => {
         <nav className={styles.navigation__bar}>
           <ul className={styles.nav}>
             <li tabIndex={1} className={styles.nav__item}>
-              <CustomLink className={styles.nav__link} to='/'>
+              <CustomLink className={styles.nav__link} to={ROUTES.HOME}>
                 home
               </CustomLink>
             </li>
             <li tabIndex={2} className={styles.nav__item}>
-              <CustomLink className={styles.nav__link} to='/phones'>
+              <CustomLink className={styles.nav__link} to={ROUTES.PHONES}>
                 phones
               </CustomLink>
             </li>
             <li tabIndex={3} className={styles.nav__item}>
-              <CustomLink className={styles.nav__link} to='/tablets'>
+              <CustomLink className={styles.nav__link} to={ROUTES.TABLETS}>
                 tablets
               </CustomLink>
             </li>
             <li tabIndex={4} className={styles.nav__item}>
-              <CustomLink className={styles.nav__link} to='accessories'>
+              <CustomLink className={styles.nav__link} to={ROUTES.ACCESSORIES}>
                 accessories
               </CustomLink>
             </li>
           </ul>
         </nav>
         <div className={styles.navBar__container}>
-        <PopUp />
-        <HeaderNavBar />
-        <div onClick={toggleMenu} className={styles.burger__buttonBlock}>
-          <button type='button' className={styles.button__burgerLine}></button>
-          <button type='button' className={styles.button__burgerLine}></button>
-          <button type='button' className={styles.button__burgerLine}></button>
-        </div>
+          <PopUp />
+          <HeaderNavBar />
+          <div onClick={toggleMenu} className={styles.burger__buttonBlock}>
+            <button
+              type='button'
+              className={styles.button__burgerLine}
+            ></button>
+            <button
+              type='button'
+              className={styles.button__burgerLine}
+            ></button>
+            <button
+              type='button'
+              className={styles.button__burgerLine}
+            ></button>
+          </div>
         </div>
       </HeaderContainer>
       {isMenuOpen && <BurgerMenu />}
