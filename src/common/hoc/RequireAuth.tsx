@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
-import { ROUTES } from '../../common/routes/routes';
+import { ROUTES } from '../../constants/routes/routes';
 import { useAuth } from '../../hooks/useAuth';
 
 interface RequireAuth {

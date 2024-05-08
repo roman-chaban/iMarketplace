@@ -6,7 +6,7 @@ import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { PopUp } from '../../components/UI Components/PopUp/PopUp';
 import { Apple } from 'grommet-icons';
 import { HeaderContainer, HeaderWrapper } from './styled/header';
-import { ROUTES } from '../../common/routes/routes';
+import { ROUTES } from '../../constants/routes/routes';
 
 export const Header: FC = (): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);

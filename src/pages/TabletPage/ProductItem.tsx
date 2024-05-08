@@ -9,7 +9,7 @@ import { PhoneCharacteristics } from '../../components/ProductsUI/PhoneCharacter
 import { ProductItemProps } from '../../interfaces/tablets';
 import { TabletsAbout } from '../../components/TabletsUI/TabletsAbout/TabletsAbout';
 import { TabletsTechSpecs } from '../../components/TabletsUI/TabletsTechSpecs/TabletsTechSpecs';
-import { ROUTES } from '../../common/routes/routes';
+import { ROUTES } from '../../constants/routes/routes';
 
 type MainImage = string;
 type SelectMemory = string;

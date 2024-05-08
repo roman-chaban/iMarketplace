@@ -1,5 +1,5 @@
 import { createHashRouter } from 'react-router-dom';
-import { ROUTES } from '../routes/routes';
+import { ROUTES } from '../../constants/routes/routes';
 import { LayoutPage } from '../../pages/LayoutPage/LayoutPage';
 import { HomePage } from '../../pages/HomePage/HomePage';
 import { PhonesPage } from '../../pages/PhonesPage/PhonesPage';

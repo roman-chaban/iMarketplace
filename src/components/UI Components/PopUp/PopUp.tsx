@@ -3,7 +3,7 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../../common/routes/routes';
+import { ROUTES } from '../../../constants/routes/routes';
 import styles from '../../Header/header.module.scss';
 import { useAuth } from '../../../hooks/useAuth';
 import { Apple } from '@mui/icons-material';

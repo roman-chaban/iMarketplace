@@ -3,7 +3,7 @@ import styles from './notFound.module.scss';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Apple } from '@mui/icons-material';
 import { NotFoundContainer, StyledErrorPage } from './styled/notFoundStyled';
-import { ROUTES } from '../../common/routes/routes';
+import { ROUTES } from '../../constants/routes/routes';
 
 interface NotFoundProps {
   statusText: string;

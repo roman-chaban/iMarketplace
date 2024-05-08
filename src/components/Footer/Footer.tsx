@@ -1,7 +1,7 @@
 import { FC, Fragment } from 'react';
 import styles from './footer.module.scss';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
-import { ROUTES } from '../../common/routes/routes';
+import { ROUTES } from '../../constants/routes/routes';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TelegramIcon from '@mui/icons-material/Telegram';
