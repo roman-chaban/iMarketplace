@@ -85,13 +85,13 @@ export const TabletsPage: FC = () => {
         mainTitle='Tablets'
       />
       <div className={styles.page__select}>
-        <label htmlFor='sort'>
+        <div className={styles.sorted__select}>
           <span id='sort' className={styles.select__title}>
             Sort by:
           </span>
           <TabletsSelect tablets={products} setTablets={setProducts} />
-        </label>
-        <label htmlFor='items'>
+        </div>
+        <div className={styles.items__select}>
           <span id='items' className={styles.select__title}>
             Choose items:
           </span>
@@ -102,7 +102,7 @@ export const TabletsPage: FC = () => {
             value={{ value: phonesPerPage, label: `Items ${phonesPerPage}` }}
             onChange={handlePhonePerPageChange}
           />
-        </label>
+        </div>
       </div>
       <div className={styles.catalog__containerTablets}>
         {currentTablets.map((tablet) => (
