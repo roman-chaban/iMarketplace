@@ -96,3 +96,10 @@
     max-width: 600px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .favorite__cardTitle {
+    max-width: 200px;
+    line-height: 140%;
+  }
+}

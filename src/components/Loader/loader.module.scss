@@ -23,3 +23,12 @@
   gap: 20px;
   align-items: center;
 }
+
+@media screen and (max-width: 600px) {
+  .block__title {
+    flex-direction: column-reverse;
+    gap: 2rem;
+    font-size: 1.7rem !important;
+    width: 100%;
+  }
+}

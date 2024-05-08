@@ -28,7 +28,7 @@ export const Loader: FC<TypeLoader> = () => {
       <div className={styles.blocks__loader}>
         <MainTitle className={styles.block__title}>
           Welcome to iMarketplace!
-          <AppleAppStore size='large' />
+          <AppleAppStore size='large' className={styles.AppleAppStore} />
         </MainTitle>
         <BallTriangle
           visible={true}

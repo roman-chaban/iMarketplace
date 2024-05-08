@@ -4,6 +4,7 @@ import homeIcon from '../../images/icons/Home.svg';
 import arrowRightIcon from '../../images/icons/Chevron (Arrow Right).svg';
 import { PhoneItemProps } from '../../../interfaces/phone';
 import { FC } from 'react';
+import { ROUTES } from '../../../constants/routes/routes';
 
 const PhoneItem: FC<PhoneItemProps> = ({
   smallTitle,
@@ -15,7 +16,7 @@ const PhoneItem: FC<PhoneItemProps> = ({
     <div className={styles.phone__item}>
       <div className={styles.phones__navigation}>
         <NavLink
-          to='/'
+          to={ROUTES.HOME}
           style={{ color: '#313237' }}
           className={styles.phones__toHome}
         >
@@ -27,7 +28,7 @@ const PhoneItem: FC<PhoneItemProps> = ({
         <h5 className={styles.phones__title}>{phoneTitle}</h5>
       </div>
       <NavLink
-        to='/phones'
+        to={ROUTES.PHONES}
         style={{ color: '#313237' }}
         className={styles.phones__toPhones}
       >

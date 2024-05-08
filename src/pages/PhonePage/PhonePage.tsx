@@ -10,7 +10,9 @@ export const PhonePage: FC = () => {
   const { title } = useParams<{ title: string }>();
 
   useEffect(() => {
-    document.title = 'Product | Phone';
+    const titleProductName =
+      title !== undefined ? title.replaceAll('-', ' ') : title;
+    document.title = `Product | ${titleProductName}`;
     const product = products.find((product) => product.title === title);
     if (product) {
       setSelectedProduct(product);

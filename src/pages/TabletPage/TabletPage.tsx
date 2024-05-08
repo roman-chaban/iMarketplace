@@ -14,7 +14,8 @@ export const TabletPage: FC = () => {
   );
 
   useEffect(() => {
-    document.title = 'iMarketplace | Tablet';
+    const tabletProductName = id !== undefined ? id.replaceAll('-', ' ') : id;
+    document.title = `iMarketplace | ${tabletProductName}`;
   }, []);
 
   useEffect(() => {
