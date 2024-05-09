@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import styles from '../../CatalogItem/catalogItem.module.scss';
-import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../../UI Components/CustomButton/CustomButton';
 import { Tablet } from '../../../interfaces/tablets';
@@ -12,20 +11,10 @@ import {
 } from '../../../redux/slices/favoriteSlice';
 import { TabletButton } from '../TabletButton/TabletButton';
 import { addBasketTablets } from '../../../redux/slices/cartSlice';
-import { useLanguage } from '../../LanguagesContext/LanguagesContext';
 import { translations } from '../../LanguageSwitcher/translation';
+import { useLanguage } from '../../../hooks/useLanguage';
+import { CardItem } from './styled/cardItem';
 
-const CardItem = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 20rem;
-  padding: 10px 14px;
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 2px 2px 5px 0px rgba(0, 64, 128, 0.2);
-`;
 
 const enum TabletsPath {
   TABLETS = '/tablets/tablet/',

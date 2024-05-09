@@ -3,8 +3,8 @@ import { CatalogPage } from '../CatalogPage/CatalogPage';
 import styles from './accessories.module.scss';
 // import { CustomSelect } from '../../components/Select/Select';
 import { useEffect } from 'react';
-import { useLanguage } from '../../components/LanguagesContext/LanguagesContext';
 import { translations } from '../../components/LanguageSwitcher/translation';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export const AccessoriesPage: FC = () => {
   const { currentLanguage } = useLanguage();

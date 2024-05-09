@@ -7,9 +7,9 @@ import { PopUp } from '../../components/UI Components/PopUp/PopUp';
 import { HeaderContainer, HeaderWrapper } from './styled/header';
 import { ROUTES } from '../../constants/routes/routes';
 import { Apple } from 'grommet-icons';
-import { useLanguage } from '../LanguagesContext/LanguagesContext';
 import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher';
 import { translations } from '../LanguageSwitcher/translation';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export const Header: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);

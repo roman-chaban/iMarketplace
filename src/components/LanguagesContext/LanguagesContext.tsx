@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useState } from 'react';
+import { ReactNode, createContext, useState } from 'react';
 
 interface LanguageProviderProps {
   children: ReactNode;
@@ -9,13 +9,12 @@ interface LanguageContextProps {
   handleChangeLanguage: (language: string) => void;
 }
 
-const LanguageContext = createContext<LanguageContextProps>({
+export const LanguageContext = createContext<LanguageContextProps>({
   currentLanguage: 'en',
   handleChangeLanguage: () => {},
 });
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const useLanguage = () => useContext(LanguageContext);
+
 
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   const [currentLanguage, setCurrentLanguage] = useState<string>('en');

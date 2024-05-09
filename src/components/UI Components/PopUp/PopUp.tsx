@@ -7,8 +7,8 @@ import { ROUTES } from '../../../constants/routes/routes';
 import styles from '../../Header/header.module.scss';
 import { useAuth } from '../../../hooks/useAuth';
 import { Apple } from '@mui/icons-material';
-import { useLanguage } from '../../LanguagesContext/LanguagesContext';
 import { translations } from '../../LanguageSwitcher/translation';
+import { useLanguage } from '../../../hooks/useLanguage';
 
 export const PopUp: FC = () => {
   const navigate = useNavigate();
