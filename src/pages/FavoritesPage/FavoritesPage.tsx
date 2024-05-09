@@ -13,9 +13,12 @@ import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/reduxHooks/useAppSelector';
 import { PhoneItem } from '../../components/CatalogItem/PhoneItem';
 import { TabletItem } from '../../components/TabletsUI/TabletItem/TabletItem';
+import { useLanguage } from '../../hooks/useLanguage';
+import { translations } from '../../components/LanguageSwitcher/translation';
 
 export const FavoritesPage: FC = () => {
   const dispatch = useAppDispatch();
+  const { currentLanguage } = useLanguage();
 
   const favoritesCounter = useAppSelector(
     (state) => state.favorite.favoriteCounter
@@ -28,8 +31,8 @@ export const FavoritesPage: FC = () => {
   );
 
   useEffect(() => {
-    document.title = 'iMarketplace | Favorites';
-  }, []);
+    document.title = `iMarketplace | ${translations[currentLanguage].favoriteLabel}`;
+  }, [currentLanguage]);
 
   const handleAddToFavorites = (product: Products) => {
     dispatch(addToFavorites(product));

@@ -13,9 +13,12 @@ import {
 import { Tablet } from '../../interfaces/tablets';
 import { PhoneCart } from '../../components/ProductsUI/PhoneCart/PhoneCart';
 import { TabletCart } from '../../components/TabletsUI/TabletCart/TabletCart';
+import { useLanguage } from '../../hooks/useLanguage';
+import { translations } from '../../components/LanguageSwitcher/translation';
 
 export const CartPage: FC = () => {
   const dispatch = useAppDispatch();
+  const { currentLanguage } = useLanguage();
 
   const basketCounter = useAppSelector((state) => state.cart.cartCounter);
   const cartPhones = useAppSelector((state) => state.cart.cart);
@@ -38,8 +41,8 @@ export const CartPage: FC = () => {
   };
 
   useEffect(() => {
-    document.title = 'iMarketplace | Products';
-  }, []);
+    document.title = `iMarketplace | ${translations[currentLanguage].cartLabel}`;
+  }, [currentLanguage]);
 
   return (
     <>

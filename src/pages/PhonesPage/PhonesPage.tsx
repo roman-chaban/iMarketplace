@@ -21,9 +21,9 @@ export const PhonesPage: FC = () => {
   }, [phonePerPage]);
 
   useEffect(() => {
-    document.title = 'iMarketplace | Phones';
+    document.title = `iMarketplace | ${translations[currentLanguage].phoneLabel}`;
     getPhonesProducts();
-  }, []);
+  }, [currentLanguage]);
 
   const getPhonesProducts = () => {
     const parsedProducts = phonesProducts.map((product) => ({
@@ -149,7 +149,7 @@ export const PhonesPage: FC = () => {
                   : 'not-allowed',
             }}
           >
-              {translations[currentLanguage].paginationButtonsLabels.next}
+            {translations[currentLanguage].paginationButtonsLabels.next}
           </button>
         </div>
       </div>

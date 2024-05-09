@@ -7,6 +7,9 @@ interface Translations {
     phoneLabel: string;
     tabletLabel: string;
     accessoriesLabel: string;
+    authorizationLabel: string;
+    favoriteLabel: string;
+    cartLabel: string;
     registrationLabel: string;
     catalogTitle: string;
     brandModelsTitle: string;
@@ -56,6 +59,9 @@ interface Translations {
     phoneLabel: string;
     tabletLabel: string;
     accessoriesLabel: string;
+    authorizationLabel: string;
+    favoriteLabel: string;
+    cartLabel: string;
     registrationLabel: string;
     catalogTitle: string;
     brandModelsTitle: string;
@@ -108,6 +114,9 @@ export const translations: Translations = {
     tabletLabel: 'Tablets',
     phoneLabel: 'Phones',
     accessoriesLabel: 'Accessories',
+    authorizationLabel: 'Authorization',
+    favoriteLabel: 'Favorites',
+    cartLabel: 'Basket',
     registrationLabel: 'Register',
     catalogTitle: "Welcome to iMarketplace! It's great to have you here",
     brandModelsTitle: 'Brand New Models',
@@ -157,6 +166,9 @@ export const translations: Translations = {
     phoneLabel: 'Телефони',
     tabletLabel: 'Планшети',
     accessoriesLabel: 'Аксесуари',
+    authorizationLabel: 'Авторизація',
+    favoriteLabel: 'Улюблені',
+    cartLabel: 'Кошик',
     registrationLabel: 'Увійти',
     catalogTitle: 'Ласкаво просимо до Макретплейсу! Чудово, що ти тут',
     brandModelsTitle: 'Нові моделі',

@@ -17,9 +17,9 @@ export const TabletsPage: FC = () => {
   const { currentLanguage } = useLanguage();
 
   useEffect(() => {
-    document.title = 'iMarketplace| Tablets';
+    document.title = `iMarketplace| ${translations[currentLanguage].tabletLabel}`;
     getPhonesProducts();
-  }, []);
+  }, [currentLanguage]);
 
   useEffect(() => {
     setCurrentPage(1);

@@ -8,9 +8,10 @@ import { useLanguage } from '../../hooks/useLanguage';
 
 export const AccessoriesPage: FC = () => {
   const { currentLanguage } = useLanguage();
+
   useEffect(() => {
-    document.title = 'iMarketplace | Accessories';
-  }, []);
+    document.title = `iMarketplace | ${translations[currentLanguage].accessoriesLabel}`;
+  }, [currentLanguage]);
   return (
     <div className={styles.catalog__container}>
       <CatalogPage

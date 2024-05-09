@@ -7,6 +7,8 @@ import TextField from '@mui/material/TextField';
 import { CustomButton } from '../../components/UI Components/CustomButton/CustomButton';
 import styles from './authPage.module.scss';
 import { Apple } from '@mui/icons-material';
+import { translations } from '../../components/LanguageSwitcher/translation';
+import { useLanguage } from '../../hooks/useLanguage';
 
 interface EventWithPreventDefault extends Event {
   preventDefault(): void;
@@ -21,6 +23,7 @@ export const AuthorizationPage: FC = () => {
   const [isValidData, setIsValidData] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const { currentLanguage } = useLanguage();
 
   const validateEmail = (email: string) => {
     return email.includes('@');
@@ -31,8 +34,8 @@ export const AuthorizationPage: FC = () => {
   };
 
   useEffect(() => {
-    document.title = 'iMarketplace | Authorization';
-  }, []);
+    document.title = `iMarketplace | ${translations[currentLanguage].authorizationLabel}`;
+  }, [currentLanguage]);
 
   const handleSubmit = (
     event: FormEvent<HTMLFormElement> & EventWithPreventDefault
