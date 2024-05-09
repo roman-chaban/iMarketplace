@@ -13,9 +13,9 @@ export const Main: FC = () => {
   return (
     <MainContainer>
       <Hero />
-      <ModelsCatalog modelsTitle='Brand New Models' />
-      <ShopCategory title='Shop by category' />
-      <HotPrices pricesTitle='Hot prices' />
+      <ModelsCatalog />
+      <ShopCategory />
+      <HotPrices />
     </MainContainer>
   );
 };

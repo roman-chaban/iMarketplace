@@ -22,7 +22,7 @@ export const PhonePage: FC = () => {
   return (
     <div className={styles.phone__layout}>
       <ProductItem product={selectedProduct} />
-      <ModelsCatalog modelsTitle="iPhone's" />
+      <ModelsCatalog />
     </div>
   );
 };
