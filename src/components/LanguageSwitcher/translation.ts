@@ -18,6 +18,7 @@ interface Translations {
     viewButtonLabel: string;
     modelsTitle: string;
     hotPriceTitle: string;
+    accessoriesComing: string;
     registrationSubItems: {
       signIn: string;
       signOut: string;
@@ -65,6 +66,7 @@ interface Translations {
     viewButtonLabel: string;
     modelsTitle: string;
     hotPriceTitle: string;
+    accessoriesComing: string;
     registrationSubItems: {
       signIn: string;
       signOut: string;
@@ -115,6 +117,7 @@ export const translations: Translations = {
     categoryAccessories: 'Accessories',
     modelsTitle: 'models',
     hotPriceTitle: 'Hot prices',
+    accessoriesComing: 'Accessories is coming',
     registrationSubItems: {
       signIn: 'Sign in',
       signOut: 'Sign out',
@@ -162,6 +165,7 @@ export const translations: Translations = {
     categoryAccessories: 'Аксесуари',
     modelsTitle: 'моделей',
     hotPriceTitle: 'Гарячі ціни',
+    accessoriesComing: 'Аксесуари скоро з\'являться',
     registrationSubItems: {
       signIn: 'Зареєструватись',
       signOut: 'Вийти',
