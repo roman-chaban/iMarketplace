@@ -16,7 +16,7 @@ export const TabletPage: FC = () => {
   useEffect(() => {
     const tabletProductName = id !== undefined ? id.replaceAll('-', ' ') : id;
     document.title = `iMarketplace | ${tabletProductName}`;
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     const tablet = products.find((tablet) => tablet.id === id);

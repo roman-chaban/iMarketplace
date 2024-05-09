@@ -7,8 +7,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import { FooterContainer, FooterStyledWrapper } from './styled/footer';
 import { Apple } from 'grommet-icons';
-import { useLanguage } from '../LanguagesContext/LanguagesContext';
 import { translations } from '../LanguageSwitcher/translation';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export const Footer: FC = () => {
   const { currentLanguage } = useLanguage();

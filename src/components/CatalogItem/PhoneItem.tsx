@@ -13,8 +13,8 @@ import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
 import { Products } from '../../redux/interfaces/products';
 import { CardItem } from './styled/catalogItem';
 import { addToCart } from '../../redux/slices/cartSlice';
-import { useLanguage } from '../LanguagesContext/LanguagesContext';
 import { translations } from '../LanguageSwitcher/translation';
+import { useLanguage } from '../../hooks/useLanguage';
 
 const enum PhonesPath {
   PHONES = '/phones/phone/',

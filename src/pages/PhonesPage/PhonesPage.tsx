@@ -7,8 +7,8 @@ import CustomSelect from '../../components/Select/Select';
 import { Phone } from '../../interfaces/phones'; // Assuming this is the correct path to Phone interface
 import { PhoneItem } from '../../components/CatalogItem/PhoneItem';
 import Select from 'react-select';
-import { useLanguage } from '../../components/LanguagesContext/LanguagesContext';
 import { translations } from '../../components/LanguageSwitcher/translation';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export const PhonesPage: FC = () => {
   const [products, setProducts] = useState<Phone[]>([]);

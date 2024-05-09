@@ -4,8 +4,8 @@ import styles from './hotPrices.module.scss';
 import Tablets from '../TabletsUI/Tablets/Tablets';
 import tablets from '../../common/products/tablets.json';
 import { Tablet } from '../../interfaces/tablets';
-import { useLanguage } from '../LanguagesContext/LanguagesContext';
 import { translations } from '../LanguageSwitcher/translation';
+import { useLanguage } from '../../hooks/useLanguage';
 
 const ModelsCatalogSection = styled.section`
   width: 100%;

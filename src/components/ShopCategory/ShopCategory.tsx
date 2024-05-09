@@ -7,8 +7,8 @@ import TabletBanner from '../../images/category-images/Ipad-Pro.jpg';
 import { CategoryItem } from '../CategoryItem/CategoryItem';
 import products from '../../common/products/products.json';
 import tablets from '../../common/products/tablets.json';
-import { useLanguage } from '../LanguagesContext/LanguagesContext';
 import { translations } from '../LanguageSwitcher/translation';
+import { useLanguage } from '../../hooks/useLanguage';
 
 const CategoriesContainer = styled.div`
   width: 100%;

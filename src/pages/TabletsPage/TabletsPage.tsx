@@ -7,8 +7,8 @@ import tabletProducts from '../../common/products/tablets.json';
 import Pagination from '@mui/material/Pagination';
 import { TabletItem } from '../../components/TabletsUI/TabletItem/TabletItem';
 import Select from 'react-select';
-import { useLanguage } from '../../components/LanguagesContext/LanguagesContext';
 import { translations } from '../../components/LanguageSwitcher/translation';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export const TabletsPage: FC = () => {
   const [products, setProducts] = useState<Tablet[]>([]);

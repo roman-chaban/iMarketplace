@@ -4,8 +4,8 @@ import products from '../../common/products/products.json';
 import { Phones } from '../ProductsUI/Phones/Phones';
 import { Phone } from '../../interfaces/phones';
 import { ModelsCatalogSection } from './styled/modelsCatalog';
-import { useLanguage } from '../LanguagesContext/LanguagesContext';
 import { translations } from '../LanguageSwitcher/translation';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export const ModelsCatalog: FC = () => {
   const { currentLanguage } = useLanguage();

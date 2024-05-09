@@ -3,8 +3,8 @@ import styles from './hero.module.scss';
 import { Slider } from '../Slider/Slider';
 import { HeroSection, MainTitle } from './styled/hero';
 import { Apple } from 'grommet-icons';
-import { useLanguage } from '../LanguagesContext/LanguagesContext';
 import { translations } from '../LanguageSwitcher/translation';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export const Hero: FC = () => {
   const { currentLanguage } = useLanguage();
