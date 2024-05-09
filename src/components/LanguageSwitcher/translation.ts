@@ -17,6 +17,7 @@ interface Translations {
     categoryAccessories: string;
     viewButtonLabel: string;
     modelsTitle: string;
+    backTitle: string;
     hotPriceTitle: string;
     accessoriesComing: string;
     registrationSubItems: {
@@ -64,6 +65,7 @@ interface Translations {
     categoryTablets: string;
     categoryAccessories: string;
     viewButtonLabel: string;
+    backTitle: string;
     modelsTitle: string;
     hotPriceTitle: string;
     accessoriesComing: string;
@@ -118,6 +120,7 @@ export const translations: Translations = {
     modelsTitle: 'models',
     hotPriceTitle: 'Hot prices',
     accessoriesComing: 'Accessories is coming',
+    backTitle: 'Back to Phones',
     registrationSubItems: {
       signIn: 'Sign in',
       signOut: 'Sign out',
@@ -165,7 +168,8 @@ export const translations: Translations = {
     categoryAccessories: 'Аксесуари',
     modelsTitle: 'моделей',
     hotPriceTitle: 'Гарячі ціни',
-    accessoriesComing: 'Аксесуари скоро з\'являться',
+    accessoriesComing: "Аксесуари скоро з'являться",
+    backTitle: 'Назад до телефони',
     registrationSubItems: {
       signIn: 'Зареєструватись',
       signOut: 'Вийти',

@@ -1,5 +1,5 @@
-import { StrictMode } from 'react';
 import * as ReactDOMClient from 'react-dom/client';
+import { StrictMode } from 'react';
 import { App } from './App';
 import { Provider } from 'react-redux';
 import { Loader } from './components/Loader/Loader';

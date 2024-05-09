@@ -15,7 +15,6 @@ import { translations } from '../../LanguageSwitcher/translation';
 import { useLanguage } from '../../../hooks/useLanguage';
 import { CardItem } from './styled/cardItem';
 
-
 const enum TabletsPath {
   TABLETS = '/tablets/tablet/',
 }
@@ -38,7 +37,7 @@ export const TabletItem: FC<Tablet> = ({
   };
 
   const dispatch = useAppDispatch();
-  const {currentLanguage} = useLanguage();
+  const { currentLanguage } = useLanguage();
 
   const handleAddToFavorites = (product: Tablet) => {
     dispatch(addToFavoritesTablets(product));
@@ -75,7 +74,10 @@ export const TabletItem: FC<Tablet> = ({
         </CustomButton>
       </div>
 
-      <span className={styles.price}>
+      <span
+        className={styles.price}
+        style={{ color: 'rgba(199, 53, 8, 0.8352941176)' }}
+      >
         {priceRegular} <strong id={styles.discount}>{priceDiscount}</strong>
       </span>
       <ul className={styles.card__list}>

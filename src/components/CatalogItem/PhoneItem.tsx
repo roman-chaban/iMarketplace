@@ -69,7 +69,10 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
           </NavLink>
         </CustomButton>
       </div>
-      <span className={styles.price}>
+      <span
+        className={styles.price}
+        style={{ color: 'rgba(199, 53, 8, 0.8352941176)' }}
+      >
         {price} <strong id={styles.discount}>{discount}</strong>
       </span>
       <ul className={styles.card__list}>

@@ -10,6 +10,8 @@ import { NotFoundPage } from '../../../pages/NotFoundPage/NotFoundPage';
 import { PhoneCharacteristics } from '../PhoneCharacteristics/PhoneCharacteristics';
 import { PhonesAbout } from '../PhonesAbout/PhonesAbout';
 import { PhonesTechSpecs } from '../PhonesTechSpecs/PhonesTechSpecs';
+import { useLanguage } from '../../../hooks/useLanguage';
+import { translations } from '../../LanguageSwitcher/translation';
 
 const ProductItem: FC<ProductProps> = memo(() => {
   const navigate = useNavigate();
@@ -18,6 +20,7 @@ const ProductItem: FC<ProductProps> = memo(() => {
   const phone = products.find((product) => product.title === productTitle);
   const [mainImage, setMainImage] = useState<string>(phone ? phone.imgUrl : '');
   const [selectMemory, setSelectMemory] = useState<string>('64 GB');
+  const { currentLanguage } = useLanguage();
 
   useEffect(() => {
     const phone = products.find((product) => product.title === productTitle);
@@ -45,13 +48,13 @@ const ProductItem: FC<ProductProps> = memo(() => {
   const getTitle = (selectedMemory: string) => {
     switch (selectedMemory) {
       case '64 GB':
-        return `${phone.title?.replaceAll('-', ' ')} 64GB`;
+        return `${phone.name} 64GB`;
       case '128 GB':
-        return `${phone.title?.replaceAll('-', ' ')} 128GB`;
+        return `${phone.name} 128GB`;
       case '256 GB':
-        return `${phone.title?.replaceAll('-', ' ')} 256GB`;
+        return `${phone.name} 256GB`;
       default:
-        return phone.title?.replaceAll('-', ' ');
+        return phone.name;
     }
   };
 
@@ -69,7 +72,9 @@ const ProductItem: FC<ProductProps> = memo(() => {
           alt='arrowRight Icon'
           className={styles.arrowRight__icon}
         />
-        <h4 className={styles.phone__phonesTitle}>Phones</h4>
+        <h4 className={styles.phone__phonesTitle}>
+          {translations[currentLanguage].pagesTitle.mobilePhones}
+        </h4>
         <img
           src={rightArrowIcon}
           alt='arrowRight Icon'
@@ -80,7 +85,7 @@ const ProductItem: FC<ProductProps> = memo(() => {
       <div className={styles.backButton__item}>
         <img src={leftArrowIcon} alt='arrowLeft Icon' />
         <button onClick={backToPhonesPage} className={styles.phoneBack__button}>
-          Back to Phones
+          {translations[currentLanguage].backTitle}
         </button>
       </div>
       <h2 className={styles.phoneModel__title}>{getTitle(selectMemory)}</h2>
@@ -141,5 +146,3 @@ const ProductItem: FC<ProductProps> = memo(() => {
 });
 
 export { ProductItem };
-
-
