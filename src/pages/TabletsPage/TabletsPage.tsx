@@ -7,11 +7,14 @@ import tabletProducts from '../../common/products/tablets.json';
 import Pagination from '@mui/material/Pagination';
 import { TabletItem } from '../../components/TabletsUI/TabletItem/TabletItem';
 import Select from 'react-select';
+import { useLanguage } from '../../components/LanguagesContext/LanguagesContext';
+import { translations } from '../../components/LanguageSwitcher/translation';
 
 export const TabletsPage: FC = () => {
   const [products, setProducts] = useState<Tablet[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [phonesPerPage, setPhonePerPage] = useState<number>(8);
+  const { currentLanguage } = useLanguage();
 
   useEffect(() => {
     document.title = 'iMarketplace| Tablets';
@@ -80,20 +83,20 @@ export const TabletsPage: FC = () => {
   return (
     <div className={styles.catalog__container}>
       <CatalogPage
-        smallTitle='Tablets'
-        models={`${tabletProducts.length} models`}
-        mainTitle='Tablets'
+        smallTitle={translations[currentLanguage].pagesTitle.tablets}
+        models={`${tabletProducts.length} ${translations[currentLanguage].modelsTitle}`}
+        mainTitle={translations[currentLanguage].pagesTitle.tablets}
       />
       <div className={styles.page__select}>
         <div className={styles.sorted__select}>
           <span id='sort' className={styles.select__title}>
-            Sort by:
+            {translations[currentLanguage].sortBy}
           </span>
           <TabletsSelect tablets={products} setTablets={setProducts} />
         </div>
         <div className={styles.items__select}>
           <span id='items' className={styles.select__title}>
-            Choose items:
+            {translations[currentLanguage].chooseItems}
           </span>
           <Select
             placeholder='Choose items'
@@ -126,7 +129,7 @@ export const TabletsPage: FC = () => {
             onClick={prevPage}
             disabled={currentPage === 1}
           >
-            Prev Page
+            {translations[currentLanguage].paginationButtonsLabels.prev}
           </button>
           <Pagination
             className={styles.pagination__block}
@@ -143,7 +146,7 @@ export const TabletsPage: FC = () => {
             onClick={nextPage}
             disabled={indexOfLastPhone >= products.length}
           >
-            Next Page
+            {translations[currentLanguage].paginationButtonsLabels.next}
           </button>
         </div>
       </div>

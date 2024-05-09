@@ -13,6 +13,8 @@ import { CatalogButton } from '../UI Components/CatalogButton/CatalogButton';
 import { Products } from '../../redux/interfaces/products';
 import { CardItem } from './styled/catalogItem';
 import { addToCart } from '../../redux/slices/cartSlice';
+import { useLanguage } from '../LanguagesContext/LanguagesContext';
+import { translations } from '../LanguageSwitcher/translation';
 
 const enum PhonesPath {
   PHONES = '/phones/phone/',
@@ -28,6 +30,7 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
   phoneId,
 }: ICatalogItemProps) => {
   const dispatch = useAppDispatch();
+  const { currentLanguage } = useLanguage();
 
   const handleAddToFavorites = (product: Products) => {
     dispatch(addToFavorites(product));
@@ -62,7 +65,7 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
             className={styles.view__product}
             to={`${PhonesPath.PHONES}${title}`}
           >
-            View Product
+            {translations[currentLanguage].viewButtonLabel}
           </NavLink>
         </CustomButton>
       </div>

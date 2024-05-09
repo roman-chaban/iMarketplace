@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import styles from './hotPrices.module.scss';
-import { ICatalogItemProps } from '../../interfaces/catalog-item';
 import Tablets from '../TabletsUI/Tablets/Tablets';
 import tablets from '../../common/products/tablets.json';
 import { Tablet } from '../../interfaces/tablets';
+import { useLanguage } from '../LanguagesContext/LanguagesContext';
+import { translations } from '../LanguageSwitcher/translation';
 
 const ModelsCatalogSection = styled.section`
   width: 100%;
@@ -18,18 +19,19 @@ const ModelsCatalogSection = styled.section`
   padding-right: 0px;
 `;
 
-export const HotPrices: FC<ICatalogItemProps> = ({
-  pricesTitle,
-}: ICatalogItemProps) => {
+export const HotPrices: FC = () => {
+  const { currentLanguage } = useLanguage();
   return (
     <ModelsCatalogSection>
       <div className={styles.modelsCatalog__block}>
-        <h2 className={styles.catalog__title}>{pricesTitle}</h2>
+        <h2 className={styles.catalog__title}>
+          {translations[currentLanguage].hotPriceTitle}
+        </h2>
         <h3
           className={`${styles.catalog__title} ${styles.zoomTitle}`}
           style={{ fontSize: '1.4rem' }}
         >
-          Swipe to view the catalog
+          {translations[currentLanguage].brandModelsSubTitle}
         </h3>
       </div>
       <div

@@ -13,7 +13,6 @@ export const FooterStyledWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1440px;
   margin: 0 auto;
   @media (max-width: 850px) {
     flex-direction: column;

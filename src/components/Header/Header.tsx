@@ -6,12 +6,15 @@ import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { PopUp } from '../../components/UI Components/PopUp/PopUp';
 import { HeaderContainer, HeaderWrapper } from './styled/header';
 import { ROUTES } from '../../constants/routes/routes';
-import { NavLinks } from '../../constants/navLinks/navLinks';
 import { Apple } from 'grommet-icons';
+import { useLanguage } from '../LanguagesContext/LanguagesContext';
+import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher';
+import { translations } from '../LanguageSwitcher/translation';
 
-export const Header: FC = (): JSX.Element => {
+export const Header: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const { currentLanguage, handleChangeLanguage } = useLanguage();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -52,30 +55,36 @@ export const Header: FC = (): JSX.Element => {
               style={{ fontSize: 30, color: '#89939A' }}
             />
           </a>
-          <h3 className={styles.logo__title}>iMarketplace</h3>
+          <h3 className={styles.logo__title}>
+            {translations[currentLanguage].LogoLabel}
+          </h3>
         </div>
         <nav className={styles.navigation__bar}>
           <ul className={styles.nav}>
             <li tabIndex={1} className={styles.nav__item}>
               <CustomLink className={styles.nav__link} to={ROUTES.HOME}>
-                {NavLinks.HOME}
+                {translations[currentLanguage].homeLabel}
               </CustomLink>
             </li>
             <li tabIndex={2} className={styles.nav__item}>
               <CustomLink className={styles.nav__link} to={ROUTES.PHONES}>
-                {NavLinks.PHONES}
+                {translations[currentLanguage].phoneLabel}
               </CustomLink>
             </li>
             <li tabIndex={3} className={styles.nav__item}>
               <CustomLink className={styles.nav__link} to={ROUTES.TABLETS}>
-                {NavLinks.TABLETS}
+                {translations[currentLanguage].tabletLabel}
               </CustomLink>
             </li>
             <li tabIndex={4} className={styles.nav__item}>
               <CustomLink className={styles.nav__link} to={ROUTES.ACCESSORIES}>
-                {NavLinks.ACCESSORIES}
+                {translations[currentLanguage].accessoriesLabel}
               </CustomLink>
             </li>
+            <LanguageSwitcher
+              currentLanguage={currentLanguage}
+              onChangeLanguage={handleChangeLanguage}
+            />
           </ul>
         </nav>
         <div className={styles.navBar__container}>

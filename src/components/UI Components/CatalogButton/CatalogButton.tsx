@@ -2,6 +2,8 @@ import { FC, useState } from 'react';
 import Button from '@mui/material/Button';
 import styles from './catalog-button.module.scss';
 import { Products } from '../../../redux/interfaces/products';
+import { useLanguage } from '../../LanguagesContext/LanguagesContext';
+import { translations } from '../../LanguageSwitcher/translation';
 
 interface CatalogProps {
   product?: Products;
@@ -13,7 +15,7 @@ export const CatalogButton: FC<CatalogProps> = ({
   onClick = () => {},
 }) => {
   const [isActiveButton, setIsActiveButton] = useState<boolean>(false);
-
+  const { currentLanguage } = useLanguage();
   const handleAddToCart = () => {
     if (product) {
       if (!isActiveButton) {
@@ -29,7 +31,9 @@ export const CatalogButton: FC<CatalogProps> = ({
       className={styles.catalog__buttonItem}
       style={{ backgroundColor: isActiveButton ? '#66CDAA' : '#313237' }}
     >
-      {isActiveButton ? 'Added to cart' : 'Add to cart'}
+      {isActiveButton
+        ? translations[currentLanguage].cartState.addedCart
+        : translations[currentLanguage].cartState.addCart}
     </Button>
   );
 };

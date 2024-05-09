@@ -7,11 +7,14 @@ import CustomSelect from '../../components/Select/Select';
 import { Phone } from '../../interfaces/phones'; // Assuming this is the correct path to Phone interface
 import { PhoneItem } from '../../components/CatalogItem/PhoneItem';
 import Select from 'react-select';
+import { useLanguage } from '../../components/LanguagesContext/LanguagesContext';
+import { translations } from '../../components/LanguageSwitcher/translation';
 
 export const PhonesPage: FC = () => {
   const [products, setProducts] = useState<Phone[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [phonePerPage, setPhonePerPage] = useState<number>(8);
+  const { currentLanguage } = useLanguage();
 
   useEffect(() => {
     setCurrentPage(1);
@@ -79,20 +82,20 @@ export const PhonesPage: FC = () => {
     <div className={styles.phones} style={{ margin: '0 auto' }}>
       <div className={styles.catalog__container}>
         <CatalogPage
-          smallTitle='Phones'
-          models={`${products.length} models`}
-          mainTitle='Mobile phones'
+          smallTitle={translations[currentLanguage].phoneLabel}
+          models={`${products.length} ${translations[currentLanguage].modelsTitle}`}
+          mainTitle={translations[currentLanguage].pagesTitle.mobilePhones}
         />
         <div className={styles.page__select}>
           <div className={styles.sorted__select}>
             <span id='sort' className={styles.select__title}>
-              Sort by:
+              {translations[currentLanguage].sortBy}
             </span>
             <CustomSelect products={products} setProducts={setProducts} />
           </div>
           <div className={styles.items__select}>
             <span id='items' className={styles.select__title}>
-              Choose items:
+              {translations[currentLanguage].chooseItems}
             </span>
             <Select
               placeholder='Choose items'
@@ -127,7 +130,7 @@ export const PhonesPage: FC = () => {
             disabled={currentPage === 1}
             style={{ cursor: currentPage === 1 ? 'not-allowed' : '' }}
           >
-            Prev Page
+            {translations[currentLanguage].paginationButtonsLabels.prev}
           </button>
           <Pagination
             currentPage={currentPage}
@@ -146,7 +149,7 @@ export const PhonesPage: FC = () => {
                   : 'not-allowed',
             }}
           >
-            Next Page
+              {translations[currentLanguage].paginationButtonsLabels.next}
           </button>
         </div>
       </div>

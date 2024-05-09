@@ -12,6 +12,8 @@ import {
 } from '../../../redux/slices/favoriteSlice';
 import { TabletButton } from '../TabletButton/TabletButton';
 import { addBasketTablets } from '../../../redux/slices/cartSlice';
+import { useLanguage } from '../../LanguagesContext/LanguagesContext';
+import { translations } from '../../LanguageSwitcher/translation';
 
 const CardItem = styled.div`
   position: relative;
@@ -47,6 +49,7 @@ export const TabletItem: FC<Tablet> = ({
   };
 
   const dispatch = useAppDispatch();
+  const {currentLanguage} = useLanguage();
 
   const handleAddToFavorites = (product: Tablet) => {
     dispatch(addToFavoritesTablets(product));
@@ -78,7 +81,7 @@ export const TabletItem: FC<Tablet> = ({
             className={styles.view__product}
             to={`${TabletsPath.TABLETS}${id}`}
           >
-            View Product
+            {translations[currentLanguage].viewButtonLabel}
           </NavLink>
         </CustomButton>
       </div>

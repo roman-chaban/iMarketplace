@@ -7,6 +7,8 @@ import TabletBanner from '../../images/category-images/Ipad-Pro.jpg';
 import { CategoryItem } from '../CategoryItem/CategoryItem';
 import products from '../../common/products/products.json';
 import tablets from '../../common/products/tablets.json';
+import { useLanguage } from '../LanguagesContext/LanguagesContext';
+import { translations } from '../LanguageSwitcher/translation';
 
 const CategoriesContainer = styled.div`
   width: 100%;
@@ -19,34 +21,33 @@ const CategoriesContainer = styled.div`
   padding: 0 30px;
 `;
 
-interface IShopCategory {
-  title: string;
-}
-
-const ShopCategory: FC<IShopCategory> = ({ title }: IShopCategory) => {
+const ShopCategory: FC = () => {
+  const { currentLanguage } = useLanguage();
   return (
     <section>
       <CategoriesContainer>
-        <h2 className={styles.categories__title}>{title}</h2>
+        <h2 className={styles.categories__title}>
+          {translations[currentLanguage].categoryTitle}
+        </h2>
         <div className={styles.category__products}>
           <CategoryItem
             banner={IphoneBanner}
-            categoryTitle='Mobile phones'
-            categoryModels={`${products.length} models`}
+            categoryTitle={translations[currentLanguage].categoryPhones}
+            categoryModels={`${products.length} ${translations[currentLanguage].modelsTitle}`}
             to='/phones'
           />
           <CategoryItem
-            categoryTitle='Tablets'
-            categoryModels={`${tablets.length} models`}
+            categoryTitle={translations[currentLanguage].categoryTablets}
+            categoryModels={`${tablets.length} ${translations[currentLanguage].modelsTitle}`}
             banner={TabletBanner}
             to='/tablets'
           />
           <CategoryItem
-            categoryTitle='Accessories'
+            categoryTitle={translations[currentLanguage].categoryAccessories}
             categoryModels={`${
               products.filter((product) => product.category === 'accessory')
                 .length
-            } models`}
+            } ${translations[currentLanguage].modelsTitle}`}
             banner={AccessoriesBanner}
             to='/accessories'
           />

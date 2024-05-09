@@ -2,6 +2,8 @@ import { FC, useState } from 'react';
 import Button from '@mui/material/Button';
 import styles from '../../UI Components/CatalogButton/catalog-button.module.scss';
 import { Tablets } from '../../../interfaces/tablets';
+import { useLanguage } from '../../LanguagesContext/LanguagesContext';
+import { translations } from '../../LanguageSwitcher/translation';
 
 interface CatalogProps {
   product?: Tablets;
@@ -13,6 +15,7 @@ export const TabletButton: FC<CatalogProps> = ({
   onClick = () => {},
 }) => {
   const [isActiveButton, setIsActiveButton] = useState<boolean>(false);
+  const { currentLanguage } = useLanguage();
 
   const handleAddToCart = () => {
     if (product) {
@@ -29,7 +32,9 @@ export const TabletButton: FC<CatalogProps> = ({
       onClick={handleAddToCart}
       className={styles.catalog__buttonItem}
     >
-      Add to cart
+      {isActiveButton
+        ? translations[currentLanguage].cartState.addedCart
+        : translations[currentLanguage].cartState.addCart}
     </Button>
   );
 };

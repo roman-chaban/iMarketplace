@@ -7,11 +7,14 @@ import { ROUTES } from '../../../constants/routes/routes';
 import styles from '../../Header/header.module.scss';
 import { useAuth } from '../../../hooks/useAuth';
 import { Apple } from '@mui/icons-material';
+import { useLanguage } from '../../LanguagesContext/LanguagesContext';
+import { translations } from '../../LanguageSwitcher/translation';
 
 export const PopUp: FC = () => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+  const { currentLanguage } = useLanguage();
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -32,7 +35,8 @@ export const PopUp: FC = () => {
         variant='contained'
         onClick={handleClick}
       >
-        Register <Apple style={{ margin: '0px 0px 5px 3px' }} />
+        {translations[currentLanguage].registrationLabel}{' '}
+        <Apple style={{ margin: '0px 0px 5px 3px' }} />
       </Button>
       <Popover
         id={id}
@@ -47,7 +51,7 @@ export const PopUp: FC = () => {
       >
         <Typography sx={{ p: 2 }}>
           <NavLink className={styles.small__size} to={ROUTES.AUTHORIZATION}>
-            Sign in
+            {translations[currentLanguage].registrationSubItems.signIn}
           </NavLink>
         </Typography>
         <Typography sx={{ p: 2 }}>
@@ -56,7 +60,7 @@ export const PopUp: FC = () => {
             className={styles.small__size}
             to={ROUTES.HOME}
           >
-            Sign out
+            {translations[currentLanguage].registrationSubItems.signOut}
           </NavLink>
         </Typography>
       </Popover>

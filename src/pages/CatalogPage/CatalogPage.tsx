@@ -6,6 +6,8 @@ import arrowRightIcon from '../../images/icons/Chevron (Arrow Right).svg';
 import { MainTitle } from '../../components/UI Components/MainTitle/MainTitle';
 import { FC } from 'react';
 import { CatalogPageProps } from '../../interfaces/catalog-page';
+import { useLanguage } from '../../components/LanguagesContext/LanguagesContext';
+import { translations } from '../../components/LanguageSwitcher/translation';
 
 const PhonesContainer = styled.div`
   display: flex;
@@ -23,6 +25,7 @@ export const CatalogPage: FC<CatalogPageProps> = ({
   mainTitle,
   models,
 }: CatalogPageProps): JSX.Element => {
+  const {currentLanguage} = useLanguage();
   const navigate = useNavigate();
   const goBack = () => navigate('/', { replace: true });
   return (
@@ -42,7 +45,7 @@ export const CatalogPage: FC<CatalogPageProps> = ({
             to='/'
             onClick={goBack}
           >
-            Back
+            {translations[currentLanguage].backButtonLabel}
           </NavLink>
           <img src={arrowRightIcon} alt='arrow right icon' />
           <h5 className={styles.phones__title}>{smallTitle}</h5>

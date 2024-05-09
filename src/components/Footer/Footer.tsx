@@ -7,8 +7,11 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import { FooterContainer, FooterStyledWrapper } from './styled/footer';
 import { Apple } from 'grommet-icons';
+import { useLanguage } from '../LanguagesContext/LanguagesContext';
+import { translations } from '../LanguageSwitcher/translation';
 
 export const Footer: FC = () => {
+  const { currentLanguage } = useLanguage();
   const toUppPage = () => {
     window.scrollTo({
       top: 0,
@@ -27,7 +30,7 @@ export const Footer: FC = () => {
                     style={{ fontSize: '30' }}
                     className={styles.footer__appleLogo}
                   />
-                  iMarketplace
+                  {translations[currentLanguage].LogoLabel}
                 </h3>
               </CustomLink>
             </button>
@@ -42,7 +45,7 @@ export const Footer: FC = () => {
                   className={styles.list__link}
                 >
                   <GitHubIcon />
-                  Github
+                  {translations[currentLanguage].footerMenuLinks.github}
                 </a>
               </li>
               <li className={styles.list__item}>
@@ -52,7 +55,7 @@ export const Footer: FC = () => {
                   className={styles.list__link}
                 >
                   <TelegramIcon />
-                  Telegram
+                  {translations[currentLanguage].footerMenuLinks.telegram}
                 </a>
               </li>
               <li className={styles.list__item}>
@@ -63,7 +66,7 @@ export const Footer: FC = () => {
                   className={styles.list__link}
                 >
                   <LinkedInIcon />
-                  LinkedIn
+                  {translations[currentLanguage].footerMenuLinks.linkedIn}
                 </a>
               </li>
             </ul>
