@@ -4,9 +4,10 @@ import { HeaderNavBar } from '../HeaderNavBar/HeaderNavBar';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { PopUp } from '../../components/UI Components/PopUp/PopUp';
-import { Apple } from 'grommet-icons';
 import { HeaderContainer, HeaderWrapper } from './styled/header';
 import { ROUTES } from '../../constants/routes/routes';
+import { NavLinks } from '../../constants/navLinks/navLinks';
+import { Apple } from 'grommet-icons';
 
 export const Header: FC = (): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -57,22 +58,22 @@ export const Header: FC = (): JSX.Element => {
           <ul className={styles.nav}>
             <li tabIndex={1} className={styles.nav__item}>
               <CustomLink className={styles.nav__link} to={ROUTES.HOME}>
-                home
+                {NavLinks.HOME}
               </CustomLink>
             </li>
             <li tabIndex={2} className={styles.nav__item}>
               <CustomLink className={styles.nav__link} to={ROUTES.PHONES}>
-                phones
+                {NavLinks.PHONES}
               </CustomLink>
             </li>
             <li tabIndex={3} className={styles.nav__item}>
               <CustomLink className={styles.nav__link} to={ROUTES.TABLETS}>
-                tablets
+                {NavLinks.TABLETS}
               </CustomLink>
             </li>
             <li tabIndex={4} className={styles.nav__item}>
               <CustomLink className={styles.nav__link} to={ROUTES.ACCESSORIES}>
-                accessories
+                {NavLinks.ACCESSORIES}
               </CustomLink>
             </li>
           </ul>
