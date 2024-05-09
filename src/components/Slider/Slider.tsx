@@ -31,15 +31,23 @@ export const Slider: FC<SliderProps> = () => {
         prevEl: '.swiper-button-prev',
       }}
       scrollbar={{ draggable: true }}
-      style={{width: 1080}}
+      style={{ width: 1080 }}
     >
       <div className='swiper-button-next' style={{ color: '#313131' }}></div>
       <div className='swiper-button-prev' style={{ color: '#313131' }}></div>
       <SwiperSlide>
-        <img src={firstSlide} alt='Slider Product' className={styles.img__slider} />
+        <img
+          src={firstSlide}
+          alt='Slider Product'
+          className={styles.img__slider}
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <img src={thirdSlice} alt='Slider Product' className={styles.img__slider} />
+        <img
+          src={thirdSlice}
+          alt='Slider Product'
+          className={styles.img__slider}
+        />
       </SwiperSlide>
       <SwiperSlide>
         <img
@@ -51,4 +59,3 @@ export const Slider: FC<SliderProps> = () => {
     </Swiper>
   );
 };
-
