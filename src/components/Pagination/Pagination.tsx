@@ -22,13 +22,12 @@ export const Pagination: FC<PaginationProps> = ({
           className={`page-item ${number === currentPage ? 'active-page' : ''}`}
           key={number}
         >
-          <a
-            href={`#?page${number}`}
+          <button
             className='page-link active-page'
             onClick={() => paginate(number)}
           >
             {number}
-          </a>
+          </button>
         </li>
       ))}
     </div>
