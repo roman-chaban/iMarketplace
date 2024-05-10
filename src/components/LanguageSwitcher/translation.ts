@@ -9,7 +9,12 @@ interface Translations {
     accessoriesLabel: string;
     authorizationLabel: string;
     favoriteLabel: string;
+    chooseOptionLabel: string;
+    itemsLabel: string;
     cartLabel: string;
+    cartTitle: string;
+    favoriteEmptyTitle: string;
+    cartEmptyTitle: string;
     registrationLabel: string;
     catalogTitle: string;
     brandModelsTitle: string;
@@ -49,6 +54,18 @@ interface Translations {
     paginationButtonsLabels: {
       prev: string;
       next: string;
+    };
+    optionsLabels: {
+      name: string;
+      models: string;
+      price: string;
+    };
+    itemsOptions: {
+      itemsTwo: string;
+      itemsFour: string;
+      itemsSix: string;
+      itemsEight: string;
+      itemsSixteen: string;
     };
   };
   ua: {
@@ -60,12 +77,17 @@ interface Translations {
     tabletLabel: string;
     accessoriesLabel: string;
     authorizationLabel: string;
+    chooseOptionLabel: string;
+    itemsLabel: string;
     favoriteLabel: string;
+    favoriteEmptyTitle: string;
     cartLabel: string;
+    cartEmptyTitle: string;
     registrationLabel: string;
     catalogTitle: string;
     brandModelsTitle: string;
     brandModelsSubTitle: string;
+    cartTitle: string;
     categoryTitle: string;
     categoryPhones: string;
     categoryTablets: string;
@@ -101,6 +123,18 @@ interface Translations {
     paginationButtonsLabels: {
       prev: string;
       next: string;
+    };
+    optionsLabels: {
+      name: string;
+      models: string;
+      price: string;
+    };
+    itemsOptions: {
+      itemsTwo: string;
+      itemsFour: string;
+      itemsSix: string;
+      itemsEight: string;
+      itemsSixteen: string;
     };
   };
 }
@@ -116,6 +150,10 @@ export const translations: Translations = {
     accessoriesLabel: 'Accessories',
     authorizationLabel: 'Authorization',
     favoriteLabel: 'Favorites',
+    itemsLabel: 'Items',
+    chooseOptionLabel: 'Choose an option',
+    favoriteEmptyTitle: 'Favorite page is empty',
+    cartEmptyTitle: 'Cart page is empty',
     cartLabel: 'Basket',
     registrationLabel: 'Register',
     catalogTitle: "Welcome to iMarketplace! It's great to have you here",
@@ -130,6 +168,7 @@ export const translations: Translations = {
     hotPriceTitle: 'Hot prices',
     accessoriesComing: 'Accessories is coming',
     backTitle: 'Back to Phones',
+    cartTitle: 'Cart',
     registrationSubItems: {
       signIn: 'Sign in',
       signOut: 'Sign out',
@@ -157,17 +196,34 @@ export const translations: Translations = {
       prev: 'Prev page',
       next: 'Next page',
     },
+    optionsLabels: {
+      name: 'Name',
+      models: 'Models',
+      price: 'Price',
+    },
+    itemsOptions: {
+      itemsTwo: 'Items 2',
+      itemsFour: 'Items 4',
+      itemsSix: 'Items 6',
+      itemsEight: 'Items 8',
+      itemsSixteen: 'Items 16',
+    },
   },
   ua: {
     greeting: 'Привіт!',
     LogoLabel: 'Макретплейс',
     buttonLabel: 'Переключитися на англійську',
     homeLabel: 'Дім',
+    cartTitle: 'Кошик',
     phoneLabel: 'Телефони',
     tabletLabel: 'Планшети',
     accessoriesLabel: 'Аксесуари',
     authorizationLabel: 'Авторизація',
     favoriteLabel: 'Улюблені',
+    itemsLabel: 'Елементів',
+    chooseOptionLabel: 'Виберіть опцію',
+    favoriteEmptyTitle: 'Сторінка улюблені порожня',
+    cartEmptyTitle: 'Сторінка кошика порожня',
     cartLabel: 'Кошик',
     registrationLabel: 'Увійти',
     catalogTitle: 'Ласкаво просимо до Макретплейсу! Чудово, що ти тут',
@@ -208,6 +264,18 @@ export const translations: Translations = {
     paginationButtonsLabels: {
       prev: 'Попередня',
       next: 'Наступна',
+    },
+    optionsLabels: {
+      name: "За Ім'ям",
+      models: 'За моделями',
+      price: 'За ціною',
+    },
+    itemsOptions: {
+      itemsTwo: '2 Елементи',
+      itemsFour: '4 Елементи',
+      itemsSix: '6 Елементів',
+      itemsEight: '8 Елементів',
+      itemsSixteen: '16 Елементів',
     },
   },
 };

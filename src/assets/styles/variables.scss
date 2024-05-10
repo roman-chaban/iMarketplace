@@ -1,11 +1,12 @@
-$primary-first-size: 12px;
-$primary-secondary-size: 48px;
-$primary-third-size: 32px;
-$primary-four-size: 14px;
-$primary-five-size: 22px;
-$primary-six-size: 18px;
-$primary-seven-size: 20px;
+@import './mixins.scss';
 
-$primary-media-first: 16px;
-$primary-media-secondary: 34px;
-$primary-media-third: 24px;
+$primary-first-size: rem(14px);
+$primary-secondary-size: rem(50px);
+$primary-third-size: rem(34px);
+$primary-four-size: rem(16px);
+$primary-five-size: rem(24px);
+$primary-six-size: rem(20px);
+$primary-seven-size: rem(22px);
+$primary-media-first: rem(18px);
+$primary-media-secondary: rem(36px);
+$primary-media-third: rem(26px);

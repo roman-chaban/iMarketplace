@@ -52,7 +52,10 @@ export const FavoritesPage: FC = () => {
 
   return (
     <>
-      <CatalogPage mainTitle='Favorites' smallTitle='Favorites' />
+      <CatalogPage
+        mainTitle={translations[currentLanguage].favoriteLabel}
+        smallTitle={translations[currentLanguage].favoriteLabel}
+      />
       {favoritesCounter === 0 ? (
         ''
       ) : (
@@ -64,7 +67,9 @@ export const FavoritesPage: FC = () => {
       <div>
         <br />
         {favoriteProducts.length === 0 && favoriteTablets.length === 0 ? (
-          <h2 className={styles.empty__title}>Favorite page is empty</h2>
+          <h2 className={styles.empty__title}>
+            {translations[currentLanguage].favoriteEmptyTitle}
+          </h2>
         ) : (
           <div className={styles.favorite__list}>
             {favoriteProducts.map((favorite: Products) => (

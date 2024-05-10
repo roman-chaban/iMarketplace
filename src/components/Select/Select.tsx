@@ -6,31 +6,19 @@ import { IOption } from '../../interfaces/select-interface/select.interfaces';
 import makeAnimated from 'react-select/animated';
 import { Sort, getSortedProducts } from './Sort';
 import { Phone } from '../../interfaces/phones';
+import { useLanguage } from '../../hooks/useLanguage';
+import { translations } from '../LanguageSwitcher/translation';
 
 interface CustomSelectProps {
   products: Phone[];
   setProducts: Dispatch<SetStateAction<Phone[]>>;
 }
 
-const options: IOption[] = [
-  {
-    label: 'Name',
-    value: Sort.alphabet,
-  },
-  {
-    label: 'Models',
-    value: Sort.newest,
-  },
-  {
-    label: 'Price',
-    value: Sort.cheapest,
-  },
-];
-
 const animatedComponents = makeAnimated();
 
 const CustomSelect: FC<CustomSelectProps> = ({ products, setProducts }) => {
   const [currentSort, setCurrentSort] = useState<Sort[]>([]);
+  const { currentLanguage } = useLanguage();
 
   const getValue = () => {
     return currentSort
@@ -48,6 +36,21 @@ const CustomSelect: FC<CustomSelectProps> = ({ products, setProducts }) => {
     setProducts(sortedProducts);
   };
 
+  const options: IOption[] = [
+    {
+      label: translations[currentLanguage].optionsLabels.name,
+      value: Sort.alphabet,
+    },
+    {
+      label: translations[currentLanguage].optionsLabels.models,
+      value: Sort.newest,
+    },
+    {
+      label: translations[currentLanguage].optionsLabels.price,
+      value: Sort.cheapest,
+    },
+  ];
+
   return (
     <div className='select'>
       <Select
@@ -57,7 +60,7 @@ const CustomSelect: FC<CustomSelectProps> = ({ products, setProducts }) => {
         options={options}
         components={animatedComponents}
         isMulti
-        placeholder='Choose an option'
+        placeholder={translations[currentLanguage].chooseOptionLabel}
       />
     </div>
   );

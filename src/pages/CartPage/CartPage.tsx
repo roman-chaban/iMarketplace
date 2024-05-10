@@ -46,7 +46,10 @@ export const CartPage: FC = () => {
 
   return (
     <>
-      <CatalogPage mainTitle='Cart' smallTitle='Cart' />
+      <CatalogPage
+        mainTitle={translations[currentLanguage].cartTitle}
+        smallTitle={translations[currentLanguage].cartTitle}
+      />
       {basketCounter === 0 ? (
         ''
       ) : (
@@ -58,7 +61,9 @@ export const CartPage: FC = () => {
       <div>
         <br />
         {cartPhones.length === 0 && cartTablets.length === 0 ? (
-          <h2 className={styles.empty__title}>Cart page is empty</h2>
+          <h2 className={styles.empty__title}>
+            {translations[currentLanguage].cartEmptyTitle}
+          </h2>
         ) : (
           <div className={styles.favorite__list}>
             {cartPhones.map((cart: Products) => (

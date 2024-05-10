@@ -1,0 +1,13 @@
+@function rem($pxValue) {
+  $baseFontSize: 16px;
+  @return calc($pxValue / $baseFontSize) * 1rem;
+}
+
+@function em($pxValue) {
+  $baseFontSize: 16px;
+  @return calc($pxValue / $baseFontSize) * 1em;
+}
+
+@function pxToPercent($pxValue, $containerWidth) {
+  @return ($pxValue / $containerWidth) * 100%;
+}

@@ -63,11 +63,14 @@ export const PhonesPage: FC = () => {
   };
 
   const itemsOptions = [
-    { value: 2, label: 'Items 2' },
-    { value: 4, label: 'Items 4' },
-    { value: 6, label: 'Items 6' },
-    { value: 8, label: 'Items 8' },
-    { value: 16, label: 'Items 16' },
+    { value: 2, label: translations[currentLanguage].itemsOptions.itemsTwo },
+    { value: 4, label: translations[currentLanguage].itemsOptions.itemsFour },
+    { value: 6, label: translations[currentLanguage].itemsOptions.itemsSix },
+    { value: 8, label: translations[currentLanguage].itemsOptions.itemsEight },
+    {
+      value: 16,
+      label: translations[currentLanguage].itemsOptions.itemsSixteen,
+    },
   ];
 
   const handlePhonePerPageChange = (
@@ -101,7 +104,10 @@ export const PhonesPage: FC = () => {
               placeholder='Choose items'
               className={styles.select__width}
               options={itemsOptions}
-              value={{ value: phonePerPage, label: `Items ${phonePerPage}` }}
+              value={{
+                value: phonePerPage,
+                label: `${phonePerPage} ${translations[currentLanguage].itemsLabel}`,
+              }}
               onChange={handlePhonePerPageChange}
             />
           </div>

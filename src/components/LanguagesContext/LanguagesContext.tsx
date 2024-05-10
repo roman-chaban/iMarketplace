@@ -14,8 +14,6 @@ export const LanguageContext = createContext<LanguageContextProps>({
   handleChangeLanguage: () => {},
 });
 
-
-
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   const [currentLanguage, setCurrentLanguage] = useState<string>('en');
 
