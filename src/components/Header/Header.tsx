@@ -93,7 +93,7 @@ export const Header: FC = () => {
         <div className={styles.navBar__container}>
           <PopUp />
           <HeaderNavBar />
-          <div onClick={toggleMenu} className={styles.burger__buttonBlock}>
+          <button onClick={toggleMenu} className={styles.burger__buttonBlock}>
             <button
               type='button'
               className={styles.button__burgerLine}
@@ -106,7 +106,7 @@ export const Header: FC = () => {
               type='button'
               className={styles.button__burgerLine}
             ></button>
-          </div>
+          </button>
         </div>
       </HeaderContainer>
       {isMenuOpen && <BurgerMenu />}

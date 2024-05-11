@@ -3,10 +3,12 @@ import styles from './burger.module.scss';
 import appleLogo from '../../favicon/favicon.png';
 import { useRef } from 'react';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
-import { MENU_LINKS } from '../../interfaces/burger-menu';
 import { Close } from '@mui/icons-material';
 import { useLanguage } from '../../hooks/useLanguage';
 import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher';
+import { translations } from '../LanguageSwitcher/translation';
+import { TypeMenuLinks } from '../../interfaces/burger-menu';
+import { ROUTES } from '../../constants/routes/routes';
 
 export const BurgerMenu: FC = () => {
   const buttonRef = useRef<null>(null);
@@ -26,6 +28,38 @@ export const BurgerMenu: FC = () => {
   const handleMenuItemClick = (): void => {
     closeMenuButton();
   };
+  const MENU_LINKS: TypeMenuLinks = [
+    {
+      linkId: 1,
+      title: translations[currentLanguage].homeLabel,
+      to: ROUTES.HOME,
+    },
+    {
+      linkId: 2,
+      title: translations[currentLanguage].phoneLabel,
+      to: ROUTES.PHONES,
+    },
+    {
+      linkId: 3,
+      title: translations[currentLanguage].tabletLabel,
+      to: ROUTES.TABLETS,
+    },
+    {
+      linkId: 4,
+      title: translations[currentLanguage].accessoriesLabel,
+      to: ROUTES.ACCESSORIES,
+    },
+    {
+      linkId: 5,
+      title: translations[currentLanguage].favoriteLabel,
+      to: ROUTES.FAVORITES,
+    },
+    {
+      linkId: 6,
+      title: translations[currentLanguage].cartLabel,
+      to: ROUTES.CART,
+    },
+  ];
 
   return (
     <div className='burger__container'>
@@ -43,7 +77,9 @@ export const BurgerMenu: FC = () => {
                 alt='Apple Logo'
                 className={styles.burger__logo}
               />
-              <h3 className={styles.logo__title}>iMarketplace</h3>
+              <h3 className={styles.logo__title}>
+                {translations[currentLanguage].LogoLabel}
+              </h3>
               <LanguageSwitcher
                 currentLanguage={currentLanguage}
                 onChangeLanguage={handleChangeLanguage}
@@ -52,7 +88,7 @@ export const BurgerMenu: FC = () => {
             <Close
               onClick={closeMenuButton}
               ref={buttonRef}
-              style={{ fontSize: 30, cursor: 'pointer' }}
+              style={{ fontSize: 30, cursor: 'pointer', color: '#313131b4' }}
             />
           </div>
           <nav className={styles.menu}>
@@ -64,7 +100,7 @@ export const BurgerMenu: FC = () => {
                     to={link.to}
                     className={styles.menu__itemLink}
                   >
-                    {link.title}
+                    {link.title.toUpperCase()}
                   </CustomLink>
                 </li>
               </ul>

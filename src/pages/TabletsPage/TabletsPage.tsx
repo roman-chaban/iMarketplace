@@ -4,11 +4,11 @@ import TabletsSelect from '../../components/TabletsUI/TabletsSelect/TabletsSelec
 import styles from './tablets.module.scss';
 import { Tablet } from '../../interfaces/tablets';
 import tabletProducts from '../../common/products/tablets.json';
-import Pagination from '@mui/material/Pagination';
 import { TabletItem } from '../../components/TabletsUI/TabletItem/TabletItem';
 import Select from 'react-select';
 import { translations } from '../../components/LanguageSwitcher/translation';
 import { useLanguage } from '../../hooks/useLanguage';
+import { Pagination } from '../../components/Pagination/Pagination';
 
 export const TabletsPage: FC = () => {
   const [products, setProducts] = useState<Tablet[]>([]);
@@ -134,23 +134,26 @@ export const TabletsPage: FC = () => {
             className={`btn btn-secondary ${styles.btn__pagination}`}
             onClick={prevPage}
             disabled={currentPage === 1}
+            style={{ cursor: currentPage === 1 ? 'not-allowed' : '' }}
           >
             {translations[currentLanguage].paginationButtonsLabels.prev}
           </button>
           <Pagination
-            className={styles.pagination__block}
-            shape='rounded'
-            count={Math.ceil(products.length / phonesPerPage)}
-            page={currentPage}
-            onChange={(_event, page) => paginate(page)}
-            color={'standard'}
-            hidePrevButton
-            hideNextButton
+            currentPage={currentPage}
+            phonePerPage={phonesPerPage}
+            totalPhones={products.length}
+            paginate={paginate}
           />
           <button
             className={`btn btn-secondary ${styles.btn__pagination}`}
             onClick={nextPage}
             disabled={indexOfLastPhone >= products.length}
+            style={{
+              cursor:
+                indexOfFirstPhone >= products.length || currentPage
+                  ? ''
+                  : 'not-allowed',
+            }}
           >
             {translations[currentLanguage].paginationButtonsLabels.next}
           </button>
