@@ -73,7 +73,7 @@ export const PhoneCart: FC<ICatalogItemProps> = ({
               setProductCounter((prevCounter) => prevCounter + 1);
             }}
           >
-            <AddCircleIcon style={{ color: '#66CDAA' }} fontSize='large' />
+            <AddCircleIcon style={{ color: '#65C466' }} fontSize='large' />
           </button>
           <button
             className={styles.minus}
@@ -83,7 +83,7 @@ export const PhoneCart: FC<ICatalogItemProps> = ({
               setProductCounter((prevCounter) => prevCounter - 1);
             }}
           >
-            <RemoveCircleIcon style={{ color: '#FF6F61' }} fontSize='large' />
+            <RemoveCircleIcon style={{ color: 'rgba(199, 53, 8, 0.8352941176)' }} fontSize='large' />
           </button>
         </div>
         <h6 className={styles.productItems__title}>

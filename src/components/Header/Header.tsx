@@ -10,6 +10,7 @@ import { Apple } from 'grommet-icons';
 import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher';
 import { translations } from '../LanguageSwitcher/translation';
 import { useLanguage } from '../../hooks/useLanguage';
+import { SwitcherContainer } from '../LanguageSwitcher/styled/switcher';
 
 export const Header: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -81,10 +82,12 @@ export const Header: FC = () => {
                 {translations[currentLanguage].accessoriesLabel}
               </CustomLink>
             </li>
-            <LanguageSwitcher
-              currentLanguage={currentLanguage}
-              onChangeLanguage={handleChangeLanguage}
-            />
+            <SwitcherContainer>
+              <LanguageSwitcher
+                currentLanguage={currentLanguage}
+                onChangeLanguage={handleChangeLanguage}
+              />
+            </SwitcherContainer>
           </ul>
         </nav>
         <div className={styles.navBar__container}>

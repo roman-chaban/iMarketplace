@@ -15,7 +15,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
   const buttonText = currentLanguage === 'en' ? 'EN' : 'UA';
 
   return (
-    <div style={{ position: 'relative', top: 3 }}>
+    <div style={{ position: 'relative', top: 6 }}>
       <FormControlLabel
         style={{ display: 'flex', gap: '0.5rem' }}
         control={

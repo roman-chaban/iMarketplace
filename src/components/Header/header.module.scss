@@ -178,7 +178,7 @@
 }
 
 .scrolled {
-  background: #f3f5f9;
+  background: #f3f5f9e4;
   border-bottom: none;
 }
 
@@ -212,6 +212,7 @@
 .pop__up {
   background: $primary !important;
   font-weight: 700 !important;
+  width: 130px !important;
 }
 
 .heart__icon,

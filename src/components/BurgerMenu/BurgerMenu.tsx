@@ -5,11 +5,15 @@ import { useRef } from 'react';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
 import { MENU_LINKS } from '../../interfaces/burger-menu';
 import { Close } from '@mui/icons-material';
+import { useLanguage } from '../../hooks/useLanguage';
+import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher';
 
 export const BurgerMenu: FC = () => {
   const buttonRef = useRef<null>(null);
   const burgerMenuRef = useRef<null>(null);
   const [isMenuClosed, setIsMenuClosed] = useState<boolean>(false);
+
+  const { currentLanguage, handleChangeLanguage } = useLanguage();
 
   const toggleMenu = (): void => {
     setIsMenuClosed(!isMenuClosed);
@@ -40,6 +44,10 @@ export const BurgerMenu: FC = () => {
                 className={styles.burger__logo}
               />
               <h3 className={styles.logo__title}>iMarketplace</h3>
+              <LanguageSwitcher
+                currentLanguage={currentLanguage}
+                onChangeLanguage={handleChangeLanguage}
+              />
             </div>
             <Close
               onClick={closeMenuButton}

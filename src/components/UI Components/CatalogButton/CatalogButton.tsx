@@ -8,19 +8,26 @@ import { useLanguage } from '../../../hooks/useLanguage';
 interface CatalogProps {
   product?: Products;
   onClick?: (product: Products) => void;
+  onDeleteProduct?: (productId: number) => void;
 }
 
 export const CatalogButton: FC<CatalogProps> = ({
   product = null,
   onClick = () => {},
 }) => {
-  const [isActiveButton, setIsActiveButton] = useState<boolean>(false);
+  const [isActiveButton, setIsActiveButton] = useState<boolean>(() => {
+    const savedColor = localStorage.getItem(
+      `catalogButtonColor_${product?.phoneId}`
+    );
+    return savedColor ? savedColor === '#66CDAA' : false;
+  });
   const { currentLanguage } = useLanguage();
+
   const handleAddToCart = () => {
     if (product) {
-      if (!isActiveButton) {
-        setIsActiveButton(true);
-      }
+      const newColor = isActiveButton ? '#313237' : '#66CDAA';
+      setIsActiveButton(!isActiveButton);
+      localStorage.setItem(`catalogButtonColor_${product.phoneId}`, newColor);
       onClick(product);
     }
   };
