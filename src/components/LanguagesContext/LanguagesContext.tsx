@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from 'react';
+import { ReactNode, createContext, useState, useEffect } from 'react';
 
 interface LanguageProviderProps {
   children: ReactNode;
@@ -15,11 +15,17 @@ export const LanguageContext = createContext<LanguageContextProps>({
 });
 
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-  const [currentLanguage, setCurrentLanguage] = useState<string>('en');
+  const [currentLanguage, setCurrentLanguage] = useState<string>(
+    localStorage.getItem('selectedLanguage') || 'en'
+  );
 
   const handleChangeLanguage = (language: string) => {
     setCurrentLanguage(language);
   };
+
+  useEffect(() => {
+    localStorage.setItem('selectedLanguage', currentLanguage);
+  }, [currentLanguage]);
 
   return (
     <LanguageContext.Provider value={{ currentLanguage, handleChangeLanguage }}>

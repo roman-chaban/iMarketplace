@@ -5,6 +5,8 @@ import { App } from '../../App';
 import { BallTriangle } from 'react-loader-spinner';
 import { MainTitle } from '../UI Components/MainTitle/MainTitle';
 import { AppleAppStore } from 'grommet-icons';
+import { useLanguage } from '../../hooks/useLanguage';
+import { translations } from '../LanguageSwitcher/translation';
 
 type TypeLoader = {
   children: ReactNode;
@@ -12,22 +14,28 @@ type TypeLoader = {
 
 export const Loader: FC<TypeLoader> = () => {
   const [loader, setLoader] = useState<boolean>(false);
+  const { currentLanguage } = useLanguage();
 
   useEffect(() => {
-    const changeLoading = () => {
-      const loading = setTimeout(() => {
-        setLoader(true);
-      }, 1800);
-      return loading;
-    };
-    changeLoading();
+    const timeout = setTimeout(() => {
+      setLoader(true);
+    }, 1800);
+    return () => clearTimeout(timeout);
   }, []);
+
+  useEffect(() => {
+    setLoader(false);
+    const timeout = setTimeout(() => {
+      setLoader(true);
+    }, 1800);
+    return () => clearTimeout(timeout);
+  }, [currentLanguage]);
 
   if (!loader) {
     return (
       <div className={styles.blocks__loader}>
         <MainTitle className={styles.block__title}>
-          Welcome to iMarketplace!
+          {translations[currentLanguage].welcomeTitle}
           <AppleAppStore size='large' className={styles.AppleAppStore} />
         </MainTitle>
         <BallTriangle

@@ -1,5 +1,6 @@
 interface Translations {
   [key: string]: {
+    welcomeTitle: string;
     greeting: string;
     buttonLabel: string;
     LogoLabel: string;
@@ -93,6 +94,7 @@ interface Translations {
     };
   };
   ua: {
+    welcomeTitle: string;
     greeting: string;
     LogoLabel: string;
     buttonLabel: string;
@@ -189,6 +191,7 @@ interface Translations {
 
 export const translations: Translations = {
   en: {
+    welcomeTitle: 'Welcome to iMarketplace!',
     greeting: 'Hello!',
     LogoLabel: 'iMarketplace',
     buttonLabel: 'Switch to Ukrainian',
@@ -286,6 +289,7 @@ export const translations: Translations = {
     },
   },
   ua: {
+    welcomeTitle: 'Ласкаво просимо до Маркетплейсу!',
     greeting: 'Привіт!',
     LogoLabel: 'Макретплейс',
     buttonLabel: 'Переключитися на англійську',
