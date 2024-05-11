@@ -14,6 +14,8 @@ import { addBasketTablets } from '../../../redux/slices/cartSlice';
 import { translations } from '../../LanguageSwitcher/translation';
 import { useLanguage } from '../../../hooks/useLanguage';
 import { CardItem } from './styled/cardItem';
+import { IconButton } from '@mui/material';
+import { Fingerprint } from '@mui/icons-material';
 
 const enum TabletsPath {
   TABLETS = '/tablets/tablet/',
@@ -61,7 +63,7 @@ export const TabletItem: FC<Tablet> = ({
         />
         <h3 className={styles.card__title}>{name}</h3>
         <CustomButton
-          style={{ border: '2px solid #6d6474', marginBottom: 10 }}
+          style={{ border: '2px solid #fff', marginBottom: 10 }}
           className={styles.button}
         >
           <NavLink
@@ -70,6 +72,9 @@ export const TabletItem: FC<Tablet> = ({
             to={`${TabletsPath.TABLETS}${id}`}
           >
             {translations[currentLanguage].viewButtonLabel}
+            <IconButton aria-label='fingerprint' style={{color: '#fff'}}>
+              <Fingerprint />
+            </IconButton>
           </NavLink>
         </CustomButton>
       </div>

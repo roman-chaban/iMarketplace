@@ -15,12 +15,30 @@
   font-weight: 700;
   line-height: 91.667%;
   letter-spacing: 0.48px;
+  position: relative;
   text-transform: uppercase;
   transition: all 0.3s ease-in-out 0s;
   &:hover {
     color: $primary;
-    text-decoration: underline;
   }
+}
+
+.list__item > .list__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 3px;
+  border-radius: 2px;
+  opacity: 0;
+  background-color: $primary;
+  transition: width 0.3s ease-in-out;
+}
+
+.list__item > .list__link:hover::after {
+  opacity: 1;
+  width: 100%;
 }
 
 .footer__buttons {

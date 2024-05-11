@@ -15,6 +15,8 @@ import { CardItem } from './styled/catalogItem';
 import { addToCart } from '../../redux/slices/cartSlice';
 import { translations } from '../LanguageSwitcher/translation';
 import { useLanguage } from '../../hooks/useLanguage';
+import { IconButton } from '@mui/material';
+import { Fingerprint } from '@mui/icons-material';
 
 const enum PhonesPath {
   PHONES = '/phones/phone/',
@@ -57,7 +59,7 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
         <img src={imgUrl} alt='iphone' className={styles.image__hovered} />
         <h3 className={styles.card__title}>{title.replaceAll('-', ' ')}</h3>
         <CustomButton
-          style={{ border: '2px solid #6d6474', marginBottom: 10 }}
+          style={{ border: '2px solid #fff', marginBottom: 10 }}
           className={styles.button}
         >
           <NavLink
@@ -66,6 +68,9 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
             to={`${PhonesPath.PHONES}${title}`}
           >
             {translations[currentLanguage].viewButtonLabel}
+            <IconButton aria-label='fingerprint' style={{ color: '#fff' }}>
+              <Fingerprint />
+            </IconButton>
           </NavLink>
         </CustomButton>
       </div>
@@ -81,11 +86,11 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
           <span className={styles.list__itemSecondary}>{displaySize}</span>
         </li>
         <li className={styles.list__item}>
-        {translations[currentLanguage].productParams.capacity}
+          {translations[currentLanguage].productParams.capacity}
           <span className={styles.list__itemSecondary}>{memory}</span>
         </li>
         <li className={styles.list__item}>
-        {translations[currentLanguage].productParams.ram}
+          {translations[currentLanguage].productParams.ram}
           <span className={styles.list__itemSecondary}>{capacity}</span>
         </li>
       </ul>
