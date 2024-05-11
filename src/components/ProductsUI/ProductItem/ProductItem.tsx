@@ -13,7 +13,7 @@ import { PhonesTechSpecs } from '../PhonesTechSpecs/PhonesTechSpecs';
 import { useLanguage } from '../../../hooks/useLanguage';
 import { translations } from '../../LanguageSwitcher/translation';
 
-const ProductItem: FC<ProductProps> = memo(() => {
+export const ProductItem: FC<ProductProps> = memo(() => {
   const navigate = useNavigate();
   const { title } = useParams<{ title: string }>();
   const productTitle = title ? title : undefined;
@@ -144,5 +144,3 @@ const ProductItem: FC<ProductProps> = memo(() => {
     </>
   );
 });
-
-export { ProductItem };

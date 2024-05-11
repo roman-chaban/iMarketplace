@@ -74,7 +74,7 @@ export const AuthorizationPage: FC = () => {
   return (
     <div>
       <h1 className={styles.auth__title}>
-        Let's go to Authorization
+        {translations[currentLanguage].authTitle}
         <Apple className={styles.auth__logo} style={{ fontSize: '40' }} />
       </h1>
       <form onSubmit={handleSubmit} className={styles.auth__form}>
@@ -106,7 +106,7 @@ export const AuthorizationPage: FC = () => {
           )}
         </label>
         <CustomButton className={styles.auth__button} type='submit'>
-          Sign up!
+          {translations[currentLanguage].signUpLabel}
         </CustomButton>
       </form>
     </div>

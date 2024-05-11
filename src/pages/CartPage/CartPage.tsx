@@ -54,7 +54,7 @@ export const CartPage: FC = () => {
         ''
       ) : (
         <h4 className={styles.itemsCounter}>
-          Products in cart:{' '}
+          {translations[currentLanguage].productsInBasketLabel}{' '}
           <strong className={styles.counter__marker}>{basketCounter}</strong>
         </h4>
       )}

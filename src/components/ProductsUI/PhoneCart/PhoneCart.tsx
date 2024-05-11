@@ -7,6 +7,8 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useCount } from '../../../hooks/useCount';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import { useLanguage } from '../../../hooks/useLanguage';
+import { translations } from '../../LanguageSwitcher/translation';
 
 export const PhoneCart: FC<ICatalogItemProps> = ({
   imgUrl = '',
@@ -15,6 +17,7 @@ export const PhoneCart: FC<ICatalogItemProps> = ({
   phoneId,
 }) => {
   const dispatch = useAppDispatch();
+  const { currentLanguage } = useLanguage();
   const [isRemoving, setIsRemoving] = useState(false);
   const [productItemCounter, setProductCounter] = useState<number>(0);
 
@@ -84,7 +87,7 @@ export const PhoneCart: FC<ICatalogItemProps> = ({
           </button>
         </div>
         <h6 className={styles.productItems__title}>
-          Ready to buy {productItemCounter}
+          {translations[currentLanguage].readyTitle} {productItemCounter}
         </h6>
       </div>
     </div>

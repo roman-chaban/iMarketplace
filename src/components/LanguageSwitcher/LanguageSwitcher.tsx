@@ -17,8 +17,10 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
   return (
     <div style={{ position: 'relative', top: 3 }}>
       <FormControlLabel
+        style={{ display: 'flex', gap: '0.5rem' }}
         control={
           <IOSSwitch
+            title='Change language'
             checked={currentLanguage === 'ua'}
             onChange={() => onChangeLanguage(otherLanguage)}
             children={undefined}

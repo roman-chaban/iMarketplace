@@ -4,6 +4,8 @@ import GoldColor from '../../../images/phone-catalog-colors/Selected.svg';
 import BlackColor from '../../../images/phone-catalog-colors/Default-2.svg';
 import WhiteColor from '../../../images/phone-catalog-colors/Default-3.svg';
 import GrayColor from '../../../images/phone-catalog-colors/Default-4.svg';
+import { useLanguage } from '../../../hooks/useLanguage';
+import { translations } from '../../LanguageSwitcher/translation';
 
 interface IProductMemory {
   small: string;
@@ -27,6 +29,8 @@ export const PhoneCharacteristics: FC<PhoneCharacteristicsProps> = ({
   const [selectMemory, setSelectMemoryState] = useState<string>(
     productMemory.middle
   );
+
+  const { currentLanguage } = useLanguage();
 
   useEffect(() => {
     setSelectMemory(selectMemory);
@@ -69,7 +73,9 @@ export const PhoneCharacteristics: FC<PhoneCharacteristicsProps> = ({
     <div className={styles.phoneCharacteristics__container}>
       <div className={styles.characteristics__block}>
         <div className={styles.colors__itemBlock}>
-          <h4 className={styles.colors__title}>Available colors</h4>
+          <h4 className={styles.colors__title}>
+            {translations[currentLanguage].availableColorsTitle}
+          </h4>
           <div className={styles.checkColors__items}>
             <button type='button' className={styles.checkColor__button}>
               <img src={GoldColor} alt='color-selected' />

@@ -22,12 +22,18 @@ interface Translations {
     categoryTitle: string;
     categoryPhones: string;
     categoryTablets: string;
+    availableColorsTitle: string;
     categoryAccessories: string;
     viewButtonLabel: string;
     modelsTitle: string;
     backTitle: string;
     hotPriceTitle: string;
     accessoriesComing: string;
+    memoryLabel: string;
+    productsInBasketLabel: string;
+    readyTitle: string;
+    authTitle: string;
+    signUpLabel: string;
     registrationSubItems: {
       signIn: string;
       signOut: string;
@@ -66,6 +72,24 @@ interface Translations {
       itemsSix: string;
       itemsEight: string;
       itemsSixteen: string;
+    };
+    productParams: {
+      screen: string;
+      capacity: string;
+      ram: string;
+    };
+    aboutItems: {
+      title: string;
+      subTitle: string;
+      subSubTitle: string;
+    };
+    cameraItems: {
+      cameraTitle: string;
+      cameraSubTitle: string;
+    };
+    zoomItems: {
+      zoomTitle: string;
+      zoomSubTitle: string;
     };
   };
   ua: {
@@ -84,10 +108,12 @@ interface Translations {
     cartLabel: string;
     cartEmptyTitle: string;
     registrationLabel: string;
+    memoryLabel: string;
     catalogTitle: string;
     brandModelsTitle: string;
     brandModelsSubTitle: string;
     cartTitle: string;
+    availableColorsTitle: string;
     categoryTitle: string;
     categoryPhones: string;
     categoryTablets: string;
@@ -97,6 +123,10 @@ interface Translations {
     modelsTitle: string;
     hotPriceTitle: string;
     accessoriesComing: string;
+    productsInBasketLabel: string;
+    readyTitle: string;
+    authTitle: string;
+    signUpLabel: string;
     registrationSubItems: {
       signIn: string;
       signOut: string;
@@ -135,6 +165,24 @@ interface Translations {
       itemsSix: string;
       itemsEight: string;
       itemsSixteen: string;
+    };
+    productParams: {
+      screen: string;
+      capacity: string;
+      ram: string;
+    };
+    aboutItems: {
+      title: string;
+      subTitle: string;
+      subSubTitle: string;
+    };
+    cameraItems: {
+      cameraTitle: string;
+      cameraSubTitle: string;
+    };
+    zoomItems: {
+      zoomTitle: string;
+      zoomSubTitle: string;
     };
   };
 }
@@ -155,6 +203,7 @@ export const translations: Translations = {
     favoriteEmptyTitle: 'Favorite page is empty',
     cartEmptyTitle: 'Cart page is empty',
     cartLabel: 'Basket',
+    memoryLabel: 'GB',
     registrationLabel: 'Register',
     catalogTitle: "Welcome to iMarketplace! It's great to have you here",
     brandModelsTitle: 'Brand New Models',
@@ -169,6 +218,11 @@ export const translations: Translations = {
     accessoriesComing: 'Accessories is coming',
     backTitle: 'Back to Phones',
     cartTitle: 'Cart',
+    availableColorsTitle: 'Available colors',
+    productsInBasketLabel: 'Products in cart:',
+    readyTitle: 'Ready to buy ',
+    authTitle: "Let's go to Authorization",
+    signUpLabel: 'Sign Up',
     registrationSubItems: {
       signIn: 'Sign in',
       signOut: 'Sign out',
@@ -208,6 +262,28 @@ export const translations: Translations = {
       itemsEight: 'Items 8',
       itemsSixteen: 'Items 16',
     },
+    productParams: {
+      screen: 'Screen',
+      capacity: 'Capacity',
+      ram: 'Ram',
+    },
+    aboutItems: {
+      title: 'About',
+      subTitle: 'And then there was Pro',
+      subSubTitle:
+        ' A transformative triple‑camera system that adds tons of capability without complexity. An unprecedented leap in battery life. And a mind‑blowing chip that doubles down on machine learning and pushes the boundaries of what a smartphone can do. Welcome to the first iPhone powerful enough to be called Pro.',
+    },
+    cameraItems: {
+      cameraTitle: 'Camera',
+      cameraSubTitle:
+        'Meet the first triple‑camera system to combine cutting‑edge technology with the legendary simplicity of iPhone. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest‑quality video in a smartphone — then edit with the same tools you love for photos. You’ve never shot with anything like it.',
+    },
+    zoomItems: {
+      zoomTitle:
+        'Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.',
+      zoomSubTitle:
+        'iPhone lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with.',
+    },
   },
   ua: {
     greeting: 'Привіт!',
@@ -221,6 +297,7 @@ export const translations: Translations = {
     authorizationLabel: 'Авторизація',
     favoriteLabel: 'Улюблені',
     itemsLabel: 'Елементів',
+    availableColorsTitle: 'Доступні кольори',
     chooseOptionLabel: 'Виберіть опцію',
     favoriteEmptyTitle: 'Сторінка улюблені порожня',
     cartEmptyTitle: 'Сторінка кошика порожня',
@@ -238,6 +315,11 @@ export const translations: Translations = {
     hotPriceTitle: 'Гарячі ціни',
     accessoriesComing: "Аксесуари скоро з'являться",
     backTitle: 'Назад до телефони',
+    memoryLabel: 'ГБ',
+    productsInBasketLabel: 'Товарів в кошику:',
+    readyTitle: 'Готові до покупки',
+    authTitle: 'Переходимо до авторизації',
+    signUpLabel: 'Увійти',
     registrationSubItems: {
       signIn: 'Зареєструватись',
       signOut: 'Вийти',
@@ -276,6 +358,28 @@ export const translations: Translations = {
       itemsSix: '6 Елементів',
       itemsEight: '8 Елементів',
       itemsSixteen: '16 Елементів',
+    },
+    productParams: {
+      screen: 'Екран',
+      capacity: "Пам'ять",
+      ram: 'ОЗУ',
+    },
+    aboutItems: {
+      title: 'Про продукт',
+      subTitle: 'А потім був Pro',
+      subSubTitle:
+        'Трансформаційна система з трьома камерами, яка додає масу можливостей без ускладнень. Безпрецедентний стрибок у часі автономної роботи. І приголомшливий чіп, який подвоює машинне навчання та розширює межі того, що може робити смартфон. Ласкаво просимо до першого достатньо потужного iPhone, який можна назвати Pro.',
+    },
+    cameraItems: {
+      cameraTitle: 'Камера',
+      cameraSubTitle:
+        'Зустрічайте першу систему з трьома камерами, яка поєднує передові технології з легендарною простотою iPhone. Знімайте до чотирьох разів більше кадрів. Отримуйте чудові зображення за різко слабкого освітлення. Знімайте відео найвищої якості на смартфон, а потім редагуйте за допомогою тих самих інструментів, які вам подобаються для фотографій. Ви ніколи не стріляли з чогось подібного.',
+    },
+    zoomItems: {
+      zoomTitle:
+        'Стріляй. Переверніть його. Збільште його. Обріжте його. Виріжте його. Запаліть його. Налаштуйте його. Люблю це.',
+      zoomSubTitle:
+        'iPhone дозволяє знімати неймовірно реалістичні відео з більшою деталізацією та плавним рухом. Неперевершена потужність обробки означає, що він може знімати відео 4K із розширеним динамічним діапазоном і кінематографічною стабілізацією відео — і все це зі швидкістю 60 кадрів/с. Ви також отримуєте більше творчого контролю, завдяки вчетверо більшій кількості сцен і новим потужним інструментам редагування.',
     },
   },
 };

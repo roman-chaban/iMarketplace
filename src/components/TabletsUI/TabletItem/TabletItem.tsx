@@ -82,15 +82,15 @@ export const TabletItem: FC<Tablet> = ({
       </span>
       <ul className={styles.card__list}>
         <li className={styles.list__item}>
-          Screen
+          {translations[currentLanguage].productParams.screen}
           <span className={styles.list__itemSecondary}>{screen}</span>
         </li>
         <li className={styles.list__item}>
-          Capacity
+          {translations[currentLanguage].productParams.capacity}
           <span className={styles.list__itemSecondary}>{capacity}</span>
         </li>
         <li className={styles.list__item}>
-          RAM
+          {translations[currentLanguage].productParams.ram}
           <span className={styles.list__itemSecondary}>{ram}</span>
         </li>
       </ul>
