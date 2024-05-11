@@ -7,6 +7,8 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { useCount } from '../../../hooks/useCount';
+import { translations } from '../../LanguageSwitcher/translation';
+import { useLanguage } from '../../../hooks/useLanguage';
 
 interface FavoriteCardProps extends Tablet {
   images: string[] | undefined;
@@ -24,6 +26,7 @@ export const TabletCart: FC<FavoriteCardProps> = ({
   priceRegular = 0,
   tabletId,
 }) => {
+  const { currentLanguage } = useLanguage();
   const dispatch = useAppDispatch();
   const [isRemoving, setIsRemoving] = useState(false);
   const [productItemCounter, setProductCounter] = useState<number>(0);
@@ -80,6 +83,10 @@ export const TabletCart: FC<FavoriteCardProps> = ({
           <button
             className={styles.minus}
             disabled={productPrice < 1 ? true : false}
+            style={{
+              opacity: productPrice < 1 ? '0.5' : '1',
+              cursor: productPrice > 1 ? 'pointer' : 'not-allowed',
+            }}
             onClick={() => {
               onDeleteProduct();
               setProductCounter((prevCount) => prevCount - 1);
@@ -92,7 +99,8 @@ export const TabletCart: FC<FavoriteCardProps> = ({
           </button>
         </div>
         <h6 className={styles.productItems__title}>
-          Ready to buy {productItemCounter}
+          {translations[currentLanguage].readyTitle}
+          {''} {productItemCounter}
         </h6>
       </div>
     </div>

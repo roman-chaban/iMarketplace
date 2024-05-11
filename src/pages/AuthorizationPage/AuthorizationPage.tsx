@@ -81,8 +81,8 @@ export const AuthorizationPage: FC = () => {
         <label htmlFor='email'>
           <TextField
             required
-            placeholder='Email'
-            label='Email'
+            placeholder={translations[currentLanguage].email}
+            label={translations[currentLanguage].email}
             type='email'
             id={styles.email}
             name='email'
@@ -92,9 +92,9 @@ export const AuthorizationPage: FC = () => {
         </label>
         <label htmlFor='password'>
           <TextField
-            placeholder='Password'
+            placeholder={translations[currentLanguage].password}
             required
-            label='Password'
+            label={translations[currentLanguage].password}
             type='password'
             autoComplete='current-password'
             id={styles.password}

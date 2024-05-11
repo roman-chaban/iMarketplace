@@ -78,16 +78,24 @@ export const PhoneCart: FC<ICatalogItemProps> = ({
           <button
             className={styles.minus}
             disabled={totalPrice < 1 ? true : false}
+            style={{
+              opacity: totalPrice < 1 ? '0.5' : '1',
+              cursor: totalPrice > 1 ? 'pointer' : 'not-allowed',
+            }}
             onClick={() => {
               onDeleteProduct();
               setProductCounter((prevCounter) => prevCounter - 1);
             }}
           >
-            <RemoveCircleIcon style={{ color: 'rgba(199, 53, 8, 0.8352941176)' }} fontSize='large' />
+            <RemoveCircleIcon
+              style={{ color: 'rgba(199, 53, 8, 0.8352941176)' }}
+              fontSize='large'
+            />
           </button>
         </div>
         <h6 className={styles.productItems__title}>
-          {translations[currentLanguage].readyTitle} {productItemCounter}
+          {translations[currentLanguage].readyTitle}
+          {''} {productItemCounter}
         </h6>
       </div>
     </div>

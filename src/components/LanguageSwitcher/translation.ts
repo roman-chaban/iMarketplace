@@ -92,6 +92,8 @@ interface Translations {
       zoomTitle: string;
       zoomSubTitle: string;
     };
+    email: string;
+    password: string;
   };
   ua: {
     welcomeTitle: string;
@@ -186,6 +188,8 @@ interface Translations {
       zoomTitle: string;
       zoomSubTitle: string;
     };
+    email: string;
+    password: string;
   };
 }
 
@@ -287,6 +291,8 @@ export const translations: Translations = {
       zoomSubTitle:
         'iPhone lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with.',
     },
+    email: 'Email',
+    password: 'Password',
   },
   ua: {
     welcomeTitle: 'Ласкаво просимо до Маркетплейсу!',
@@ -385,5 +391,7 @@ export const translations: Translations = {
       zoomSubTitle:
         'iPhone дозволяє знімати неймовірно реалістичні відео з більшою деталізацією та плавним рухом. Неперевершена потужність обробки означає, що він може знімати відео 4K із розширеним динамічним діапазоном і кінематографічною стабілізацією відео — і все це зі швидкістю 60 кадрів/с. Ви також отримуєте більше творчого контролю, завдяки вчетверо більшій кількості сцен і новим потужним інструментам редагування.',
     },
+    email: 'Е-Пошта',
+    password: 'Пароль',
   },
 };
