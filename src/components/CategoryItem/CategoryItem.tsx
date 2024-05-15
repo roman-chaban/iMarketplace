@@ -7,7 +7,7 @@ import { ICategoryItemProps } from '../../interfaces/category-item';
 const CategoryItemBlock = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 23px;
 `;
 
 const CategoryItem: FC<ICategoryItemProps> = ({
