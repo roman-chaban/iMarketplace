@@ -108,7 +108,12 @@ export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
             <img src={mainImage} alt='product' className={styles.phone__img} />
           </div>
           <div className={styles.product__block}>
-            <PhoneCharacteristics setSelectMemory={setSelectMemory} />
+            <PhoneCharacteristics
+              setSelectMemory={setSelectMemory}
+              handleColorChange={function (): void {
+                throw new Error('Function not implemented.');
+              }}
+            />
             <TabletsTechSpecs product={tablet} selectCapacity={selectMemory} />
           </div>
         </div>

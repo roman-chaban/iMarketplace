@@ -67,3 +67,91 @@
     transform: scale(1.05);
   }
 }
+
+.colorProductRed {
+  position: relative;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background: red;
+  border: 1px solid $white;
+  border-radius: 100%;
+}
+
+.colorProductRed::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 2px solid $main-bg;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.colorSilver {
+  position: relative;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background: $elements;
+  border: 1px solid $white;
+  border-radius: 100%;
+}
+
+.colorSilver::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 2px solid $main-bg;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.colorDeepPurple {
+  position: relative;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background: $deep-purple;
+  border: 1px solid $white;
+  border-radius: 100%;
+}
+
+.colorDeepPurple::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 2px solid $main-bg;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.colorGold {
+  position: relative;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background: $gold;
+  border: 1px solid $white;
+  border-radius: 100%;
+}
+
+.colorGold::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 2px solid $main-bg;
+  border-radius: 50%;
+  z-index: -1;
+}

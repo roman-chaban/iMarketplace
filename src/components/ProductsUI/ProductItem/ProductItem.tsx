@@ -1,5 +1,5 @@
 import { FC, memo, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import homeIcon from '../../../images/icons/Home.svg';
 import rightArrowIcon from '../../../images/icons/Chevron (Arrow Right).svg';
 import leftArrowIcon from '../../../images/icons/Chevron (Arrow Left).svg';
@@ -16,18 +16,15 @@ import { translations } from '../../LanguageSwitcher/translation';
 export const ProductItem: FC<ProductProps> = memo(() => {
   const navigate = useNavigate();
   const { title } = useParams<{ title: string }>();
+  const { search } = useLocation();
+  const colorParams = new URLSearchParams(search);
+  const initialColor = colorParams.get('color') || 'Gold';
+  const [selectColor, setSelectColor] = useState<string>(initialColor);
+  const [selectMemory, setSelectMemory] = useState<string>('64 GB');
+
   const productTitle = title ? title : undefined;
   const phone = products.find((product) => product.title === productTitle);
-  const [mainImage, setMainImage] = useState<string>(phone ? phone.imgUrl : '');
-  const [selectMemory, setSelectMemory] = useState<string>('64 GB');
   const { currentLanguage } = useLanguage();
-
-  useEffect(() => {
-    const phone = products.find((product) => product.title === productTitle);
-    if (phone) {
-      setMainImage(phone.imgUrl);
-    }
-  }, [productTitle]);
 
   const goToHomePage = () => {
     navigate('/', { replace: true });
@@ -37,26 +34,46 @@ export const ProductItem: FC<ProductProps> = memo(() => {
     navigate(-1);
   };
 
+  const handleColorChange = (color: string) => {
+    setSelectColor(color);
+    const newTitle = replaceColorInTitle(productTitle!, color);
+    navigate(`/phones/phone/${newTitle}`, { replace: true });
+  };
+
+  const replaceColorInTitle = (title: string, color: string) => {
+    const parts = title.split('-');
+    if (parts.length > 1) {
+      parts[parts.length - 1] = color;
+    }
+    return parts.join('-');
+  };
+  const getTitle = (selectedMemory: string) => {
+    if (phone) {
+      switch (selectedMemory) {
+        case '64 GB':
+          return `${phone.name} 64GB`;
+        case '128 GB':
+          return `${phone.name} 128GB`;
+        case '256 GB':
+          return `${phone.name} 256GB`;
+        default:
+          return phone.name;
+      }
+    }
+    return '';
+  };
+
+  useEffect(() => {
+    if (phone) {
+      setMainImage(phone.imgUrl);
+    }
+  }, [phone, productTitle]);
+
+  const [mainImage, setMainImage] = useState<string>(phone ? phone.imgUrl : '');
+
   if (!phone) {
     return <NotFoundPage statusText='404' message='This page is not defined' />;
   }
-
-  const handleThumbnailClick = (image: string) => {
-    setMainImage(image);
-  };
-
-  const getTitle = (selectedMemory: string) => {
-    switch (selectedMemory) {
-      case '64 GB':
-        return `${phone.name} 64GB`;
-      case '128 GB':
-        return `${phone.name} 128GB`;
-      case '256 GB':
-        return `${phone.name} 256GB`;
-      default:
-        return phone.name;
-    }
-  };
 
   return (
     <>
@@ -100,7 +117,7 @@ export const ProductItem: FC<ProductProps> = memo(() => {
                   className={`${styles.phoneSmall__image} ${
                     mainImage === phone.firstImage ? styles.active : ''
                   }`}
-                  onClick={() => handleThumbnailClick(phone.firstImage)}
+                  onClick={() => setMainImage(phone.firstImage)}
                 />
                 <img
                   src={phone.secondImage}
@@ -108,7 +125,7 @@ export const ProductItem: FC<ProductProps> = memo(() => {
                   className={`${styles.phoneSmall__image} ${
                     mainImage === phone.secondImage ? styles.active : ''
                   }`}
-                  onClick={() => handleThumbnailClick(phone.secondImage)}
+                  onClick={() => setMainImage(phone.secondImage)}
                 />
                 <img
                   src={phone.thirdImage}
@@ -116,7 +133,7 @@ export const ProductItem: FC<ProductProps> = memo(() => {
                   className={`${styles.phoneSmall__image} ${
                     mainImage === phone.thirdImage ? styles.active : ''
                   }`}
-                  onClick={() => handleThumbnailClick(phone.thirdImage)}
+                  onClick={() => setMainImage(phone.thirdImage)}
                 />
                 <img
                   src={phone.fourImage}
@@ -124,7 +141,7 @@ export const ProductItem: FC<ProductProps> = memo(() => {
                   className={`${styles.phoneSmall__image} ${
                     mainImage === phone.fourImage ? styles.active : ''
                   }`}
-                  onClick={() => handleThumbnailClick(phone.fourImage)}
+                  onClick={() => setMainImage(phone.fourImage)}
                 />
               </div>
               <img
@@ -134,7 +151,11 @@ export const ProductItem: FC<ProductProps> = memo(() => {
               />
             </div>
             <div className={styles.product__block}>
-              <PhoneCharacteristics setSelectMemory={setSelectMemory} />
+              <PhoneCharacteristics
+                selectColor={selectColor}
+                handleColorChange={handleColorChange}
+                setSelectMemory={setSelectMemory}
+              />
               <PhonesTechSpecs product={phone} selectMemory={selectMemory} />
             </div>
           </div>

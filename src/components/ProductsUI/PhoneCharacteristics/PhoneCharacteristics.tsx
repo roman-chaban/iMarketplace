@@ -1,9 +1,5 @@
 import styles from './phoneCharacteristics.module.scss';
 import React, { FC, useRef, useState, useEffect } from 'react';
-import GoldColor from '../../../images/phone-catalog-colors/Selected.svg';
-import BlackColor from '../../../images/phone-catalog-colors/Default-2.svg';
-import WhiteColor from '../../../images/phone-catalog-colors/Default-3.svg';
-import GrayColor from '../../../images/phone-catalog-colors/Default-4.svg';
 import { useLanguage } from '../../../hooks/useLanguage';
 import { translations } from '../../LanguageSwitcher/translation';
 
@@ -15,10 +11,14 @@ interface IProductMemory {
 
 interface PhoneCharacteristicsProps {
   setSelectMemory: (memory: string) => void;
+  handleColorChange: (color: string) => void;
+  selectColor?: string;
 }
 
 export const PhoneCharacteristics: FC<PhoneCharacteristicsProps> = ({
   setSelectMemory,
+  handleColorChange,
+  selectColor,
 }) => {
   const productMemory: IProductMemory = {
     small: '64 GB',
@@ -77,17 +77,46 @@ export const PhoneCharacteristics: FC<PhoneCharacteristicsProps> = ({
             {translations[currentLanguage].availableColorsTitle}
           </h4>
           <div className={styles.checkColors__items}>
-            <button type='button' className={styles.checkColor__button}>
-              <img src={GoldColor} alt='color-selected' />
+            <button
+              type='button'
+              className={styles.checkColor__button}
+              onClick={() => handleColorChange('Gold')}
+              style={{
+                borderColor: selectColor === 'gold' ? '#000' : 'transparent',
+              }}
+            >
+             <span className={styles.colorGold}></span>
             </button>
-            <button type='button' className={styles.checkColor__button}>
-              <img src={BlackColor} alt='color-selected' />
+            <button
+              type='button'
+              className={styles.checkColor__button}
+              onClick={() => handleColorChange('DeepPurple')}
+              style={{
+                borderColor: selectColor === 'black' ? '#000' : 'transparent',
+              }}
+            >
+              <span className={styles.colorDeepPurple}></span>
             </button>
-            <button type='button' className={styles.checkColor__button}>
-              <img src={WhiteColor} alt='color-selected' />
+            <button
+              type='button'
+              className={styles.checkColor__button}
+              onClick={() => handleColorChange('Silver')}
+              style={{
+                borderColor: selectColor === 'white' ? '#000' : 'transparent',
+              }}
+            >
+              <span className={styles.colorSilver}></span>
             </button>
-            <button type='button' className={styles.checkColor__button}>
-              <img src={GrayColor} alt='color-selected' />
+            <button
+              type='button'
+              className={styles.checkColor__button}
+              onClick={() => handleColorChange('ProductRed')}
+              style={{
+                borderColor:
+                  selectColor === 'ProductRed' ? '#000' : 'transparent',
+              }}
+            >
+              <span className={styles.colorProductRed}></span>
             </button>
           </div>
         </div>
