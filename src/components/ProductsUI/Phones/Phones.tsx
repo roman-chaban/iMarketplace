@@ -29,9 +29,26 @@ export const Phones: FC<PhonesProps> = ({ products }: PhonesProps) => {
         }}
         modules={[Scrollbar]}
         slidesPerView={4}
+        breakpoints={{
+          1440: {
+            slidesPerView: 4,
+          },
+          1050: {
+            slidesPerView: 3,
+          },
+          930: {
+            slidesPerView: 2,
+          },
+          600: {
+            slidesPerView: 1,
+          },
+        }}
       >
         {products.map((product) => (
-          <SwiperSlide key={product.phoneId} className={styles.slide}>
+          <SwiperSlide
+            key={product.phoneId}
+            className={styles.slide}
+          >
             <PhoneItem
               displaySize={product.displaySize}
               imgUrl={product.imgUrl}

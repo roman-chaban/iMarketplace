@@ -106,9 +106,21 @@
   }
 }
 
+@media screen and (max-width: 670px) {
+  .menu__description {
+    font-size: 1.2rem;
+  }
+}
+
 @media screen and (max-width: 400px) {
   .burger__logo {
     position: relative;
     bottom: 2px;
+  }
+  .logo__title {
+    display: none;
+  }
+  .menu {
+    padding-bottom: 20px;
   }
 }
