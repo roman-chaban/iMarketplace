@@ -9,6 +9,7 @@ import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher';
 import { translations } from '../LanguageSwitcher/translation';
 import { TypeMenuLinks } from '../../interfaces/burger-menu';
 import { ROUTES } from '../../constants/routes/routes';
+import { useBodyOverflow } from '../../hooks/useBodyOverflow';
 
 export const BurgerMenu: FC = () => {
   const buttonRef = useRef<null>(null);
@@ -16,6 +17,10 @@ export const BurgerMenu: FC = () => {
   const [isMenuClosed, setIsMenuClosed] = useState<boolean>(false);
 
   const { currentLanguage, handleChangeLanguage } = useLanguage();
+
+
+  useBodyOverflow(!isMenuClosed);
+
 
   const toggleMenu = (): void => {
     setIsMenuClosed(!isMenuClosed);
