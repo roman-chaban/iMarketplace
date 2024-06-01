@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { Header } from '../../components/Header/Header';
 import { Footer } from '../../components/Footer/Footer';
 import { Outlet } from 'react-router-dom';
-import styles from './Layout.module.scss';
+import styles from './LayoutStyles.module.scss';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 
 export const LayoutPage: FC = () => {
