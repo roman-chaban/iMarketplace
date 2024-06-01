@@ -1,5 +1,5 @@
 import { PhoneItem } from '../../CatalogItem/PhoneItem';
-import styles from '../../../pages/PhonesPage/phones.module.scss';
+import styles from '../../../pages/PhonesPage/Phones.module.scss';
 import { PhonesProps } from '../../../interfaces/phones';
 import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';

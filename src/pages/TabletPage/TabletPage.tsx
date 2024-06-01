@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from 'react';
-import styles from '../PhonesPage/phones.module.scss';
+import styles from '../PhonesPage/Phones.module.scss';
 import { ProductItem } from './ProductItem';
 import products from '../../common/products/tablets.json';
 import { Tablet } from '../../interfaces/tablets';

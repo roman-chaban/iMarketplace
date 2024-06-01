@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import homeIcon from '../../images/icons/Home.svg';
 import rightArrowIcon from '../../images/icons/Chevron (Arrow Right).svg';
 import leftArrowIcon from '../../images/icons/Chevron (Arrow Left).svg';
-import styles from '../../pages/PhonePage/phonePage.module.scss';
+import styles from '../../pages/PhonePage/PhonePage.module.scss';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
 import { PhoneCharacteristics } from '../../components/ProductsUI/PhoneCharacteristics/PhoneCharacteristics';
 import { ProductItemProps } from '../../interfaces/tablets';

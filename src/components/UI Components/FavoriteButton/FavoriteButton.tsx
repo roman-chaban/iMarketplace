@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import styles from '../../CatalogItem/catalogItem.module.scss';
+import styles from '../../CatalogItem/CatalogItem.module.scss';
 import { FavoriteBorder } from '@mui/icons-material';
 import { Products } from '../../../redux/interfaces/products';
 

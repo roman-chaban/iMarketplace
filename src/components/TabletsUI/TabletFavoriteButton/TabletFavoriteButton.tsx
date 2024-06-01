@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import styles from '../../../components/CatalogItem/catalogItem.module.scss';
+import styles from '../../../components/CatalogItem/CatalogItem.module.scss';
 import { FavoriteBorder } from '@mui/icons-material';
 import { Tablets } from '../../../interfaces/tablets';
 

@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import Button from '@mui/material/Button';
-import styles from '../../UI Components/CatalogButton/catalog-button.module.scss';
+import styles from '../../UI Components/CatalogButton/Catalog-button.module.scss';
 import { Tablets } from '../../../interfaces/tablets';
 import { translations } from '../../LanguageSwitcher/translation';
 import { useLanguage } from '../../../hooks/useLanguage';

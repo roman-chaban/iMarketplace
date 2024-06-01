@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import styles from '../../ModelsCatalog/modelsCatalog.module.scss';
+import styles from '../../ModelsCatalog/ModelsCatalog.module.scss';
 import Tablets from './Tablets';
 import tablets from '../../../common/products/tablets.json';
 import { Tablet } from '../../../interfaces/tablets';
