@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from './CatalogItem.module.scss';
+import styles from './CatalogItemStyles.module.scss';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../UI Components/CustomButton/CustomButton';
 import { FavoriteButton } from '../UI Components/FavoriteButton/FavoriteButton';
