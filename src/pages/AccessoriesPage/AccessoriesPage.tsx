@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
-import styles from './Accessories.module.scss';
+import styles from './AccessoriesStyles.module.scss';
 import { useEffect } from 'react';
 import { translations } from '../../components/LanguageSwitcher/translation';
 import { useLanguage } from '../../hooks/useLanguage';

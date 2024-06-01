@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
-import styles from './FavoritePage.module.scss';
+import styles from './FavoritePageStyles.module.scss';
 import { Products } from '../../redux/interfaces/products';
 import { Tablet } from '../../interfaces/tablets';
 import {

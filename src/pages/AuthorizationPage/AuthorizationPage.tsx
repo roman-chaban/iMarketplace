@@ -5,7 +5,7 @@ import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import { CustomButton } from '../../components/UI Components/CustomButton/CustomButton';
-import styles from './Authorization.module.scss';
+import styles from './AuthorizationStyles.module.scss';
 import { Apple } from '@mui/icons-material';
 import { translations } from '../../components/LanguageSwitcher/translation';
 import { useLanguage } from '../../hooks/useLanguage';
