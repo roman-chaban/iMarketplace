@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
-import styles from './catalogPage.module.scss';
+import styles from './CartPage.module.scss';
 import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/reduxHooks/useAppSelector';
 import { Products } from '../../redux/interfaces/products';

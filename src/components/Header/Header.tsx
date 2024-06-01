@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import styles from './header.module.scss';
+import styles from './Header.module.scss';
 import { HeaderNavBar } from '../HeaderNavBar/HeaderNavBar';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';

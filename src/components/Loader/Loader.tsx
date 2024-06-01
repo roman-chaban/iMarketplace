@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { useState, useEffect } from 'react';
-import styles from './loader.module.scss';
+import styles from './Loader.module.scss';
 import { App } from '../../App';
 import { BallTriangle } from 'react-loader-spinner';
 import { MainTitle } from '../UI Components/MainTitle/MainTitle';

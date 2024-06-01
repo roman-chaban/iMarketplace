@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { useAppDispatch } from '../../../hooks/reduxHooks/useAppDispatch';
 import { deleteFromCart } from '../../../redux/slices/cartSlice';
-import styles from './phoneCart.module.scss';
+import styles from './PhoneCart.module.scss';
 import { ICatalogItemProps } from '../../../interfaces/catalog-item';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useCount } from '../../../hooks/useCount';

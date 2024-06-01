@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import Button from '@mui/material/Button';
-import styles from './catalog-button.module.scss';
+import styles from './Catalog-button.module.scss';
 import { Products } from '../../../redux/interfaces/products';
 import { translations } from '../../LanguageSwitcher/translation';
 import { useLanguage } from '../../../hooks/useLanguage';

@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import styles from './notFound.module.scss';
+import styles from './NotFound.module.scss';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Apple } from '@mui/icons-material';
 import { NotFoundContainer, StyledErrorPage } from './styled/notFoundStyled';

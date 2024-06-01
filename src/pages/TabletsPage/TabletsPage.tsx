@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
 import TabletsSelect from '../../components/TabletsUI/TabletsSelect/TabletsSelect';
-import styles from './tablets.module.scss';
+import styles from './TabletsPage.module.scss';
 import { Tablet } from '../../interfaces/tablets';
 import tabletProducts from '../../common/products/tablets.json';
 import { TabletItem } from '../../components/TabletsUI/TabletItem/TabletItem';

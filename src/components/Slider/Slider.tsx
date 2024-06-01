@@ -8,7 +8,7 @@ import 'swiper/css/scrollbar';
 import firstSlide from '../../images/category-images/Iphone15-Banner.jpg';
 import secondSlide from '../../images/category-images/aalp-magsafe-header-202309.png';
 import thirdSlice from '../../images/banner/iphones.png';
-import styles from './slider.module.scss';
+import styles from './Slider.module.scss';
 
 interface Slide {
   image: string;

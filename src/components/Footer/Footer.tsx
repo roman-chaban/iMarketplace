@@ -1,5 +1,5 @@
 import { FC, Fragment } from 'react';
-import styles from './footer.module.scss';
+import styles from './Footer.module.scss';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
 import { ROUTES } from '../../constants/routes/routes';
 import GitHubIcon from '@mui/icons-material/GitHub';

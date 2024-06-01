@@ -1,4 +1,4 @@
-import styles from './phoneCharacteristics.module.scss';
+import styles from './PhoneCharacteristics.module.scss';
 import React, { FC, useRef, useState, useEffect } from 'react';
 import { useLanguage } from '../../../hooks/useLanguage';
 import { translations } from '../../LanguageSwitcher/translation';

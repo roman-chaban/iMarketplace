@@ -1,6 +1,6 @@
 import { useLanguage } from '../../../hooks/useLanguage';
 import { translations } from '../../LanguageSwitcher/translation';
-import styles from './phonesAbout.module.scss';
+import styles from './PhonesAbout.module.scss';
 
 export const PhonesAbout = () => {
   const { currentLanguage } = useLanguage();

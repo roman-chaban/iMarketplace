@@ -1,4 +1,4 @@
-import styles from './catalog.module.scss';
+import styles from './CatalogPage.module.scss';
 import { NavLink, useNavigate } from 'react-router-dom';
 import homeIcon from '../../images/icons/Home.svg';
 import arrowRightIcon from '../../images/icons/Chevron (Arrow Right).svg';

@@ -1,5 +1,5 @@
 import { FC, Dispatch, SetStateAction } from 'react';
-import './select.scss';
+import './Select.scss';
 import Select, { OnChangeValue } from 'react-select';
 import { useState } from 'react';
 import { IOption } from '../../interfaces/select-interface/select.interfaces';

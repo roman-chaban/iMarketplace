@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
-import styles from './accessories.module.scss';
-// import { CustomSelect } from '../../components/Select/Select';
+import styles from './Accessories.module.scss';
 import { useEffect } from 'react';
 import { translations } from '../../components/LanguageSwitcher/translation';
 import { useLanguage } from '../../hooks/useLanguage';
@@ -19,7 +18,6 @@ export const AccessoriesPage: FC = () => {
         models={`0 ${translations[currentLanguage].modelsTitle}`}
         mainTitle={translations[currentLanguage].pagesTitle.accessories}
       />
-      <div className={styles.page__select}>{/* <CustomSelect /> */}</div>
       <h3 className={styles.coming__title}>
         {translations[currentLanguage].accessoriesComing}
       </h3>

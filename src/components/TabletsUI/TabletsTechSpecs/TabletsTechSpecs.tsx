@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from './tabletsTechSpecs.module.scss';
+import styles from './TabletsTechSpecs.module.scss';
 import { Tablet } from '../../../interfaces/tablets';
 
 interface TabletsTechSpecsProps {

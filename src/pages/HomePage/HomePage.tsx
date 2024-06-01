@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import styles from './home.module.scss';
+import styles from './Home.module.scss';
 import { Main } from '../../components/Main/Main';
 import { useLanguage } from '../../hooks/useLanguage';
 import { translations } from '../../components/LanguageSwitcher/translation';

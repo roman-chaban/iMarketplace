@@ -1,6 +1,6 @@
 import { FC, useState, useEffect } from 'react';
 import { CatalogPage } from '../CatalogPage/CatalogPage';
-import styles from './phones.module.scss';
+import styles from './Phones.module.scss';
 import phonesProducts from '../../common/products/products.json';
 import { Pagination } from '../../components/Pagination/Pagination';
 import CustomSelect from '../../components/Select/Select';

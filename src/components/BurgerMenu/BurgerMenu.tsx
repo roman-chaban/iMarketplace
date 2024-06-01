@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import styles from './burger.module.scss';
+import styles from './Burger.module.scss';
 import appleLogo from '../../favicon/favicon.png';
 import { useRef } from 'react';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
