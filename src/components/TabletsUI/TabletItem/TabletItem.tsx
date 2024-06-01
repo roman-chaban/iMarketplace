@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from '../../CatalogItem/CatalogItem.module.scss';
+import styles from '../../CatalogItem/CatalogItemStyles.module.scss';
 import { NavLink } from 'react-router-dom';
 import { CustomButton } from '../../UI Components/CustomButton/CustomButton';
 import { Tablet } from '../../../interfaces/tablets';
@@ -72,7 +72,7 @@ export const TabletItem: FC<Tablet> = ({
             to={`${TabletsPath.TABLETS}${id}`}
           >
             {translations[currentLanguage].viewButtonLabel}
-            <IconButton aria-label='fingerprint' style={{color: '#fff'}}>
+            <IconButton aria-label='fingerprint' style={{ color: '#fff' }}>
               <Fingerprint />
             </IconButton>
           </NavLink>
