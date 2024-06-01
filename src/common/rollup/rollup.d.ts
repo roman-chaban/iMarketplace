@@ -1,18 +1,29 @@
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 
 export default {
-  input: 'src/index.js',
+  input: 'src/index.tsx',
   output: {
-    file: 'dist/bundle.js',
+    dir: 'dist',
     format: 'cjs',
   },
   plugins: [
+    resolve(),
+    commonjs(),
+    typescript(),
     postcss({
-      modules: true,
-      extensions: ['.css', '.scss'],
+      extensions: ['.scss'],
       use: [
-        ['sass', { includePaths: ['./src/styles'] }]
-      ]
-    })
-  ]
+        [
+          'sass',
+          {
+            includePaths: ['./src/styles'],
+          },
+        ],
+      ],
+      extract: true,
+    }),
+  ],
 };
