@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import styles from './HotPrices.module.scss';
+import styles from './HotPricesStyles.module.scss';
 import Tablets from '../TabletsUI/Tablets/Tablets';
 import tablets from '../../common/products/tablets.json';
 import { Tablet } from '../../interfaces/tablets';

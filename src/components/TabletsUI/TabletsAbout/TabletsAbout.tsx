@@ -1,5 +1,5 @@
 import { FC, Fragment, useState } from 'react';
-import styles from './TabletsAbout.module.scss';
+import styles from './TabletsAboutStyles.module.scss';
 import products from '../../../common/products/tablets.json';
 
 export const TabletsAbout: FC = () => {

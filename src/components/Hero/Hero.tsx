@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from './Hero.module.scss';
+import styles from './HeroStyles.module.scss';
 import { Slider } from '../Slider/Slider';
 import { HeroSection, MainTitle } from './styled/hero';
 import { Apple } from 'grommet-icons';

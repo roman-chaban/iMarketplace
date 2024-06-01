@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FC } from 'react';
-import styles from '../ShopCategory/ShopCategory.module.scss';
+import styles from '../ShopCategory/ShopCategoryStyles.module.scss';
 import { ICategoryItemProps } from '../../interfaces/category-item';
 
 const CategoryItemBlock = styled.div`

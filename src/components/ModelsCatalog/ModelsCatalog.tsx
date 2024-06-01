@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from './ModelsCatalog.module.scss';
+import styles from './ModelsCatalogStyles.module.scss';
 import products from '../../common/products/products.json';
 import { Phones } from '../ProductsUI/Phones/Phones';
 import { Phone } from '../../interfaces/phones';

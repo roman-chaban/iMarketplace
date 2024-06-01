@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import styles from './Header.module.scss';
+import styles from './HeaderStyles.module.scss';
 import { HeaderNavBar } from '../HeaderNavBar/HeaderNavBar';
 import { CustomLink } from '../UI Components/CustomLink/CustomLink';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
@@ -94,18 +94,15 @@ export const Header: FC = () => {
           <PopUp />
           <HeaderNavBar />
           <button onClick={toggleMenu} className={styles.burger__buttonBlock}>
-            <button
-              type='button'
+            <span
               className={styles.button__burgerLine}
-            ></button>
-            <button
-              type='button'
+            ></span>
+            <span
               className={styles.button__burgerLine}
-            ></button>
-            <button
-              type='button'
+            ></span>
+            <span
               className={styles.button__burgerLine}
-            ></button>
+            ></span>
           </button>
         </div>
       </HeaderContainer>

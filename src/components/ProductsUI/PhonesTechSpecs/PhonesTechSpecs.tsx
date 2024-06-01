@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from './PhonesTechSpecs.module.scss';
+import styles from './PhonesTechSpecsStyles.module.scss';
 import { Products } from '../../../redux/interfaces/products';
 
 interface PhonesTechSpecsProps {

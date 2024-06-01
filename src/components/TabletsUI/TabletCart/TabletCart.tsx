@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import styles from './TabletCart.module.scss';
+import styles from './TabletCartStyles.module.scss';
 import { useAppDispatch } from '../../../hooks/reduxHooks/useAppDispatch';
 import { Tablet } from '../../../interfaces/tablets';
 import { deleteBasketTablets } from '../../../redux/slices/cartSlice';

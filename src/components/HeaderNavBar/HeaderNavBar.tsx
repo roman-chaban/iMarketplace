@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { styled } from 'styled-components';
-import styles from '../Header/Header.module.scss';
+import styles from '../Header/HeaderStyles.module.scss';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/reduxHooks/useAppSelector';
 import { Basket, Favorite } from 'grommet-icons';

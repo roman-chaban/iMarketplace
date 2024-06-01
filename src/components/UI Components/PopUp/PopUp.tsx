@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../constants/routes/routes';
-import styles from '../../Header/Header.module.scss';
+import styles from '../../Header/HeaderStyles.module.scss';
 import { useAuth } from '../../../hooks/useAuth';
 import { Apple } from '@mui/icons-material';
 import { translations } from '../../LanguageSwitcher/translation';
