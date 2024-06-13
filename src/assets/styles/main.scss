@@ -5,6 +5,10 @@
 @import './functions.scss';
 @import '../../components/Slider/SliderStyles.module.scss';
 
+html {
+  scroll-behavior: smooth;
+}
+
 button:focus {
   outline: none;
 }
@@ -34,4 +38,23 @@ em {
 
 * {
   transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-track {
+  background: $gray-secondary;
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: $hover-Bg;
+  border-radius: rem(20px);
+  cursor: pointer;
+  transition: background 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
