@@ -8,6 +8,3 @@
   @return calc($pxValue / $baseFontSize) * 1em;
 }
 
-@function pxToPercent($pxValue, $containerWidth) {
-  @return ($pxValue / $containerWidth) * 100%;
-}
