@@ -50,7 +50,7 @@ export const Header: FC = () => {
         }`}
       >
         <div onClick={toPageBottomScrolled} className={styles.header__logo}>
-          <a href='#!' className={styles.logo__link}>
+          <a href='/' className={styles.logo__link}>
             <Apple
               className={styles.apple__logo}
               style={{ fontSize: 30, color: '#89939A' }}

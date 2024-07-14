@@ -15,7 +15,6 @@ import { CardItem } from './styled/catalogItem';
 import { addToCart } from '../../redux/slices/cartSlice';
 import { translations } from '../LanguageSwitcher/translation';
 import { useLanguage } from '../../hooks/useLanguage';
-import { IconButton } from '@mui/material';
 import { Fingerprint } from '@mui/icons-material';
 
 const enum PhonesPath {
@@ -68,9 +67,7 @@ export const PhoneItem: FC<ICatalogItemProps> = ({
             to={`${PhonesPath.PHONES}${title}`}
           >
             {translations[currentLanguage].viewButtonLabel}
-            <IconButton aria-label='fingerprint' style={{ color: '#fff' }}>
               <Fingerprint />
-            </IconButton>
           </NavLink>
         </CustomButton>
       </div>

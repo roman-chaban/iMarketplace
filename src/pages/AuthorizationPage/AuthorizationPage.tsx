@@ -77,14 +77,14 @@ export const AuthorizationPage: FC = () => {
         {translations[currentLanguage].authTitle}
         <Apple className={styles.auth__logo} style={{ fontSize: '40' }} />
       </h1>
-      <form onSubmit={handleSubmit} className={styles.auth__form}>
+      <form id='form'  autoComplete='on' onSubmit={handleSubmit} className={styles.auth__form}>
         <label htmlFor='email'>
           <TextField
             required
             placeholder={translations[currentLanguage].email}
             label={translations[currentLanguage].email}
             type='email'
-            id={styles.email}
+            id='email'
             name='email'
             onChange={handleEmailChange}
           />
@@ -97,7 +97,7 @@ export const AuthorizationPage: FC = () => {
             label={translations[currentLanguage].password}
             type='password'
             autoComplete='current-password'
-            id={styles.password}
+            id='password'
             name='password'
             onChange={handlePasswordChange}
           />
