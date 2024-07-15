@@ -5,6 +5,7 @@ interface LanguageProviderProps {
 }
 
 interface LanguageContextProps {
+  translations: any;
   currentLanguage: string;
   handleChangeLanguage: (language: string) => void;
 }
