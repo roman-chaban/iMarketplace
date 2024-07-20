@@ -5,7 +5,7 @@ export const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 1);
   box-shadow: 0px 1.5px 0px 0px #e2e6e9;
 `;
 

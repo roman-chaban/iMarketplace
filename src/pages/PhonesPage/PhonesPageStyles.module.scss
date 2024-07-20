@@ -1,5 +1,5 @@
-@import '../../assets/styles/colors.scss';
-@import '../../assets/styles/variables.scss';
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/variables.scss";
 
 .phones__navigation {
   display: flex;
@@ -159,7 +159,6 @@
   padding-bottom: 30px;
 }
 
-
 .swiper__wrapper {
   width: 100%;
   height: auto;
@@ -188,6 +187,13 @@
 @media (max-width: 1440px) {
   .catalog__containerPhones {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1150px) {
+  .swiper__wrapper {
+    max-width: 900px !important;
+    gap: 10px;
   }
 }
 

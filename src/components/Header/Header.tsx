@@ -57,7 +57,7 @@ export const Header: FC = () => {
             />
           </a>
           <h3 className={styles.logo__title}>
-            {translations[currentLanguage].LogoLabel}
+            iMarketplace
           </h3>
         </div>
         <nav className={styles.navigation__bar}>

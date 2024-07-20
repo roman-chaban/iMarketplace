@@ -1,80 +1,79 @@
 .swiper-pagination {
-    display: none !important;
-  }
-  
-  .swiper-button-next,
-  .swiper-button-prev {
-    display: none !important;
-  }
-  
-  .swiper-slide {
-    background: none !important;
-  }
-  
-  .hero__slider {
-    max-width: 100% !important;
-  }
+  display: none !important;
+}
 
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
+.swiper-slide {
+  background: none !important;
+}
+
+.hero__slider {
+  max-width: 100% !important;
+}
+
+.swiper {
+  max-width: 1180px;
+  height: 100%;
+}
+
+.swiper-wrapper {
+  width: 100% !important;
+}
+
+.swiper-scrollbar-drag,
+.swiper-horizontal > .swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+  display: none !important;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  .swiper-wrapper {
+    display: flex;
+    gap: 10px;
+
+    @media (max-width: 1200px) {
+      gap: 10px;
+      max-height: 290px;
+    }
+
+    .swiper-slide {
+      flex: 0 0 auto;
+      width: 300px !important;
+      margin-right: 0 !important;
+
+      @media (max-width: 1200px) {
+        width: 225px !important;
+      }
+
+      @media (max-width: 768px) {
+        width: 200px !important;
+      }
+    }
+  }
 
   .swiper {
-    max-width: 1180px;
+    width: 100%;
     height: 100%;
   }
 
-  .swiper-wrapper {
-    width: 100% !important;
-  }
-  
-  .swiper-scrollbar-drag,
-  .swiper-horizontal > .swiper-scrollbar,
-  .swiper-scrollbar.swiper-scrollbar-horizontal {
-    display: none !important;
-  }
-  
-  .slider-container {
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
     display: flex;
-    flex-direction: column;
-    gap: 90px;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-  
-    .swiper-wrapper {
-      display: flex;
-      gap: 10px;
-  
-      @media (max-width: 1200px) {
-        gap: 10px;
-        max-height: 290px;
-      }
-  
-      .swiper-slide {
-        flex: 0 0 auto;
-        width: 300px !important;
-        margin-right: 0 !important;
-  
-        @media (max-width: 1200px) {
-          width: 225px !important;
-        }
-  
-        @media (max-width: 768px) {
-          width: 200px !important;
-        }
-      }
-    }
-  
-    .swiper {
-      width: 100%;
-      height: 100%;
-    }
-  
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-  
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    justify-content: center;
+    align-items: center;
   }
+}

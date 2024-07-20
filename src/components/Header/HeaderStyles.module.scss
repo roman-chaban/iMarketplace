@@ -1,5 +1,5 @@
-@import './../../assets/styles/colors.scss';
-@import './../../assets/styles/variables.scss';
+@import "./../../assets/styles/colors.scss";
+@import "./../../assets/styles/variables.scss";
 
 .navigation__bar {
   display: flex;
@@ -27,7 +27,7 @@
 }
 
 .nav__item > .nav__link::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   bottom: -2px;
@@ -102,7 +102,7 @@
   transition: all 0.4s linear;
   &::after {
     width: 150px;
-    content: 'Up the page ^';
+    content: "Up the page ^";
     background-color: white;
     border-radius: 10px;
     box-shadow: 2px 2px 5px 0px rgba(0, 64, 128, 0.2);
@@ -179,8 +179,8 @@
 }
 
 .scrolled {
-  background: #f3f5f9e4;
-  border-bottom: none;
+  background: #f3f5f9;
+  box-shadow: $color-box-shadow;
 }
 
 .small__size {
@@ -213,7 +213,12 @@
 .pop__up {
   background: $primary !important;
   font-weight: 700 !important;
-  width: 130px !important;
+}
+
+.popup__block {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .heart__icon,

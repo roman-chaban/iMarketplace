@@ -215,7 +215,7 @@ export const translations: Translations = {
     chooseOptionLabel: "Choose an option",
     favoriteEmptyTitle: "Favorite page is empty",
     cartEmptyTitle: "Cart page is empty",
-    cartLabel: "Basket",
+    cartLabel: "Cart",
     memoryLabel: "GB",
     registrationLabel: "Register",
     catalogTitle: "Welcome to iMarketplace! It's great to have you here",

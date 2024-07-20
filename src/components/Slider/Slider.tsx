@@ -58,7 +58,7 @@ export const Slider: FC<SliderProps> = () => {
         <img
           src={secondSlide}
           alt="Slider Product"
-          className={styles.img__slider}
+          className={`${styles.img__slider} ${styles.slideCenter}`}
         />
       </SwiperSlide>
     </Swiper>

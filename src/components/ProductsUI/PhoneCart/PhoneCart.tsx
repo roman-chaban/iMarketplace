@@ -19,7 +19,7 @@ export const PhoneCart: FC<ICatalogItemProps> = ({
   const dispatch = useAppDispatch();
   const { currentLanguage } = useLanguage();
   const [isRemoving, setIsRemoving] = useState(false);
-  const [productItemCounter, setProductCounter] = useState<number>(0);
+  const [productItemCounter, setProductCounter] = useState<number>(1);
 
   const productPrice = isNaN(parseFloat(price)) ? 0 : parseFloat(price);
 

@@ -11,6 +11,10 @@
   }
 }
 
+.slideCenter {
+  object-position: -100px !important;
+}
+
 @media screen and (width <= 1200px) {
   .img__slider {
     max-height: 350px;
