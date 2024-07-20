@@ -14,6 +14,7 @@ export interface Tablet {
   description?: { title: string; text: string[] }[];
   images?: string[];
   cell?: string[];
+  title?: string;
   onAddToFavorites?: () => void;
   onDeleteFromFavorites?: () => void;
 }

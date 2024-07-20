@@ -1,16 +1,14 @@
 export interface Products {
-  phoneId?: number;
-  firstImage?: string;
-  secondImage?: string;
-  thirdImage?: string;
-  fourImage?: string;
-  imgUrl?: string;
+  phoneId: number;
+  imgUrl: string;
   title: string;
-  price: string;
+  price: number;
   discount: string;
-  memory: string;
-  capacity: number | string;
   displaySize: string;
-  category?: string;
-  name?: string;
+  memory: string;
+  capacity: string;
+  firstImage: string;
+  secondImage: string;
+  thirdImage: string;
+  fourImage: string;
 }

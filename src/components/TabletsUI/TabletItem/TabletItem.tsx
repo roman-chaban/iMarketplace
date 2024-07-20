@@ -1,23 +1,24 @@
-import { FC } from 'react';
-import styles from '../../CatalogItem/CatalogItemStyles.module.scss';
-import { NavLink } from 'react-router-dom';
-import { CustomButton } from '../../UI Components/CustomButton/CustomButton';
-import { Tablet } from '../../../interfaces/tablets';
-import { TabletFavoriteButton } from '../TabletFavoriteButton/TabletFavoriteButton';
-import { useAppDispatch } from '../../../hooks/reduxHooks/useAppDispatch';
+import { FC } from "react";
+import styles from "../../CatalogItem/CatalogItemStyles.module.scss";
+import { NavLink, useLocation } from "react-router-dom";
+import { CustomButton } from "../../UI Components/CustomButton/CustomButton";
+import { Tablet } from "../../../interfaces/tablets";
+import { TabletFavoriteButton } from "../TabletFavoriteButton/TabletFavoriteButton";
+import { useAppDispatch } from "../../../hooks/reduxHooks/useAppDispatch";
 import {
   addToFavoritesTablets,
   deleteFromFavoriteTablets,
-} from '../../../redux/slices/favoriteSlice';
-import { TabletButton } from '../TabletButton/TabletButton';
-import { addBasketTablets } from '../../../redux/slices/cartSlice';
-import { translations } from '../../LanguageSwitcher/translation';
-import { useLanguage } from '../../../hooks/useLanguage';
-import { CardItem } from './styled/cardItem';
-import { Fingerprint } from '@mui/icons-material';
+} from "../../../redux/slices/favoriteSlice";
+import { TabletButton } from "../TabletButton/TabletButton";
+import { addBasketTablets } from "../../../redux/slices/cartSlice";
+import { translations } from "../../LanguageSwitcher/translation";
+import { useLanguage } from "../../../hooks/useLanguage";
+import { CardItem } from "./styled/cardItem";
+import { Fingerprint } from "@mui/icons-material";
+import { FormClose } from "grommet-icons";
 
 const enum TabletsPath {
-  TABLETS = '/tablets/tablet/',
+  TABLETS = "/tablets/tablet/",
 }
 
 export const TabletItem: FC<Tablet> = ({
@@ -33,12 +34,13 @@ export const TabletItem: FC<Tablet> = ({
   const toUpPage = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
   const dispatch = useAppDispatch();
   const { currentLanguage } = useLanguage();
+  const location = useLocation();
 
   const handleAddToFavorites = (product: Tablet) => {
     dispatch(addToFavoritesTablets(product));
@@ -54,15 +56,24 @@ export const TabletItem: FC<Tablet> = ({
 
   return (
     <CardItem className={styles.cardItem}>
+      {location.pathname === "/" || location.pathname === "/tablets" ? null : (
+        <button
+          title="Delete product"
+          className={styles.deleteButton}
+          onClick={() => handleDeleteFavorites(id ?? "")}
+        >
+          <FormClose color="#eb5757" />
+        </button>
+      )}
       <div className={styles.card__container}>
         <img
-          src={images === undefined ? '' : images[0]}
-          alt='tablet'
+          src={images === undefined ? "" : images[0]}
+          alt="tablet"
           className={styles.image__hovered}
         />
         <h3 className={styles.card__title}>{name}</h3>
         <CustomButton
-          style={{ border: '2px solid #fff', marginBottom: 10 }}
+          style={{ border: "2px solid #fff", marginBottom: 10 }}
           className={styles.button}
         >
           <NavLink
@@ -71,16 +82,14 @@ export const TabletItem: FC<Tablet> = ({
             to={`${TabletsPath.TABLETS}${id}`}
           >
             {translations[currentLanguage].viewButtonLabel}
-            {/* <IconButton aria-label='fingerprint' style={{ color: '#fff' }}> */}
-              <Fingerprint />
-            {/* </IconButton> */}
+            <Fingerprint />
           </NavLink>
         </CustomButton>
       </div>
 
       <span
         className={styles.price}
-        style={{ color: 'rgba(199, 53, 8, 0.8352941176)' }}
+        style={{ color: "rgba(199, 53, 8, 0.8352941176)" }}
       >
         {priceRegular} <strong id={styles.discount}>{priceDiscount}</strong>
       </span>
@@ -104,10 +113,10 @@ export const TabletItem: FC<Tablet> = ({
           onClick={handleAddToCartTablets}
         />
         <TabletFavoriteButton
-          tabletId={id ?? ''}
+          tabletId={id ?? ""}
           product={{ images, id, name, priceRegular, capacity, ram, screen }}
           onClick={handleAddToFavorites}
-          onDeleteProduct={() => handleDeleteFavorites(id ?? '')}
+          onDeleteProduct={() => handleDeleteFavorites(id ?? "")}
         />
       </div>
     </CardItem>

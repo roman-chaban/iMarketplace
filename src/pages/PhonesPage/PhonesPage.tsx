@@ -1,17 +1,17 @@
-import { FC, useState, useEffect } from 'react';
-import { CatalogPage } from '../CatalogPage/CatalogPage';
-import styles from './PhonesPageStyles.module.scss';
-import phonesProducts from '../../common/products/products.json';
-import { Pagination } from '../../components/Pagination/Pagination';
-import CustomSelect from '../../components/Select/Select';
-import { Phone } from '../../interfaces/phones'; // Assuming this is the correct path to Phone interface
-import { PhoneItem } from '../../components/CatalogItem/PhoneItem';
-import Select from 'react-select';
-import { translations } from '../../components/LanguageSwitcher/translation';
-import { useLanguage } from '../../hooks/useLanguage';
+import { FC, useState, useEffect } from "react";
+import { CatalogPage } from "../CatalogPage/CatalogPage";
+import styles from "./PhonesPageStyles.module.scss";
+import phonesProducts from "../../common/products/products.json";
+import { Pagination } from "../../components/Pagination/Pagination";
+import CustomSelect from "../../components/Select/Select";
+import { PhoneItem } from "../../components/CatalogItem/PhoneItem";
+import Select from "react-select";
+import { translations } from "../../components/LanguageSwitcher/translation";
+import { useLanguage } from "../../hooks/useLanguage";
+import { Products } from "../../redux/interfaces/products";
 
 export const PhonesPage: FC = () => {
-  const [products, setProducts] = useState<Phone[]>([]);
+  const [products, setProducts] = useState<Products[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [phonePerPage, setPhonePerPage] = useState<number>(8);
   const { currentLanguage } = useLanguage();
@@ -26,11 +26,12 @@ export const PhonesPage: FC = () => {
   }, [currentLanguage]);
 
   const getPhonesProducts = () => {
-    const parsedProducts = phonesProducts.map((product) => ({
-      ...product,
-      memory: parseInt(product.memory),
-    }));
-
+      const parsedProducts: Products[] = phonesProducts.map((product) => ({
+        ...product,
+        memory: product.memory.toString(), 
+        price: parseFloat(product.price),
+        capacity: product.capacity.toString() 
+      }));
     setProducts(parsedProducts);
   };
 
@@ -42,7 +43,7 @@ export const PhonesPage: FC = () => {
     setCurrentPage(pageNumber);
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -50,7 +51,7 @@ export const PhonesPage: FC = () => {
     setCurrentPage((prev) => prev + 1);
     window.scrollTo({
       top: 250,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -58,7 +59,7 @@ export const PhonesPage: FC = () => {
     setCurrentPage((prev) => prev - 1);
     window.scrollTo({
       top: 250,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -82,7 +83,7 @@ export const PhonesPage: FC = () => {
   };
 
   return (
-    <div className={styles.phones} style={{ margin: '0 auto' }}>
+    <div className={styles.phones} style={{ margin: "0 auto" }}>
       <div className={styles.catalog__container}>
         <CatalogPage
           smallTitle={translations[currentLanguage].phoneLabel}
@@ -91,17 +92,17 @@ export const PhonesPage: FC = () => {
         />
         <div className={styles.page__select}>
           <div className={styles.sorted__select}>
-            <span id='sort' className={styles.select__title}>
+            <span id="sort" className={styles.select__title}>
               {translations[currentLanguage].sortBy}
             </span>
             <CustomSelect products={products} setProducts={setProducts} />
           </div>
           <div className={styles.items__select}>
-            <span id='items' className={styles.select__title}>
+            <span id="items" className={styles.select__title}>
               {translations[currentLanguage].chooseItems}
             </span>
             <Select
-              placeholder='Choose items'
+              placeholder="Choose items"
               className={styles.select__width}
               options={itemsOptions}
               value={{
@@ -115,17 +116,7 @@ export const PhonesPage: FC = () => {
       </div>
       <div className={styles.catalog__containerPhones}>
         {currentPhones.map((product) => (
-          <PhoneItem
-            key={product.phoneId}
-            displaySize={product.displaySize}
-            imgUrl={product.imgUrl}
-            title={product.title}
-            phoneId={product.phoneId}
-            capacity={`${product.capacity} GB`}
-            memory={`${product.memory} GB`}
-            discount={`${product.discount}$`}
-            price={`${product.price}$`}
-          />
+          <PhoneItem key={product.phoneId} product={product} />
         ))}
       </div>
       <div>
@@ -134,7 +125,7 @@ export const PhonesPage: FC = () => {
             className={`btn btn-secondary ${styles.btn__item}`}
             onClick={prevPage}
             disabled={currentPage === 1}
-            style={{ cursor: currentPage === 1 ? 'not-allowed' : '' }}
+            style={{ cursor: currentPage === 1 ? "not-allowed" : "" }}
           >
             {translations[currentLanguage].paginationButtonsLabels.prev}
           </button>
@@ -151,8 +142,8 @@ export const PhonesPage: FC = () => {
             style={{
               cursor:
                 indexOfFirstPhone >= products.length || currentPage
-                  ? ''
-                  : 'not-allowed',
+                  ? ""
+                  : "not-allowed",
             }}
           >
             {translations[currentLanguage].paginationButtonsLabels.next}

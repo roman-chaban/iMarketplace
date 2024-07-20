@@ -1,12 +1,19 @@
-export interface Phone {
-  phoneId?: number;
-  imgUrl?: string;
-  title?: string;
-  price?: string;
-  discount?: string;
-  memory?: number;
-  capacity?: number;
-  displaySize?: string;
+interface Phone {
+  memory: string; 
+  phoneId: number;
+  firstImage: string;
+  secondImage: string;
+  thirdImage: string;
+  fourImage: string;
+  imgUrl: string;
+  title: string;
+  name: string;
+  color: string;
+  price: number;
+  discount: string;
+  capacity: string; 
+  displaySize: string;
+  category: string;
 }
 
 export interface PhonesProps {

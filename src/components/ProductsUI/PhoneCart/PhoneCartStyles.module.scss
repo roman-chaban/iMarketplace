@@ -1,15 +1,36 @@
-@import '../../../assets/styles/variables.scss';
-@import '../../../assets/styles/colors.scss';
+@import "../../../assets/styles/variables.scss";
+@import "../../../assets/styles/colors.scss";
 
 .favorite__card {
-  width: 100%;
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  width: 100%;
+}
+
+.favorite__cardBlock {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px 0px rgba(0, 64, 128, 0.2);
+  transition: opacity 0.3s ease, transform 0.3s ease, height 0.3s ease;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.favorite__cardBlock.removing {
+  opacity: 0;
+  transform: scale(0.9);
+  height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 .favorite__cardPicture {
-  max-width: 180;
   max-height: 180px;
   object-fit: cover;
   cursor: pointer;
@@ -22,39 +43,19 @@
 .favorite__cardTitle {
   color: $primary;
   font-weight: 600;
-  max-width: 250px;
-  max-height: 20px;
+  margin: 10px 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .favorite__cardPrice {
   color: $primary;
   font-weight: 600;
   text-align: center;
-  width: 80px;
-}
-.favorite__cardBlock {
-  display: flex;
-  padding: 10px 14px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px 0px rgba(0, 64, 128, 0.2);
-  transition: opacity 0.3s ease, transform 0.3s ease, height 0.3s ease;
-}
-
-.favorite__cardBlock.removing {
-  opacity: 0;
-  transform: scale(0.9);
-  height: 0;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-}
-
-.favorite__cardDelete {
-  color: #ff6f61;
-  background: transparent;
-  border-radius: 5px;
-  transition: background 0.3s ease;
+  margin: 10px 0;
+  width: auto;
 }
 
 .counterPhone__block {
@@ -75,31 +76,46 @@
   background: #f3f5f9;
   padding: 8px 5px;
   border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.favorite__cardDelete {
+  color: #ff6f61;
+  background: transparent;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 @media screen and (max-width: 955px) {
-  
   .favorite__card {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    grid-template-rows: auto;
+    flex-direction: column;
+    align-items: center;
   }
+
   .favorite__cardTitle {
-    max-width: 350px;
-    margin-bottom: 10px;
+    max-width: 100%; 
   }
+
   .productItems__title {
-    max-width: 130px;
+    max-width: 100%; 
   }
+
   .favorite__cardBlock {
-    max-width: 600px;
+    max-width: 100%; 
   }
 }
 
 @media screen and (max-width: 500px) {
   .favorite__cardTitle {
-    max-width: 200px;
+    max-width: 180px;
     line-height: 140%;
+  }
+
+  .favorite__cardPrice {
+    width: auto;
   }
 }

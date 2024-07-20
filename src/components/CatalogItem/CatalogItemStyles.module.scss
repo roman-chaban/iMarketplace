@@ -1,6 +1,27 @@
 @import '../../assets/styles/colors.scss';
 @import '../../assets/styles/variables.scss';
 
+
+.card__item {
+  position: relative;
+}
+
+
+.deleteButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background: transparent;
+  width: 30px;
+  height: 30px;
+  border: 2px solid $red;
+  border-radius: 100%;
+}
+
+
 .card__title {
   color: $primary;
   font-weight: 700;

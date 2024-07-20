@@ -1,27 +1,24 @@
-import { FC, useState } from 'react';
-import { useAppDispatch } from '../../../hooks/reduxHooks/useAppDispatch';
-import { deleteFromCart } from '../../../redux/slices/cartSlice';
-import styles from './PhoneCartStyles.module.scss';
-import { ICatalogItemProps } from '../../../interfaces/catalog-item';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { useCount } from '../../../hooks/useCount';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
-import { useLanguage } from '../../../hooks/useLanguage';
-import { translations } from '../../LanguageSwitcher/translation';
+import { FC, useState } from "react";
+import { useAppDispatch } from "../../../hooks/reduxHooks/useAppDispatch";
+import { deleteFromCart } from "../../../redux/slices/cartSlice";
+import styles from "./PhoneCartStyles.module.scss";
+import { ICatalogItemProps } from "../../../interfaces/catalog-item";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import { useCount } from "../../../hooks/useCount";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import { useLanguage } from "../../../hooks/useLanguage";
+import { translations } from "../../LanguageSwitcher/translation";
 
-export const PhoneCart: FC<ICatalogItemProps> = ({
-  imgUrl = '',
-  title = '',
-  price = '',
-  phoneId,
-}) => {
+export const PhoneCart: FC<ICatalogItemProps> = ({ product }) => {
   const dispatch = useAppDispatch();
   const { currentLanguage } = useLanguage();
   const [isRemoving, setIsRemoving] = useState(false);
   const [productItemCounter, setProductCounter] = useState<number>(1);
 
-  const productPrice = isNaN(parseFloat(price)) ? 0 : parseFloat(price);
+  const productPrice = isNaN(parseFloat(String(product.price)))
+    ? 0
+    : parseFloat(String(product.price));
 
   const {
     productPrice: totalPrice,
@@ -41,29 +38,31 @@ export const PhoneCart: FC<ICatalogItemProps> = ({
   return (
     <div
       className={`${styles.favorite__cardBlock} ${
-        isRemoving ? styles.removing : ''
+        isRemoving ? styles.removing : ""
       }`}
       onTransitionEnd={handleTransitionEnd}
     >
       <div className={styles.favorite__card}>
         <button
           className={styles.favorite__cardDelete}
-          onClick={() => phoneId !== undefined && handleDeleteGoods(phoneId)}
+          onClick={() =>
+            product.phoneId !== undefined && handleDeleteGoods(product.phoneId)
+          }
         >
-          <HighlightOffIcon fontSize='large' />
+          <HighlightOffIcon fontSize="large" />
         </button>
         <img
-          src={imgUrl}
-          alt='iphone banner'
+          src={product.imgUrl}
+          alt="iphone banner"
           className={styles.favorite__cardPicture}
         />
         <div>
           <h3 className={styles.favorite__cardTitle}>
-            {title.replaceAll('-', ' ')}
+            {product.title.replaceAll("-", " ")}
           </h3>
         </div>
         <span className={styles.favorite__cardPrice}>
-          {totalPrice} {'$'}
+          {totalPrice} {"$"}
         </span>
         <div className={styles.counterPhone__block}>
           <button
@@ -73,14 +72,14 @@ export const PhoneCart: FC<ICatalogItemProps> = ({
               setProductCounter((prevCounter) => prevCounter + 1);
             }}
           >
-            <AddCircleIcon style={{ color: '#65C466' }} fontSize='large' />
+            <AddCircleIcon style={{ color: "#65C466" }} fontSize="large" />
           </button>
           <button
             className={styles.minus}
             disabled={totalPrice < 1 ? true : false}
             style={{
-              opacity: totalPrice < 1 ? '0.5' : '1',
-              cursor: totalPrice > 1 ? 'pointer' : 'not-allowed',
+              opacity: totalPrice < 1 ? "0.5" : "1",
+              cursor: totalPrice > 1 ? "pointer" : "not-allowed",
             }}
             onClick={() => {
               onDeleteProduct();
@@ -88,14 +87,14 @@ export const PhoneCart: FC<ICatalogItemProps> = ({
             }}
           >
             <RemoveCircleIcon
-              style={{ color: 'rgba(199, 53, 8, 0.8352941176)' }}
-              fontSize='large'
+              style={{ color: "rgba(199, 53, 8, 0.8352941176)" }}
+              fontSize="large"
             />
           </button>
         </div>
         <h6 className={styles.productItems__title}>
           {translations[currentLanguage].readyTitle}
-          {''} {productItemCounter}
+          {""} {productItemCounter}
         </h6>
       </div>
     </div>

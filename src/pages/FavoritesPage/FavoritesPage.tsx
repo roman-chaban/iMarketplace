@@ -1,20 +1,19 @@
-import { FC, useEffect } from 'react';
-import { CatalogPage } from '../CatalogPage/CatalogPage';
-import styles from './FavoritePageStyles.module.scss';
-import { Products } from '../../redux/interfaces/products';
-import { Tablet } from '../../interfaces/tablets';
+import { FC, useEffect } from "react";
+import { CatalogPage } from "../CatalogPage/CatalogPage";
+import styles from "./FavoritePageStyles.module.scss";
+import { Products } from "../../redux/interfaces/products";
+import { Tablet } from "../../interfaces/tablets";
 import {
-  addToFavorites,
   addToFavoritesTablets,
   deleteFromFavoriteTablets,
-  deleteFromFavorites,
-} from '../../redux/slices/favoriteSlice';
-import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
-import { useAppSelector } from '../../hooks/reduxHooks/useAppSelector';
-import { PhoneItem } from '../../components/CatalogItem/PhoneItem';
-import { TabletItem } from '../../components/TabletsUI/TabletItem/TabletItem';
-import { useLanguage } from '../../hooks/useLanguage';
-import { translations } from '../../components/LanguageSwitcher/translation';
+  // deleteFromFavorites,
+} from "../../redux/slices/favoriteSlice";
+import { useAppDispatch } from "../../hooks/reduxHooks/useAppDispatch";
+import { useAppSelector } from "../../hooks/reduxHooks/useAppSelector";
+import { PhoneItem } from "../../components/CatalogItem/PhoneItem";
+import { TabletItem } from "../../components/TabletsUI/TabletItem/TabletItem";
+import { useLanguage } from "../../hooks/useLanguage";
+import { translations } from "../../components/LanguageSwitcher/translation";
 
 export const FavoritesPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -34,17 +33,15 @@ export const FavoritesPage: FC = () => {
     document.title = `iMarketplace | ${translations[currentLanguage].favoriteLabel}`;
   }, [currentLanguage]);
 
-  const handleAddToFavorites = (product: Products) => {
-    dispatch(addToFavorites(product));
-  };
+
 
   const handleAddToFavoritesTablets = (tablet: Tablet) => {
     dispatch(addToFavoritesTablets(tablet));
   };
 
-  const handleDeleteFromFavorites = (phoneId: number) => {
-    dispatch(deleteFromFavorites(phoneId));
-  };
+  // const handleDeleteFromFavorites = (phoneId: number) => {
+  //   dispatch(deleteFromFavorites(phoneId));
+  // };
 
   const handleDeleteFromFavoritesTablets = (tabletId: string) => {
     dispatch(deleteFromFavoriteTablets(tabletId));
@@ -57,10 +54,10 @@ export const FavoritesPage: FC = () => {
         smallTitle={translations[currentLanguage].favoriteLabel}
       />
       {favoritesCounter === 0 ? (
-        ''
+        ""
       ) : (
         <h4 className={styles.itemsCounter}>
-          Products in favorites:{' '}
+          Products in favorites:{" "}
           <strong className={styles.counter__marker}>{favoritesCounter}</strong>
         </h4>
       )}
@@ -74,19 +71,7 @@ export const FavoritesPage: FC = () => {
           <div className={styles.favorite__list}>
             {favoriteProducts.map((favorite: Products) => (
               <div key={favorite.phoneId} className={styles.favorite__item}>
-                <PhoneItem
-                  imgUrl={favorite.imgUrl}
-                  displaySize={favorite.displaySize}
-                  capacity={`${favorite.capacity}`}
-                  memory={favorite.memory}
-                  title={favorite.title}
-                  price={favorite.price}
-                  phoneId={favorite.phoneId}
-                  onAddToFavorites={() => handleAddToFavorites(favorite)}
-                  onDeleteFromFavorites={() =>
-                    handleDeleteFromFavorites(favorite.phoneId || 0)
-                  }
-                />
+                <PhoneItem product={favorite} />
               </div>
             ))}
             {favoriteTablets.map((favorite: Tablet) => (
@@ -101,7 +86,7 @@ export const FavoritesPage: FC = () => {
                   ram={favorite.ram}
                   onAddToFavorites={() => handleAddToFavoritesTablets(favorite)}
                   onDeleteFromFavorites={() =>
-                    handleDeleteFromFavoritesTablets(favorite.id || '')
+                    handleDeleteFromFavoritesTablets(favorite.id || "")
                   }
                 />
               </div>

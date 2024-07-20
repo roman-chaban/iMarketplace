@@ -8,12 +8,8 @@ import "swiper/css/scrollbar";
 import "./Slider.scss";
 import { PhoneItem } from "../../CatalogItem/PhoneItem";
 import { PhonesProps } from "../../../interfaces/phones";
-import { useLanguage } from "../../../hooks/useLanguage";
-import { translations } from "../../LanguageSwitcher/translation";
 
 export const Phones: FC<PhonesProps> = ({ products }: PhonesProps) => {
-  const { currentLanguage } = useLanguage();
-
   return (
     <div className={styles.phones__catalog}>
       <Swiper
@@ -34,16 +30,7 @@ export const Phones: FC<PhonesProps> = ({ products }: PhonesProps) => {
             key={product.phoneId}
             className={`${styles.slide} swiper-slide`}
           >
-            <PhoneItem
-              displaySize={product.displaySize}
-              imgUrl={product.imgUrl}
-              title={product.title}
-              phoneId={product.phoneId}
-              capacity={`${product.capacity} ${translations[currentLanguage].memoryLabel}`}
-              memory={`${product.memory} ${translations[currentLanguage].memoryLabel}`}
-              discount={`${product.discount}$`}
-              price={`${product.price}$`}
-            />
+            <PhoneItem product={product} />
           </SwiperSlide>
         ))}
       </Swiper>
