@@ -1,6 +1,32 @@
 @import '../../assets/styles/colors.scss';
 @import '../../assets/styles/variables.scss';
 
+
+.catalog__container {
+  opacity: 0;
+  animation: enhancedFadeIn 2s ease forwards;
+}
+
+@keyframes enhancedFadeIn {
+  0% {
+      opacity: 0;
+      transform: translateX(-20px) scale(0.8);
+  }
+  50% {
+      opacity: 0.5;
+      transform: translateX(10px) scale(1.05);
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+  }
+}
+
+
+
+
+
+
 .phones__navigation {
   display: flex;
   align-items: center;

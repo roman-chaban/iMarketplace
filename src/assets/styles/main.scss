@@ -1,9 +1,9 @@
-@import './colors.scss';
-@import './fonts.scss';
-@import './reset.scss';
-@import './variables.scss';
-@import './functions.scss';
-@import '../../components/Slider/SliderStyles.module.scss';
+@import "./colors.scss";
+@import "./fonts.scss";
+@import "./reset.scss";
+@import "./variables.scss";
+@import "./functions.scss";
+@import "../../components/Slider/SliderStyles.module.scss";
 
 html {
   scroll-behavior: smooth;
@@ -58,3 +58,4 @@ em {
   transition: background 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
     height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+

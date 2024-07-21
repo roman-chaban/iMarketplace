@@ -19,7 +19,7 @@ export const Loader: FC<TypeLoader> = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoader(true);
-    }, 1800);
+    }, 1500);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -27,7 +27,7 @@ export const Loader: FC<TypeLoader> = () => {
     setLoader(false);
     const timeout = setTimeout(() => {
       setLoader(true);
-    }, 1800);
+    }, 1500);
     return () => clearTimeout(timeout);
   }, [currentLanguage]);
 
@@ -40,7 +40,7 @@ export const Loader: FC<TypeLoader> = () => {
         </MainTitle>
         <BallTriangle
           visible={true}
-          height='100'
+          height='150'
           width='100'
           ariaLabel='comment-loading'
           wrapperStyle={{}}
