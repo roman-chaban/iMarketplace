@@ -1,13 +1,13 @@
-import { FC, Dispatch, SetStateAction } from 'react';
-import './SelectStyles.scss';
-import Select, { OnChangeValue } from 'react-select';
-import { useState } from 'react';
-import { IOption } from '../../interfaces/select-interface/select.interfaces';
-import makeAnimated from 'react-select/animated';
-import { Sort, getSortedProducts } from './Sort';
-import { Phone } from '../../interfaces/phones';
-import { useLanguage } from '../../hooks/useLanguage';
-import { translations } from '../LanguageSwitcher/translation';
+import { FC, Dispatch, SetStateAction } from "react";
+import "./SelectStyles.scss";
+import Select, { OnChangeValue } from "react-select";
+import { useState } from "react";
+import makeAnimated from "react-select/animated";
+import { useLanguage } from "../../hooks/useLanguage";
+import { translations } from "../LanguageSwitcher/translation";
+import { IOption } from "../../interfaces/select-interface/select.interfaces";
+import { Phone } from "../../interfaces/phones";
+import { Sort, getSortedProducts } from "./Sort";
 
 interface CustomSelectProps {
   products: Phone[];
@@ -22,9 +22,7 @@ const CustomSelect: FC<CustomSelectProps> = ({ products, setProducts }) => {
 
   const getValue = () => {
     return currentSort
-      ? options.filter(
-          (option) => currentSort.indexOf(option.value as Sort) >= 0
-        )
+      ? options.filter((option) => currentSort.includes(option.value as Sort))
       : [];
   };
 
@@ -32,29 +30,31 @@ const CustomSelect: FC<CustomSelectProps> = ({ products, setProducts }) => {
     const newSortValues = (newValue as IOption[]).map((v) => v.value as Sort);
     setCurrentSort(newSortValues);
 
-    const sortedProducts = getSortedProducts(products, newSortValues[0]);
-    setProducts(sortedProducts);
+    if (newSortValues.length > 0) {
+      const sortedProducts = getSortedProducts(products, newSortValues[0]);
+      setProducts(sortedProducts);
+    }
   };
 
   const options: IOption[] = [
     {
       label: translations[currentLanguage].optionsLabels.name,
-      value: Sort.alphabet,
+      value: Sort.ALPHABET,
     },
     {
       label: translations[currentLanguage].optionsLabels.models,
-      value: Sort.newest,
+      value: Sort.CHEAPEST,
     },
     {
       label: translations[currentLanguage].optionsLabels.price,
-      value: Sort.cheapest,
+      value: Sort.DISCOUNT,
     },
   ];
 
   return (
-    <div className='select'>
+    <div className="select">
       <Select
-        classNamePrefix='custom-select'
+        classNamePrefix="custom-select"
         value={getValue()}
         onChange={onChange}
         options={options}
