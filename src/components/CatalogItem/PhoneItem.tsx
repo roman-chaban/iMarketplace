@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styles from "./CatalogItemStyles.module.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { CustomButton } from "../UI Components/CustomButton/CustomButton";
 import { FavoriteButton } from "../UI Components/FavoriteButton/FavoriteButton";
 import {
@@ -15,18 +15,20 @@ import { translations } from "../LanguageSwitcher/translation";
 import { useLanguage } from "../../hooks/useLanguage";
 import { Fingerprint } from "@mui/icons-material";
 import { Products } from "../../redux/interfaces/products";
+import { FormClose } from "grommet-icons";
 
 const enum PhonesPath {
   PHONES = "/phones/phone/",
 }
 
 interface PhoneItemProps {
- product: Products;
+  product: Products;
 }
 
 export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
   const dispatch = useAppDispatch();
   const { currentLanguage } = useLanguage();
+  const location = useLocation();
 
   const handleAddToFavorites = (product: Products) => {
     dispatch(addToFavorites(product));
@@ -49,6 +51,15 @@ export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
 
   return (
     <CardItem className={styles.cardItem}>
+      {location.pathname === "/" || location.pathname === "/phones" ? null : (
+        <button
+          title="Delete product"
+          className={styles.deleteButton}
+          onClick={() => handleDeleteFavorites(product.phoneId ?? "")}
+        >
+          <FormClose color="#eb5757" />
+        </button>
+      )}
       <div className={styles.card__container}>
         <img
           src={product.imgUrl}
@@ -76,7 +87,8 @@ export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
         className={styles.price}
         style={{ color: "rgba(199, 53, 8, 0.8352941176)" }}
       >
-        {product.price} <strong id={styles.discount}>{product.discount}</strong>
+        {product.price}${" "}
+        <strong id={styles.discount}>{product.discount}$</strong>
       </span>
       <ul className={styles.card__list}>
         <li className={styles.list__item}>
@@ -87,11 +99,15 @@ export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
         </li>
         <li className={styles.list__item}>
           {translations[currentLanguage].productParams.capacity}
-          <span className={styles.list__itemSecondary}>{product.memory}</span>
+          <span className={styles.list__itemSecondary}>
+            {product.memory} {translations[currentLanguage].memoryLabel}
+          </span>
         </li>
         <li className={styles.list__item}>
           {translations[currentLanguage].productParams.ram}
-          <span className={styles.list__itemSecondary}>{product.capacity}</span>
+          <span className={styles.list__itemSecondary}>
+            {product.capacity} {translations[currentLanguage].memoryLabel}
+          </span>
         </li>
       </ul>
       <div className={styles.catalog__buttonItems}>

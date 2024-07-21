@@ -25,16 +25,16 @@ export const PhonesPage: FC = () => {
     getPhonesProducts();
   }, [currentLanguage]);
 
-  const getPhonesProducts = () => {
-      const parsedProducts: Products[] = phonesProducts.map((product) => ({
-        ...product,
-        memory: product.memory.toString(), 
-        price: parseFloat(product.price),
-        capacity: product.capacity.toString() 
-      }));
+  const getPhonesProducts = (): void => {
+    const parsedProducts: Products[] = phonesProducts.map((product) => ({
+      ...product,
+      memory: product.memory.toString(),
+      price: product.price,
+      capacity: parseInt(`${product.capacity}`, 10),
+    }));
+
     setProducts(parsedProducts);
   };
-
   const indexOfLastPhone = currentPage * phonePerPage;
   const indexOfFirstPhone = indexOfLastPhone - phonePerPage;
   const currentPhones = products.slice(indexOfFirstPhone, indexOfLastPhone);

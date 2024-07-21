@@ -100,11 +100,16 @@ export const TabletItem: FC<Tablet> = ({
         </li>
         <li className={styles.list__item}>
           {translations[currentLanguage].productParams.capacity}
-          <span className={styles.list__itemSecondary}>{capacity}</span>
+          <span className={styles.list__itemSecondary}>
+            {capacity} {' '}
+            {translations[currentLanguage].memoryLabel}
+          </span>
         </li>
         <li className={styles.list__item}>
           {translations[currentLanguage].productParams.ram}
-          <span className={styles.list__itemSecondary}>{ram}</span>
+          <span className={styles.list__itemSecondary}>
+            {ram} {translations[currentLanguage].memoryLabel}
+          </span>
         </li>
       </ul>
       <div className={styles.catalog__buttonItems}>

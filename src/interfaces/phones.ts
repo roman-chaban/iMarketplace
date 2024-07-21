@@ -1,4 +1,4 @@
-interface Phone {
+export interface Phone {
   memory: string; 
   phoneId: number;
   firstImage: string;
@@ -9,9 +9,9 @@ interface Phone {
   title: string;
   name: string;
   color: string;
-  price: number;
+  price: string;
   discount: string;
-  capacity: string; 
+  capacity: number; 
   displaySize: string;
   category: string;
 }

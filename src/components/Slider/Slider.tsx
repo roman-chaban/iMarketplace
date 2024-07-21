@@ -27,6 +27,7 @@ interface SliderProps {
 export const Slider: FC<SliderProps> = () => {
   return (
     <Swiper
+    className="slider-opacity"
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={50}
       slidesPerView={1}
