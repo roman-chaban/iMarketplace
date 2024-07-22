@@ -1,14 +1,14 @@
-import { FC, useEffect, useState } from 'react';
-import { CatalogPage } from '../CatalogPage/CatalogPage';
-import TabletsSelect from '../../components/TabletsUI/TabletsSelect/TabletsSelect';
-import styles from './TabletsPageStyles.module.scss';
-import { Tablet } from '../../interfaces/tablets';
-import tabletProducts from '../../common/products/tablets.json';
-import { TabletItem } from '../../components/TabletsUI/TabletItem/TabletItem';
-import Select from 'react-select';
-import { translations } from '../../components/LanguageSwitcher/translation';
-import { useLanguage } from '../../hooks/useLanguage';
-import { Pagination } from '../../components/Pagination/Pagination';
+import { FC, useEffect, useState } from "react";
+import { CatalogPage } from "../CatalogPage/CatalogPage";
+import TabletsSelect from "../../components/TabletsUI/TabletsSelect/TabletsSelect";
+import styles from "./TabletsPageStyles.module.scss";
+import { Tablet } from "../../interfaces/tablets";
+import tabletProducts from "../../common/products/tablets.json";
+import { TabletItem } from "../../components/TabletsUI/TabletItem/TabletItem";
+import Select from "react-select";
+import { translations } from "../../components/LanguageSwitcher/translation";
+import { useLanguage } from "../../hooks/useLanguage";
+import { Pagination } from "../../components/Pagination/Pagination";
 
 export const TabletsPage: FC = () => {
   const [products, setProducts] = useState<Tablet[]>([]);
@@ -31,9 +31,27 @@ export const TabletsPage: FC = () => {
       priceRegular: String(product.priceRegular),
       priceDiscount: String(product.priceDiscount),
       memory: parseInt(product.capacity),
+      camera: product.camera,
+      capacity: product.capacity,
+      capacityAvailable: product.capacityAvailable,
+      category: product.category,
+      cell: product.cell,
+      color: product.color,
+      colorsAvailable: product.colorsAvailable,
+      description: product.description,
+      id: product.id,
+      images: product.images,
+      name: product.name,
+      namespaceId: product.namespaceId,
+      processor: product.processor,
+      ram: product.ram,
+      resolution: product.resolution,
+      screen: product.screen,
+      tabletId: product.tabletId,
+      zoom: product.zoom,
     }));
 
-    setProducts(parsedProducts);
+    setProducts(parsedProducts as unknown as Tablet[]);
   };
 
   const indexOfLastPhone = currentPage * phonesPerPage;
@@ -44,7 +62,7 @@ export const TabletsPage: FC = () => {
     setCurrentPage(pageNumber);
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -52,7 +70,7 @@ export const TabletsPage: FC = () => {
     setCurrentPage((prev) => prev + 1);
     window.scrollTo({
       top: 250,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -60,7 +78,7 @@ export const TabletsPage: FC = () => {
     setCurrentPage((prev) => prev - 1);
     window.scrollTo({
       top: 250,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -92,13 +110,13 @@ export const TabletsPage: FC = () => {
       />
       <div className={styles.page__select}>
         <div className={styles.sorted__select}>
-          <span id='sort' className={styles.select__title}>
+          <span id="sort" className={styles.select__title}>
             {translations[currentLanguage].sortBy}
           </span>
           <TabletsSelect tablets={products} setTablets={setProducts} />
         </div>
         <div className={styles.items__select}>
-          <span id='items' className={styles.select__title}>
+          <span id="items" className={styles.select__title}>
             {translations[currentLanguage].chooseItems}
           </span>
           <Select
@@ -115,9 +133,7 @@ export const TabletsPage: FC = () => {
       </div>
       <div className={styles.catalog__containerTablets}>
         {currentTablets.map((tablet) => (
-          <TabletItem
-            product={tablet}
-          />
+          <TabletItem product={tablet} />
         ))}
       </div>
       <div>
@@ -126,7 +142,7 @@ export const TabletsPage: FC = () => {
             className={`btn btn-secondary ${styles.btn__pagination}`}
             onClick={prevPage}
             disabled={currentPage === 1}
-            style={{ cursor: currentPage === 1 ? 'not-allowed' : '' }}
+            style={{ cursor: currentPage === 1 ? "not-allowed" : "" }}
           >
             {translations[currentLanguage].paginationButtonsLabels.prev}
           </button>
@@ -143,8 +159,8 @@ export const TabletsPage: FC = () => {
             style={{
               cursor:
                 indexOfFirstPhone >= products.length || currentPage
-                  ? ''
-                  : 'not-allowed',
+                  ? ""
+                  : "not-allowed",
             }}
           >
             {translations[currentLanguage].paginationButtonsLabels.next}
