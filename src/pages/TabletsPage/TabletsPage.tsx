@@ -116,15 +116,7 @@ export const TabletsPage: FC = () => {
       <div className={styles.catalog__containerTablets}>
         {currentTablets.map((tablet) => (
           <TabletItem
-            key={tablet.id}
-            images={tablet.images}
-            name={tablet.name}
-            priceRegular={`${tablet.priceRegular}$`}
-            priceDiscount={`${tablet.priceDiscount}$`}
-            id={tablet.id}
-            screen={tablet.screen}
-            capacity={tablet.capacity}
-            ram={tablet.ram}
+            product={tablet}
           />
         ))}
       </div>

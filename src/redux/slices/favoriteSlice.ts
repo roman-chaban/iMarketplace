@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Products } from '../interfaces/products';
-import { Tablet } from '../../interfaces/tablets';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Products } from "../interfaces/products";
+import { Tablet } from "../../interfaces/tablets";
 
 export interface ProductsState {
   favorites: Products[];
@@ -11,12 +11,12 @@ export interface ProductsState {
 
 const loadStateFromLocalStorage = (): ProductsState => {
   try {
-    const serializedState = localStorage.getItem('productsState');
+    const serializedState = localStorage.getItem("productsState");
     if (serializedState !== null) {
-      return JSON.parse(serializedState);
+      return JSON.parse(serializedState) as ProductsState;
     }
   } catch (error) {
-    console.error('Error loading state from local storage:', error);
+    console.error("Error loading state from local storage:", error);
   }
   return {
     favorites: [],
@@ -27,57 +27,53 @@ const loadStateFromLocalStorage = (): ProductsState => {
 };
 
 const initialState: ProductsState = loadStateFromLocalStorage();
+
 export const favoritesSlice = createSlice({
-  name: 'products',
+  name: "products",
   initialState,
   reducers: {
     addToFavorites: (state, action: PayloadAction<Products>) => {
-      const existingFavorite = state.favorites.find(
+      const exists = state.favorites.some(
         (favorite) => favorite.phoneId === action.payload.phoneId
       );
-      if (!existingFavorite) {
-        state.favorites = [...state.favorites, action.payload];
+      if (!exists) {
+        state.favorites.push(action.payload);
         state.favoriteCounter++;
       }
     },
     addToFavoritesTablets: (state, action: PayloadAction<Tablet>) => {
-      const existingFavorite = state.favoritesTablets.find(
-        (favorite) => favorite.id === action.payload.id
+      const exists = state.favoritesTablets.some(
+        (favorite) => favorite.tabletId === action.payload.tabletId
       );
-      if (!existingFavorite) {
-        state.favoritesTablets = [...state.favoritesTablets, action.payload];
+      if (!exists) {
+        state.favoritesTablets.push(action.payload);
         state.favoriteCounter++;
       }
     },
-
     deleteFromFavorites: (state, action: PayloadAction<number>) => {
-      const deletedFavorite = state.favorites.find(
+      const index = state.favorites.findIndex(
         (favorite) => favorite.phoneId === action.payload
       );
-      if (deletedFavorite) {
-        state.favorites = state.favorites.filter(
-          (favorite) => favorite.phoneId !== action.payload
-        );
+      if (index !== -1) {
+        state.favorites.splice(index, 1);
         state.favoriteCounter = Math.max(0, state.favoriteCounter - 1);
       }
     },
-    deleteFromFavoriteTablets: (state, action: PayloadAction<string>) => {
-      const deletedTablet = state.favoritesTablets.find(
-        (tablet) => tablet.id === action.payload
+    deleteFromFavoriteTablets: (state, action: PayloadAction<number>) => {
+      const index = state.favoritesTablets.findIndex(
+        (tablet) => tablet.tabletId === action.payload
       );
-      if (deletedTablet) {
-        state.favoritesTablets = state.favoritesTablets.filter(
-          (tablet) => tablet.id !== action.payload
-        );
+      if (index !== -1) {
+        state.favoritesTablets.splice(index, 1);
         state.favoriteCounter = Math.max(0, state.favoriteCounter - 1);
       }
     },
-
     setSelectedProduct: (state, action: PayloadAction<Products[]>) => {
       state.selectedProduct = action.payload;
     },
   },
 });
+
 export const {
   addToFavorites,
   addToFavoritesTablets,
@@ -85,3 +81,5 @@ export const {
   deleteFromFavoriteTablets,
   setSelectedProduct,
 } = favoritesSlice.actions;
+
+export default favoritesSlice.reducer;

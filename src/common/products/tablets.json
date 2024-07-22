@@ -1,5 +1,6 @@
 [
   {
+    "tabletId": 0,
     "id": "apple-ipad-pro-11-2021-128gb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
@@ -46,7 +47,7 @@
     "zoom": "Digital zoom up to 5x",
     "cell": ["Not applicable"]
   },
-  {
+  { "tabletId": 1,
     "id": "apple-ipad-pro-11-2021-256gb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
@@ -93,7 +94,7 @@
     "zoom": "Digital zoom up to 5x",
     "cell": ["Not applicable"]
   },
-  {
+  { "tabletId": 2,
     "id": "apple-ipad-pro-11-2021-512gb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
@@ -141,6 +142,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 3,
     "id": "apple-ipad-pro-11-2021-1tb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
@@ -188,6 +190,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 4,
     "id": "apple-ipad-pro-11-2021-2tb-spacegray",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
@@ -235,6 +238,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 5,
     "id": "apple-ipad-pro-11-2021-128gb-silver",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
@@ -282,6 +286,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 6,
     "id": "apple-ipad-pro-11-2021-256gb-silver",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
@@ -329,6 +334,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 7,
     "id": "apple-ipad-pro-11-2021-512gb-silver",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
@@ -376,6 +382,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 8,
     "id": "apple-ipad-pro-11-2021-1tb-silver",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
@@ -423,6 +430,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 9,
     "id": "apple-ipad-pro-11-2021-2tb-silver",
     "category": "tablets",
     "namespaceId": "apple-ipad-pro-11-2021",
@@ -470,6 +478,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 10,
     "id": "apple-ipad-air-4th-gen-256gb-rose-gold",
     "category": "tablets",
     "namespaceId": "apple-ipad-air-4th-gen",
@@ -517,6 +526,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 11,
     "id": "apple-ipad-air-4th-gen-64gb-rose-gold",
     "category": "tablets",
     "namespaceId": "apple-ipad-air-4th-gen",
@@ -564,6 +574,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 12,
     "id": "apple-ipad-air-4th-gen-64gb-silver",
     "category": "tablets",
     "namespaceId": "apple-ipad-air-4th-gen",
@@ -611,6 +622,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 13,
     "id": "apple-ipad-air-4th-gen-256gb-silver",
     "category": "tablets",
     "namespaceId": "apple-ipad-air-4th-gen",
@@ -658,6 +670,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 14,
     "id": "apple-ipad-air-4th-gen-256gb-green",
     "category": "tablets",
     "namespaceId": "apple-ipad-air-4th-gen",
@@ -705,6 +718,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 15,
     "id": "apple-ipad-10-2-2020-128gb-gold",
     "category": "tablets",
     "namespaceId": "apple-ipad-10-2-2020",
@@ -752,6 +766,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 16,
     "id": "apple-ipad-10-2-2020-32gb-gold",
     "category": "tablets",
     "namespaceId": "apple-ipad-10-2-2020",
@@ -799,6 +814,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 17,
     "id": "apple-ipad-10-2-2020-32gb-silver",
     "category": "tablets",
     "namespaceId": "apple-ipad-10-2-2020",
@@ -846,6 +862,7 @@
     "cell": ["Not applicable"]
   },
   {
+    "tabletId": 18,
     "id": "apple-ipad-10-2-2020-128gb-silver",
     "category": "tablets",
     "namespaceId": "apple-ipad-10-2-2020",

@@ -1,46 +1,45 @@
-import { FC, useState } from 'react';
-import styles from '../../../components/CatalogItem/CatalogItemStyles.module.scss';
-import { FavoriteBorder } from '@mui/icons-material';
-import { Tablets } from '../../../interfaces/tablets';
+import { FC } from "react";
+import Button from "@mui/material/Button";
+import styles from "../../../pages/FavoritesPage/FavoritePageStyles.module.scss";
+import { FavoriteBorder } from "@mui/icons-material";
+import { Tablet } from "../../../interfaces/tablets";
 
-interface FavoriteProps {
-  product?: Tablets;
-  onClick?: (product: Tablets) => void;
-  onDeleteProduct?: (productId: string) => void;
-  tabletId?: string;
+interface FavoriteButtonProps {
+  product: Tablet;
+  inFavorites: boolean;
+  onClick: (product: Tablet) => void;
+  onDeleteProduct: (productId: number) => void;
 }
 
-export const TabletFavoriteButton: FC<FavoriteProps> = ({
-  product = null,
-  onClick = () => {},
-  onDeleteProduct = () => {},
-  tabletId = '',
+export const TabletFavoriteButton: FC<FavoriteButtonProps> = ({
+  product,
+  inFavorites,
+  onClick,
+  onDeleteProduct,
 }) => {
-  const [isActive, setIsActive] = useState<boolean>(false);
-
-  const handleToggleFavorite = () => {
-    if (product) {
-      setIsActive(!isActive);
-      if (isActive) {
-        onDeleteProduct(typeof product.id === 'string' ? product.id : tabletId);
-      } else {
-        onClick(product);
-      }
-    }
+  const handleAddToFavorites = () => {
+    onClick(product);
   };
+
+  const handleRemoveFromFavorites = () => {
+    onDeleteProduct(product.tabletId);
+  };
+
+  const handleClick = inFavorites
+    ? handleRemoveFromFavorites
+    : handleAddToFavorites;
+
   return (
-    <button
-      onClick={handleToggleFavorite}
-      className={`${styles.favorite__button} ${isActive ? 'active' : ''}`}
-      style={{
-        background: isActive ? '#FF6F61' : '',
-        border: isActive ? '1px solid #eee' : '',
-      }}
+    <Button
+      title="Add to favorites"
+      onClick={handleClick}
+      className={styles.favorite__button}
+      style={{ backgroundColor: inFavorites ? "#FF6F61" : "" }}
     >
       <FavoriteBorder
-        style={{ fontSize: 30, color: isActive ? '#fff' : '' }}
+        style={{ fontSize: 20, color: inFavorites ? "#fff" : "" }}
         className={styles.favorite__icon}
       />
-    </button>
+    </Button>
   );
 };

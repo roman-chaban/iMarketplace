@@ -1,13 +1,9 @@
 import { FC, useEffect } from "react";
 import { CatalogPage } from "../CatalogPage/CatalogPage";
 import styles from "./CartPageStyles.module.scss";
-import { useAppDispatch } from "../../hooks/reduxHooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/reduxHooks/useAppSelector";
 import { Products } from "../../redux/interfaces/products";
-import {
-  addBasketTablets,
-  deleteBasketTablets,
-} from "../../redux/slices/cartSlice";
+
 import { Tablet } from "../../interfaces/tablets";
 import { PhoneCart } from "../../components/ProductsUI/PhoneCart/PhoneCart";
 import { TabletCart } from "../../components/TabletsUI/TabletCart/TabletCart";
@@ -15,20 +11,11 @@ import { useLanguage } from "../../hooks/useLanguage";
 import { translations } from "../../components/LanguageSwitcher/translation";
 
 export const CartPage: FC = () => {
-  const dispatch = useAppDispatch();
   const { currentLanguage } = useLanguage();
 
   const basketCounter = useAppSelector((state) => state.cart.cartCounter);
   const cartPhones = useAppSelector((state) => state.cart.cart);
   const cartTablets = useAppSelector((state) => state.cart.basketTablets);
-
-  const handleAddToCartTablets = (tablet: Tablet) => {
-    dispatch(addBasketTablets(tablet));
-  };
-
-  const handleDeleteFromCartTablets = (tabletId: string) => {
-    dispatch(deleteBasketTablets(tabletId));
-  };
 
   useEffect(() => {
     document.title = `iMarketplace | ${translations[currentLanguage].cartLabel}`;
@@ -63,17 +50,7 @@ export const CartPage: FC = () => {
             ))}
             {cartTablets.map((cart: Tablet) => (
               <div key={cart.id} className={styles.favorite__item}>
-                <TabletCart
-                  images={cart.images}
-                  name={cart.name}
-                  priceRegular={cart.priceRegular}
-                  id={cart.id}
-                  tabletId={cart.id === undefined ? "" : cart.id}
-                  onAddToCart={() => handleAddToCartTablets(cart)}
-                  onDeleteFromCart={() =>
-                    handleDeleteFromCartTablets(cart.id || "")
-                  }
-                />
+                <TabletCart product={cart} />
               </div>
             ))}
           </div>

@@ -1,5 +1,5 @@
-@import '../../assets/styles/colors.scss';
-@import '../../assets/styles/variables.scss';
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/variables.scss";
 
 .empty__title {
   text-align: center;
@@ -29,4 +29,13 @@
   gap: 2rem;
   flex-wrap: wrap;
   margin-bottom: 100px;
+}
+
+.favorite__button {
+  padding: 5px !important;
+  min-width: 40px !important;
+}
+
+.favorite__icon {
+  color: rgb(162, 11, 11);
 }

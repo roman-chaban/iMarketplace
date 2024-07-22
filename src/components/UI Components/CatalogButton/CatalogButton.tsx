@@ -1,42 +1,49 @@
-import { FC, useState } from 'react';
-import Button from '@mui/material/Button';
-import styles from './CatalogButtonStyles.module.scss';
-import { Products } from '../../../redux/interfaces/products';
-import { translations } from '../../LanguageSwitcher/translation';
-import { useLanguage } from '../../../hooks/useLanguage';
+import { FC, useState, useEffect } from "react";
+import Button from "@mui/material/Button";
+import styles from "./CatalogButtonStyles.module.scss";
+import { Products } from "../../../redux/interfaces/products";
+import { translations } from "../../LanguageSwitcher/translation";
+import { useLanguage } from "../../../hooks/useLanguage";
 
 interface CatalogProps {
-  product?: Products;
-  onClick?: (product: Products) => void;
-  onDeleteProduct?: (productId: number) => void;
+  product: Products;
+  inCart: boolean;
+  onClick: (product: Products) => void;
+  onDeleteProduct: (productId: number) => void;
 }
 
 export const CatalogButton: FC<CatalogProps> = ({
-  product = null,
-  onClick = () => {},
+  product,
+  inCart,
+  onClick,
+  onDeleteProduct,
 }) => {
-  const [isActiveButton, setIsActiveButton] = useState<boolean>(() => {
-    const savedColor = localStorage.getItem(
-      `catalogButtonColor_${product?.phoneId}`
-    );
-    return savedColor ? savedColor === '#66CDAA' : false;
-  });
   const { currentLanguage } = useLanguage();
+  const [isActiveButton, setIsActiveButton] = useState<boolean>(inCart);
+
+  useEffect(() => {
+    setIsActiveButton(inCart);
+  }, [inCart]);
 
   const handleAddToCart = () => {
-    if (product) {
-      const newColor = isActiveButton ? '#313237' : '#66CDAA';
-      setIsActiveButton(!isActiveButton);
-      localStorage.setItem(`catalogButtonColor_${product.phoneId}`, newColor);
-      onClick(product);
-    }
+    setIsActiveButton(true);
+    localStorage.setItem(`catalogButtonColor_${product.phoneId}`, "#66CDAA");
+    onClick(product);
   };
+
+  const handleRemoveFromCart = () => {
+    setIsActiveButton(false);
+    localStorage.setItem(`catalogButtonColor_${product.phoneId}`, "#313237");
+    onDeleteProduct(product.phoneId);
+  };
+
+  const handleClick = isActiveButton ? handleRemoveFromCart : handleAddToCart;
 
   return (
     <Button
-      onClick={handleAddToCart}
+      onClick={handleClick}
       className={styles.catalog__buttonItem}
-      style={{ backgroundColor: isActiveButton ? '#66CDAA' : '#313237' }}
+      style={{ backgroundColor: isActiveButton ? "#66CDAA" : "#313237" }}
     >
       {isActiveButton
         ? translations[currentLanguage].cartState.addedCart

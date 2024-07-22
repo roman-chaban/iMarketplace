@@ -8,7 +8,7 @@ import SwiperCore from "swiper";
 import { TabletItem } from "../TabletItem/TabletItem";
 import { Tablet } from "../../../interfaces/tablets";
 import { Scrollbar } from "swiper/modules";
-import './TabletsSwiper.scss';
+import "./TabletsSwiper.scss";
 
 SwiperCore.use([Scrollbar]);
 
@@ -38,16 +38,7 @@ const Tablets: FC<{ products: Tablet[] }> = ({ products }) => {
             className={styles.slide}
             style={{ width: "240px", marginLeft: 0 }}
           >
-            <TabletItem
-              images={product.images}
-              name={product.name}
-              priceRegular={`${product.priceRegular} $`}
-              priceDiscount={`${product.priceDiscount} $`}
-              id={product.id}
-              screen={product.screen}
-              capacity={product.capacity}
-              ram={product.ram}
-            />
+            <TabletItem product={product} />
           </SwiperSlide>
         ))}
       </Swiper>

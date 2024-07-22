@@ -1,36 +1,51 @@
-import { FC, useState } from 'react';
-import Button from '@mui/material/Button';
-import styles from '../../UI Components/CatalogButton/CatalogButtonStyles.module.scss';
-import { Tablets } from '../../../interfaces/tablets';
-import { translations } from '../../LanguageSwitcher/translation';
-import { useLanguage } from '../../../hooks/useLanguage';
+import { FC, useState, useEffect } from "react";
+import Button from "@mui/material/Button";
+import styles from "../../UI Components/CatalogButton/CatalogButtonStyles.module.scss";
+import { translations } from "../../LanguageSwitcher/translation";
+import { useLanguage } from "../../../hooks/useLanguage";
+import { Tablet } from "../../../interfaces/tablets";
 
 interface CatalogProps {
-  product?: Tablets;
-  onClick?: (product: Tablets) => void;
+  product: Tablet;
+  inCart: boolean;
+  onClick: (product: Tablet) => void;
+  onDeleteProduct?: (productId: number) => void;
 }
 
 export const TabletButton: FC<CatalogProps> = ({
-  product = null,
-  onClick = () => {},
+  product,
+  inCart,
+  onClick,
+  onDeleteProduct,
 }) => {
-  const [isActiveButton, setIsActiveButton] = useState<boolean>(false);
   const { currentLanguage } = useLanguage();
+  const [isActiveButton, setIsActiveButton] = useState<boolean>(inCart);
+
+  useEffect(() => {
+    setIsActiveButton(inCart);
+  }, [inCart]);
 
   const handleAddToCart = () => {
-    if (product) {
-      if (!isActiveButton) {
-        setIsActiveButton(!isActiveButton);
-      }
-      onClick(product);
+    setIsActiveButton(true);
+    localStorage.setItem(`catalogButtonColor_${product.tabletId}`, "#66CDAA");
+    onClick(product);
+  };
+
+  const handleRemoveFromCart = () => {
+    setIsActiveButton(false);
+    localStorage.setItem(`catalogButtonColor_${product.tabletId}`, "#313237");
+    if (onDeleteProduct) {
+      onDeleteProduct(product.tabletId);
     }
   };
 
+  const handleClick = isActiveButton ? handleRemoveFromCart : handleAddToCart;
+
   return (
     <Button
-      style={{ backgroundColor: isActiveButton ? '#66CDAA' : '#313237' }}
-      onClick={handleAddToCart}
+      onClick={handleClick}
       className={styles.catalog__buttonItem}
+      style={{ backgroundColor: isActiveButton ? "#66CDAA" : "#313237" }}
     >
       {isActiveButton
         ? translations[currentLanguage].cartState.addedCart

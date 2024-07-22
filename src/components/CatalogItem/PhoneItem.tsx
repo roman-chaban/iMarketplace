@@ -10,12 +10,13 @@ import {
 import { useAppDispatch } from "../../hooks/reduxHooks/useAppDispatch";
 import { CatalogButton } from "../UI Components/CatalogButton/CatalogButton";
 import { CardItem } from "./styled/catalogItem";
-import { addToCart } from "../../redux/slices/cartSlice";
+import { addToCart, deleteFromCart } from "../../redux/slices/cartSlice";
 import { translations } from "../LanguageSwitcher/translation";
 import { useLanguage } from "../../hooks/useLanguage";
 import { Fingerprint } from "@mui/icons-material";
 import { Products } from "../../redux/interfaces/products";
 import { FormClose } from "grommet-icons";
+import { useAppSelector } from "../../hooks/reduxHooks/useAppSelector";
 
 const enum PhonesPath {
   PHONES = "/phones/phone/",
@@ -30,12 +31,23 @@ export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
   const { currentLanguage } = useLanguage();
   const location = useLocation();
 
+  const inCart = useAppSelector((state) =>
+    state.cart.cart.some((item) => item.phoneId === product.phoneId)
+  );
+  const inFavorites = useAppSelector((state) =>
+    state.favorite.favorites.some((item) => item.phoneId === product.phoneId)
+  );
+
   const handleAddToFavorites = (product: Products) => {
     dispatch(addToFavorites(product));
   };
 
   const handleAddToCart = (product: Products) => {
     dispatch(addToCart(product));
+  };
+
+  const handleDeleteToCart = (productId: number) => {
+    dispatch(deleteFromCart(productId));
   };
 
   const handleDeleteFavorites = (productId: number) => {
@@ -111,10 +123,16 @@ export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
         </li>
       </ul>
       <div className={styles.catalog__buttonItems}>
-        <CatalogButton product={product} onClick={handleAddToCart} />
+        <CatalogButton
+          product={product}
+          inCart={inCart}
+          onClick={handleAddToCart}
+          onDeleteProduct={handleDeleteToCart}
+        />
         {product.phoneId !== undefined && (
           <FavoriteButton
             product={product}
+            inFavorites={inFavorites}
             onClick={handleAddToFavorites}
             onDeleteProduct={handleDeleteFavorites}
           />
