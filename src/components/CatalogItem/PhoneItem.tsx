@@ -1,12 +1,9 @@
-import { FC } from "react";
+import  { FC, useState } from "react";
 import styles from "./CatalogItemStyles.module.scss";
 import { NavLink, useLocation } from "react-router-dom";
 import { CustomButton } from "../UI Components/CustomButton/CustomButton";
 import { FavoriteButton } from "../UI Components/FavoriteButton/FavoriteButton";
-import {
-  addToFavorites,
-  deleteFromFavorites,
-} from "../../redux/slices/favoriteSlice";
+import { addToFavorites, deleteFromFavorites } from "../../redux/slices/favoriteSlice";
 import { useAppDispatch } from "../../hooks/reduxHooks/useAppDispatch";
 import { CatalogButton } from "../UI Components/CatalogButton/CatalogButton";
 import { CardItem } from "./styled/catalogItem";
@@ -30,6 +27,8 @@ export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
   const dispatch = useAppDispatch();
   const { currentLanguage } = useLanguage();
   const location = useLocation();
+  
+  const [isRemoving, setIsRemoving] = useState(false);
 
   const inCart = useAppSelector((state) =>
     state.cart.cart.some((item) => item.phoneId === product.phoneId)
@@ -46,12 +45,19 @@ export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
     dispatch(addToCart(product));
   };
 
-  const handleDeleteToCart = (productId: number) => {
+  const handleDeleteFromCart = (productId: number) => {
     dispatch(deleteFromCart(productId));
   };
 
-  const handleDeleteFavorites = (productId: number) => {
+  const handleDeleteFromFavorites = (productId: number) => {
     dispatch(deleteFromFavorites(productId));
+  };
+
+  const handleRemoveItem = () => {
+    setIsRemoving(true);
+    setTimeout(() => {
+      handleDeleteFromFavorites(product.phoneId);
+    }, 500);
   };
 
   const toUpPage = () => {
@@ -62,12 +68,12 @@ export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
   };
 
   return (
-    <CardItem className={styles.cardItem}>
+    <CardItem className={`${styles.cardItem} ${isRemoving ? styles.hidden : ''}`}>
       {location.pathname === "/" || location.pathname === "/phones" ? null : (
         <button
           title="Delete product"
           className={styles.deleteButton}
-          onClick={() => handleDeleteFavorites(product.phoneId ?? "")}
+          onClick={handleRemoveItem}
         >
           <FormClose color="#eb5757" />
         </button>
@@ -127,14 +133,14 @@ export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
           product={product}
           inCart={inCart}
           onClick={handleAddToCart}
-          onDeleteProduct={handleDeleteToCart}
+          onDeleteProduct={handleDeleteFromCart}
         />
         {product.phoneId !== undefined && (
           <FavoriteButton
             product={product}
             inFavorites={inFavorites}
             onClick={handleAddToFavorites}
-            onDeleteProduct={handleDeleteFavorites}
+            onDeleteProduct={handleDeleteFromFavorites}
           />
         )}
       </div>
