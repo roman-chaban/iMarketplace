@@ -1,0 +1,66 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/variables.scss";
+
+.productCard__container {
+  width: 100%;
+  display: flex;
+  gap: 5rem;
+}
+
+.productCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 750px;
+  padding: 24px;
+  height: 180px;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  border-radius: 20px;
+}
+
+.productCard__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.productCard__deleteButton {
+  background: transparent;
+}
+
+.plus,
+.minus {
+  background: transparent;
+}
+
+.counterPhone__block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.productCard__price {
+  width: 80px;
+}
+
+.productCard__image {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.productCard__title {
+  width: 100%;
+  max-width: 170px;
+  font-weight: 500;
+  color: $first-Bg;
+  font-size: $primary-first-size;
+  line-height: 130%;
+}
+
+.productItems__title {
+  color: $gray-secondary;
+  font-size: $primary-four-size;
+  font-weight: 500;
+}

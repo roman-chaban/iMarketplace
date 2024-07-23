@@ -1,5 +1,11 @@
 import { useState, useCallback } from 'react';
 
+interface CounterProps {
+  productPrice: number;
+  onAddProduct: () => void;
+  onDeleteProduct: () => void;
+}
+
 export const useCount = (productPrice: number): CounterProps => {
   const [itemCount, setItemCount] = useState<number>(0);
 
@@ -18,9 +24,3 @@ export const useCount = (productPrice: number): CounterProps => {
     onDeleteProduct,
   };
 };
-
-interface CounterProps {
-  productPrice: number;
-  onAddProduct: () => void;
-  onDeleteProduct: () => void;
-}

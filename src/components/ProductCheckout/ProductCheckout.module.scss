@@ -1,0 +1,47 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/variables.scss";
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 20px;
+  width: 100%;
+  max-width: 280px;
+  height: 180px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 20px;
+}
+
+.checkout__titles {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.checkout__price {
+  font-weight: 600;
+  line-height: 128%;
+  letter-spacing: -0.01em;
+  font-size: $primary-third-size;
+  color: $green;
+}
+
+.checkout__items {
+  color: $gray-secondary;
+  font-weight: 500;
+  font-size: $primary-media-first;
+}
+
+
+.checkout__button {
+  width: 100%;
+  font-weight: 600;
+  border-radius: 10px;
+  max-width: 200px;
+  padding: 15px;
+  background: $green;
+  color: $white;
+}

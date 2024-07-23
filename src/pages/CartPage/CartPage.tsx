@@ -5,10 +5,9 @@ import { useAppSelector } from "../../hooks/reduxHooks/useAppSelector";
 import { Products } from "../../redux/interfaces/products";
 
 import { Tablet } from "../../interfaces/tablets";
-import { PhoneCart } from "../../components/ProductsUI/PhoneCart/PhoneCart";
-import { TabletCart } from "../../components/TabletsUI/TabletCart/TabletCart";
 import { useLanguage } from "../../hooks/useLanguage";
 import { translations } from "../../components/LanguageSwitcher/translation";
+import { ProductCard } from "../../components/ProductCard/ProductCard";
 
 export const CartPage: FC = () => {
   const { currentLanguage } = useLanguage();
@@ -35,7 +34,7 @@ export const CartPage: FC = () => {
           <strong className={styles.counter__marker}>{basketCounter}</strong>
         </h4>
       )}
-      <div>
+      <div className={styles.cart__container} >
         <br />
         {cartPhones.length === 0 && cartTablets.length === 0 ? (
           <h2 className={styles.empty__title}>
@@ -45,12 +44,12 @@ export const CartPage: FC = () => {
           <div className={styles.favorite__list}>
             {cartPhones.map((cart: Products) => (
               <div key={cart.phoneId} className={styles.favorite__item}>
-                <PhoneCart product={cart} />
+                <ProductCard phone={cart} />
               </div>
             ))}
             {cartTablets.map((cart: Tablet) => (
               <div key={cart.id} className={styles.favorite__item}>
-                <TabletCart product={cart} />
+                <ProductCard tablet={cart} />
               </div>
             ))}
           </div>
