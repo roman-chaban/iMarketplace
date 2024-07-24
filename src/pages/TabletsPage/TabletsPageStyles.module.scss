@@ -168,7 +168,7 @@
 
 .catalog__containerTablets {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   column-gap: 1.5rem;
   row-gap: 2rem;
@@ -180,9 +180,10 @@
   transition: all 0.3s ease;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1340px) {
   .catalog__containerTablets {
     grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
   }
 }
 

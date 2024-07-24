@@ -1,5 +1,10 @@
 export interface IOption {
-  value: string;
   label: string;
+  value: number | string;
 }
 
+
+export interface Option {
+  label: string;
+  value: string;
+}

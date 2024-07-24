@@ -12,8 +12,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { translations } from "../../components/LanguageSwitcher/translation";
-import { useCount } from "../../hooks/useCount";
-import { ProductCheckout } from "../ProductCheckout/ProductCheckout";
+import { useTotal } from "../TotalContext/TotalContext";
 
 interface ProductCardProps {
   phone?: Products;
@@ -25,6 +24,8 @@ export const ProductCard: FC<ProductCardProps> = ({ phone, tablet }) => {
   const dispatch = useAppDispatch();
   const [isRemoving, setIsRemoving] = useState(false);
   const [productItemCounter, setProductCounter] = useState<number>(0);
+
+  const { addToTotal, removeFromTotal } = useTotal();
 
   const phonePrice = phone
     ? typeof phone.price === "string"
@@ -39,12 +40,6 @@ export const ProductCard: FC<ProductCardProps> = ({ phone, tablet }) => {
 
   const productPrice = phone ? phonePrice : tabletPrice;
 
-  const {
-    productPrice: totalProductPrice,
-    onAddProduct,
-    onDeleteProduct,
-  } = useCount(productPrice);
-
   const handleDeleteGoods = () => {
     if (tablet) {
       setIsRemoving(true);
@@ -57,6 +52,16 @@ export const ProductCard: FC<ProductCardProps> = ({ phone, tablet }) => {
 
   const handleTransitionEnd = () => {
     setIsRemoving(false);
+  };
+
+  const handleAddProduct = () => {
+    setProductCounter((prevCount) => prevCount + 1);
+    addToTotal(productPrice);
+  };
+
+  const handleRemoveProduct = () => {
+    setProductCounter((prevCount) => prevCount - 1);
+    removeFromTotal(productPrice);
   };
 
   const renderProduct = () => (
@@ -83,13 +88,7 @@ export const ProductCard: FC<ProductCardProps> = ({ phone, tablet }) => {
           {phone ? phone.name : tablet?.name}
         </h4>
         <div className={styles.counterPhone__block}>
-          <button
-            className={styles.plus}
-            onClick={() => {
-              onAddProduct();
-              setProductCounter((prevCount) => prevCount + 1);
-            }}
-          >
+          <button className={styles.plus} onClick={handleAddProduct}>
             <AddCircleIcon style={{ color: "#65C466" }} fontSize="large" />
           </button>
           <button
@@ -99,10 +98,7 @@ export const ProductCard: FC<ProductCardProps> = ({ phone, tablet }) => {
               opacity: productItemCounter < 1 ? "0.5" : "1",
               cursor: productItemCounter > 0 ? "pointer" : "not-allowed",
             }}
-            onClick={() => {
-              onDeleteProduct();
-              setProductCounter((prevCount) => prevCount - 1);
-            }}
+            onClick={handleRemoveProduct}
           >
             <RemoveCircleIcon
               style={{ color: "rgba(199, 53, 8, 0.8352941176)" }}
@@ -114,10 +110,6 @@ export const ProductCard: FC<ProductCardProps> = ({ phone, tablet }) => {
           {translations[currentLanguage].readyTitle} {productItemCounter}
         </h6>
       </div>
-      <ProductCheckout
-        totalPrice={totalProductPrice}
-        itemCounter={productItemCounter}
-      />
     </div>
   );
 

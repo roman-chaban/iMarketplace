@@ -1,6 +1,13 @@
 @import '../../assets/styles/colors.scss';
 @import '../../assets/styles/variables.scss';
 
+
+.cart__container {
+  display: flex;
+  max-width: 90%;
+}
+
+
 .empty__title {
   text-align: center;
   font-weight: 600;

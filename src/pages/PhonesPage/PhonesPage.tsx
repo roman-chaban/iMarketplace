@@ -3,15 +3,15 @@ import { CatalogPage } from "../CatalogPage/CatalogPage";
 import styles from "./PhonesPageStyles.module.scss";
 import phonesProducts from "../../common/products/products.json";
 import { Pagination } from "../../components/Pagination/Pagination";
-import CustomSelect from "../../components/Select/Select";
+import { CustomSelect } from "../../components/Select/Select";
 import { PhoneItem } from "../../components/CatalogItem/PhoneItem";
 import Select from "react-select";
 import { translations } from "../../components/LanguageSwitcher/translation";
 import { useLanguage } from "../../hooks/useLanguage";
-import { Products } from "../../redux/interfaces/products";
+import { Phone } from "../../interfaces/phones";
 
 export const PhonesPage: FC = () => {
-  const [products, setProducts] = useState<Products[]>([]);
+  const [products, setProducts] = useState<Phone[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [phonePerPage, setPhonePerPage] = useState<number>(8);
   const { currentLanguage } = useLanguage();
@@ -26,7 +26,7 @@ export const PhonesPage: FC = () => {
   }, [currentLanguage]);
 
   const getPhonesProducts = (): void => {
-    const parsedProducts: Products[] = phonesProducts.map((product) => ({
+    const parsedProducts: Phone[] = phonesProducts.map((product) => ({
       ...product,
       memory: product.memory.toString(),
       price: product.price,
@@ -35,6 +35,7 @@ export const PhonesPage: FC = () => {
 
     setProducts(parsedProducts);
   };
+
   const indexOfLastPhone = currentPage * phonePerPage;
   const indexOfFirstPhone = indexOfLastPhone - phonePerPage;
   const currentPhones = products.slice(indexOfFirstPhone, indexOfLastPhone);
@@ -95,7 +96,7 @@ export const PhonesPage: FC = () => {
             <span id="sort" className={styles.select__title}>
               {translations[currentLanguage].sortBy}
             </span>
-            <CustomSelect products={products} setProducts={setProducts} />
+            <CustomSelect products={products} setPhonesProducts={setProducts} />
           </div>
           <div className={styles.items__select}>
             <span id="items" className={styles.select__title}>

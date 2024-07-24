@@ -1,38 +1,58 @@
-import { FC, Dispatch, SetStateAction } from "react";
-import "./SelectStyles.scss";
+import { FC, Dispatch, SetStateAction, useState } from "react";
 import Select, { OnChangeValue } from "react-select";
-import { useState } from "react";
 import makeAnimated from "react-select/animated";
 import { useLanguage } from "../../hooks/useLanguage";
 import { translations } from "../LanguageSwitcher/translation";
 import { IOption } from "../../interfaces/select-interface/select.interfaces";
-import { Phone } from "../../interfaces/phones";
 import { Sort, getSortedProducts } from "./Sort";
+import { Accessories } from "../../interfaces/accessories";
+import { Phone } from "../../interfaces/phones";
+
+export type Product = Accessories | Phone;
 
 interface CustomSelectProps {
-  products: Phone[];
-  setProducts: Dispatch<SetStateAction<Phone[]>>;
+  products: Product[];
+  setProducts?: Dispatch<SetStateAction<Product[]>>; 
+  setAccessoriesProducts?: Dispatch<SetStateAction<Accessories[]>>; 
+  setPhonesProducts?: Dispatch<SetStateAction<Phone[]>>;
 }
 
 const animatedComponents = makeAnimated();
 
-const CustomSelect: FC<CustomSelectProps> = ({ products, setProducts }) => {
+export const CustomSelect: FC<CustomSelectProps> = ({
+  products,
+  setProducts,
+  setPhonesProducts,
+}) => {
   const [currentSort, setCurrentSort] = useState<Sort[]>([]);
   const { currentLanguage } = useLanguage();
 
   const getValue = () => {
-    return currentSort
-      ? options.filter((option) => currentSort.includes(option.value as Sort))
-      : [];
+    return options.filter((option) =>
+      currentSort.includes(option.value as Sort)
+    );
   };
 
-  const onChange = (newValue: OnChangeValue<IOption, boolean>) => {
-    const newSortValues = (newValue as IOption[]).map((v) => v.value as Sort);
-    setCurrentSort(newSortValues);
+  const isPhone = (product: Product): product is Phone => "phoneId" in product;
 
-    if (newSortValues.length > 0) {
-      const sortedProducts = getSortedProducts(products, newSortValues[0]);
-      setProducts(sortedProducts);
+  const onChange = (newValue: OnChangeValue<IOption, true>) => {
+    if (Array.isArray(newValue)) {
+      const newSortValues = newValue.map((option) => option.value as Sort);
+      setCurrentSort(newSortValues);
+
+      if (newSortValues.length > 0) {
+        const phoneProducts = products.filter(isPhone);
+        const sortedProducts = getSortedProducts(
+          phoneProducts,
+          newSortValues[0]
+        );
+
+        if (setPhonesProducts) {
+          setPhonesProducts(sortedProducts as Phone[]); 
+        } else if (setProducts) {
+          setProducts(sortedProducts as Product[]);
+        }
+      }
     }
   };
 
@@ -65,5 +85,3 @@ const CustomSelect: FC<CustomSelectProps> = ({ products, setProducts }) => {
     </div>
   );
 };
-
-export default CustomSelect;
