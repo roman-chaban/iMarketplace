@@ -2,9 +2,24 @@
 @import "../../assets/styles/fonts.scss";
 
 .catalog__container {
+  opacity: 0;
+  transform: rotateY(-90deg);
+  animation: flipFadeIn 1s ease-out forwards;
   max-width: 1138px;
   margin: 0 auto;
 }
+
+@keyframes flipFadeIn {
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
 
 .page__select {
   padding: 0px;

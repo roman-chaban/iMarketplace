@@ -35,6 +35,7 @@ export const PhoneCharacteristics: FC<PhoneCharacteristicsProps> = ({
   useEffect(() => {
     setSelectMemory(selectMemory);
     updateButtonStyles(1);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const buttonsRefs: React.RefObject<HTMLButtonElement>[] = [

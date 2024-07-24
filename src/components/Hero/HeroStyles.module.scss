@@ -1,5 +1,5 @@
-@import '../../assets/styles/colors.scss';
-@import '../../assets/styles/variables.scss';
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/variables.scss";
 
 .hero__container {
   width: 100%;
@@ -9,17 +9,45 @@
   margin: 0 auto;
   margin-top: 20px;
   flex-direction: column;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: containerFadeInUp 1s ease-out forwards;
+}
+
+@keyframes containerFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero__swipper {
   display: flex;
   align-items: center;
   gap: 20px;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: swiperFadeInLeft 1s ease-out 0.5s forwards;
+}
+
+@keyframes swiperFadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .left__swipper,
 .right__swipper {
-  padding: 0px 5px;
+  padding: 0 5px;
   height: 300px;
   border: 1.5px solid $secondary;
   border-radius: 10px;
@@ -47,10 +75,14 @@
   border-radius: 5px;
 }
 
-@keyframes fadeInFromLeft {
+.mainHero__title {
+  animation: titleFadeInFromLeft 1s ease-out forwards;
+}
+
+@keyframes titleFadeInFromLeft {
   0% {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-30px);
   }
   100% {
     opacity: 1;
@@ -58,9 +90,28 @@
   }
 }
 
-.mainHero__title {
-  animation: fadeInFromLeft 1s ease forwards;
+.swiper__div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: swiperZoomIn 1s ease-out 1s forwards;
 }
+
+@keyframes swiperZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Media Queries */
 
 @media (max-width: 1100px) {
   .mainHero__title {
@@ -70,13 +121,11 @@
   .hero__container {
     position: relative;
     bottom: 25px;
+    gap: 30px;
+    margin-top: 0;
   }
   #hero__logo {
     max-width: 40px;
-  }
-  .hero__container {
-    gap: 30px;
-    margin-top: 0;
   }
 }
 
@@ -110,11 +159,4 @@
     flex-direction: column-reverse;
     gap: 1rem;
   }
-}
-
-.swiper__div {
-  display: flex;
-  justify-content: center;
-  width: '100%';
-  object-fit: 'cover';
 }

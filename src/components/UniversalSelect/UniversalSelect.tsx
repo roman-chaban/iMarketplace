@@ -1,7 +1,6 @@
 import { FC } from "react";
 import Select, { OnChangeValue, SingleValue } from "react-select";
 import makeAnimated from "react-select/animated";
-import "../../components/Select/SelectStyles.scss";
 import { IOption } from "../../interfaces/select-interface/select.interfaces";
 
 interface UniversalSelectProps {
@@ -24,7 +23,6 @@ export const UniversalSelect: FC<UniversalSelectProps> = ({
   return (
     <div className="select">
       <Select
-        classNamePrefix="custom-select"
         value={value}
         onChange={onChange}
         options={options}

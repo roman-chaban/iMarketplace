@@ -4,21 +4,18 @@
 
 .catalog__container {
   opacity: 0;
-  animation: enhancedFadeIn 2s ease forwards;
+  transform: rotateY(-90deg);
+  animation: flipFadeIn 1s ease-out forwards;
 }
 
-@keyframes enhancedFadeIn {
+@keyframes flipFadeIn {
   0% {
-      opacity: 0;
-      transform: translateX(-20px) scale(0.8);
-  }
-  50% {
-      opacity: 0.5;
-      transform: translateX(10px) scale(1.05);
+    opacity: 0;
+    transform: rotateY(-90deg);
   }
   100% {
-      opacity: 1;
-      transform: translateX(0) scale(1);
+    opacity: 1;
+    transform: rotateY(0deg);
   }
 }
 

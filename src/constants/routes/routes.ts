@@ -11,19 +11,21 @@ interface IRoutesProps {
   AUTHORIZATION: string;
   PHONEPRODUCT: string;
   TABLETPRODUCT: string;
+  ACCESSORPRODUCT: string;
 }
 
 export const ROUTES: IRoutesProps = {
-  LAYOUT: '/',
-  HOME: '/',
-  PHONES: 'phones',
-  PHONE: ':productId',
-  TABLETS: 'tablets',
-  ACCESSORIES: 'accessories',
-  FAVORITES: 'favorites',
-  CART: 'cart',
-  AUTHORIZATION: 'authorization',
-  PHONEPRODUCT: '/phones/phone/:title',
-  TABLETPRODUCT: '/tablets/tablet/:id',
-  ERROR: '*',
+  LAYOUT: "/",
+  HOME: "/",
+  PHONES: "phones",
+  PHONE: ":productId",
+  TABLETS: "tablets",
+  ACCESSORIES: "accessories",
+  FAVORITES: "favorites",
+  CART: "cart",
+  AUTHORIZATION: "authorization",
+  PHONEPRODUCT: "/phones/phone/:title",
+  TABLETPRODUCT: "/tablets/tablet/:id",
+  ACCESSORPRODUCT: "/accessories/accessor/:id",
+  ERROR: "*",
 };

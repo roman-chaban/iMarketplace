@@ -97,7 +97,7 @@ export const AccessoriesProduct: FC<AccessoriesProps> = ({ product }) => {
           <NavLink
             onClick={toUpPage}
             className={styles.view__product}
-            to={`/products/${product.id}`}
+            to={`/accessories/accessor/${product.id}`}
           >
             {translations[currentLanguage].viewButtonLabel}
             <Fingerprint />
@@ -118,15 +118,11 @@ export const AccessoriesProduct: FC<AccessoriesProps> = ({ product }) => {
         </li>
         <li className={styles.list__item}>
           {translations[currentLanguage].productParams.capacity}
-          <span className={styles.list__itemSecondary}>
-            {product.capacity} {translations[currentLanguage].memoryLabel}
-          </span>
+          <span className={styles.list__itemSecondary}>{product.capacity}</span>
         </li>
         <li className={styles.list__item}>
           {translations[currentLanguage].productParams.ram}
-          <span className={styles.list__itemSecondary}>
-            {product.ram} {translations[currentLanguage].memoryLabel}
-          </span>
+          <span className={styles.list__itemSecondary}>{product.ram}</span>
         </li>
       </ul>
       <div className={styles.catalog__buttonItems}>
