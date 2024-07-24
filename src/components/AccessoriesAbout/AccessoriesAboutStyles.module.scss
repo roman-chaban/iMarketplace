@@ -1,0 +1,54 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/variables.scss";
+
+.accessorAbout__container {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.accessorAbout {
+  width: 490px;
+}
+
+.about__title {
+  color: $primary;
+  font-size: $primary-five-size;
+  font-weight: 700;
+  line-height: 140%;
+  padding-bottom: 16px;
+  border-bottom: 1.5px solid $elements;
+  padding: 20px;
+}
+
+.about__titlesBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 20px;
+}
+
+.first__title {
+  padding-bottom: 16px;
+  color: $primary;
+  font-weight: 600;
+  line-height: normal;
+  font-size: $primary-seven-size;
+}
+
+.second__subTitle {
+  font-size: $primary-four-size;
+  color: $secondary;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+@media screen and (max-width: 555px) {
+  .about__titlesBlock {
+    padding: 0 30px;
+  }
+  .phonesAbout {
+    width: 100%;
+    max-width: 300px;
+  }
+}

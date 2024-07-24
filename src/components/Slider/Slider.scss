@@ -1,3 +1,16 @@
+.swiper {
+  max-width: 1350px !important;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.swiper-slide {
+  width: 230px;
+}
+
 .slider-opacity {
   animation: fadeInFromLeft 2s ease forwards;
 }

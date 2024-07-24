@@ -67,12 +67,19 @@ export const AccessoriesProduct: FC<AccessoriesProps> = ({ product }) => {
     });
   };
 
+  const shouldShowButton = () => {
+    return !(
+      location.pathname === "/" ||
+      location.pathname === "/accessories" ||
+      location.pathname === "/accessories/accessor/"
+    );
+  };
+
   return (
     <CardItem
       className={`${styles.cardItem} ${isRemoving ? styles.hidden : ""}`}
     >
-      {location.pathname === "/" ||
-      location.pathname === "/accessories" ? null : (
+      {shouldShowButton() && (
         <button
           title="Delete product"
           className={styles.deleteButton}

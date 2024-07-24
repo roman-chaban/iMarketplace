@@ -4,11 +4,11 @@ import { NotFoundPage } from "../../pages/NotFoundPage/NotFoundPage";
 import styles from "./AccessorProductStyles.module.scss";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import accessories from "../../common/products/accessories.json";
-import { PhonesAbout } from "../ProductsUI/PhonesAbout/PhonesAbout";
 import homeIcon from "../../images/icons/Home.svg";
 import rightArrowIcon from "../../images/icons/Chevron (Arrow Right).svg";
 import leftArrowIcon from "../../images/icons/Chevron (Arrow Left).svg";
 import { AccessoriesCharacteristics } from "../AccessorCharacteristics/AccessorCharacteristics";
+import { AccessoriesAbout } from "../AccessoriesAbout/AccessoriesAbout";
 
 interface AccessoriesProductProps {
   accessor: Accessories;
@@ -125,6 +125,7 @@ export const AccessorProduct: FC<AccessoriesProductProps> = memo(() => {
             </div>
             <div className={styles.product__block}>
               <AccessoriesCharacteristics
+                accessor={accessor}
                 selectMemory={accessor.ram}
                 setSelectMemory={setSelectMemory}
                 selectColor={selectColor}
@@ -133,7 +134,7 @@ export const AccessorProduct: FC<AccessoriesProductProps> = memo(() => {
               />
             </div>
           </div>
-          <PhonesAbout />
+          <AccessoriesAbout selectMemory={selectMemory} accessor={accessor} />
         </div>
       </>
     </>

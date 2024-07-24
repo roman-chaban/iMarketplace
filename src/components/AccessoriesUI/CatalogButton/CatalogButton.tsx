@@ -10,6 +10,7 @@ interface CatalogProps {
   inCart: boolean;
   onClick: (product: Accessories) => void;
   onDeleteProduct: (productId: string) => void;
+  width?: string;
 }
 
 export const CatalogButton: FC<CatalogProps> = ({
@@ -17,6 +18,7 @@ export const CatalogButton: FC<CatalogProps> = ({
   inCart,
   onClick,
   onDeleteProduct,
+  width,
 }) => {
   const { currentLanguage } = useLanguage();
   const [isActiveButton, setIsActiveButton] = useState<boolean>(inCart);
@@ -43,7 +45,10 @@ export const CatalogButton: FC<CatalogProps> = ({
     <Button
       onClick={handleClick}
       className={styles.catalog__buttonItem}
-      style={{ backgroundColor: isActiveButton ? "#66CDAA" : "#313237" }}
+      style={{
+        backgroundColor: isActiveButton ? "#66CDAA" : "#313237",
+        width: `${width} !important`,
+      }}
     >
       {isActiveButton
         ? translations[currentLanguage].cartState.addedCart

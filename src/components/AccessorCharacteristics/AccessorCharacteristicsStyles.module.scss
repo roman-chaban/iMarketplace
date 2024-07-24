@@ -1,5 +1,10 @@
-@import '../../assets/styles/colors.scss';
-@import '../../assets/styles/variables.scss';
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/variables.scss";
+
+
+.phoneCharacteristics__container {
+  width: 600px;
+}
 
 
 .colors__title,
@@ -13,9 +18,10 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  max-width: 300px;
   padding-bottom: 24px;
   margin-bottom: 24px;
-  border-bottom: 1.5px solid $secondary;
+  border-bottom: 1.5px solid $border-color;
 }
 
 .checkColors__items {
@@ -29,10 +35,13 @@
 }
 
 .capacity__buttons {
+  max-width: 300px;
   padding-top: 8px;
   display: flex;
   align-items: center;
   gap: 8px;
+  padding-bottom: 24px;
+  border-bottom: 1.5px solid $border-color;
 }
 
 .select__capacity {
@@ -70,7 +79,58 @@
 }
 
 .checkColor__button {
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+.priceBlock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.price {
+  color: $first-Bg;
+  font-weight: 800;
+  font-size: $primary-third-size;
+  line-height: 128%;
+  letter-spacing: -0.01em;
+}
+
+.priceDiscount {
+  font-weight: 500;
+  font-size: $primary-discount-size;
+  text-decoration: line-through;
+}
+
+.productInfo {
+  padding-top: 32px;
+  padding-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  &__item {
+    font-weight: 600;
+    color: $primary;
+  }
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: $primary-media-first;
+  color: $gray-secondary;
+}
+
+.productButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 32px;
 }

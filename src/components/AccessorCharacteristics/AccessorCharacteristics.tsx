@@ -4,6 +4,9 @@ import React, { FC, useRef, useState, useEffect } from "react";
 import { useLanguage } from "../../hooks/useLanguage";
 import { translations } from "../LanguageSwitcher/translation";
 import styles from "./AccessorCharacteristicsStyles.module.scss";
+import { Accessories } from "../../interfaces/accessories";
+// import { CatalogButton } from "../AccessoriesUI/CatalogButton/CatalogButton";
+// import { FavoriteButton } from "../AccessoriesUI/FavoriteButton/FavoriteButton";
 
 interface AccessoriesCharacteristicsProps {
   selectMemory: string;
@@ -11,6 +14,7 @@ interface AccessoriesCharacteristicsProps {
   handleColorChange: (color: string) => void;
   selectColor: string;
   availableColors: string[];
+  accessor: Accessories;
 }
 
 export const AccessoriesCharacteristics: FC<
@@ -21,6 +25,7 @@ export const AccessoriesCharacteristics: FC<
   handleColorChange,
   selectColor,
   availableColors,
+  accessor,
 }) => {
   const ramOptions = ["768MB", "1GB"];
 
@@ -119,6 +124,38 @@ export const AccessoriesCharacteristics: FC<
               </button>
             ))}
           </div>
+        </div>
+        <div className={styles.priceBlock}>
+          <h3 className={styles.price}>{accessor.priceRegular}$</h3>
+          <h4 className={styles.priceDiscount}>{accessor.priceDiscount}$</h4>
+        </div>
+        <div className={styles.productButtons}>
+          {/* <CatalogButton width="270px" />
+          <FavoriteButton /> */}
+        </div>
+        <div className={styles.productInfo}>
+          <h4 className={styles.title}>
+            Screen
+            <span className={styles.productInfo__item}> {accessor.screen}</span>
+          </h4>
+          <h4 className={styles.title}>
+            Resolution
+            <span className={styles.productInfo__item}>
+              {" "}
+              {accessor.resolution}
+            </span>
+          </h4>
+          <h4 className={styles.title}>
+            Processor
+            <span className={styles.productInfo__item}>
+              {" "}
+              {accessor.processor}
+            </span>
+          </h4>
+          <h4 className={styles.title}>
+            Ram
+            <span className={styles.productInfo__item}>{accessor.ram}</span>
+          </h4>
         </div>
       </div>
     </div>
