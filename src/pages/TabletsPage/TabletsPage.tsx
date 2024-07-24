@@ -133,7 +133,7 @@ export const TabletsPage: FC = () => {
       </div>
       <div className={styles.catalog__containerTablets}>
         {currentTablets.map((tablet) => (
-          <TabletItem product={tablet} />
+          <TabletItem product={tablet} key={tablet.id} />
         ))}
       </div>
       <div>

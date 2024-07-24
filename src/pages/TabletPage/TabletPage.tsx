@@ -1,11 +1,11 @@
-import { FC, useState, useEffect } from 'react';
-import styles from '../PhonesPage/PhonesPageStyles.module.scss';
-import { ProductItem } from './ProductItem';
-import products from '../../common/products/tablets.json';
-import { Tablet } from '../../interfaces/tablets';
-import { useParams } from 'react-router-dom';
-import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
-import { TabletsCatalog } from '../../components/TabletsUI/Tablets/TabletsCatalog';
+import { FC, useState, useEffect } from "react";
+import styles from "../PhonesPage/PhonesPageStyles.module.scss";
+import { ProductItem } from "./ProductItem";
+import products from "../../common/products/tablets.json";
+import { Tablet } from "../../interfaces/tablets";
+import { useParams } from "react-router-dom";
+import { NotFoundPage } from "../NotFoundPage/NotFoundPage";
+import { TabletsCatalog } from "../../components/TabletsUI/Tablets/TabletsCatalog";
 
 export const TabletPage: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -13,9 +13,19 @@ export const TabletPage: FC = () => {
     undefined
   );
 
+  const handleAccessorProductTitle = (title: string) => {
+    const formattedTitle = title
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+    return formattedTitle;
+  };
+
   useEffect(() => {
-    const tabletProductName = id !== undefined ? id.replaceAll('-', ' ') : id;
-    document.title = `iMarketplace | ${tabletProductName}`;
+    const titleProductName = id || "";
+    document.title = `Tablet | ${handleAccessorProductTitle(
+      titleProductName
+    )}`;
   }, [id]);
 
   useEffect(() => {
@@ -28,7 +38,7 @@ export const TabletPage: FC = () => {
       {selectedProduct ? (
         <ProductItem tablet={selectedProduct} />
       ) : (
-        <NotFoundPage statusText='404' message='This tablet is not found' />
+        <NotFoundPage statusText="404" message="This tablet is not found" />
       )}
       <TabletsCatalog modelsTitle="I'Pads" />
     </div>

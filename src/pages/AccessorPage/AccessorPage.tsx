@@ -18,7 +18,7 @@ export const AccessorPage: FC = () => {
 
   useEffect(() => {
     const titleProductName = id || "";
-    document.title = `Product | ${handleAccessorProductTitle(
+    document.title = `Accessor | ${handleAccessorProductTitle(
       titleProductName
     )}`;
     const product = accessoriesData.find((product) => product.id === id);
