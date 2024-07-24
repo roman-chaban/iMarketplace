@@ -16,26 +16,3 @@
 
 
 "Explore the world of Apple products at our online store. Discover a curated selection of cutting-edge devices, from iPhones and iPads and accessories. Shop with confidence for the latest innovations in technology, sleek designs, and unmatched performance. Elevate your digital experience with Apple's iconic products, renowned for their quality, style, and seamless integration. Welcome to the ultimate destination for all your Apple needs."
-
-Hero Section:
-![image](https://github.com/Chaban1001/iMarketplace/assets/137433410/5920c092-d2a8-4608-9d50-5297af0b5ca7)
-
-
-Models Section:
-
-![image](https://github.com/Chaban1001/iMarketplace/assets/137433410/2c7116e3-d9c7-4a4f-a551-1bd459b7bb12)
-
-
-
-Tablets:
-
-![image](https://github.com/Chaban1001/iMarketplace/assets/137433410/b49a827c-5743-49f2-b46d-c058a8c12708)
-
-
-Phones:
-
-![image](https://github.com/Chaban1001/iMarketplace/assets/137433410/94c7f49f-50b6-4794-844e-3a8f81831d8e)
-
-
-
-
