@@ -1,0 +1,30 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/variables.scss";
+
+.switcher {
+  position: relative;
+  display: inline-block;
+}
+
+.switcher::after {
+  content: "Change Language";
+  position: absolute;
+  bottom: -130%;
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  background-color: $gray-secondary;
+  color: $white;
+  padding: 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+.switcher:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) scaleY(1);
+}

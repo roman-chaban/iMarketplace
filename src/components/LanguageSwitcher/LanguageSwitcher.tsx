@@ -1,6 +1,7 @@
-import { FormControlLabel } from '@mui/material';
-import { FC } from 'react';
-import { IOSSwitch } from './IOSSwitcher/IOSSwitcher';
+import { FormControlLabel } from "@mui/material";
+import { FC } from "react";
+import { IOSSwitch } from "./IOSSwitcher/IOSSwitcher";
+import styles from "./SwitcherStyles.module.scss";
 
 interface LanguageSwitcherProps {
   currentLanguage: string;
@@ -11,17 +12,16 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
   currentLanguage,
   onChangeLanguage,
 }) => {
-  const otherLanguage = currentLanguage === 'en' ? 'ua' : 'en';
-  const buttonText = currentLanguage === 'en' ? 'EN' : 'UA';
+  const otherLanguage = currentLanguage === "en" ? "ua" : "en";
+  const buttonText = currentLanguage === "en" ? "EN" : "UA";
 
   return (
-    <div style={{ position: 'relative', top: 6 }}>
+    <div style={{ position: "relative", top: 6 }} className={styles.switcher}>
       <FormControlLabel
-        style={{ display: 'flex', gap: '0.5rem' }}
+        style={{ display: "flex", gap: "0.5rem" }}
         control={
           <IOSSwitch
-            title='Change language'
-            checked={currentLanguage === 'ua'}
+            checked={currentLanguage === "ua"}
             onChange={() => onChangeLanguage(otherLanguage)}
             children={undefined}
           />
