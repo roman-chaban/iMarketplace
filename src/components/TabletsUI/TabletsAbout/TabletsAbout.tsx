@@ -1,31 +1,49 @@
-import { FC, Fragment } from "react";
-import styles from "./TabletsAboutStyles.module.scss";
-import { useLanguage } from "../../../hooks/useLanguage";
-import { translations } from "../../LanguageSwitcher/translation";
-import { TabletInfo } from "./about";
+import { FC } from "react";
+import styles from "../../AccessoriesAbout/AccessoriesAboutStyles.module.scss";
+import { Tablet } from "../../../interfaces/tablets";
+import { TabletsTechSpecs } from "../TabletsTechSpecs/TabletsTechSpecs";
 
-export const TabletsAbout: FC = () => {
-  const { currentLanguage } = useLanguage();
+interface AccessorAboutProps {
+  tablet: Tablet;
+  selectMemory: string;
+}
 
-  const tabletsData: TabletInfo[] = translations[currentLanguage].aboutTablets;
-
+export const TabletsAbout: FC<AccessorAboutProps> = ({
+  tablet,
+  selectMemory,
+}) => {
   return (
-    <article className={styles.phonesAbout}>
-      <h2 className={styles.about__title}> {translations[currentLanguage].aboutTabletsTitle}</h2>
-      <div className={styles.about__titlesBlock}>
-        <div className={styles.about__titles}>
-          {tabletsData.map((item, index) => (
-            <Fragment key={index}>
-              <h3 className={styles.first__title}>{item.title}</h3>
-              <p className={styles.second__subTitle}>
-                {item.text.map((paragraph, idx) => (
-                  <Fragment key={idx}>{paragraph}</Fragment>
-                ))}
-              </p>
-            </Fragment>
-          ))}
+    <section className={styles.accessorAbout__container}>
+      <article className={styles.accessorAbout}>
+        <h2 className={styles.about__title}>About</h2>
+        <div className={styles.about__titlesBlock}>
+          <div className={styles.about__titles}>
+            <h3 className={styles.first__title} style={{ paddingTop: "32px" }}>
+              {tablet.description[0].title}
+            </h3>
+            <p className={styles.second__subTitle}>
+              {tablet.description[0].text}
+            </p>
+          </div>
+          <div className={styles.about__titles}>
+            <h3 className={styles.first__title}>
+              {tablet.description[1].title}
+            </h3>
+            <p className={styles.second__subTitle}>
+              {tablet.description[1].text}
+            </p>
+          </div>
+          <div className={styles.about__titles}>
+            <h3 className={styles.first__title}>
+              {tablet.description[2].title}
+            </h3>
+            <p className={styles.second__subTitle}>
+              {tablet.description[2].text}
+            </p>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+      <TabletsTechSpecs selectMemory={selectMemory} accessor={tablet} />
+    </section>
   );
 };

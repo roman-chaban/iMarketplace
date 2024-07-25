@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import styles from "../../pages/PhonePage/PhonePageStyles.module.scss";
+import styles from "./AccessoriesCatalogStyles.module.scss";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -17,7 +17,7 @@ export const AccessoriesCatalog: FC<AccessoriesCatalogProps> = ({
   accessories,
 }: AccessoriesCatalogProps) => {
   return (
-    <div className={styles.phones__catalog}>
+    <div className={styles.accessories__catalog}>
       <Swiper
         className="swiper"
         wrapperClass={`${styles.swiper__wrapper} swiper-wrapper`}
@@ -28,8 +28,7 @@ export const AccessoriesCatalog: FC<AccessoriesCatalogProps> = ({
         }}
         scrollbar={{ draggable: true, hide: true }}
         spaceBetween={35}
-        slidesPerView={4}
-        style={{ height: "700px" }}
+        style={{ height: "auto" }}
       >
         {accessories.map((accessor) => (
           <SwiperSlide

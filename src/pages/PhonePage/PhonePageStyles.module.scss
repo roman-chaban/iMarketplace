@@ -1,6 +1,6 @@
-@import '../../assets/styles/colors.scss';
-@import '../../assets/styles/variables.scss';
-@import '../../assets/styles/functions.scss';
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/functions.scss";
 
 .phone__layout {
   width: 100%;
@@ -99,7 +99,8 @@
 
 .phonesAbout__block {
   display: flex;
-  gap: 3rem;
+  flex-direction: column;
+  gap: 10rem;
 }
 
 .phoneSmall__image {
@@ -114,6 +115,11 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.aboutFlex {
+  display: flex;
+  gap: 10rem;
 }
 
 @media screen and (width <= 895px) {
