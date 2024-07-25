@@ -1,17 +1,19 @@
 import { createSlice, PayloadAction, Middleware } from "@reduxjs/toolkit";
 import { Products } from "../interfaces/products";
 import { Tablet } from "../../interfaces/tablets";
+import { Accessories } from "../../interfaces/accessories";
 
 export interface CartState {
   cart: Products[];
   cartCounter: number;
   selectedProduct: Products[];
   basketTablets: Tablet[];
+  cartAccessories: Accessories[];
 }
 
 const loadStateFromLocalStorage = (): CartState => {
   try {
-    const serializedState = localStorage.getItem("productsState");
+    const serializedState = localStorage.getItem("cartState");
     if (serializedState !== null) {
       return JSON.parse(serializedState) as CartState;
     }
@@ -22,8 +24,18 @@ const loadStateFromLocalStorage = (): CartState => {
     cart: [],
     selectedProduct: [],
     basketTablets: [],
+    cartAccessories: [],
     cartCounter: 0,
   };
+};
+
+const saveStateToLocalStorage = (state: CartState) => {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem("cartState", serializedState);
+  } catch (error) {
+    console.error("Error saving state to local storage:", error);
+  }
 };
 
 const initialState: CartState = loadStateFromLocalStorage();
@@ -33,12 +45,16 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<Products>) => {
+      if (!state.cart) {
+        state.cart = [];
+      }
       const exists = state.cart.some(
         (product) => product.phoneId === action.payload.phoneId
       );
       if (!exists) {
         state.cart.push(action.payload);
         state.cartCounter++;
+        saveStateToLocalStorage(state);
       }
     },
     deleteFromCart: (state, action: PayloadAction<number>) => {
@@ -48,15 +64,20 @@ export const cartSlice = createSlice({
       if (index !== -1) {
         state.cart.splice(index, 1);
         state.cartCounter = Math.max(0, state.cartCounter - 1);
+        saveStateToLocalStorage(state);
       }
     },
     addBasketTablets: (state, action: PayloadAction<Tablet>) => {
+      if (!state.basketTablets) {
+        state.basketTablets = [];
+      }
       const exists = state.basketTablets.some(
         (tablet) => tablet.tabletId === action.payload.tabletId
       );
       if (!exists) {
         state.basketTablets.push(action.payload);
         state.cartCounter++;
+        saveStateToLocalStorage(state);
       }
     },
     deleteBasketTablets: (state, action: PayloadAction<number>) => {
@@ -66,6 +87,30 @@ export const cartSlice = createSlice({
       if (index !== -1) {
         state.basketTablets.splice(index, 1);
         state.cartCounter = Math.max(0, state.cartCounter - 1);
+        saveStateToLocalStorage(state);
+      }
+    },
+    addAccessoriesToCart: (state, action: PayloadAction<Accessories>) => {
+      if (!state.cartAccessories) {
+        state.cartAccessories = [];
+      }
+      const exists = state.cartAccessories.some(
+        (product) => product.id === action.payload.id
+      );
+      if (!exists) {
+        state.cartAccessories.push(action.payload);
+        state.cartCounter++;
+        saveStateToLocalStorage(state);
+      }
+    },
+    deleteAccessoriesFromCart: (state, action: PayloadAction<string>) => {
+      const index = state.cartAccessories.findIndex(
+        (product) => product.id === action.payload
+      );
+      if (index !== -1) {
+        state.cartAccessories.splice(index, 1);
+        state.cartCounter = Math.max(0, state.cartCounter - 1);
+        saveStateToLocalStorage(state);
       }
     },
     setSelectedCartProduct: (state, action: PayloadAction<Products[]>) => {
@@ -79,17 +124,10 @@ export const {
   deleteFromCart,
   addBasketTablets,
   deleteBasketTablets,
+  addAccessoriesToCart,
+  deleteAccessoriesFromCart,
   setSelectedCartProduct,
 } = cartSlice.actions;
-
-const saveStateToLocalStorage = (state: CartState) => {
-  try {
-    const serializedState = JSON.stringify(state);
-    localStorage.setItem("productsState", serializedState);
-  } catch (error) {
-    console.error("Error saving state to local storage:", error);
-  }
-};
 
 export const persistMiddleware: Middleware<object, { cart: CartState }> =
   (storeAPI) => (next) => (action) => {

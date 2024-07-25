@@ -6,7 +6,7 @@ import { Accessories } from "../../../interfaces/accessories";
 
 interface FavoriteButtonProps {
   product: Accessories;
-  inFavorites: boolean;
+  inFavorites?: boolean;
   onClick: (product: Accessories) => void;
   onDeleteProduct: (productId: string) => void;
 }
@@ -17,17 +17,14 @@ export const FavoriteButton: FC<FavoriteButtonProps> = ({
   onClick,
   onDeleteProduct,
 }) => {
-  const handleAddToFavorites = () => {
-    onClick(product);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    if (inFavorites) {
+      onDeleteProduct(product.id);
+    } else {
+      onClick(product);
+    }
   };
-
-  const handleRemoveFromFavorites = () => {
-    onDeleteProduct(product.id);
-  };
-
-  const handleClick = inFavorites
-    ? handleRemoveFromFavorites
-    : handleAddToFavorites;
 
   return (
     <Button

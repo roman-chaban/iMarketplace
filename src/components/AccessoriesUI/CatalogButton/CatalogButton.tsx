@@ -27,19 +27,15 @@ export const CatalogButton: FC<CatalogProps> = ({
     setIsActiveButton(inCart);
   }, [inCart]);
 
-  const handleAddToCart = () => {
-    setIsActiveButton(true);
-    localStorage.setItem(`catalogButtonColor_${product.id}`, "#66CDAA");
-    onClick(product);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    if (isActiveButton) {
+      onDeleteProduct(product.id);
+    } else {
+      onClick(product);
+    }
+    setIsActiveButton(!isActiveButton);
   };
-
-  const handleRemoveFromCart = () => {
-    setIsActiveButton(false);
-    localStorage.setItem(`catalogButtonColor_${product.id}`, "#313237");
-    onDeleteProduct(product.id);
-  };
-
-  const handleClick = isActiveButton ? handleRemoveFromCart : handleAddToCart;
 
   return (
     <Button
@@ -47,7 +43,7 @@ export const CatalogButton: FC<CatalogProps> = ({
       className={styles.catalog__buttonItem}
       style={{
         backgroundColor: isActiveButton ? "#66CDAA" : "#313237",
-        width: `${width} !important`,
+        width: width || "auto",
       }}
     >
       {isActiveButton

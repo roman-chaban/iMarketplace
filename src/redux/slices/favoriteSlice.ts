@@ -1,17 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Products } from "../interfaces/products";
 import { Tablet } from "../../interfaces/tablets";
+import { Accessories } from "../../interfaces/accessories";
 
 export interface ProductsState {
   favorites: Products[];
   favoritesTablets: Tablet[];
+  favoritesAccessories: Accessories[];
   selectedProduct: Products[];
   favoriteCounter: number;
+  cartCounter: number;
 }
 
 const loadStateFromLocalStorage = (): ProductsState => {
   try {
-    const serializedState = localStorage.getItem("productsState");
+    const serializedState = localStorage.getItem("favoritesState");
     if (serializedState !== null) {
       return JSON.parse(serializedState) as ProductsState;
     }
@@ -21,15 +24,26 @@ const loadStateFromLocalStorage = (): ProductsState => {
   return {
     favorites: [],
     favoritesTablets: [],
+    favoritesAccessories: [],
     selectedProduct: [],
     favoriteCounter: 0,
+    cartCounter: 0,
   };
+};
+
+const saveStateToLocalStorage = (state: ProductsState) => {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem("favoritesState", serializedState);
+  } catch (error) {
+    console.error("Error saving state to local storage:", error);
+  }
 };
 
 const initialState: ProductsState = loadStateFromLocalStorage();
 
 export const favoritesSlice = createSlice({
-  name: "products",
+  name: "favorites",
   initialState,
   reducers: {
     addToFavorites: (state, action: PayloadAction<Products>) => {
@@ -39,6 +53,7 @@ export const favoritesSlice = createSlice({
       if (!exists) {
         state.favorites.push(action.payload);
         state.favoriteCounter++;
+        saveStateToLocalStorage(state);
       }
     },
     addToFavoritesTablets: (state, action: PayloadAction<Tablet>) => {
@@ -48,6 +63,7 @@ export const favoritesSlice = createSlice({
       if (!exists) {
         state.favoritesTablets.push(action.payload);
         state.favoriteCounter++;
+        saveStateToLocalStorage(state);
       }
     },
     deleteFromFavorites: (state, action: PayloadAction<number>) => {
@@ -57,6 +73,7 @@ export const favoritesSlice = createSlice({
       if (index !== -1) {
         state.favorites.splice(index, 1);
         state.favoriteCounter = Math.max(0, state.favoriteCounter - 1);
+        saveStateToLocalStorage(state);
       }
     },
     deleteFromFavoriteTablets: (state, action: PayloadAction<number>) => {
@@ -66,6 +83,32 @@ export const favoritesSlice = createSlice({
       if (index !== -1) {
         state.favoritesTablets.splice(index, 1);
         state.favoriteCounter = Math.max(0, state.favoriteCounter - 1);
+        saveStateToLocalStorage(state);
+      }
+    },
+    addToFavoritesAccessories: (state, action: PayloadAction<Accessories>) => {
+      if (!state.favoritesAccessories) {
+        state.favoritesAccessories = [];
+      }
+
+      const exists = state.favoritesAccessories.some(
+        (favorite) => favorite.id === action.payload.id
+      );
+
+      if (!exists) {
+        state.favoritesAccessories.push(action.payload);
+        state.favoriteCounter++;
+        saveStateToLocalStorage(state);
+      }
+    },
+    deleteFromFavoriteAccessories: (state, action: PayloadAction<string>) => {
+      const index = state.favoritesAccessories.findIndex(
+        (favorite) => favorite.id === action.payload
+      );
+      if (index !== -1) {
+        state.favoritesAccessories.splice(index, 1);
+        state.favoriteCounter = Math.max(0, state.favoriteCounter - 1);
+        saveStateToLocalStorage(state);
       }
     },
     setSelectedProduct: (state, action: PayloadAction<Products[]>) => {
@@ -79,6 +122,8 @@ export const {
   addToFavoritesTablets,
   deleteFromFavorites,
   deleteFromFavoriteTablets,
+  addToFavoritesAccessories,
+  deleteFromFavoriteAccessories,
   setSelectedProduct,
 } = favoritesSlice.actions;
 

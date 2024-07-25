@@ -4,7 +4,6 @@ import { ProductItem } from "./ProductItem";
 import products from "../../common/products/tablets.json";
 import { Tablet } from "../../interfaces/tablets";
 import { useParams } from "react-router-dom";
-import { NotFoundPage } from "../NotFoundPage/NotFoundPage";
 import { TabletsCatalog } from "../../components/TabletsUI/Tablets/TabletsCatalog";
 
 export const TabletPage: FC = () => {
@@ -23,9 +22,7 @@ export const TabletPage: FC = () => {
 
   useEffect(() => {
     const titleProductName = id || "";
-    document.title = `Tablet | ${handleAccessorProductTitle(
-      titleProductName
-    )}`;
+    document.title = `Tablet | ${handleAccessorProductTitle(titleProductName)}`;
   }, [id]);
 
   useEffect(() => {
@@ -35,11 +32,7 @@ export const TabletPage: FC = () => {
 
   return (
     <div className={`${styles.phone__layout} ${styles.tablet__layout}`}>
-      {selectedProduct ? (
-        <ProductItem tablet={selectedProduct} />
-      ) : (
-        <NotFoundPage statusText="404" message="This tablet is not found" />
-      )}
+      {selectedProduct ? <ProductItem tablet={selectedProduct} /> : <></>}
       <TabletsCatalog modelsTitle="I'Pads" />
     </div>
   );

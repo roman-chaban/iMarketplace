@@ -1,4 +1,4 @@
-import  { FC, useState } from "react";
+import { FC, useState } from "react";
 import styles from "./CatalogItemStyles.module.scss";
 import { NavLink, useLocation } from "react-router-dom";
 import { CustomButton } from "../UI Components/CustomButton/CustomButton";
@@ -67,9 +67,19 @@ export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
     });
   };
 
+  
+
+  const shouldShowButton = () => {
+    return !(
+      location.pathname === "/" ||
+      location.pathname === "/phones" ||
+      location.pathname.startsWith(PhonesPath.PHONES)
+    );
+  };
+
   return (
     <CardItem className={`${styles.cardItem} ${isRemoving ? styles.hidden : ''}`}>
-      {location.pathname === "/" || location.pathname === "/phones" ? null : (
+      {shouldShowButton() && (
         <button
           title="Delete product"
           className={styles.deleteButton}

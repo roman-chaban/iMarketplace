@@ -132,7 +132,7 @@ export const AccessoriesPage: FC = () => {
           />
         ))}
       </div>
-      <div>
+      <div style={{width: '100%'}}>
         <div className={styles.pagination__item}>
           <button
             className={`btn btn-secondary ${styles.btn__item}`}

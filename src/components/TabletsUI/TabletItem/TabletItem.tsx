@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Fingerprint } from "@mui/icons-material";
 import { FormClose } from "grommet-icons";
@@ -7,19 +7,13 @@ import { Tablet } from "../../../interfaces/tablets";
 import { TabletFavoriteButton } from "../TabletFavoriteButton/TabletFavoriteButton";
 import { useAppDispatch } from "../../../hooks/reduxHooks/useAppDispatch";
 import { useAppSelector } from "../../../hooks/reduxHooks/useAppSelector";
-import {
-  addToFavoritesTablets,
-  deleteFromFavoriteTablets,
-} from "../../../redux/slices/favoriteSlice";
+import { addToFavoritesTablets, deleteFromFavoriteTablets } from "../../../redux/slices/favoriteSlice";
 import { useLanguage } from "../../../hooks/useLanguage";
 import { CardItem } from "./styled/cardItem";
 import { TabletButton } from "../TabletButton/TabletButton";
 import { translations } from "../../LanguageSwitcher/translation";
 import { CustomButton } from "../../UI Components/CustomButton/CustomButton";
-import {
-  addBasketTablets,
-  deleteBasketTablets,
-} from "../../../redux/slices/cartSlice";
+import { addBasketTablets, deleteBasketTablets } from "../../../redux/slices/cartSlice";
 
 const enum TabletsPath {
   TABLETS = "/tablets/tablet/",
@@ -33,46 +27,66 @@ export const TabletItem: FC<TabletItemProps> = ({ product }) => {
   const dispatch = useAppDispatch();
   const { currentLanguage } = useLanguage();
   const location = useLocation();
-  
+
+  const [isRemoving, setIsRemoving] = useState(false);
+
   const inCart = useAppSelector((state) =>
     state.cart.basketTablets.some((item) => item.tabletId === product.tabletId)
   );
-  
+
   const inFavorites = useAppSelector((state) =>
-    state.favorite.favoritesTablets.some((item) => item.tabletId === product.tabletId)
+    state.favorite.favoritesTablets.some(
+      (item) => item.tabletId === product.tabletId
+    )
   );
 
   const handleAddToFavorites = (product: Tablet) => {
     dispatch(addToFavoritesTablets(product));
   };
-  
+
   const handleAddToCart = (product: Tablet) => {
     dispatch(addBasketTablets(product));
   };
-  
+
   const handleDeleteFromCart = (productId: number) => {
     dispatch(deleteBasketTablets(productId));
   };
-  
+
   const handleDeleteFavorites = (productId: number) => {
     dispatch(deleteFromFavoriteTablets(productId));
   };
-  
+
+  const handleRemoveItem = () => {
+    if (product.tabletId !== undefined) {
+      setIsRemoving(true);
+      setTimeout(() => {
+        handleDeleteFavorites(product.tabletId);
+      }, 500);
+    }
+  };
+
   const toUpPage = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
-  
+
+  const shouldShowButton = () => {
+    return !(
+      location.pathname === "/" ||
+      location.pathname === "/tablets" ||
+      location.pathname.startsWith(TabletsPath.TABLETS)
+    );
+  };
 
   return (
-    <CardItem className={styles.cardItem}>
-      {location.pathname === "/" || location.pathname === "/tablets" ? null : (
+    <CardItem className={`${styles.cardItem} ${isRemoving ? styles.hidden : ""}`}>
+      {shouldShowButton() && (
         <button
           title="Delete product"
           className={styles.deleteButton}
-          onClick={() => handleDeleteFavorites(product.tabletId ?? "")}
+          onClick={handleRemoveItem}
         >
           <FormClose color="#eb5757" />
         </button>
@@ -80,7 +94,7 @@ export const TabletItem: FC<TabletItemProps> = ({ product }) => {
       <div className={styles.card__container}>
         <img
           src={product.images ? product.images[0] : ""}
-          alt="tablet"
+          alt={product.name || "tablet"}
           className={styles.image__hovered}
         />
         <h3 className={styles.card__title}>{product.name}</h3>

@@ -20,7 +20,6 @@
   }
 }
 
-
 .page__select {
   padding: 0px;
   padding-bottom: 40px;
@@ -92,6 +91,14 @@
     justify-items: center;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media (max-width: 750px) {
+  .page__select {
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
   }
 }
 

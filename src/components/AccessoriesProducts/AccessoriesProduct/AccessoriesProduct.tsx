@@ -1,23 +1,25 @@
-import { FC, useState } from "react";
+import { FC, useCallback, useState } from "react";
 import { Accessories } from "../../../interfaces/accessories";
 import { CardItem } from "../../CatalogItem/styled/catalogItem";
 import { translations } from "../../LanguageSwitcher/translation";
 import { CustomButton } from "../../UI Components/CustomButton/CustomButton";
 import { Fingerprint } from "@mui/icons-material";
-import { NavLink, useLocation } from "react-router-dom";
-import { FormClose } from "grommet-icons";
+import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../../../hooks/reduxHooks/useAppSelector";
 import { useAppDispatch } from "../../../hooks/reduxHooks/useAppDispatch";
 import { useLanguage } from "../../../hooks/useLanguage";
 import styles from "./AccessoriesProduct.module.scss";
-import {
-  addAccessoriesToCart,
-  addToFavoritesAccessories,
-  deleteAccessoriesFromCart,
-  deleteFromFavoritesAccessories,
-} from "../../../redux/slices/accessoriesSlice";
 import { CatalogButton } from "../../AccessoriesUI/CatalogButton/CatalogButton";
 import { FavoriteButton } from "../../AccessoriesUI/FavoriteButton/FavoriteButton";
+import {
+  addAccessoriesToCart,
+  deleteAccessoriesFromCart,
+} from "../../../redux/slices/cartSlice";
+import {
+  addToFavoritesAccessories,
+  deleteFromFavoriteAccessories,
+} from "../../../redux/slices/favoriteSlice";
+import { FormClose } from "grommet-icons";
 
 interface AccessoriesProps {
   product: Accessories;
@@ -26,52 +28,55 @@ interface AccessoriesProps {
 export const AccessoriesProduct: FC<AccessoriesProps> = ({ product }) => {
   const dispatch = useAppDispatch();
   const { currentLanguage } = useLanguage();
-  const location = useLocation();
-
   const [isRemoving, setIsRemoving] = useState(false);
 
-  const inCart = useAppSelector((state) =>
-    state.accessories.favorites.some((item) => item.id === product.id)
+  const cartAccessories = useAppSelector(
+    (state) => state.cart.cartAccessories || []
   );
-  const inFavorites = useAppSelector((state) =>
-    state.accessories.favorites.some((item) => item.id === product.id)
+  const favoriteAccessories = useAppSelector(
+    (state) => state.favorite.favoritesAccessories || []
   );
 
-  const handleAddToFavorites = (product: Accessories) => {
+  const inCart = cartAccessories.some((item) => item.id === product.id);
+  const inFavorites = favoriteAccessories.some(
+    (item) => item.id === product.id
+  );
+
+  const handleAddToFavorites = useCallback(() => {
     dispatch(addToFavoritesAccessories(product));
-  };
+  }, [dispatch, product]);
 
-  const handleAddToCart = (product: Accessories) => {
+  const handleAddToCart = useCallback(() => {
     dispatch(addAccessoriesToCart(product));
-  };
+  }, [dispatch, product]);
 
-  const handleDeleteFromCart = (productId: string) => {
-    dispatch(deleteAccessoriesFromCart(productId));
-  };
+  const handleDeleteFromCart = useCallback(() => {
+    dispatch(deleteAccessoriesFromCart(product.id));
+  }, [dispatch, product.id]);
 
-  const handleDeleteFromFavorites = (productId: string) => {
-    dispatch(deleteFromFavoritesAccessories(productId));
-  };
+  const handleDeleteFromFavorites = useCallback(() => {
+    dispatch(deleteFromFavoriteAccessories(product.id));
+  }, [dispatch, product.id]);
 
-  const handleRemoveItem = () => {
-    setIsRemoving(true);
-    setTimeout(() => {
-      handleDeleteFromFavorites(product.id);
-    }, 500);
-  };
-
-  const toUpPage = () => {
+  const toUpPage = useCallback(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+  }, []);
+
+  const handleRemoveItem = () => {
+    setIsRemoving(true);
+    setTimeout(() => {
+      handleDeleteFromFavorites();
+    }, 500);
   };
 
   const shouldShowButton = () => {
     return !(
       location.pathname === "/" ||
       location.pathname === "/accessories" ||
-      location.pathname === "/accessories/accessor/"
+      location.pathname.startsWith("/accessories/accessor")
     );
   };
 
@@ -90,12 +95,12 @@ export const AccessoriesProduct: FC<AccessoriesProps> = ({ product }) => {
       )}
       <div className={styles.card__container}>
         <img
-          src={product.images[0]}
-          alt={product.name}
+          src={product.images?.[0] || ""}
+          alt={product.name || "accessory"}
           className={styles.image__hovered}
         />
         <h3 className={styles.card__title}>
-          {product.name.replaceAll("-", " ")}
+          {product.name.replace(/-/g, " ")}
         </h3>
         <CustomButton
           style={{ border: "2px solid #fff", marginBottom: 10 }}
@@ -115,7 +120,7 @@ export const AccessoriesProduct: FC<AccessoriesProps> = ({ product }) => {
         className={styles.price}
         style={{ color: "rgba(199, 53, 8, 0.8352941176)" }}
       >
-        {product.priceDiscount}${" "}
+        {product.priceDiscount}$
         <strong id={styles.discount}>{product.priceRegular}$</strong>
       </span>
       <ul className={styles.card__list}>
@@ -139,7 +144,7 @@ export const AccessoriesProduct: FC<AccessoriesProps> = ({ product }) => {
           onClick={handleAddToCart}
           onDeleteProduct={handleDeleteFromCart}
         />
-        {product.id !== undefined && (
+        {product.id && (
           <FavoriteButton
             product={product}
             inFavorites={inFavorites}
