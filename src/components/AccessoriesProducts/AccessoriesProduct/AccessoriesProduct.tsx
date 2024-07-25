@@ -1,10 +1,10 @@
 import { FC, useCallback, useState } from "react";
+import { useLocation, NavLink } from "react-router-dom";
 import { Accessories } from "../../../interfaces/accessories";
 import { CardItem } from "../../CatalogItem/styled/catalogItem";
 import { translations } from "../../LanguageSwitcher/translation";
 import { CustomButton } from "../../UI Components/CustomButton/CustomButton";
 import { Fingerprint } from "@mui/icons-material";
-import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../../../hooks/reduxHooks/useAppSelector";
 import { useAppDispatch } from "../../../hooks/reduxHooks/useAppDispatch";
 import { useLanguage } from "../../../hooks/useLanguage";
@@ -29,6 +29,7 @@ export const AccessoriesProduct: FC<AccessoriesProps> = ({ product }) => {
   const dispatch = useAppDispatch();
   const { currentLanguage } = useLanguage();
   const [isRemoving, setIsRemoving] = useState(false);
+  const location = useLocation();
 
   const cartAccessories = useAppSelector(
     (state) => state.cart.cartAccessories || []
