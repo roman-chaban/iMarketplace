@@ -4,10 +4,17 @@
 .accessorAbout__container {
   display: flex;
   gap: 2.5rem;
+  @media (max-width: 830px) {
+    flex-direction: column;
+  }
 }
 
 .accessorAbout {
-  width: 490px;
+  width: 100%;
+  max-width: 490px;
+  @media (max-width: 830px) {
+    max-width: 100%;
+  }
 }
 
 .about__title {
@@ -18,6 +25,9 @@
   padding-bottom: 16px;
   border-bottom: 1.5px solid $elements;
   padding: 20px;
+  @media (max-width: 830px) {
+    padding-left: 0;
+  }
 }
 
 .about__titlesBlock {
@@ -25,6 +35,9 @@
   flex-direction: column;
   gap: 32px;
   padding: 20px;
+  @media (max-width: 830px) {
+    padding-left: 0;
+  }
 }
 
 .first__title {
@@ -45,7 +58,8 @@
 
 @media screen and (max-width: 555px) {
   .about__titlesBlock {
-    padding: 0 30px;
+    padding-left: 0;
+    padding-right: 0;
   }
   .phonesAbout {
     width: 100%;

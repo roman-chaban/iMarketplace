@@ -1,44 +1,40 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, FC, useContext, useState } from 'react';
 
 interface TotalContextProps {
-  totalItemCount: number;
   totalPrice: number;
+  totalItemCount: number;
   addToTotal: (price: number) => void;
   removeFromTotal: (price: number) => void;
 }
 
 const TotalContext = createContext<TotalContextProps | undefined>(undefined);
 
-export const TotalProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
-  const [totalItemCount, setTotalItemCount] = useState(0);
+export const TotalProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
+  const [totalItemCount, setTotalItemCount] = useState(0);
 
   const addToTotal = (price: number) => {
-    setTotalItemCount((prevCount) => prevCount + 1);
-    setTotalPrice((prevPrice) => prevPrice + price);
+    setTotalPrice(prevPrice => prevPrice + price);
+    setTotalItemCount(prevCount => prevCount + 1);
   };
 
   const removeFromTotal = (price: number) => {
-    setTotalItemCount((prevCount) => (prevCount > 0 ? prevCount - 1 : 0));
-    setTotalPrice((prevPrice) => (prevPrice > price ? prevPrice - price : 0));
+    setTotalPrice(prevPrice => prevPrice - price);
+    setTotalItemCount(prevCount => prevCount - 1);
   };
 
   return (
-    <TotalContext.Provider
-      value={{ totalItemCount, totalPrice, addToTotal, removeFromTotal }}
-    >
+    <TotalContext.Provider value={{ totalPrice, totalItemCount, addToTotal, removeFromTotal }}>
       {children}
     </TotalContext.Provider>
   );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const useTotal = () => {
+export const useTotal = (): TotalContextProps => {
   const context = useContext(TotalContext);
   if (!context) {
-    throw new Error("useTotal must be used within a TotalProvider");
+    throw new Error('useTotal must be used within a TotalProvider');
   }
   return context;
 };

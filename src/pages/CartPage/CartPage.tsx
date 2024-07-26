@@ -9,12 +9,15 @@ import { translations } from "../../components/LanguageSwitcher/translation";
 import { ProductCard } from "../../components/ProductCard/ProductCard";
 import { ProductCheckout } from "../../components/ProductCheckout/ProductCheckout";
 import { useTotal } from "../../components/TotalContext/TotalContext";
+import { Accessories } from "../../interfaces/accessories";
+import { AccessoryCard } from "../../components/AccessorCard/AccessorCard";
 
 export const CartPage: FC = () => {
   const { currentLanguage } = useLanguage();
   const basketCounter = useAppSelector((state) => state.cart.cartCounter);
   const cartPhones = useAppSelector((state) => state.cart.cart);
   const cartTablets = useAppSelector((state) => state.cart.basketTablets);
+  const cartAccessories = useAppSelector((state) => state.cart.cartAccessories);
 
   const { totalPrice, totalItemCount } = useTotal();
 
@@ -38,7 +41,9 @@ export const CartPage: FC = () => {
       )}
       <div className={styles.cart__container}>
         <br />
-        {cartPhones.length === 0 && cartTablets.length === 0 ? (
+        {cartPhones.length === 0 &&
+        cartTablets.length === 0 &&
+        cartAccessories.length === 0 ? (
           <h2 className={styles.empty__title}>
             {translations[currentLanguage].cartEmptyTitle}
           </h2>
@@ -52,6 +57,11 @@ export const CartPage: FC = () => {
             {cartTablets.map((cart: Tablet) => (
               <div key={cart.id} className={styles.favorite__item}>
                 <ProductCard tablet={cart} />
+              </div>
+            ))}
+            {cartAccessories.map((cart: Accessories) => (
+              <div key={cart.id} className={styles.favorite__item}>
+                <AccessoryCard accessory={cart} />
               </div>
             ))}
           </div>

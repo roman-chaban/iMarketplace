@@ -9,6 +9,7 @@ import rightArrowIcon from "../../images/icons/Chevron (Arrow Right).svg";
 import leftArrowIcon from "../../images/icons/Chevron (Arrow Left).svg";
 import { AccessoriesCharacteristics } from "../AccessorCharacteristics/AccessorCharacteristics";
 import { AccessoriesAbout } from "../AccessoriesAbout/AccessoriesAbout";
+import { useUpPage } from "../../hooks/useUpPage";
 
 interface AccessoriesProductProps {
   accessor: Accessories;
@@ -21,6 +22,7 @@ export const AccessorProduct: FC<AccessoriesProductProps> = memo(() => {
   const colorParams = new URLSearchParams(search);
   const initialColor = colorParams.get("color") || "gray";
   const [selectColor, setSelectColor] = useState<string>(initialColor);
+  useUpPage();
 
   const productTitle = id ? id : undefined;
   const accessor = accessories.find((product) => product.id === productTitle);

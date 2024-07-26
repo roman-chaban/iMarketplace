@@ -3,7 +3,10 @@ import styles from "./CatalogItemStyles.module.scss";
 import { NavLink, useLocation } from "react-router-dom";
 import { CustomButton } from "../UI Components/CustomButton/CustomButton";
 import { FavoriteButton } from "../UI Components/FavoriteButton/FavoriteButton";
-import { addToFavorites, deleteFromFavorites } from "../../redux/slices/favoriteSlice";
+import {
+  addToFavorites,
+  deleteFromFavorites,
+} from "../../redux/slices/favoriteSlice";
 import { useAppDispatch } from "../../hooks/reduxHooks/useAppDispatch";
 import { CatalogButton } from "../UI Components/CatalogButton/CatalogButton";
 import { CardItem } from "./styled/catalogItem";
@@ -27,7 +30,7 @@ export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
   const dispatch = useAppDispatch();
   const { currentLanguage } = useLanguage();
   const location = useLocation();
-  
+
   const [isRemoving, setIsRemoving] = useState(false);
 
   const inCart = useAppSelector((state) =>
@@ -67,8 +70,6 @@ export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
     });
   };
 
-  
-
   const shouldShowButton = () => {
     return !(
       location.pathname === "/" ||
@@ -78,7 +79,9 @@ export const PhoneItem: FC<PhoneItemProps> = ({ product }) => {
   };
 
   return (
-    <CardItem className={`${styles.cardItem} ${isRemoving ? styles.hidden : ''}`}>
+    <CardItem
+      className={`${styles.cardItem} ${isRemoving ? styles.hidden : ""}`}
+    >
       {shouldShowButton() && (
         <button
           title="Delete product"

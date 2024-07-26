@@ -1,64 +1,66 @@
-@import '../../assets/styles/colors.scss';
-@import '../../assets/styles/variables.scss';
-
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/variables.scss";
 
 .techSpecs__block {
-    display: block;
-    width: 600px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 10px 14px;
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
+  display: block;
+  width:100%;
+  max-width: 600px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  @media (max-width: 830px) {
+    max-width: 100%;
   }
-  
-  .techSpecs__title {
-    color: $primary;
-    font-size: $primary-five-size;
-    font-weight: 700;
-    line-height: 140%;
-    padding-bottom: 29px;
-    border-bottom: 1.5px solid $elements;
-  }
-  
-  .techSpecs__characteristics {
-    padding-top: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .techSpecs__item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .techSpecs__itemTitle {
-    color: $secondary;
-    font-size: $primary-four-size;
-    font-weight: 500;
-    line-height: 150%;
-  }
-  
+}
+
+.techSpecs__title {
+  color: $primary;
+  font-size: $primary-five-size;
+  font-weight: 700;
+  line-height: 140%;
+  padding-bottom: 29px;
+  border-bottom: 1.5px solid $elements;
+}
+
+.techSpecs__characteristics {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.techSpecs__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.techSpecs__itemTitle {
+  color: $secondary;
+  font-size: $primary-four-size;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.techSpecs__itemSubTitle {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 300px;
+  white-space-collapse: 3;
+  color: $primary;
+  font-size: $primary-four-size;
+  font-weight: 600;
+  line-height: 150%;
+  text-transform: capitalize;
+}
+
+@media (max-width: 500px) {
   .techSpecs__itemSubTitle {
-    color: $primary;
-    font-size: $primary-four-size;
-    font-weight: 600;
-    line-height: 150%;
+    max-width: 150px;
   }
-  
-  @media (max-width: 500px) {
-    .techSpecs__block {
-      max-width: 270px;
-    }
-    .techSpecs__itemSubTitle {
-      font-size: 0.7rem;
-    }
-    .techSpecs__itemTitle {
-      font-size: 0.7rem;
-    }
-  }
-  
+}

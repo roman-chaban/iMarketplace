@@ -1,46 +1,33 @@
 import { FC, useState } from 'react';
-import { Products } from '../../redux/interfaces/products';
-import { Tablet } from '../../interfaces/tablets';
-import styles from './ProductCard.module.scss';
+import { Accessories } from '../../interfaces/accessories';
+import styles from '../ProductCard/ProductCard.module.scss';
 import { useLanguage } from '../../hooks/useLanguage';
 import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
-import { deleteBasketTablets, deleteFromCart } from '../../redux/slices/cartSlice';
+import { deleteAccessoriesFromCart } from '../../redux/slices/cartSlice';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { translations } from '../../components/LanguageSwitcher/translation';
 import { useTotal } from '../TotalContext/TotalContext';
 
-interface ProductCardProps {
-  phone?: Products;
-  tablet?: Tablet;
+interface AccessoryCardProps {
+  accessory: Accessories;
 }
 
-export const ProductCard: FC<ProductCardProps> = ({ phone, tablet }) => {
+export const AccessoryCard: FC<AccessoryCardProps> = ({ accessory }) => {
   const { currentLanguage } = useLanguage();
   const dispatch = useAppDispatch();
   const [isRemoving, setIsRemoving] = useState(false);
   const [productItemCounter, setProductCounter] = useState<number>(1);
   const { addToTotal, removeFromTotal } = useTotal();
 
-  const productPrice = phone
-    ? typeof phone.price === 'string'
-      ? parseFloat(phone.price)
-      : phone.price
-    : tablet
-    ? typeof tablet.priceRegular === 'string'
-      ? parseFloat(tablet.priceRegular)
-      : tablet.priceRegular
-    : 0;
+  const accessoryPrice = typeof accessory.priceRegular === 'string'
+    ? parseFloat(accessory.priceRegular)
+    : accessory.priceRegular;
 
   const handleDeleteGoods = () => {
-    if (tablet) {
-      setIsRemoving(true);
-      dispatch(deleteBasketTablets(tablet.tabletId));
-    } else if (phone) {
-      setIsRemoving(true);
-      dispatch(deleteFromCart(phone.phoneId));
-    }
+    setIsRemoving(true);
+    dispatch(deleteAccessoriesFromCart(accessory.id));
   };
 
   const handleTransitionEnd = () => {
@@ -49,13 +36,13 @@ export const ProductCard: FC<ProductCardProps> = ({ phone, tablet }) => {
 
   const handleAddProduct = () => {
     setProductCounter(prevCount => prevCount + 1);
-    addToTotal(productPrice);
+    addToTotal(accessoryPrice);
   };
 
   const handleRemoveProduct = () => {
     setProductCounter(prevCount => {
       if (prevCount > 0) {
-        removeFromTotal(productPrice);
+        removeFromTotal(accessoryPrice);
         return prevCount - 1;
       }
       return prevCount;
@@ -77,14 +64,12 @@ export const ProductCard: FC<ProductCardProps> = ({ phone, tablet }) => {
             <HighlightOffIcon fontSize="large" style={{ color: 'red' }} />
           </button>
           <img
-            src={phone ? phone.imgUrl : tablet?.images[0]}
-            alt={phone ? phone.title : tablet?.title}
+            src={accessory.images[0]}
+            alt={accessory.name}
             className={styles.productCard__image}
           />
         </div>
-        <h4 className={styles.productCard__title}>
-          {phone ? phone.name : tablet?.name}
-        </h4>
+        <h4 className={styles.productCard__title}>{accessory.name}</h4>
         <div className={styles.counterPhone__block}>
           <button className={styles.plus} onClick={handleAddProduct}>
             <AddCircleIcon style={{ color: '#65C466' }} fontSize="large" />
@@ -111,5 +96,5 @@ export const ProductCard: FC<ProductCardProps> = ({ phone, tablet }) => {
     </div>
   );
 
-  return phone || tablet ? renderProduct() : null;
+  return renderProduct();
 };

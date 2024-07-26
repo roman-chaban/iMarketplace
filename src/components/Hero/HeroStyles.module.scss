@@ -151,6 +151,10 @@
   .right__swipper {
     display: none;
   }
+  .mainHero__title {
+    flex-direction: column-reverse;
+    font-size: $primary-seven-size !important;
+  }
 }
 
 @media (max-width: 450px) {

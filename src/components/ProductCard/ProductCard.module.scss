@@ -5,6 +5,10 @@
   width: 100%;
   display: flex;
   gap: 5rem;
+  @media (max-width: 900px) {
+    
+    justify-content: flex-end;
+  }
 }
 
 .productCard {
@@ -12,7 +16,7 @@
   align-items: center;
   gap: 1rem;
   width: 100%;
-  max-width: 750px;
+  max-width: 700px;
   padding: 24px;
   height: 180px;
   box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
@@ -63,4 +67,7 @@
   color: $gray-secondary;
   font-size: $primary-four-size;
   font-weight: 500;
+  @media (max-width: 1020px) {
+    display: none;
+  }
 }

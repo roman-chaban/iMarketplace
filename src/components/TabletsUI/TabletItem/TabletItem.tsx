@@ -1,19 +1,25 @@
-import { FC, useState } from "react";
+import { FC, memo, useCallback, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Fingerprint } from "@mui/icons-material";
 import { FormClose } from "grommet-icons";
 import styles from "../../CatalogItem/CatalogItemStyles.module.scss";
 import { Tablet } from "../../../interfaces/tablets";
 import { TabletFavoriteButton } from "../TabletFavoriteButton/TabletFavoriteButton";
-import { useAppDispatch } from "../../../hooks/reduxHooks/useAppDispatch";
-import { useAppSelector } from "../../../hooks/reduxHooks/useAppSelector";
-import { addToFavoritesTablets, deleteFromFavoriteTablets } from "../../../redux/slices/favoriteSlice";
+import {
+  addToFavoritesTablets,
+  deleteFromFavoriteTablets,
+} from "../../../redux/slices/favoriteSlice";
 import { useLanguage } from "../../../hooks/useLanguage";
 import { CardItem } from "./styled/cardItem";
 import { TabletButton } from "../TabletButton/TabletButton";
-import { translations } from "../../LanguageSwitcher/translation";
 import { CustomButton } from "../../UI Components/CustomButton/CustomButton";
-import { addBasketTablets, deleteBasketTablets } from "../../../redux/slices/cartSlice";
+import { translations } from "../../LanguageSwitcher/translation";
+import {
+  addBasketTablets,
+  deleteBasketTablets,
+} from "../../../redux/slices/cartSlice";
+import { useAppDispatch } from "../../../hooks/reduxHooks/useAppDispatch";
+import { useAppSelector } from "../../../hooks/reduxHooks/useAppSelector";
 
 const enum TabletsPath {
   TABLETS = "/tablets/tablet/",
@@ -23,7 +29,7 @@ interface TabletItemProps {
   product: Tablet;
 }
 
-export const TabletItem: FC<TabletItemProps> = ({ product }) => {
+export const TabletItem: FC<TabletItemProps> = memo(({ product }) => {
   const dispatch = useAppDispatch();
   const { currentLanguage } = useLanguage();
   const location = useLocation();
@@ -33,55 +39,52 @@ export const TabletItem: FC<TabletItemProps> = ({ product }) => {
   const inCart = useAppSelector((state) =>
     state.cart.basketTablets.some((item) => item.tabletId === product.tabletId)
   );
-
   const inFavorites = useAppSelector((state) =>
     state.favorite.favoritesTablets.some(
       (item) => item.tabletId === product.tabletId
     )
   );
 
-  const handleAddToFavorites = (product: Tablet) => {
+  const handleAddToFavorites = useCallback(() => {
     dispatch(addToFavoritesTablets(product));
-  };
+  }, [dispatch, product]);
 
-  const handleAddToCart = (product: Tablet) => {
+  const handleAddToCart = useCallback(() => {
     dispatch(addBasketTablets(product));
-  };
+  }, [dispatch, product]);
 
-  const handleDeleteFromCart = (productId: number) => {
-    dispatch(deleteBasketTablets(productId));
-  };
+  const handleDeleteFromCart = useCallback(() => {
+    dispatch(deleteBasketTablets(product.tabletId));
+  }, [dispatch, product.tabletId]);
 
-  const handleDeleteFavorites = (productId: number) => {
-    dispatch(deleteFromFavoriteTablets(productId));
-  };
+  const handleDeleteFavorites = useCallback(() => {
+    dispatch(deleteFromFavoriteTablets(product.tabletId));
+  }, [dispatch, product.tabletId]);
 
   const handleRemoveItem = () => {
-    if (product.tabletId !== undefined) {
-      setIsRemoving(true);
-      setTimeout(() => {
-        handleDeleteFavorites(product.tabletId);
-      }, 500);
-    }
+    setIsRemoving(true);
+    setTimeout(() => {
+      handleDeleteFavorites();
+    }, 500);
   };
 
   const toUpPage = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const shouldShowButton = () => {
+    const path = location.pathname;
     return !(
-      location.pathname === "/" ||
-      location.pathname === "/tablets" ||
-      location.pathname.startsWith(TabletsPath.TABLETS)
+      path === "/" ||
+      path === "/tablets" ||
+      path.startsWith(TabletsPath.TABLETS)
     );
   };
 
   return (
-    <CardItem className={`${styles.cardItem} ${isRemoving ? styles.hidden : ""}`}>
+    <CardItem
+      className={`${styles.cardItem} ${isRemoving ? styles.hidden : ""}`}
+    >
       {shouldShowButton() && (
         <button
           title="Delete product"
@@ -93,7 +96,7 @@ export const TabletItem: FC<TabletItemProps> = ({ product }) => {
       )}
       <div className={styles.card__container}>
         <img
-          src={product.images ? product.images[0] : ""}
+          src={product.images?.[0] || ""}
           alt={product.name || "tablet"}
           className={styles.image__hovered}
         />
@@ -156,4 +159,4 @@ export const TabletItem: FC<TabletItemProps> = ({ product }) => {
       </div>
     </CardItem>
   );
-};
+});

@@ -112,3 +112,12 @@
     row-gap: 1rem;
   }
 }
+
+@media (max-width: 401px) {
+  .pagination__item {
+    margin-top: 0;
+  }
+  .btn__item {
+    display: none;
+  }
+}

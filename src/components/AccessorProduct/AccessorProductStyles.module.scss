@@ -76,6 +76,9 @@
   gap: 5rem;
   width: 100%;
   max-width: 400px;
+  @media (max-width: 910px) {
+    gap: 2.5rem;
+  }
 }
 
 .phone__img {
