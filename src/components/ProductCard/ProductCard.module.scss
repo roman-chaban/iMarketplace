@@ -1,14 +1,10 @@
-@import "../../assets/styles/colors.scss";
-@import "../../assets/styles/variables.scss";
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/variables.scss';
 
 .productCard__container {
   width: 100%;
   display: flex;
   gap: 5rem;
-  @media (max-width: 900px) {
-    
-    justify-content: flex-end;
-  }
 }
 
 .productCard {
@@ -69,5 +65,21 @@
   font-weight: 500;
   @media (max-width: 1020px) {
     display: none;
+  }
+}
+
+@media (max-width: 530px) {
+  .productCard {
+    position: relative;
+  }
+  .productCard__deleteButton {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+  }
+  .productCard__header {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
   }
 }

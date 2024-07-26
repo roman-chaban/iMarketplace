@@ -133,6 +133,9 @@
   .phoneModel__capture {
     font-size: 0.8rem;
   }
+  .aboutFlex {
+    flex-direction: column;
+  }
 }
 
 @media screen and (width <= 550px) {

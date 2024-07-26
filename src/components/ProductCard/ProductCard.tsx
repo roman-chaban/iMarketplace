@@ -4,7 +4,10 @@ import { Tablet } from '../../interfaces/tablets';
 import styles from './ProductCard.module.scss';
 import { useLanguage } from '../../hooks/useLanguage';
 import { useAppDispatch } from '../../hooks/reduxHooks/useAppDispatch';
-import { deleteBasketTablets, deleteFromCart } from '../../redux/slices/cartSlice';
+import {
+  deleteBasketTablets,
+  deleteFromCart,
+} from '../../redux/slices/cartSlice';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -48,12 +51,12 @@ export const ProductCard: FC<ProductCardProps> = ({ phone, tablet }) => {
   };
 
   const handleAddProduct = () => {
-    setProductCounter(prevCount => prevCount + 1);
+    setProductCounter((prevCount) => prevCount + 1);
     addToTotal(productPrice);
   };
 
   const handleRemoveProduct = () => {
-    setProductCounter(prevCount => {
+    setProductCounter((prevCount) => {
       if (prevCount > 0) {
         removeFromTotal(productPrice);
         return prevCount - 1;
@@ -81,10 +84,10 @@ export const ProductCard: FC<ProductCardProps> = ({ phone, tablet }) => {
             alt={phone ? phone.title : tablet?.title}
             className={styles.productCard__image}
           />
+          <h4 className={styles.productCard__title}>
+            {phone ? phone.name : tablet?.name}
+          </h4>
         </div>
-        <h4 className={styles.productCard__title}>
-          {phone ? phone.name : tablet?.name}
-        </h4>
         <div className={styles.counterPhone__block}>
           <button className={styles.plus} onClick={handleAddProduct}>
             <AddCircleIcon style={{ color: '#65C466' }} fontSize="large" />

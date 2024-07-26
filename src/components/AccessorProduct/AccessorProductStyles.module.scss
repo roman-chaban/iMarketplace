@@ -74,6 +74,7 @@
 .phone__images {
   display: flex;
   gap: 5rem;
+  justify-content: space-between;
   width: 100%;
   max-width: 400px;
   @media (max-width: 910px) {
@@ -142,5 +143,7 @@
   }
   .phone__images {
     gap: 2rem;
+    max-width: 355px;
   }
+  
 }

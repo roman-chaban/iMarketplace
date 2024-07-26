@@ -1,17 +1,15 @@
-@import "../../assets/styles/colors.scss";
-@import "../../assets/styles/variables.scss";
-
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/variables.scss';
 
 .phoneCharacteristics__container {
   width: 600px;
-  @media(max-width: 1130px) {
+  @media (max-width: 1130px) {
     max-width: 400px;
   }
+  @media (max-width: 860px) {
+      max-width: 100%;
+  }
 }
-
-
-
-
 
 .colors__title,
 .capacity__title {
@@ -140,5 +138,3 @@
   padding-top: 16px;
   padding-bottom: 32px;
 }
-
-
