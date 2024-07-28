@@ -9,6 +9,7 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { translations } from '../../components/LanguageSwitcher/translation';
 import { useTotal } from '../TotalContext/TotalContext';
+import { Link } from 'react-router-dom';
 
 interface AccessoryCardProps {
   accessory: Accessories;
@@ -21,9 +22,10 @@ export const AccessoryCard: FC<AccessoryCardProps> = ({ accessory }) => {
   const [productItemCounter, setProductCounter] = useState<number>(1);
   const { addToTotal, removeFromTotal } = useTotal();
 
-  const accessoryPrice = typeof accessory.priceRegular === 'string'
-    ? parseFloat(accessory.priceRegular)
-    : accessory.priceRegular;
+  const accessoryPrice =
+    typeof accessory.priceRegular === 'string'
+      ? parseFloat(accessory.priceRegular)
+      : accessory.priceRegular;
 
   const handleDeleteGoods = () => {
     setIsRemoving(true);
@@ -35,12 +37,12 @@ export const AccessoryCard: FC<AccessoryCardProps> = ({ accessory }) => {
   };
 
   const handleAddProduct = () => {
-    setProductCounter(prevCount => prevCount + 1);
+    setProductCounter((prevCount) => prevCount + 1);
     addToTotal(accessoryPrice);
   };
 
   const handleRemoveProduct = () => {
-    setProductCounter(prevCount => {
+    setProductCounter((prevCount) => {
       if (prevCount > 0) {
         removeFromTotal(accessoryPrice);
         return prevCount - 1;
@@ -63,11 +65,13 @@ export const AccessoryCard: FC<AccessoryCardProps> = ({ accessory }) => {
           >
             <HighlightOffIcon fontSize="large" style={{ color: 'red' }} />
           </button>
-          <img
-            src={accessory.images[0]}
-            alt={accessory.name}
-            className={styles.productCard__image}
-          />
+          <Link to={`/accessories/accessor/${accessory.id}`}>
+            <img
+              src={accessory.images[0]}
+              alt={accessory.name}
+              className={styles.productCard__image}
+            />
+          </Link>
         </div>
         <h4 className={styles.productCard__title}>{accessory.name}</h4>
         <div className={styles.counterPhone__block}>

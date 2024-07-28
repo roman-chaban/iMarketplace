@@ -8,5 +8,4 @@ export const ModelsCatalogSection = styled.section`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 0 30px;
 `;

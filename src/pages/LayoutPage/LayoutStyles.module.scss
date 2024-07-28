@@ -12,6 +12,8 @@ body {
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
   flex: 1 1 auto;
   height: 100%;
   margin-top: 100px;

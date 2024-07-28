@@ -37,7 +37,6 @@ export const Slider: FC<SliderProps> = () => {
         prevEl: ".swiper-button-prev",
       }}
       scrollbar={{ draggable: true }}
-      style={{ width: 1080 }}
     >
       <div className="swiper-button-next" style={{ color: "#313131" }}></div>
       <div className="swiper-button-prev" style={{ color: "#313131" }}></div>

@@ -123,7 +123,7 @@ export const PhoneCharacteristics: FC<PhoneCharacteristicsProps> = ({
         </div>
         <div className={styles.selectCapacity__block}>
           <h4 className={styles.capacity__title}>
-            Select capacity: {selectMemory}
+            Select Memory: {selectMemory}
           </h4>
           <div className={styles.capacity__buttons}>
             {Object.entries(productMemory).map(([key, value], index) => (

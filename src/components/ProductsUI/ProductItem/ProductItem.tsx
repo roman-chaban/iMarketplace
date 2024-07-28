@@ -9,7 +9,6 @@ import products from '../../../common/products/products.json';
 import { NotFoundPage } from '../../../pages/NotFoundPage/NotFoundPage';
 import { PhoneCharacteristics } from '../PhoneCharacteristics/PhoneCharacteristics';
 import { PhonesAbout } from '../PhonesAbout/PhonesAbout';
-import { PhonesTechSpecs } from '../PhonesTechSpecs/PhonesTechSpecs';
 import { useLanguage } from '../../../hooks/useLanguage';
 import { translations } from '../../LanguageSwitcher/translation';
 
@@ -72,7 +71,7 @@ export const ProductItem: FC<ProductProps> = memo(() => {
   const [mainImage, setMainImage] = useState<string>(phone ? phone.imgUrl : '');
 
   if (!phone) {
-    return <NotFoundPage statusText='404' message='This page is not defined' />;
+    return <NotFoundPage statusText="404" message="This page is not defined" />;
   }
 
   return (
@@ -81,12 +80,12 @@ export const ProductItem: FC<ProductProps> = memo(() => {
         <img
           onClick={goToHomePage}
           src={homeIcon}
-          alt='Home Icon'
+          alt="Home Icon"
           style={{ cursor: 'pointer' }}
         />
         <img
           src={rightArrowIcon}
-          alt='arrowRight Icon'
+          alt="arrowRight Icon"
           className={styles.arrowRight__icon}
         />
         <h4 className={styles.phone__phonesTitle}>
@@ -94,13 +93,13 @@ export const ProductItem: FC<ProductProps> = memo(() => {
         </h4>
         <img
           src={rightArrowIcon}
-          alt='arrowRight Icon'
+          alt="arrowRight Icon"
           className={styles.arrowRight__icon}
         />
         <p className={styles.phoneModel__capture}>{getTitle(selectMemory)}</p>
       </div>
       <div className={styles.backButton__item}>
-        <img src={leftArrowIcon} alt='arrowLeft Icon' />
+        <img src={leftArrowIcon} alt="arrowLeft Icon" />
         <button onClick={backToPhonesPage} className={styles.phoneBack__button}>
           {translations[currentLanguage].backTitle}
         </button>
@@ -113,7 +112,7 @@ export const ProductItem: FC<ProductProps> = memo(() => {
               <div className={styles.images__wrapper}>
                 <img
                   src={phone.firstImage}
-                  alt='iphone'
+                  alt="iphone"
                   className={`${styles.phoneSmall__image} ${
                     mainImage === phone.firstImage ? styles.active : ''
                   }`}
@@ -121,7 +120,7 @@ export const ProductItem: FC<ProductProps> = memo(() => {
                 />
                 <img
                   src={phone.secondImage}
-                  alt='iphone'
+                  alt="iphone"
                   className={`${styles.phoneSmall__image} ${
                     mainImage === phone.secondImage ? styles.active : ''
                   }`}
@@ -129,7 +128,7 @@ export const ProductItem: FC<ProductProps> = memo(() => {
                 />
                 <img
                   src={phone.thirdImage}
-                  alt='iphone'
+                  alt="iphone"
                   className={`${styles.phoneSmall__image} ${
                     mainImage === phone.thirdImage ? styles.active : ''
                   }`}
@@ -137,7 +136,7 @@ export const ProductItem: FC<ProductProps> = memo(() => {
                 />
                 <img
                   src={phone.fourImage}
-                  alt='iphone'
+                  alt="iphone"
                   className={`${styles.phoneSmall__image} ${
                     mainImage === phone.fourImage ? styles.active : ''
                   }`}
@@ -146,7 +145,7 @@ export const ProductItem: FC<ProductProps> = memo(() => {
               </div>
               <img
                 src={mainImage}
-                alt='product'
+                alt="product"
                 className={styles.phone__img}
               />
             </div>
@@ -156,10 +155,9 @@ export const ProductItem: FC<ProductProps> = memo(() => {
                 handleColorChange={handleColorChange}
                 setSelectMemory={setSelectMemory}
               />
-              <PhonesTechSpecs product={phone} selectMemory={selectMemory} />
             </div>
           </div>
-          <PhonesAbout />
+          <PhonesAbout phone={phone} selectMemory={selectMemory} />
         </div>
       </>
     </>

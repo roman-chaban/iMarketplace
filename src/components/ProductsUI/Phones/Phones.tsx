@@ -23,7 +23,6 @@ export const Phones: FC<PhonesProps> = ({ products }: PhonesProps) => {
         scrollbar={{ draggable: true, hide: true }}
         spaceBetween={35}
         slidesPerView={4}
-        style={{ height: "700px" }}
       >
         {products.map((product) => (
           <SwiperSlide

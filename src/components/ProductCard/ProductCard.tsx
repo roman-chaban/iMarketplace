@@ -13,6 +13,7 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { translations } from '../../components/LanguageSwitcher/translation';
 import { useTotal } from '../TotalContext/TotalContext';
+import { Link } from 'react-router-dom';
 
 interface ProductCardProps {
   phone?: Products;
@@ -79,11 +80,21 @@ export const ProductCard: FC<ProductCardProps> = ({ phone, tablet }) => {
           >
             <HighlightOffIcon fontSize="large" style={{ color: 'red' }} />
           </button>
-          <img
-            src={phone ? phone.imgUrl : tablet?.images[0]}
-            alt={phone ? phone.title : tablet?.title}
-            className={styles.productCard__image}
-          />
+          <Link
+            to={
+              phone
+                ? `/phones/phone/${phone.title}`
+                : tablet
+                ? `/tablets/tablet/${tablet.id}`
+                : ''
+            }
+          >
+            <img
+              src={phone ? phone.imgUrl : tablet?.images[0]}
+              alt={phone ? phone.title : tablet?.title}
+              className={styles.productCard__image}
+            />
+          </Link>
           <h4 className={styles.productCard__title}>
             {phone ? phone.name : tablet?.name}
           </h4>

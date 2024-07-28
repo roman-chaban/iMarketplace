@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction, Middleware } from "@reduxjs/toolkit";
-import { Products } from "../interfaces/products";
-import { Tablet } from "../../interfaces/tablets";
-import { Accessories } from "../../interfaces/accessories";
+import { createSlice, PayloadAction, Middleware } from '@reduxjs/toolkit';
+import { Products } from '../interfaces/products';
+import { Tablet } from '../../interfaces/tablets';
+import { Accessories } from '../../interfaces/accessories';
 
 export interface CartState {
   cart: Products[];
@@ -13,12 +13,12 @@ export interface CartState {
 
 const loadStateFromLocalStorage = (): CartState => {
   try {
-    const serializedState = localStorage.getItem("cartState");
+    const serializedState = localStorage.getItem('cartState');
     if (serializedState !== null) {
       return JSON.parse(serializedState) as CartState;
     }
   } catch (error) {
-    console.error("Error loading state from local storage:", error);
+    console.error('Error loading state from local storage:', error);
   }
   return {
     cart: [],
@@ -32,16 +32,16 @@ const loadStateFromLocalStorage = (): CartState => {
 const saveStateToLocalStorage = (state: CartState) => {
   try {
     const serializedState = JSON.stringify(state);
-    localStorage.setItem("cartState", serializedState);
+    localStorage.setItem('cartState', serializedState);
   } catch (error) {
-    console.error("Error saving state to local storage:", error);
+    console.error('Error saving state to local storage:', error);
   }
 };
 
 const initialState: CartState = loadStateFromLocalStorage();
 
 export const cartSlice = createSlice({
-  name: "cart",
+  name: 'cart',
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<Products>) => {
@@ -113,6 +113,12 @@ export const cartSlice = createSlice({
         saveStateToLocalStorage(state);
       }
     },
+    clearCart: (state) => {
+      state.cart = [];
+      state.basketTablets = [];
+      state.cartAccessories = [];
+      state.cartCounter = 0;
+    },
     setSelectedCartProduct: (state, action: PayloadAction<Products[]>) => {
       state.selectedProduct = action.payload;
     },
@@ -127,6 +133,7 @@ export const {
   addAccessoriesToCart,
   deleteAccessoriesFromCart,
   setSelectedCartProduct,
+  clearCart,
 } = cartSlice.actions;
 
 export const persistMiddleware: Middleware<object, { cart: CartState }> =

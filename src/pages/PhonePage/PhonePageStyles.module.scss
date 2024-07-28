@@ -1,6 +1,6 @@
-@import "../../assets/styles/colors.scss";
-@import "../../assets/styles/variables.scss";
-@import "../../assets/styles/functions.scss";
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/variables.scss';
+@import '../../assets/styles/functions.scss';
 
 .phone__layout {
   width: 100%;
@@ -99,8 +99,11 @@
 
 .phonesAbout__block {
   display: flex;
-  flex-direction: column;
   gap: 10rem;
+}
+
+.tabletsAbout {
+  display: block;
 }
 
 .phoneSmall__image {

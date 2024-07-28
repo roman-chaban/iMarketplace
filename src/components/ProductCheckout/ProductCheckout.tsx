@@ -1,14 +1,16 @@
-import { FC } from "react";
-import styles from "./ProductCheckout.module.scss";
+import { FC } from 'react';
+import styles from './ProductCheckout.module.scss';
 
 interface ProductCheckoutProps {
   totalPrice: number;
   itemCounter: number;
+  onCheckout: () => void;
 }
 
 export const ProductCheckout: FC<ProductCheckoutProps> = ({
   totalPrice,
   itemCounter,
+  onCheckout,
 }) => {
   return (
     <div className={styles.checkout}>
@@ -18,8 +20,9 @@ export const ProductCheckout: FC<ProductCheckoutProps> = ({
           Total for {itemCounter} items
         </span>
       </div>
-      <button className={styles.checkout__button}>Checkout</button>
+      <button className={styles.checkout__button} onClick={onCheckout}>
+        Checkout
+      </button>
     </div>
   );
 };
-

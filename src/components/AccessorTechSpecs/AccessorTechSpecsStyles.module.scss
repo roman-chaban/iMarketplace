@@ -1,14 +1,12 @@
-@import "../../assets/styles/colors.scss";
-@import "../../assets/styles/variables.scss";
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/variables.scss';
 
 .techSpecs__block {
   display: block;
-  width:100%;
   max-width: 600px;
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 10px 14px;
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
@@ -22,10 +20,9 @@
   font-size: $primary-five-size;
   font-weight: 700;
   line-height: 140%;
-  padding-bottom: 29px;
+  padding-bottom: 16px;
   border-bottom: 1.5px solid $elements;
 }
-
 .techSpecs__characteristics {
   padding-top: 25px;
   display: flex;
@@ -36,6 +33,7 @@
 .techSpecs__item {
   display: flex;
   align-items: center;
+  gap: 1rem;
   justify-content: space-between;
 }
 

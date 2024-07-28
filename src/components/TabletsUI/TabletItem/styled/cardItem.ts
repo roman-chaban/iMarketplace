@@ -9,5 +9,6 @@ export const CardItem = styled.div`
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 2px 2px 5px 0px rgba(0, 64, 128, 0.2);
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 `;

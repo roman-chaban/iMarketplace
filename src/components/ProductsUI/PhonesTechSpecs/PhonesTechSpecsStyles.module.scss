@@ -3,7 +3,8 @@
 
 .techSpecs__block {
   display: block;
-  width: 400px;
+  width: 100%;
+  max-width: 600px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -11,7 +12,10 @@
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 2px 2px 5px 0px rgba(0, 64, 128, 0.2);
+  padding: 0;
+  @media (max-width: 830px) {
+    max-width: 100%;
+  }
 }
 
 .techSpecs__title {
@@ -24,7 +28,7 @@
 }
 
 .techSpecs__characteristics {
-  padding-top: 25px;
+  padding-top: 32px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -44,20 +48,20 @@
 }
 
 .techSpecs__itemSubTitle {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 300px;
+  white-space-collapse: 3;
   color: $primary;
   font-size: $primary-four-size;
   font-weight: 600;
   line-height: 150%;
+  text-transform: capitalize;
 }
 
 @media (max-width: 500px) {
-  .techSpecs__block {
-    max-width: 270px;
-  }
   .techSpecs__itemSubTitle {
-    font-size: 0.7rem;
-  }
-  .techSpecs__itemTitle {
-    font-size: 0.7rem;
+    max-width: 150px;
   }
 }

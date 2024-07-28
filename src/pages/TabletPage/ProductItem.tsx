@@ -109,7 +109,7 @@ export const ProductItem: FC<ProductItemProps> = memo(({ tablet }) => {
       </div>
       <h2 className={styles.phoneModel__title}>{getTitle(selectMemory)}</h2>
       <div className={styles.product__gallery}>
-        <div className={styles.phonesAbout__block}>
+        <div className={`${styles.phonesAbout__block} ${styles.tabletsAbout} `}>
           <div className={styles.aboutFlex}>
             <div className={styles.phone__images}>
               <div className={styles.images__wrapper}>

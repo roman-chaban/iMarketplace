@@ -97,7 +97,8 @@ export const AccessoriesCharacteristics: FC<
                 className={styles.checkColor__button}
                 onClick={() => handleColorChange(color)}
                 style={{
-                  borderColor: selectColor === color ? "#000" : "transparent",
+                  border:
+                    selectColor === color ? '2px solid #000' : '1px solid #ddd',
                   ...getColorStyle(color),
                 }}
               >
@@ -109,7 +110,7 @@ export const AccessoriesCharacteristics: FC<
           </div>
         </div>
         <div className={styles.selectCapacity__block}>
-          <h4 className={styles.capacity__title}>Select RAM: {selectMemory}</h4>
+          <h4 className={styles.capacity__title}>Select Memory:  {selectMemory}</h4>
           <div className={styles.capacity__buttons}>
             {ramOptions.map((ram, index) => (
               <button

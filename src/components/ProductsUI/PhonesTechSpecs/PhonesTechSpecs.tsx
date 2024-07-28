@@ -7,7 +7,7 @@ interface PhonesTechSpecsProps {
   selectMemory: string;
 }
 
-const PhonesTechSpecs: FC<PhonesTechSpecsProps> = ({
+export const PhonesTechSpecs: FC<PhonesTechSpecsProps> = ({
   product,
   selectMemory,
 }) => {
@@ -62,4 +62,3 @@ const PhonesTechSpecs: FC<PhonesTechSpecsProps> = ({
   );
 };
 
-export { PhonesTechSpecs };

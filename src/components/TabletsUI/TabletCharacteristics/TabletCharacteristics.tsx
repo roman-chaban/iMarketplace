@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { FC, useRef, useState, useEffect } from "react";
-import styles from "../../AccessorCharacteristics/AccessorCharacteristicsStyles.module.scss";
-import { Tablet } from "../../../interfaces/tablets";
-import { useLanguage } from "../../../hooks/useLanguage";
-import { translations } from "../../LanguageSwitcher/translation";
+import React, { FC, useRef, useState, useEffect } from 'react';
+import styles from '../../AccessorCharacteristics/AccessorCharacteristicsStyles.module.scss';
+import { Tablet } from '../../../interfaces/tablets';
+import { useLanguage } from '../../../hooks/useLanguage';
+import { translations } from '../../LanguageSwitcher/translation';
 // import { CatalogButton } from "../AccessoriesUI/CatalogButton/CatalogButton";
 // import { FavoriteButton } from "../AccessoriesUI/FavoriteButton/FavoriteButton";
 
@@ -25,8 +25,9 @@ export const TabletCharacteristics: FC<TabletsCharacteristicsProps> = ({
   availableColors,
   tablet,
 }) => {
-  const ramOptions = ["768MB", "1GB"];
-  const [selectMemory, setSelectMemoryState] = useState<string>(initialSelectMemory);
+  const ramOptions = ['768MB', '1GB'];
+  const [selectMemory, setSelectMemoryState] =
+    useState<string>(initialSelectMemory);
 
   const { currentLanguage } = useLanguage();
 
@@ -45,8 +46,8 @@ export const TabletCharacteristics: FC<TabletsCharacteristicsProps> = ({
   const resetButtonStyles = (): void => {
     buttonsRefs.forEach((ref) => {
       if (ref.current) {
-        ref.current.style.background = "transparent";
-        ref.current.style.color = "#313131";
+        ref.current.style.background = 'transparent';
+        ref.current.style.color = '#313131';
       }
     });
   };
@@ -56,8 +57,8 @@ export const TabletCharacteristics: FC<TabletsCharacteristicsProps> = ({
       resetButtonStyles();
       const buttonRef = buttonsRefs[index]?.current;
       if (buttonRef) {
-        buttonRef.style.background = "#313131";
-        buttonRef.style.color = "#fff";
+        buttonRef.style.background = '#313131';
+        buttonRef.style.color = '#fff';
       } else {
         console.error(`Button ref at index ${index} is null or undefined`);
       }
@@ -74,14 +75,14 @@ export const TabletCharacteristics: FC<TabletsCharacteristicsProps> = ({
 
   const getColorStyle = (color: string): React.CSSProperties => {
     const colorMap: { [key: string]: string } = {
-      gray: "#808080",
-      silver: "#C0C0C0",
-      gold: "#FFD700",
-      blue: "#0000FF",
-      red: "#FF0000",
+      gray: '#808080',
+      silver: '#C1C1C1',
+      gold: '#FFD700',
+      blue: '#0000FF',
+      red: '#FF0000',
     };
     return {
-      backgroundColor: colorMap[color] || "transparent",
+      backgroundColor: colorMap[color] || 'transparent',
     };
   };
 
@@ -100,19 +101,20 @@ export const TabletCharacteristics: FC<TabletsCharacteristicsProps> = ({
                 className={styles.checkColor__button}
                 onClick={() => handleColorChange(color)}
                 style={{
-                  borderColor: selectColor === color ? "#000" : "transparent",
+                  border:
+                    selectColor === color ? '2px solid #000' : '1px solid #ddd',
                   ...getColorStyle(color),
                 }}
               >
                 <span
-                  className={styles[`color${color.replace(/\s+/g, "")}`]}
+                  className={styles[`color${color.replace(/\s+/g, '')}`]}
                 ></span>
               </button>
             ))}
           </div>
         </div>
         <div className={styles.selectCapacity__block}>
-          <h4 className={styles.capacity__title}>Select RAM: {selectMemory}</h4>
+          <h4 className={styles.capacity__title}>Select Memory: {selectMemory}</h4>
           <div className={styles.capacity__buttons}>
             {ramOptions.map((ram, index) => (
               <button
@@ -120,7 +122,7 @@ export const TabletCharacteristics: FC<TabletsCharacteristicsProps> = ({
                 ref={buttonsRefs[index]}
                 onClick={() => handleMemorySelection(ram, index)}
                 className={`${styles.select__capacity} ${
-                  selectMemory === ram ? styles.selected : ""
+                  selectMemory === ram ? styles.selected : ''
                 }`}
               >
                 {ram}
@@ -132,10 +134,7 @@ export const TabletCharacteristics: FC<TabletsCharacteristicsProps> = ({
           <h3 className={styles.price}>{tablet.priceRegular}$</h3>
           <h4 className={styles.priceDiscount}>{tablet.priceDiscount}$</h4>
         </div>
-        <div className={styles.productButtons}>
-          {/* <CatalogButton width="270px" />
-          <FavoriteButton /> */}
-        </div>
+        <div className={styles.productButtons}></div>
         <div className={styles.productInfo}>
           <h4 className={styles.title}>
             Screen

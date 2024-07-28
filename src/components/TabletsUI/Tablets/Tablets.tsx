@@ -29,7 +29,6 @@ const Tablets: FC<{ products: Tablet[] }> = ({ products }) => {
           width: "1200px",
           margin: "0 auto",
           cursor: "grab",
-          height: "700px",
         }}
       >
         {products.map((product) => (
